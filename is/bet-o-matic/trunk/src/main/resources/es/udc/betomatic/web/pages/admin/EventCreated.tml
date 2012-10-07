@@ -1,0 +1,10 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	t:type="Layout" t:pageTitle="title"
+	xml:space="preserve">
+	
+	 
+<p>${message:title}</p>
+<p/>
+<p>${message:eventId-label}: <strong>${eventId}</strong></p>
+
+</html>

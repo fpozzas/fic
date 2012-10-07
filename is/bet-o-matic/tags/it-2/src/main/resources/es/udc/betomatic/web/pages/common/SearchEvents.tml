@@ -1,0 +1,106 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+	  t:type="Layout" t:pageTitle="title"
+	  xml:space="preserve">
+
+	<h2>${message:title}</h2>
+	<form t:type="Form" t:id="searchEventsForm">
+
+		<t:errors/>
+
+		<div class="field">
+			<t:label for="keywords"/>
+			<span class="entry">
+				<input t:type="TextField" t:id="keywords" 
+					   size="32" maxlength="64" />
+			</span>
+		</div>
+		
+		<div class="field">
+			<t:label for="categoryIdInput"/>
+			<span class="entry">
+				<t:select t:id="categoryIdInput" model="categories"/>
+			</span>
+		</div>
+		
+		<div class="button">
+			<input type="submit" value="${message:search}"/>
+		</div>
+
+	</form>
+
+
+	<t:if test="eventBlock">
+	    <t:if test="events">
+
+		    <!-- Print events. -->
+
+		    <table class="eventList">
+
+			    <tr>
+				    <th>${message:eventDate-label}</th>
+				    <th>${message:eventName-label}</th>
+				    <th>${message:categoryId-label}</th>
+			    </tr>
+
+			    <tr t:type="Loop" t:source="events" t:value="event">
+				    <td><t:output value="date" format="dateFormat"/></td>
+				    <td>
+						<t:if test="userSession.isAdmin">
+							<a href="#" t:type="PageLink" t:page="admin/EventBetTypes"
+							   t:context="event.id">
+								${event.name}
+							</a>
+							<p:else>
+								<a href="#" t:type="PageLink" t:page="user/EventBetTypes"
+								   t:context="event.id">
+									${event.name}
+								</a>
+							</p:else>
+						</t:if>
+				    </td>
+				    <td>${event.category.name}</td>
+			    </tr>
+
+		    </table>
+
+		    <!-- "Previous" and "Next" links. -->
+
+		    <div class="previousNextLinks">
+
+			    <span class="previousLink">
+
+				    <t:if test="previousLinkContext">
+
+					    <a href="#" t:type="PageLink" t:page="common/SearchEvents"
+					       t:context="previousLinkContext">
+						    ${message:link-previous}
+					    </a>
+
+				    </t:if>
+
+			    </span>
+
+			    <span class="nextLink">
+
+				    <t:if test="nextLinkContext">
+
+					    <a href="#" t:type="PageLink" t:page="common/SearchEvents"
+					       t:context="nextLinkContext">
+						    ${message:link-next}
+					    </a>
+
+				    </t:if>
+
+			    </span>
+
+		    </div>
+
+		    <p:else>
+			    <p>${message:noEvents}.</p>
+		    </p:else>
+
+	    </t:if>
+	</t:if>
+	
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<t:if test="!errorMessage"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <rsp stat="ok">
+        <betTypes>
+            <betType t:type="Loop" t:source="betTypes" t:value="betType">
+                <question>${betType.question}</question>
+                <multipleWinner>${betType.multipleWinner}</multipleWinner>
+                <betOptions t:type="Loop" t:source="betOptions" t:value="betOption">
+                    <betOption>
+                        <name>${betOption.name}</name>
+                        <quota><t:output value="betOption.quota" format="numberFormat"/></quota>
+                    </betOption>
+                </betOptions>
+            </betType>
+        </betTypes>
+    </rsp>
+
+    <p:else>
+        <rsp stat="fail">
+            <err msg="${errorMessage}" />
+        </rsp>
+    </p:else>
+
+</t:if>
