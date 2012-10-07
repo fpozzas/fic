@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Interface Name="Es.Udc.DotNet.Betbook.Model.GroupService.IGroupService">
+    <Position X="6.5" Y="3.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAgAAEAAAAAgAAAAAAIAAABAAEAAAAAAQ=</HashCode>
+      <FileName>GroupService\IGroupService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Es.Udc.DotNet.Betbook.Model.EventService.IEventService">
+    <Position X="0.75" Y="0.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>JYAAAAAQAEABAAAAAAAAAgAAAAQAAAASAAAgACAAAAA=</HashCode>
+      <FileName>EventService\IEventService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Es.Udc.DotNet.Betbook.Model.CommentService.ICommentService">
+    <Position X="6.5" Y="0.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAQAABgAACAAAAQgAAAAAgAAAAAAQAgABAABA=</HashCode>
+      <FileName>CommentService\ICommentService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Es.Udc.DotNet.Betbook.Model.BetOMaticService.IBetOMaticService">
+    <Position X="3.75" Y="6.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BetOMaticService\IBetOMaticService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Es.Udc.DotNet.Betbook.Model.UserService.IUserService">
+    <Position X="1" Y="4" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>kAAAAAAAAAAEgAACAAAAAgAAAAAAAAAAAAAQAAAACAA=</HashCode>
+      <FileName>UserService\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

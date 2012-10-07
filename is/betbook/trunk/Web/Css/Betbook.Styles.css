@@ -1,0 +1,278 @@
+/* Body. */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 10px 20px;
+    background-color: #dddde0;
+}
+
+/* Links. */
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Window. */
+
+#window {
+    border: #000 1px solid;
+    background-color: #fff;
+    padding: 7px;
+    width: 98%;
+}
+
+/* Page title. */
+
+#header {
+    background-color: #097099;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 0 5px 5px;
+    width: 99%;
+}
+
+#header2 
+{
+    float:left;
+}
+
+#header a,
+#header2 a
+{
+    color: #fffac6;
+}
+
+#header2 *
+{
+    padding-right:2em;
+    color: #fff;
+}
+
+/* Page body. */
+
+#pageBody { 
+    margin-top: 5px;
+    width: 100%;
+}
+
+/* Sidebar. */
+
+#sidebar {
+    float: left;
+    background-color: #097099;
+    width: 20%;
+}
+
+#sidebar * {
+    color : #fffac6;
+}
+
+#sidebar a:hover {
+	color: #cc0000;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding-top: 0px;
+    /* Hack for correct indentation (the following three lines). */
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+#sidebar li 
+{
+    padding: 0 0 3px 5px;
+}
+
+/* Content. */
+
+#content {
+    padding-top: 20px;
+    float: right;    
+    text-align: center;
+    width: 80%;
+}
+
+p.info {
+    font-size: 16px;
+}
+
+/* Forms. */
+
+form {
+    width: 100%;
+}
+
+div.field {
+    clear: both;
+    padding-top: 1em;
+    width: 100%;
+}
+
+div.field span.label {
+    float: left;
+    text-align: right;
+    font-weight: bold;
+    width: 49.5%;
+}
+
+div.field span.entry {
+    float: right;
+    text-align: left;
+    width: 49.5%;
+}
+
+div.button {
+    clear: both;
+    padding-top: 1em;
+    text-align: center;
+    width: 100%;
+}
+
+input, select, textarea  {
+    background-color: #f4f4f4;
+}
+
+/* General properties. */
+
+table th, strong {
+    font-weight: bold;
+}
+
+table th, td {
+    font-size: 12px;
+}
+
+/* User details. */
+
+table.userDetails {
+   margin: 0 auto;
+   border: #000 1px solid;
+   text-align: left;
+   width: 35%;
+}
+
+table.userDetails th {
+    width: 60%;
+}
+
+table.userDetails td {
+    width: 30%;
+}
+
+/* User's users. */
+
+table.userUsers {
+   margin: 0 auto;
+   text-align: center;
+   width: 35%;
+}
+
+/* User operations. */
+
+table.userOperations {
+   margin: 0 auto;
+   text-align: center;
+   width: 45%; 
+}
+
+/* "Previous" and "Next" links. */
+
+div.previousNextLinks {
+    margin-left: 5%;
+    width: 80%;
+    margin-bottom: 3em;
+}
+
+div.previousNextLinks span.previousLink {
+    float: left;
+    text-align: left;
+    width: 49.5%;
+}
+
+div.previousNextLinks span.nextLink {
+    float: right;
+    text-align: right;
+    width: 49.5%;
+}
+
+/* Error messages. */
+
+.errorMessage {
+    font-weight: bold;
+    color: red;
+    margin-left: 5px;
+}
+
+/* Footer. */
+
+#footer {
+    clear: both;
+    text-align: center;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: #000 1px solid; 
+    width: 100%;
+}
+
+
+
+#tagNubr {
+    width:80%;
+    display:block;
+    margin:0 auto;
+    text-align:center;
+    margin:2em 1em;
+}
+#tagNubr * {
+    vertical-align:middle;
+}
+
+.t0 { display:none; }
+.t1 { font-size:0.8em; }
+.t2 { font-size:1.2em; }
+.t3 { font-size:1.6em; }
+.t4 { font-size:1.8em; }
+.t5 { font-size:2.0em; }
+
+.cooltable 
+{
+    margin:2em auto;
+    text-align: left;
+}
+
+.cooltable td,
+.cooltable th
+{
+    padding-right:2em;
+}
+
+.cooltable ul
+{
+    padding-left:0;
+}
+
+.cooltable ul li
+{
+    list-style: none;
+}
+
+#existingTagsWrapper 
+{
+    position:absolute;
+    width:15%;
+    right:5%;
+}
+
+#existingTags 
+{
+    margin-top:.7em;
+}
