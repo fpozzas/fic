@@ -1,0 +1,212 @@
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(18): error A45: UNDEFINED SYMBOL (PASS-2)
+p5.A51(25): error A45: UNDEFINED SYMBOL (PASS-2)
+p5.A51(33): error A45: UNDEFINED SYMBOL (PASS-2)
+p5.A51(36): warning A41: MISSING 'END' STATEMENT
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(18): error A45: UNDEFINED SYMBOL (PASS-2)
+p5.A51(36): warning A41: MISSING 'END' STATEMENT
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(19): error A45: UNDEFINED SYMBOL (PASS-2)
+p5.A51(37): warning A41: MISSING 'END' STATEMENT
+Target not created
+assembling p5.A51...
+p5.A51(37): warning A41: MISSING 'END' STATEMENT
+p5.A51 - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=38
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(38): error A39: REGISTER OPERAND EXPECTED
+Target not created
+assembling p5.A51...
+p5.A51(38): error A40: INVALID REGISTER
+p5.A51(39): error A40: INVALID REGISTER
+p5.A51(40): error A40: INVALID REGISTER
+p5.A51(41): error A40: INVALID REGISTER
+p5.A51 - 4 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(38): error A39: REGISTER OPERAND EXPECTED
+p5.A51(39): error A40: INVALID REGISTER
+p5.A51(40): error A40: INVALID REGISTER
+p5.A51(41): error A40: INVALID REGISTER
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(38): error A39: REGISTER OPERAND EXPECTED
+p5.A51(39): error A40: INVALID REGISTER
+p5.A51(40): error A40: INVALID REGISTER
+p5.A51(41): error A40: INVALID REGISTER
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(39): error A40: INVALID REGISTER
+p5.A51(40): error A40: INVALID REGISTER
+p5.A51(41): error A40: INVALID REGISTER
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(40): error A40: INVALID REGISTER
+p5.A51(41): error A40: INVALID REGISTER
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(41): error A40: INVALID REGISTER
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(38): error A39: REGISTER OPERAND EXPECTED
+p5.A51(39): error A40: INVALID REGISTER
+p5.A51(40): error A40: INVALID REGISTER
+p5.A51(41): error A40: INVALID REGISTER
+p5.A51(46): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(40): error A40: INVALID REGISTER
+p5.A51(41): error A40: INVALID REGISTER
+p5.A51(42): error A40: INVALID REGISTER
+p5.A51(47): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(40): error A40: INVALID REGISTER
+p5.A51(45): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(45): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+linking...
+Program Size: data=24.0 xdata=0 code=42
+"p5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(43): error A45: UNDEFINED SYMBOL (PASS-2)
+p5.A51(47): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(47): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+linking...
+Program Size: data=24.0 xdata=0 code=43
+"p5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(47): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+linking...
+Program Size: data=24.0 xdata=0 code=43
+"p5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(47): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+linking...
+Program Size: data=24.0 xdata=0 code=43
+"p5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(43): error A4: BAD INDIRECT REGISTER
+p5.A51(43): error A9: SYNTAX ERROR
+p5.A51(43): error A9: SYNTAX ERROR
+p5.A51(43): error A12: ILLEGAL FACTOR
+p5.A51(61): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(44): error A4: BAD INDIRECT REGISTER
+p5.A51(44): error A9: SYNTAX ERROR
+p5.A51(62): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(41): error A9: SYNTAX ERROR
+p5.A51(41): error A12: ILLEGAL FACTOR
+p5.A51(61): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+Target not created
+assembling p5.A51...
+p5.A51(62): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+p5.A51 - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=24.0 xdata=0 code=44
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(62): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+linking...
+Program Size: data=24.0 xdata=0 code=44
+"p5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+p5.A51(62): warning A73: TEXT FOUND BEYOND END STATEMENT - IGNORED
+linking...
+Program Size: data=24.0 xdata=0 code=44
+"p5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=44
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=44
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=44
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=54
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=54
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=55
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=65
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=69
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=71
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=94
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=94
+"p5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling p5.A51...
+linking...
+Program Size: data=24.0 xdata=0 code=95
+"p5" - 0 Error(s), 0 Warning(s).

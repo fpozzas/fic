@@ -1,0 +1,61 @@
+BL51 BANKED LINKER/LOCATER V5.00                                                        02/04/2010  18:48:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.00, INVOKED BY:
+C:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE p6.obj TO p6 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  p6.obj (PRAC06)
+
+
+LINK MAP OF MODULE:  p6 (PRAC06)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0010H     UNIT         PILA
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0023H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  p6 (PRAC06)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PRAC06
+  I:0008H         SEGMENT       PILA
+  C:001BH         SYMBOL        BUCLE
+  C:0013H         SYMBOL        DELAY
+  C:0003H         SYMBOL        INICIO
+  D:0090H         SYMBOL        P1
+  N:0000H         SYMBOL        PRAC06
+  B:0088H.5       SYMBOL        TF0
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  C:0000H         LINE#         10
+  C:0003H         LINE#         15
+  C:0006H         LINE#         16
+  C:0008H         LINE#         17
+  C:000BH         LINE#         18
+  C:000DH         LINE#         19
+  C:0010H         LINE#         20
+  C:0013H         LINE#         22
+  C:0016H         LINE#         23
+  C:0019H         LINE#         24
+  C:001BH         LINE#         26
+  C:001EH         LINE#         27
+  C:0020H         LINE#         28
+  C:0022H         LINE#         29
+  -------         ENDMOD        PRAC06
+
+Program Size: data=24.0 xdata=0 code=35
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

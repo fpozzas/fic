@@ -1,0 +1,20 @@
+% Alumno: Daniel Fernández Núñez
+Tiempos de computo
+------------------
+
+M=10, N=50;
+
+Tiempo DFT Bucles   = 0.001204
+Tiempo DFT Vectores = 0.000331
+Tiempo FFT          = 2.6e-05
+
+M=10, N=64:
+
+Tiempo DFT Bucles   = 0.001661
+Tiempo DFT Vectores = 0.000441
+Tiempo FFT          = 2.6e-05
+
+Como era de esperar, la función de Matlab es la más eficiente en
+ambos casos y como está optimizada para valores de N que sean
+potencia de 2, el caso de N=64 nos da un tiempo proporcionalmente
+mejor que el caso de N=50.

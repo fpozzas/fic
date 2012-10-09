@@ -1,0 +1,10 @@
+2.1 Desplazamientos lineales vs Circulares
+- El desplazamiento circular es igual que el lineal para
+n0=5, n0=10, es decir, para los casos en los que la operación
+módulo no modifica el indice.
+
+2.2 Importancia de la fase de la DFT 
+- xm(n) es la señal triangular x(n) centrada en el cero. Esto ocurre
+porque la fase de la TF contiene la información de la localización inicial
+de la señal en el tiempo.
+

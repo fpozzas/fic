@@ -1,0 +1,42 @@
+AUTOR:
+Daniel Fernández Núñez (infdfn01)
+
+PRÁCTICA3: 
+Implementación de la grámatica siguiente:
+S ‐> aAa 
+A ‐> bB  
+A ‐> c  
+B ‐> Acd 
+mediante un precedencia simple. Al igual que la práctica anterior,
+la tabla de esta gramática viene en los apuntes de la asignatura.
+Las cadenas se pasan mediante la linea de comandos. El programa
+distingue entre cadenas pertenecientes al lenguaje y las que no, y para
+estas últimas muestra el pivote que invalida el parsing.
+###############
+COMPILACION:
+make
+ó
+make all
+
+###############
+EJEMPLOS (de los apuntes y otros erroneos):
+./p4 aca
+ÉXITO: Cadena aceptada
+
+./p4 abccd
+Pivote invalido: aA
+Error: Cadena no pertenece al lenguaje
+
+./p4 abccda
+ÉXITO: Cadena aceptada
+
+./p4 abbccdcda
+ÉXITO: Cadena aceptada
+
+./p4 abbccddcda
+Pivote invalido: Acdd
+Error: Cadena no pertenece al lenguaje
+
+./p4 abZa
+Carácter inválido : Z
+

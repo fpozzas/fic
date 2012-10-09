@@ -1,0 +1,34 @@
+AUTOR:
+Daniel Fernández Núñez (infdfn01)
+
+PRÁCTICA2: 
+Mismo objetivo que la práctica 1, solo que ahora hay que
+hacerlo con lex. El programa implmentado reconoce si la
+entrada no es real o sí es real, y en este último caso
+distingue entre las que tienen parte entera, parte exponencial
+y parte fraccional.
+###############
+COMPILACION:
+make
+ó
+make all
+
+###############
+EJEMPLOS:
+./p2
+10
+Es real (parte entera).
+-10
+Es real (parte entera).
+10.5
+Es real (parte entera y fraccional.
+10.-7
+No es real.
+10.2E6
+Es real (parte entera, fraccional y exponencial).
+10E6
+Es real (parte entera y exponencial).
+10E-6
+Es real (parte entera y exponencial).
+10f-6
+No es real.

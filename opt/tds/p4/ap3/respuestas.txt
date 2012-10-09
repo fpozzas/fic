@@ -1,0 +1,30 @@
+Apartado 3.1.1. Negativo de una imagen
+- Comparando los histogramas vemos que, al igual que invertimos
+los niveles de gris de la imagen, se invierten las barras del
+histograma.
+
+Apartado 3.1.2 Modificacion del contraste
+- En el primer caso el histograma transformado presenta dos unicos
+colores posibles, blanco o negro. En el segundo caso hay una tendencia
+a eliminar los tonos más extremos y en el tercer caso los tonos se 
+reparten de forma más homogenea en el histograma dando una imagen
+resultante con un buen contraste.
+
+Apartado 3.1.3 Compresión del rango dinámico
+- Con la imagen transformada se aprecian mejor los detalles de la imagen.
+
+Apartado 3.2.1 Ruido
+(Con L=3)
+- Para el ruido impulsivo: con los filtros lineales se obtiene un resultado
+muy malo; con el filtro mediana se limpia casi todo el ruido pero difumina
+la imagen; con outrange con un umbral de 65 obtenemos un filtrado de ruido
+no tan bueno como el de mediana pero no difumina los bordes.
+- Para el ruido gaussiano: todos los filtros dan un resultado más o menos
+similar, un poco mejor el resultado de la outrange. No consiguen eliminar
+completamente todo el ruido.
+
+Apartado 3.2.2 Bordes
+- El filtrado lineal basico da un buen resultado con los bordes suavizados.
+El lineal por eliminación también muestra correctamente los bordes aunque
+muestra los bordes con poca intensidad. El filtro no lineal también muestra
+los bordes pero de una forma muy poco suavizada.

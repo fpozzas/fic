@@ -1,0 +1,39 @@
+A51 MACRO ASSEMBLER  P1                                                                   11/30/2009 11:49:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN p1.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE p1.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0
+0000 803E              2             SJMP START
+0040                   3             ORG 40H
+0040 D297              4     START:  SETB P1.7
+0042 114A              5             ACALL DELAY
+0044 C297              6             CLR P1.7
+0046 114A              7             ACALL DELAY
+0048 80F6              8             SJMP START
+004A 7858              9     DELAY:  MOV R0,#88
+004C D8FE             10     LOOP:   DJNZ R0,LOOP
+004E 22               11             RET        
+                      12             END
+A51 MACRO ASSEMBLER  P1                                                                   11/30/2009 11:49:45 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   004AH   A   
+LOOP . . . . . . .  C ADDR   004CH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0040H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

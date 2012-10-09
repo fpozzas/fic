@@ -1,0 +1,112 @@
+A51 MACRO ASSEMBLER  P5                                                                   02/04/2010 17:21:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN p5.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE p5.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME PRAC05
+                       2     ;
+                       3     ; PRACTICA 05. Movimiento y procesado de datos
+                       4     ;
+                       5     ;
+                       6     PILA    SEGMENT IDATA
+----                   7             RSEG PILA
+0000                   8             DS 16
+                       9     ;
+----                  10             CSEG AT 0
+0000 020003           11             LJMP INICIO
+                      12     ;
+                      13             USING 0
+0003                  14     INICIO:
+0003 758100   F       15             MOV SP,#PILA-1
+  0030                16     TabRAM  DATA 30h
+0006 7A0A             17             MOV R2,#10
+0008 900052           18             MOV DPTR,#TabROM
+000B 7830             19             MOV R0,#TabRAM
+000D 1127             20             CALL ROMRAM
+  1000                21     TABRAX  XDATA 1000h
+000F 7A0A             22             MOV R2,#10
+0011 901000           23             MOV DPTR,#TabRAX
+0014 7830             24             MOV R0,#TabRAM
+0016 1130             25             CALL RAMRAX
+  0040                26     DPLDPL  DATA 40h
+  0041                27     DPHDPH  DATA 41h
+  1010                28     TabRA2  XDATA 1010h
+0018 7A0A             29             MOV R2,#10
+001A 901000           30             MOV DPTR,#TabRAX ; Origen
+001D 754010           31             MOV DPLDPL,#LOW TabRA2 ; Destino
+0020 754110           32             MOV DPHDPH,#HIGH TabRA2 ; Destino
+0023 1137             33             CALL RAXRAX
+0025 80FE             34             SJMP $
+                      35     ;
+0027                  36     ROMRAM:
+0027 7400             37             MOV A,#00h
+0029 93               38             MOVC A,@A+DPTR
+002A F6               39             MOV @R0,A
+002B 08               40             INC R0
+002C A3               41             INC DPTR
+002D DAF8             42             DJNZ R2,ROMRAM
+002F 22               43             RET
+0030                  44     RAMRAX:
+0030 E6               45             MOV A,@R0
+0031 F0               46             MOVX @DPTR,A
+0032 08               47             INC R0
+0033 A3               48             INC DPTR
+0034 DAFA             49             DJNZ R2,RAMRAX
+0036 22               50             RET
+0037                  51     RAXRAX:
+0037 E0               52             MOVX A,@DPTR
+0038 C082             53             PUSH DPL
+003A C083             54             PUSH DPH
+003C 854082           55             MOV DPL,DPLDPL
+003F 854183           56             MOV DPH,DPHDPH
+0042 F0               57             MOVX @DPTR,A
+0043 A3               58             INC DPTR
+A51 MACRO ASSEMBLER  P5                                                                   02/04/2010 17:21:17 PAGE     2
+
+0044 858240           59             MOV DPLDPL,DPL
+0047 858341           60             MOV DPHDPH,DPH
+004A D083             61             POP DPH
+004C D082             62             POP DPL
+004E A3               63             INC DPTR
+004F DAE6             64             DJNZ R2,RAXRAX
+0051 22               65             RET
+                      66     ;
+0052 02030507         67     TabROM: DB 2,3,5,7,11,13,17,19,23,29
+0056 0B0D1113                
+005A 171D                    
+                      68     END
+                             
+                             
+A51 MACRO ASSEMBLER  P5                                                                   02/04/2010 17:21:17 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPHDPH . . . . . .  D ADDR   0041H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+DPLDPL . . . . . .  D ADDR   0040H   A   
+INICIO . . . . . .  C ADDR   0003H   A   
+PILA . . . . . . .  I SEG    0010H       REL=UNIT
+PRAC05 . . . . . .  N NUMB   -----       
+RAMRAX . . . . . .  C ADDR   0030H   A   
+RAXRAX . . . . . .  C ADDR   0037H   A   
+ROMRAM . . . . . .  C ADDR   0027H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+TABRA2 . . . . . .  X ADDR   1010H   A   
+TABRAM . . . . . .  D ADDR   0030H   A   
+TABRAX . . . . . .  X ADDR   1000H   A   
+TABROM . . . . . .  C ADDR   0052H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

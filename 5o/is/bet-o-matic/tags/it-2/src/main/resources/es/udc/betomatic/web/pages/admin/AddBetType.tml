@@ -1,0 +1,60 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+	  t:type="Layout" t:pageTitle="title"
+	  xml:space="preserve">
+
+    <h2>${message:title}</h2>
+	<t:if test="event">
+
+		<form t:type="Form" t:id="addBetTypeForm">
+
+			<t:errors/>
+
+			<div class="field">
+				<t:label for="question"/>
+				<span class="entry">
+					<input t:type="TextField" t:id="question" 
+						   t:validate="required, min=0" size="32" maxlength="432" />
+				</span>
+			</div>
+			
+			<div class="field">
+				<t:label for="multipleWinner"/>
+				<span class="entry">
+					<input t:type="Checkbox" t:id="multipleWinner" />
+				</span>
+			</div>
+			
+			<table class="betOptions">
+			   <tr>
+		          <th>${message:answer-label}</th>
+		          <th>${message:optionQuota-label}</th>
+		       </tr>
+			   <tr t:type="Loop" t:source="optionNamesList" t:value="optionName" t:index="index">
+			      <td>
+			         <input t:type="TextField" t:id="optionName" 
+						   t:validate="required, min=0" size="32" maxlength="432" />
+			      </td>
+			      <td>
+			         <input t:type="TextField" t:id="quota" 
+						   t:validate="required, min=0" size="6" maxlength="432" />
+			      </td>
+			   </tr>
+			</table>
+			
+			<div class="button">
+				<input type="submit" t:id="addOption" value="${message:addBetOption}"/>
+			</div>
+			<div class="button">
+				<input type="submit" t:id="create" value="${message:create}"/>
+			</div>
+
+		</form>
+
+		<p:else>
+			<p>${message:noEvent}</p>
+		</p:else>
+
+	</t:if>
+	
+</html>

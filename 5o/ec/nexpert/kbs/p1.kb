@@ -1,0 +1,252 @@
+(@VERSION=	020)
+(@PROPERTY=	capacidad_maxima	@TYPE=Float;)
+(@PROPERTY=	carga	@TYPE=Float;)
+(@PROPERTY=	descripcion	@TYPE=String;)
+(@PROPERTY=	hora_inicio	@TYPE=Float;)
+(@PROPERTY=	necesidad_almacenamiento	@TYPE=Float;)
+(@PROPERTY=	propietario	@TYPE=String;)
+(@PROPERTY=	usuarios_autorizados	@TYPE=String;)
+
+
+(@CLASS=	actividad
+	(@SUBCLASSES=
+		servidor_ficheros
+		servidor_procesos
+	)
+	(@PROPERTIES=
+		capacidad_maxima
+		descripcion
+		hora_inicio
+		propietario
+		usuarios_autorizados
+	)
+)
+
+(@CLASS=	servidor_ficheros
+	(@PROPERTIES=
+		capacidad_maxima
+		descripcion
+		hora_inicio
+		necesidad_almacenamiento
+		propietario
+		usuarios_autorizados
+	)
+)
+
+(@CLASS=	servidor_procesos
+	(@PROPERTIES=
+		capacidad_maxima
+		carga
+		descripcion
+		hora_inicio
+		propietario
+		usuarios_autorizados
+	)
+)
+
+
+(@OBJECT=	AUTORIZADO
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	cliente
+	(@CLASSES=
+		servidor_ficheros
+	)
+	(@PROPERTIES=
+		capacidad_maxima
+		descripcion
+		hora_inicio
+		necesidad_almacenamiento
+		propietario
+		usuarios_autorizados
+	)
+)
+
+(@OBJECT=	cliente2
+	(@CLASSES=
+		servidor_procesos
+	)
+	(@PROPERTIES=
+		capacidad_maxima
+		carga
+		descripcion
+		hora_inicio
+		propietario
+		usuarios_autorizados
+	)
+)
+
+(@OBJECT=	denegar_cliente
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	eliminar_cliente
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	hay_procesos_ilegales
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	hora_actual
+	(@PROPERTIES=
+		Value	@TYPE=Float;
+	)
+)
+
+(@OBJECT=	sevidor_ficheros
+	(@PROPERTIES=
+		usuarios_autorizados
+	)
+)
+
+(@OBJECT=	sevidor_procesos
+	(@PROPERTIES=
+		usuarios_autorizados
+	)
+)
+
+(@OBJECT=	tipo_servidor_ficheros
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@SLOT=	actividad.propietario
+	@PROMPT="¨Cu l es la propiedad de actividad?";
+)
+
+(@SLOT=	servidor_ficheros.capacidad_maxima
+	(@INITVAL=	100.0)
+)
+
+(@SLOT=	servidor_ficheros.usuarios_autorizados
+	(@INITVAL=	"x1046,s5023")
+)
+
+(@SLOT=	servidor_procesos.capacidad_maxima
+	(@INITVAL=	100.0)
+)
+
+(@SLOT=	servidor_procesos.usuarios_autorizados
+	(@INITVAL=	"x1046,s5023")
+)
+
+(@SLOT=	cliente.hora_inicio
+	@PROMPT="¨Cu l es la hora de inicio de cliente?";
+)
+
+(@SLOT=	cliente.necesidad_almacenamiento
+	@PROMPT="¨Cuales son las necesidades de almacenamiento de este cliente?";
+)
+
+(@SLOT=	cliente.propietario
+	@PROMPT="¨Cu l es la propiedad de cliente?";
+)
+
+(@SLOT=	eliminar_cliente
+	@INFCAT=10;
+)
+
+(@SLOT=	hora_actual
+	@PROMPT="¨Cu l es la hora actual?";
+)
+
+(@RULE=	Denegar2
+	@INFCAT=5;
+	(@LHS=
+		(Yes	(tipo_servidor_ficheros))
+		(<	(|servidor_ficheros|.capacidad_maxima-cliente.necesidad_almacenamiento)	(0))
+	)
+	(@HYPO=	denegar_cliente)
+	(@RHS=
+		(Execute	("Message")	(@STRING="@TEXT=Se ha denegado el servicio al cliente por ser la capacidad de a\
+lmacenamiento solicitada mayor que la disponible,\
+@OK";))
+	)
+)
+
+(@RULE=	Denegar1b
+	(@LHS=
+		(Member	(cliente)	(<|servidor_procesos|>))
+		(Execute	("TestMultiValue")	(@ATOMID=sevidor_procesos.usuarios_autorizados;\
+@STRING="@SUPERSET,@STRAT=SETFWRD,@TEST=@V(cliente.propietario),\
+@RETURN=AUTORIZADO.value,@COMP=STRING";))
+		(No	(AUTORIZADO))
+	)
+	(@HYPO=	denegar_cliente)
+	(@RHS=
+		(Execute	("Message")	(@STRING="@TEXT=El cliente ha sido denegado en el servidor de procesos,\
+@OK";))
+	)
+)
+
+(@RULE=	Denegar1a
+	(@LHS=
+		(Yes	(tipo_servidor_ficheros))
+		(Equal	(cliente.propietario)	(cliente.propietario))
+		(Execute	("TestMultiValue")	(@ATOMID=sevidor_ficheros.usuarios_autorizados;\
+@STRING="@SUPERSET,@STRAT=SETFWRD,@TEST=@V(cliente.propietario),\
+@RETURN=AUTORIZADO.value,@COMP=STRING";))
+		(No	(AUTORIZADO))
+	)
+	(@HYPO=	denegar_cliente)
+	(@RHS=
+		(Execute	("Message")	(@STRING="@TEXT=El cliente ha sido denegado en el servidor de ficheros,\
+@OK";))
+	)
+)
+
+(@RULE=	Eliminar1
+	(@LHS=
+		(>	(hora_actual-cliente.hora_inicio)	(3))
+	)
+	(@HYPO=	eliminar_cliente)
+	(@RHS=
+		(Execute	("Message")	(@STRING="@TEXT=El cliente ha sido eliminado.,\
+@OK";))
+	)
+)
+
+(@RULE=	EliminarCliente
+	(@LHS=
+		(Yes	(eliminar_cliente))
+	)
+	(@HYPO=	hay_procesos_ilegales)
+	(@RHS=
+		(Execute	("Message")	(@STRING="@TEXT=Hay procesos ilegales en el sistema,\
+@OK";))
+	)
+)
+
+(@RULE=	DenegarCliente
+	@INFCAT=5;
+	(@LHS=
+		(Yes	(denegar_cliente))
+	)
+	(@HYPO=	hay_procesos_ilegales)
+	(@RHS=
+		(Execute	("Message")	(@STRING="@TEXT=Hay procesos ilegales en el sistema,\
+@OK";))
+	)
+)
+
+(@RULE=	SerMiembro
+	(@LHS=
+		(Member	(cliente)	(<|servidor_ficheros|>))
+	)
+	(@HYPO=	tipo_servidor_ficheros)
+	(@RHS=
+		(Execute	("Message")	(@STRING="@TEXT=El cliente no es miembro del servidor de ficheros,\
+@OK";))
+	)
+)

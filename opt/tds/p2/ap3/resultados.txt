@@ -1,0 +1,25 @@
+% Alumno: Daniel Fernández Núñez
+RESULTADOS APARTADO 3
+---------------------
+
+1.)
+- x(n) es un escalon unitario de 0 a 2*M multiplicado
+por una onda senoidal. Por lo tanto, la secuencia x(n)
+es la onda senoidal "recortada" de 0 a 2*M.
+- Su longitud es, por lo tanto, la de x1(n): 2*M+1.
+- La multiplicación de dos señales en tiempo es la
+convolucion de estas en frecuencia (propiedad de modulación).
+Como una señal convolucionada con una delta es esa señal
+desplazada al lugar de la delta, tendremos que la TF de x(n)
+son dos sincs desplazadas en f0 y -f0 (o fs-f0) que se solapan
+en cierta medida.
+
+2.)
+- Como se ha comentado anteriormete, los espectros para todas
+las pruebas se centran en f0 y fs-f0.
+
+3.)
+- Aparentemente los espectros estan centrados como en el caso
+anterior sólo que dados la vuelta. Sin embargo lo que vemos son
+los alias de estos espectros ya que estamos usando una f0 que es
+mayor que fs/2, la frecuencia umbral.

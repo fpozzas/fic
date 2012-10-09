@@ -1,0 +1,90 @@
+BL51 BANKED LINKER/LOCATER V5.00                                                        02/04/2010  11:17:17  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.00, INVOKED BY:
+C:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE p4.obj TO p4 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  p4.obj (PRAC04)
+
+
+LINK MAP OF MODULE:  p4 (PRAC04)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0010H     UNIT         PILA
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0047H     UNIT         CODIGO
+
+
+
+SYMBOL TABLE OF MODULE:  p4 (PRAC04)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PRAC04
+  I:0008H         SEGMENT       PILA
+  C:0003H         SEGMENT       CODIGO
+  C:0033H         SYMBOL        ASCBCD
+  D:00F0H         SYMBOL        B
+  C:003CH         SYMBOL        BCDASC
+  C:000DH         SYMBOL        BCDBIN
+  C:001DH         SYMBOL        BINBCD
+  C:0003H         SYMBOL        INICIO
+  N:0000H         SYMBOL        PRAC04
+  D:0081H         SYMBOL        SP
+  C:0000H         LINE#         11
+  C:0003H         LINE#         21
+  C:0006H         LINE#         29
+  C:0008H         LINE#         30
+  C:000BH         LINE#         31
+  C:000DH         LINE#         34
+  C:000FH         LINE#         36
+  C:0012H         LINE#         37
+  C:0014H         LINE#         39
+  C:0015H         LINE#         40
+  C:0017H         LINE#         42
+  C:001AH         LINE#         43
+  C:001BH         LINE#         44
+  C:001CH         LINE#         45
+  C:001DH         LINE#         47
+  C:001EH         LINE#         49
+  C:0021H         LINE#         50
+  C:0022H         LINE#         53
+BL51 BANKED LINKER/LOCATER V5.00                                                      02/04/2010  11:17:17  PAGE 2
+
+
+  C:0023H         LINE#         54
+  C:0026H         LINE#         55
+  C:0027H         LINE#         56
+  C:0029H         LINE#         57
+  C:002AH         LINE#         58
+  C:002CH         LINE#         60
+  C:002EH         LINE#         61
+  C:002FH         LINE#         62
+  C:0030H         LINE#         63
+  C:0032H         LINE#         64
+  C:0033H         LINE#         66
+  C:0035H         LINE#         67
+  C:0038H         LINE#         68
+  C:0039H         LINE#         69
+  C:003BH         LINE#         70
+  C:003CH         LINE#         73
+  C:003EH         LINE#         74
+  C:003FH         LINE#         75
+  C:0041H         LINE#         76
+  C:0043H         LINE#         77
+  C:0046H         LINE#         78
+  C:0049H         LINE#         79
+  -------         ENDMOD        PRAC04
+
+Program Size: data=24.0 xdata=0 code=74
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

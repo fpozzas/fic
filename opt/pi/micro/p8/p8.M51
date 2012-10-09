@@ -1,0 +1,71 @@
+BL51 BANKED LINKER/LOCATER V5.00                                                        02/05/2010  11:43:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.00, INVOKED BY:
+C:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE p8.obj TO p8 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  p8.obj (PRAC08)
+
+
+LINK MAP OF MODULE:  p8 (PRAC08)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0010H     UNIT         PILA
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     002BH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  p8 (PRAC08)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PRAC08
+  I:0008H         SEGMENT       PILA
+  C:0018H         SYMBOL        ESPERARI
+  C:0003H         SYMBOL        INICIO
+  D:0087H         SYMBOL        PCON
+  N:0000H         SYMBOL        PRAC08
+  C:0023H         SYMBOL        RETARDO
+  D:0099H         SYMBOL        SBUF
+  D:0098H         SYMBOL        SCON
+  D:0081H         SYMBOL        SP
+  D:008DH         SYMBOL        TH1
+  B:0098H.1       SYMBOL        TI
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
+  C:0014H         SYMBOL        TRANSMISION
+  C:0000H         LINE#         10
+  C:0003H         LINE#         15
+  C:0006H         LINE#         17
+  C:0009H         LINE#         18
+  C:000CH         LINE#         19
+  C:000FH         LINE#         20
+  C:0011H         LINE#         21
+  C:0014H         LINE#         23
+  C:0016H         LINE#         24
+  C:0018H         LINE#         26
+  C:001BH         LINE#         27
+  C:001DH         LINE#         30
+  C:001FH         LINE#         31
+  C:0021H         LINE#         32
+  C:0023H         LINE#         34
+BL51 BANKED LINKER/LOCATER V5.00                                                      02/05/2010  11:43:20  PAGE 2
+
+
+  C:0025H         LINE#         35
+  C:0027H         LINE#         36
+  C:0029H         LINE#         37
+  -------         ENDMOD        PRAC08
+
+Program Size: data=24.0 xdata=0 code=43
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<t:if test="!errorMessage"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <rsp stat="ok">
+        <events more="${existMoreEvents}">
+            <event t:type="Loop" t:source="events" t:value="event">
+                <id>${event.id}</id>
+                <name>${event.name}</name>
+                <date><t:output value="date" format="dateFormat"/></date>
+                <category>${event.category.name}</category>
+            </event>
+        </events>
+    </rsp>
+
+    <p:else>
+        <rsp stat="fail">
+            <err msg="${errorMessage}" />
+        </rsp>
+    </p:else>
+
+</t:if>

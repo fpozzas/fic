@@ -1,0 +1,116 @@
+A51 MACRO ASSEMBLER  P4                                                                   02/04/2010 11:17:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN p4.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE p4.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME PRAC04
+                       2     ;
+                       3     ; PRACTICA 04. Conversión de datos
+                       4     ;
+                       5     
+                       6     PILA    SEGMENT IDATA ; Pila a RAM interna
+----                   7             RSEG PILA ; Activa el segmento
+0000                   8             DS 16 ; Reserva 16 bytes a PILA
+                       9     ;
+----                  10             CSEG AT 0 ; Segmento absoluto en 0
+0000 020000   F       11             LJMP INICIO ; A inicio del programa
+                      12     ;
+                      13     CODIGO  SEGMENT CODE
+----                  14             RSEG CODIGO
+                      15             USING 0 ; Banco de registros 0
+                      16     
+                      17     ;
+                      18     ; Bucle del programa principal
+                      19     ;
+0000                  20     INICIO:
+0000 758100   F       21             MOV SP,#PILA-1
+                      22     ;       MOV A,#37 ; Para BCD -> 25d
+                      23     ;       LCALL BcdBin
+                      24     ;       MOV A,#25
+                      25     ;       LCALL BinBcd
+                      26     ;       MOV A,#35h
+                      27     ;       MOV B,#32h
+                      28     ;       LCALL AscBcd
+0003 7446             29             MOV A,#46h ; En ascii será A=34h, B=36h
+0005 120000   F       30             LCALL BcdAsc
+0008 80FE             31             SJMP $
+                      32     
+000A                  33     BcdBin:
+000A F5F0             34             MOV B,A
+                      35             ; Dejamos en R0 los 4 bits menos significativos
+000C 53F00F           36             ANL B,#0Fh
+000F A8F0             37             MOV R0,B
+                      38             ; Dejamos en A los 4 bits más significativos en los 4 bits menos significativos
+0011 C4               39             SWAP A
+0012 540F             40             ANL A,#0Fh
+                      41             ; Multiplicar por 10 y sumar los bits menos significativos
+0014 75F00A           42             MOV B,#10
+0017 A4               43             MUL AB
+0018 28               44             ADD A,R0
+0019 22               45             RET
+001A                  46     BinBcd:
+001A F8               47             MOV R0,A
+                      48             ; Dividimos entre 10, tenemos el primer cuarteto del BCD
+001B 75F00A           49             MOV B,#10
+001E 84               50             DIV AB
+                      51             ; Al binario original le restamos el primer cuarteto * 10
+                      52             ; Obtenemos el segundo cuarteto
+001F F9               53             MOV R1,A
+0020 75F00A           54             MOV B,#10
+0023 A4               55             MUL AB ; Primer cuarteto * 10
+0024 F5F0             56             MOV B,A
+0026 E8               57             MOV A,R0
+0027 95F0             58             SUBB A,B ; Segundo cuarteto = Binario - Primer cuarteto * 10
+A51 MACRO ASSEMBLER  P4                                                                   02/04/2010 11:17:17 PAGE     2
+
+                      59             ; Combinamos ambos cuartetos
+0029 F5F0             60             MOV B,A
+002B E9               61             MOV A,R1
+002C C4               62             SWAP A
+002D 45F0             63             ORL A,B
+002F 22               64             RET
+0030                  65     AscBcd:
+0030 540F             66             ANL A,#0Fh
+0032 53F00F           67             ANL B,#0Fh
+0035 C4               68             SWAP A
+0036 45F0             69             ORL A,B
+0038 22               70             RET
+                      71             ; Salida en A
+0039                  72     BcdAsc:
+0039 F5F0             73             MOV B,A
+003B C4               74             SWAP A
+003C 540F             75             ANL A,#0Fh
+003E 4430             76             ORL A,#30h
+0040 53F00F           77             ANL B,#0Fh
+0043 43F030           78             ORL B,#30h
+0046 22               79             RET
+                      80             ; Salida en A y B
+                      81     END
+A51 MACRO ASSEMBLER  P4                                                                   02/04/2010 11:17:17 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ASCBCD . . . . . .  C ADDR   0030H   R   SEG=CODIGO
+B. . . . . . . . .  D ADDR   00F0H   A   
+BCDASC . . . . . .  C ADDR   0039H   R   SEG=CODIGO
+BCDBIN . . . . . .  C ADDR   000AH   R   SEG=CODIGO
+BINBCD . . . . . .  C ADDR   001AH   R   SEG=CODIGO
+CODIGO . . . . . .  C SEG    0047H       REL=UNIT
+INICIO . . . . . .  C ADDR   0000H   R   SEG=CODIGO
+PILA . . . . . . .  I SEG    0010H       REL=UNIT
+PRAC04 . . . . . .  N NUMB   -----       
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

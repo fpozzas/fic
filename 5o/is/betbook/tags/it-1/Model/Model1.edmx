@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Es.Udc.DotNet.Betbook.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="EsUdcDotNetBetbookModelStoreContainer">
+          <EntitySet Name="Comment" EntityType="Es.Udc.DotNet.Betbook.Model.Store.Comment" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="CommentTags" EntityType="Es.Udc.DotNet.Betbook.Model.Store.CommentTags" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="Country" EntityType="Es.Udc.DotNet.Betbook.Model.Store.Country" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="Favourite" EntityType="Es.Udc.DotNet.Betbook.Model.Store.Favourite" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="Group" EntityType="Es.Udc.DotNet.Betbook.Model.Store.Group" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="GroupUsers" EntityType="Es.Udc.DotNet.Betbook.Model.Store.GroupUsers" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="Language" EntityType="Es.Udc.DotNet.Betbook.Model.Store.Language" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="Recommendation" EntityType="Es.Udc.DotNet.Betbook.Model.Store.Recommendation" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="RecommendationGroups" EntityType="Es.Udc.DotNet.Betbook.Model.Store.RecommendationGroups" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="Tag" EntityType="Es.Udc.DotNet.Betbook.Model.Store.Tag" store:Type="Tables" Schema="ismael.barros" />
+          <EntitySet Name="User" EntityType="Es.Udc.DotNet.Betbook.Model.Store.User" store:Type="Tables" Schema="ismael.barros" />
+          <AssociationSet Name="FK_CommentTagsCommentId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_CommentTagsCommentId">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="CommentTags" EntitySet="CommentTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentTagsTagId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_CommentTagsTagId">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="CommentTags" EntitySet="CommentTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentUserId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_CommentUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavouriteUserId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_FavouriteUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Favourite" EntitySet="Favourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupCreatorId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_GroupCreatorId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupUsersGroupId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_GroupUsersGroupId">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupUsersUserId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_GroupUsersUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Language" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Country" EntitySet="Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecommendationGroupsGroupId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_RecommendationGroupsGroupId">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="RecommendationGroups" EntitySet="RecommendationGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecommendationGroupsRecommendationId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_RecommendationGroupsRecommendationId">
+            <End Role="Recommendation" EntitySet="Recommendation" />
+            <End Role="RecommendationGroups" EntitySet="RecommendationGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecommendationUserId" Association="Es.Udc.DotNet.Betbook.Model.Store.FK_RecommendationUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Recommendation" EntitySet="Recommendation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="commentId" />
+          </Key>
+          <Property Name="commentId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="bigint" Nullable="false" />
+          <Property Name="text" Type="ntext" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="eventId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommentTags">
+          <Key>
+            <PropertyRef Name="commentId" />
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="commentId" Type="bigint" Nullable="false" />
+          <Property Name="tagId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="countryCode" />
+            <PropertyRef Name="languageCode" />
+          </Key>
+          <Property Name="countryCode" Type="nchar" Nullable="false" MaxLength="2" />
+          <Property Name="countryName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="languageCode" Type="nchar" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Favourite">
+          <Key>
+            <PropertyRef Name="favouriteId" />
+          </Key>
+          <Property Name="favouriteId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="bigint" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="eventId" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="40" />
+          <Property Name="comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="groupId" />
+          </Key>
+          <Property Name="groupId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="creatorId" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="ntext" />
+        </EntityType>
+        <EntityType Name="GroupUsers">
+          <Key>
+            <PropertyRef Name="groupId" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="groupId" Type="bigint" Nullable="false" />
+          <Property Name="userId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="languageCode" />
+          </Key>
+          <Property Name="languageCode" Type="nchar" Nullable="false" MaxLength="2" />
+          <Property Name="languageName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Recommendation">
+          <Key>
+            <PropertyRef Name="recId" />
+          </Key>
+          <Property Name="recId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="bigint" Nullable="false" />
+          <Property Name="eventId" Type="bigint" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="text" Type="ntext" />
+        </EntityType>
+        <EntityType Name="RecommendationGroups">
+          <Key>
+            <PropertyRef Name="groupId" />
+            <PropertyRef Name="recId" />
+          </Key>
+          <Property Name="groupId" Type="bigint" Nullable="false" />
+          <Property Name="recId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="text" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="encPassword" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="surname" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="countryCode" Type="nchar" MaxLength="2" />
+          <Property Name="languageCode" Type="nchar" MaxLength="2" />
+        </EntityType>
+        <Association Name="FK_CommentTagsCommentId">
+          <End Role="Comment" Type="Es.Udc.DotNet.Betbook.Model.Store.Comment" Multiplicity="1" />
+          <End Role="CommentTags" Type="Es.Udc.DotNet.Betbook.Model.Store.CommentTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="commentId" />
+            </Principal>
+            <Dependent Role="CommentTags">
+              <PropertyRef Name="commentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentTagsTagId">
+          <End Role="Tag" Type="Es.Udc.DotNet.Betbook.Model.Store.Tag" Multiplicity="1" />
+          <End Role="CommentTags" Type="Es.Udc.DotNet.Betbook.Model.Store.CommentTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="tagId" />
+            </Principal>
+            <Dependent Role="CommentTags">
+              <PropertyRef Name="tagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentUserId">
+          <End Role="User" Type="Es.Udc.DotNet.Betbook.Model.Store.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comment" Type="Es.Udc.DotNet.Betbook.Model.Store.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavouriteUserId">
+          <End Role="User" Type="Es.Udc.DotNet.Betbook.Model.Store.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Favourite" Type="Es.Udc.DotNet.Betbook.Model.Store.Favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Favourite">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupCreatorId">
+          <End Role="User" Type="Es.Udc.DotNet.Betbook.Model.Store.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Group" Type="Es.Udc.DotNet.Betbook.Model.Store.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="creatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupUsersGroupId">
+          <End Role="Group" Type="Es.Udc.DotNet.Betbook.Model.Store.Group" Multiplicity="1" />
+          <End Role="GroupUsers" Type="Es.Udc.DotNet.Betbook.Model.Store.GroupUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="groupId" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="groupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupUsersUserId">
+          <End Role="User" Type="Es.Udc.DotNet.Betbook.Model.Store.User" Multiplicity="1" />
+          <End Role="GroupUsers" Type="Es.Udc.DotNet.Betbook.Model.Store.GroupUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Language">
+          <End Role="Language" Type="Es.Udc.DotNet.Betbook.Model.Store.Language" Multiplicity="1" />
+          <End Role="Country" Type="Es.Udc.DotNet.Betbook.Model.Store.Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="languageCode" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="languageCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecommendationGroupsGroupId">
+          <End Role="Group" Type="Es.Udc.DotNet.Betbook.Model.Store.Group" Multiplicity="1" />
+          <End Role="RecommendationGroups" Type="Es.Udc.DotNet.Betbook.Model.Store.RecommendationGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="groupId" />
+            </Principal>
+            <Dependent Role="RecommendationGroups">
+              <PropertyRef Name="groupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecommendationGroupsRecommendationId">
+          <End Role="Recommendation" Type="Es.Udc.DotNet.Betbook.Model.Store.Recommendation" Multiplicity="1" />
+          <End Role="RecommendationGroups" Type="Es.Udc.DotNet.Betbook.Model.Store.RecommendationGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recommendation">
+              <PropertyRef Name="recId" />
+            </Principal>
+            <Dependent Role="RecommendationGroups">
+              <PropertyRef Name="recId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecommendationUserId">
+          <End Role="User" Type="Es.Udc.DotNet.Betbook.Model.Store.User" Multiplicity="1" />
+          <End Role="Recommendation" Type="Es.Udc.DotNet.Betbook.Model.Store.Recommendation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Recommendation">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Es.Udc.DotNet.Betbook.Model" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="BetbookEntitiesContainer">
+          <EntitySet Name="Comment" EntityType="Es.Udc.DotNet.Betbook.Model.Comment" />
+          <EntitySet Name="Country" EntityType="Es.Udc.DotNet.Betbook.Model.Country" />
+          <EntitySet Name="Favourite" EntityType="Es.Udc.DotNet.Betbook.Model.Favourite" />
+          <EntitySet Name="Group" EntityType="Es.Udc.DotNet.Betbook.Model.Group" />
+          <EntitySet Name="Language" EntityType="Es.Udc.DotNet.Betbook.Model.Language" />
+          <EntitySet Name="Recommendation" EntityType="Es.Udc.DotNet.Betbook.Model.Recommendation" />
+          <EntitySet Name="Tag" EntityType="Es.Udc.DotNet.Betbook.Model.Tag" />
+          <EntitySet Name="User" EntityType="Es.Udc.DotNet.Betbook.Model.User" />
+          <AssociationSet Name="FK_CommentUserId" Association="Es.Udc.DotNet.Betbook.Model.FK_CommentUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comment" EntitySet="Comment" /></AssociationSet>
+          <AssociationSet Name="FK_Language" Association="Es.Udc.DotNet.Betbook.Model.FK_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Country" EntitySet="Country" /></AssociationSet>
+          <AssociationSet Name="FK_FavouriteUserId" Association="Es.Udc.DotNet.Betbook.Model.FK_FavouriteUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Favourite" EntitySet="Favourite" /></AssociationSet>
+          <AssociationSet Name="FK_GroupCreatorId" Association="Es.Udc.DotNet.Betbook.Model.FK_GroupCreatorId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Group" EntitySet="Group" /></AssociationSet>
+          <AssociationSet Name="FK_RecommendationUserId" Association="Es.Udc.DotNet.Betbook.Model.FK_RecommendationUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Recommendation" EntitySet="Recommendation" /></AssociationSet>
+          <AssociationSet Name="CommentTags" Association="Es.Udc.DotNet.Betbook.Model.CommentTags">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="Tag" EntitySet="Tag" /></AssociationSet>
+          <AssociationSet Name="GroupUsers" Association="Es.Udc.DotNet.Betbook.Model.GroupUsers">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="User" EntitySet="User" /></AssociationSet>
+          <AssociationSet Name="RecommendationGroups" Association="Es.Udc.DotNet.Betbook.Model.RecommendationGroups">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Recommendation" EntitySet="Recommendation" /></AssociationSet></EntityContainer>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="commentId" /></Key>
+          <Property Name="commentId" Type="Int64" Nullable="false" />
+          <Property Name="text" Type="String" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="eventId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Es.Udc.DotNet.Betbook.Model.FK_CommentUserId" FromRole="Comment" ToRole="User" />
+          <NavigationProperty Name="Tag" Relationship="Es.Udc.DotNet.Betbook.Model.CommentTags" FromRole="Comment" ToRole="Tag" /></EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="countryCode" />
+            <PropertyRef Name="languageCode" /></Key>
+          <Property Name="countryCode" Type="String" Nullable="false" />
+          <Property Name="countryName" Type="String" Nullable="false" />
+          <Property Name="languageCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Es.Udc.DotNet.Betbook.Model.FK_Language" FromRole="Country" ToRole="Language" /></EntityType>
+        <EntityType Name="Favourite">
+          <Key>
+            <PropertyRef Name="favouriteId" /></Key>
+          <Property Name="favouriteId" Type="Int64" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="eventId" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="true" />
+          <Property Name="comment" Type="String" Nullable="true" />
+          <NavigationProperty Name="User" Relationship="Es.Udc.DotNet.Betbook.Model.FK_FavouriteUserId" FromRole="Favourite" ToRole="User" /></EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="groupId" /></Key>
+          <Property Name="groupId" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="true" />
+          <NavigationProperty Name="User" Relationship="Es.Udc.DotNet.Betbook.Model.FK_GroupCreatorId" FromRole="Group" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Es.Udc.DotNet.Betbook.Model.GroupUsers" FromRole="Group" ToRole="User" />
+          <NavigationProperty Name="Recommendation" Relationship="Es.Udc.DotNet.Betbook.Model.RecommendationGroups" FromRole="Group" ToRole="Recommendation" /></EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="languageCode" /></Key>
+          <Property Name="languageCode" Type="String" Nullable="false" />
+          <Property Name="languageName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Es.Udc.DotNet.Betbook.Model.FK_Language" FromRole="Language" ToRole="Country" /></EntityType>
+        <EntityType Name="Recommendation">
+          <Key>
+            <PropertyRef Name="recId" /></Key>
+          <Property Name="recId" Type="Int64" Nullable="false" />
+          <Property Name="eventId" Type="Int64" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="text" Type="String" Nullable="true" />
+          <NavigationProperty Name="User" Relationship="Es.Udc.DotNet.Betbook.Model.FK_RecommendationUserId" FromRole="Recommendation" ToRole="User" />
+          <NavigationProperty Name="Group" Relationship="Es.Udc.DotNet.Betbook.Model.RecommendationGroups" FromRole="Recommendation" ToRole="Group" /></EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="tagId" /></Key>
+          <Property Name="tagId" Type="Int64" Nullable="false" />
+          <Property Name="text" Type="String" Nullable="false" />
+          <NavigationProperty Name="Comment" Relationship="Es.Udc.DotNet.Betbook.Model.CommentTags" FromRole="Tag" ToRole="Comment" /></EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" /></Key>
+          <Property Name="userId" Type="Int64" Nullable="false" />
+          <Property Name="login" Type="String" Nullable="false" />
+          <Property Name="encPassword" Type="String" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="surname" Type="String" Nullable="true" />
+          <Property Name="email" Type="String" Nullable="true" />
+          <Property Name="countryCode" Type="String" Nullable="true" />
+          <Property Name="languageCode" Type="String" Nullable="true" />
+          <NavigationProperty Name="Comment" Relationship="Es.Udc.DotNet.Betbook.Model.FK_CommentUserId" FromRole="User" ToRole="Comment" />
+          <NavigationProperty Name="Favourite" Relationship="Es.Udc.DotNet.Betbook.Model.FK_FavouriteUserId" FromRole="User" ToRole="Favourite" />
+          <NavigationProperty Name="Group" Relationship="Es.Udc.DotNet.Betbook.Model.FK_GroupCreatorId" FromRole="User" ToRole="Group" />
+          <NavigationProperty Name="Recommendation" Relationship="Es.Udc.DotNet.Betbook.Model.FK_RecommendationUserId" FromRole="User" ToRole="Recommendation" />
+          <NavigationProperty Name="Group1" Relationship="Es.Udc.DotNet.Betbook.Model.GroupUsers" FromRole="User" ToRole="Group" /></EntityType>
+        <Association Name="FK_CommentUserId">
+          <End Type="Es.Udc.DotNet.Betbook.Model.User" Role="User" Multiplicity="1" />
+          <End Type="Es.Udc.DotNet.Betbook.Model.Comment" Role="Comment" Multiplicity="*" /></Association>
+        <Association Name="FK_Language">
+          <End Type="Es.Udc.DotNet.Betbook.Model.Language" Role="Language" Multiplicity="1" />
+          <End Type="Es.Udc.DotNet.Betbook.Model.Country" Role="Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="languageCode" /></Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="languageCode" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_FavouriteUserId">
+          <End Type="Es.Udc.DotNet.Betbook.Model.User" Role="User" Multiplicity="1" />
+          <End Type="Es.Udc.DotNet.Betbook.Model.Favourite" Role="Favourite" Multiplicity="*" /></Association>
+        <Association Name="FK_GroupCreatorId">
+          <End Type="Es.Udc.DotNet.Betbook.Model.User" Role="User" Multiplicity="1" />
+          <End Type="Es.Udc.DotNet.Betbook.Model.Group" Role="Group" Multiplicity="*" /></Association>
+        <Association Name="FK_RecommendationUserId">
+          <End Type="Es.Udc.DotNet.Betbook.Model.User" Role="User" Multiplicity="1" />
+          <End Type="Es.Udc.DotNet.Betbook.Model.Recommendation" Role="Recommendation" Multiplicity="*" /></Association>
+        <Association Name="CommentTags">
+          <End Type="Es.Udc.DotNet.Betbook.Model.Comment" Role="Comment" Multiplicity="*" />
+          <End Type="Es.Udc.DotNet.Betbook.Model.Tag" Role="Tag" Multiplicity="*" /></Association>
+        <Association Name="GroupUsers">
+          <End Type="Es.Udc.DotNet.Betbook.Model.Group" Role="Group" Multiplicity="*" />
+          <End Type="Es.Udc.DotNet.Betbook.Model.User" Role="User" Multiplicity="*" /></Association>
+        <Association Name="RecommendationGroups">
+          <End Type="Es.Udc.DotNet.Betbook.Model.Group" Role="Group" Multiplicity="*" />
+          <End Type="Es.Udc.DotNet.Betbook.Model.Recommendation" Role="Recommendation" Multiplicity="*" /></Association></Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="EsUdcDotNetBetbookModelStoreContainer" CdmEntityContainer="BetbookEntitiesContainer">
+          <EntitySetMapping Name="Comment">
+            <EntityTypeMapping TypeName="IsTypeOf(Es.Udc.DotNet.Betbook.Model.Comment)">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="eventId" ColumnName="eventId" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="commentId" ColumnName="commentId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="IsTypeOf(Es.Udc.DotNet.Betbook.Model.Country)">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="languageCode" ColumnName="languageCode" />
+                <ScalarProperty Name="countryName" ColumnName="countryName" />
+                <ScalarProperty Name="countryCode" ColumnName="countryCode" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Favourite">
+            <EntityTypeMapping TypeName="IsTypeOf(Es.Udc.DotNet.Betbook.Model.Favourite)">
+              <MappingFragment StoreEntitySet="Favourite">
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="eventId" ColumnName="eventId" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="favouriteId" ColumnName="favouriteId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Group">
+            <EntityTypeMapping TypeName="IsTypeOf(Es.Udc.DotNet.Betbook.Model.Group)">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="groupId" ColumnName="groupId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Language">
+            <EntityTypeMapping TypeName="IsTypeOf(Es.Udc.DotNet.Betbook.Model.Language)">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="languageName" ColumnName="languageName" />
+                <ScalarProperty Name="languageCode" ColumnName="languageCode" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Recommendation">
+            <EntityTypeMapping TypeName="IsTypeOf(Es.Udc.DotNet.Betbook.Model.Recommendation)">
+              <MappingFragment StoreEntitySet="Recommendation">
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="eventId" ColumnName="eventId" />
+                <ScalarProperty Name="recId" ColumnName="recId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Tag">
+            <EntityTypeMapping TypeName="IsTypeOf(Es.Udc.DotNet.Betbook.Model.Tag)">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="tagId" ColumnName="tagId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="IsTypeOf(Es.Udc.DotNet.Betbook.Model.User)">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="languageCode" ColumnName="languageCode" />
+                <ScalarProperty Name="countryCode" ColumnName="countryCode" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="encPassword" ColumnName="encPassword" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="userId" ColumnName="userId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_CommentUserId" TypeName="Es.Udc.DotNet.Betbook.Model.FK_CommentUserId" StoreEntitySet="Comment">
+            <EndProperty Name="Comment">
+              <ScalarProperty Name="commentId" ColumnName="commentId" /></EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="userId" ColumnName="userId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Language" TypeName="Es.Udc.DotNet.Betbook.Model.FK_Language" StoreEntitySet="Country">
+            <EndProperty Name="Country">
+              <ScalarProperty Name="languageCode" ColumnName="languageCode" />
+              <ScalarProperty Name="countryCode" ColumnName="countryCode" /></EndProperty>
+            <EndProperty Name="Language">
+              <ScalarProperty Name="languageCode" ColumnName="languageCode" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_FavouriteUserId" TypeName="Es.Udc.DotNet.Betbook.Model.FK_FavouriteUserId" StoreEntitySet="Favourite">
+            <EndProperty Name="Favourite">
+              <ScalarProperty Name="favouriteId" ColumnName="favouriteId" /></EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="userId" ColumnName="userId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_GroupCreatorId" TypeName="Es.Udc.DotNet.Betbook.Model.FK_GroupCreatorId" StoreEntitySet="Group">
+            <EndProperty Name="Group">
+              <ScalarProperty Name="groupId" ColumnName="groupId" /></EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="userId" ColumnName="creatorId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_RecommendationUserId" TypeName="Es.Udc.DotNet.Betbook.Model.FK_RecommendationUserId" StoreEntitySet="Recommendation">
+            <EndProperty Name="Recommendation">
+              <ScalarProperty Name="recId" ColumnName="recId" /></EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="userId" ColumnName="userId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="CommentTags" TypeName="Es.Udc.DotNet.Betbook.Model.CommentTags" StoreEntitySet="CommentTags">
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="tagId" ColumnName="tagId" /></EndProperty>
+            <EndProperty Name="Comment">
+              <ScalarProperty Name="commentId" ColumnName="commentId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="GroupUsers" TypeName="Es.Udc.DotNet.Betbook.Model.GroupUsers" StoreEntitySet="GroupUsers">
+            <EndProperty Name="User">
+              <ScalarProperty Name="userId" ColumnName="userId" /></EndProperty>
+            <EndProperty Name="Group">
+              <ScalarProperty Name="groupId" ColumnName="groupId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="RecommendationGroups" TypeName="Es.Udc.DotNet.Betbook.Model.RecommendationGroups" StoreEntitySet="RecommendationGroups">
+            <EndProperty Name="Recommendation">
+              <ScalarProperty Name="recId" ColumnName="recId" /></EndProperty>
+            <EndProperty Name="Group">
+              <ScalarProperty Name="groupId" ColumnName="groupId" /></EndProperty></AssociationSetMapping></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="Es.Udc.DotNet.Betbook.Model.Comment" Width="1.5" PointX="3" PointY="1.25" Height="1.9210009765624998" />
+        <EntityTypeShape EntityType="Es.Udc.DotNet.Betbook.Model.Country" Width="1.5" PointX="10" PointY="0.875" Height="1.5923063151041672" />
+        <EntityTypeShape EntityType="Es.Udc.DotNet.Betbook.Model.Favourite" Width="1.5" PointX="3" PointY="3.875" Height="1.9210009765624996" />
+        <EntityTypeShape EntityType="Es.Udc.DotNet.Betbook.Model.Group" Width="1.5" PointX="3" PointY="6.5" Height="1.9210009765625005" />
+        <EntityTypeShape EntityType="Es.Udc.DotNet.Betbook.Model.Language" Width="1.5" PointX="7.75" PointY="1" Height="1.4279589843749998" />
+        <EntityTypeShape EntityType="Es.Udc.DotNet.Betbook.Model.Recommendation" Width="1.5" PointX="5.25" PointY="4.875" Height="1.9210009765624996" />
+        <EntityTypeShape EntityType="Es.Udc.DotNet.Betbook.Model.Tag" Width="1.5" PointX="5.25" PointY="1.375" Height="1.4279589843749998" />
+        <EntityTypeShape EntityType="Es.Udc.DotNet.Betbook.Model.User" Width="1.5" PointX="0.75" PointY="3.25" Height="3.0714322916666656" />
+        <AssociationConnector Association="Es.Udc.DotNet.Betbook.Model.FK_CommentUserId" >
+          <ConnectorPoint PointX="1.5" PointY="3.25" />
+          <ConnectorPoint PointX="1.5" PointY="2.21050048828125" />
+          <ConnectorPoint PointX="3" PointY="2.21050048828125" /></AssociationConnector>
+        <AssociationConnector Association="Es.Udc.DotNet.Betbook.Model.FK_Language" >
+          <ConnectorPoint PointX="9.25" PointY="1.7139794921874998" />
+          <ConnectorPoint PointX="10" PointY="1.7139794921874998" /></AssociationConnector>
+        <AssociationConnector Association="Es.Udc.DotNet.Betbook.Model.FK_FavouriteUserId" >
+          <ConnectorPoint PointX="2.25" PointY="4.83550048828125" />
+          <ConnectorPoint PointX="3" PointY="4.83550048828125" /></AssociationConnector>
+        <AssociationConnector Association="Es.Udc.DotNet.Betbook.Model.FK_GroupCreatorId" >
+          <ConnectorPoint PointX="1.5" PointY="6.3214322916666656" />
+          <ConnectorPoint PointX="1.5" PointY="7.46050048828125" />
+          <ConnectorPoint PointX="3" PointY="7.46050048828125" /></AssociationConnector>
+        <AssociationConnector Association="Es.Udc.DotNet.Betbook.Model.FK_RecommendationUserId" >
+          <ConnectorPoint PointX="2.25" PointY="6.0899666341145826" />
+          <ConnectorPoint PointX="5.25" PointY="6.0899666341145826" /></AssociationConnector>
+        <AssociationConnector Association="Es.Udc.DotNet.Betbook.Model.CommentTags" >
+          <ConnectorPoint PointX="4.5" PointY="2.0889794921875" />
+          <ConnectorPoint PointX="5.25" PointY="2.0889794921875" /></AssociationConnector>
+        <AssociationConnector Association="Es.Udc.DotNet.Betbook.Model.GroupUsers" >
+          <ConnectorPoint PointX="3" PointY="6.948997744140625" />
+          <ConnectorPoint PointX="1.9062525" PointY="6.948997744140625" />
+          <ConnectorPoint PointX="1.9062525" PointY="6.3214322916666656" /></AssociationConnector>
+        <AssociationConnector Association="Es.Udc.DotNet.Betbook.Model.RecommendationGroups" >
+          <ConnectorPoint PointX="4.5" PointY="7.6085014765625" />
+          <ConnectorPoint PointX="6" PointY="7.6085014765625" />
+          <ConnectorPoint PointX="6" PointY="6.7960009765625" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

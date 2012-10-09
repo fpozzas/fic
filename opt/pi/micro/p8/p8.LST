@@ -1,0 +1,77 @@
+A51 MACRO ASSEMBLER  P8                                                                   02/05/2010 11:43:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN p8.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE p8.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME PRAC08
+                       2     ;
+                       3     ; PRACTICA 08. Configuración y transmisión del puerto serie
+                       4     ;
+                       5     PILA    SEGMENT IDATA
+----                   6             RSEG PILA
+0000                   7             DS 16
+                       8     ;
+----                   9             CSEG AT 0
+0000 020003           10             LJMP INICIO
+                      11     ;
+                      12             USING 0
+                      13     ;
+0003                  14     INICIO:
+0003 758100   F       15             MOV SP,#PILA-1
+                      16             ; Inicializar puerto serie y timer 1
+0006 758920           17             MOV TMOD,#20h ; T1 en autorrecarga
+0009 758780           18             MOV PCON,#80h
+000C 758DF9           19             MOV TH1,#0F9h ; 8928 baudios SMOD0=1 con 12MHz
+000F D28E             20             SETB TR1
+0011 759840           21             MOV SCON,#40h
+0014                  22     Transmision:
+0014 7441             23             MOV A,#41h ; 'A' en ASCII -> 10000001 (simetrico)
+0016 F599             24             MOV SBUF,A
+0018                  25     EsperaRI:
+0018 3099FD           26             JNB TI,EsperaRI
+001B C299             27             CLR TI
+                      28             ; Espera de 1sg hasta la siguiente transmisión
+                      29             ; 1 sg de espera -> usamos la rutina de la practica 3
+001D 7B08             30             MOV R3,#8
+001F 7A9B             31             MOV R2,#155
+0021 79FF             32             MOV R1,#255
+0023                  33     Retardo:
+0023 D9FE             34             DJNZ R1,Retardo
+0025 DAFC             35             DJNZ R2,Retardo
+0027 DBFA             36             DJNZ R3,Retardo
+0029 80E9             37             JMP Transmision
+                      38     
+                      39     ;
+                      40     END
+A51 MACRO ASSEMBLER  P8                                                                   02/05/2010 11:43:20 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ESPERARI . . . . .  C ADDR   0018H   A   
+INICIO . . . . . .  C ADDR   0003H   A   
+PCON . . . . . . .  D ADDR   0087H   A   
+PILA . . . . . . .  I SEG    0010H       REL=UNIT
+PRAC08 . . . . . .  N NUMB   -----       
+RETARDO. . . . . .  C ADDR   0023H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TRANSMISION. . . .  C ADDR   0014H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

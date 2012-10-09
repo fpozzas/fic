@@ -1,0 +1,691 @@
+\documentclass[12pt,a4paper,twoside,spanish]{article}      % Libro a 11 pt
+\usepackage[height=17.5cm,width=13.5cm]{geometry}
+\usepackage[spanish]{babel}         % diccionario
+\usepackage[utf8]{inputenc}       % Acentos españoles
+\usepackage{indentfirst}        % Siempre sangra
+\usepackage{fancybox}           % graficos de cajas
+\usepackage{epsfig}         % Graficos Postscript
+\usepackage{tabularx}
+\usepackage{sectsty}
+\usepackage{amsmath}        %librería de funciones matemáticas
+\usepackage{float}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%% Margenes
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Definimos el maximo tamaño posible.
+\marginparwidth 0pt     \marginparsep 0pt
+\topmargin   0pt        \textwidth   6.5in
+\textheight 23cm
+
+% Margen izq del txt en impares.
+\setlength{\oddsidemargin}{.0001\textwidth}
+
+% Margen izq del txt en pares.
+\setlength{\evensidemargin}{-.04\textwidth}
+
+% Anchura del texto
+\setlength{\textwidth}{.99\textwidth}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%% Profundidad de enumeracion y tabla de contenidos
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%% Nuevos Comandos
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+            %%%%%%%%%%%%%%%%%%%%%%%
+            %%%%%%%%%%%%%%%%%%%%%%%
+            % Comandos para simplificar
+            % la escritura
+            %%%%%%%%%%%%%%%%%%%%%%%
+            %%%%%%%%%%%%%%%%%%%%%%%
+
+\def\mc{\multicolumn}
+            %%%%%%%%%%%%%%%%%%%%%%%
+            % Comandos para poder utilizar raggedright en tablas
+            %%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\let\PBS=\PreserveBackslash
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%% Cuerpo del documento
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\def\chaptername{Capítulo}
+\def\tablename{Tabla}
+\def\listtablename{Índice de Tablas}
+\chapterfont{\LARGE\raggedleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DISEÑO DE LA PAGINA DEL TITULO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\begin{titlepage}
+\setlength{\parindent}{0cm} \setlength{\parskip}{0cm}
+
+\raggedleft {\textsf{\textbf{Código del grupo: 5-2}}}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+\vspace*{2cm}
+\HRule \\[0.5cm]
+\begin{center}
+% Letra lineal y negrita
+\textsf{\textbf{\Large UN SISTEMA BASADO EN CONOCIMIENTO PARA EL DIAGNÓSTICO DE PROBLEMAS HARDWARE Y/O SOFTWARE EN UN ORDENADOR PERSONAL\\[0.25cm]
+ANÁLISIS DE VIABILIDAD E IMPACTO. \\[0.25cm] MODELADO DEL CONTEXTO EN COMMONKADS \\[0.5cm]}}
+\HRule \vspace*{3cm}
+
+\textsf{\textbf{\normalsize Nombres de los componentes del
+grupo:\\
+de Araoz Orduna, Rafael\\
+Fernández Núñez, Daniel\\
+Sobradelo Sineiro, Diego\\
+Yáñez Rodríguez, Luis\\
+[3cm]
+Directorio de entrega: //PRACTICAS/EI/EC/P1/daniel.fernandez \\[2cm]
+Ingeniería del Conocimiento\\
+Departamento de Computación\\ Universidad de A Coruña \\ Curso
+2009/2010}}
+\end{center}
+\end{titlepage}
+
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% TABLA DE CONTENIDOS
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{Roman}
+\tableofcontents
+\cleardoublepage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%CONTENIDO DEL DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%numeros arábigos
+\pagenumbering{arabic} \pagestyle{myheadings} \markboth{Grupo de
+prácticas: 5-2}{Modelado Contextual en CommonKADS.}
+
+%indentaciones y espaciado entre párrafos
+\setlength{\parindent}{1,5cm} \setlength{\parskip}{0,7cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Análisis de Viabilidad: Modelado de la Organización.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formulario OM-1: contexto organizacional, problemas y soluciones.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Identificación de los problemas y oportunidades orientadas al conocimiento de la organización.
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|} \hline
+\textbf{Modelo de Organización} & \textbf{Formulario OM-1: Problemas y Posibilidades de Mejora} \\ \hline\hline
+
+\textsc{Problemas y Oportunidades} & 
+\begin{itemize}
+	\item La organización cuenta con una serie de usuarios con limitado conocimiento en informática y que, a menudo, se enfrentan a problemas software o hardware, necesitando de la ayuda de un experto del departamento técnico de la empresa. Por lo tanto existe una gran carga de trabajo en dicho departamento.
+	\item El experto del departamento técnico se enfrenta a menudo a problemas típicos y de fácil detección los cuales se podrían resolver sin la intervención de éste, pudiendo reducir, de esta manera, el coste de personal de la empresa o pudiendo ocupar el personal en otras tareas más productivas.
+\end{itemize}
+  \\ \hline
+\textsc{Contexto Organizacional} &
+
+\begin{itemize}
+	\item Empresa con una infraestructura dependiente del correcto funcionamiento de los puestos de trabajo de sus empleados. Se requiere que estos equipos estén disponibles y en correcto funcionamiento la mayor parte del tiempo posible. 
+	\item Se desea que los empleados tengan cierta autosuficiencia para el uso de sus equipos.
+	\item A su vez, se desea que el personal del departamento técnico se dedique más a otras tareas, i+d, etc...
+	\item Mediante el cumplimiento de estos objetivos, obtendríamos una mayor productividad en general de toda la empresa.
+\end{itemize}
+
+ \\ \hline
+\textsc{Soluciones} &
+\begin{itemize}
+	\item Invertir en cursos de formación para el personal.
+	\item Desarrollar un Sistema Basado en Conocimiento (SBC) que diagnostique de la forma más correcta posible el origen de los problemas del empleado con su equipo, deduciéndolo a partir de una serie de información que proporciona dicho empleado. 
+\end{itemize}
+
+\\
+\hline
+\end{tabularx}
+  \label{tab.OM1}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formulario OM-2: descripción del área de interés de la organización.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Descripción de los aspectos de la organización que tienen impacto y/o se ven afectados
+  por las soluciones basadas en conocimiento elegidas.
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|} \hline
+\textbf{Modelo de Organización} & \textbf{Formulario OM-2: Aspectos Variables} \\ \hline\hline
+
+\textsc{Estructura} & La empresa se agrupa en departamentos, en los cuales trabajan los distintos empleados distribuídos en puestos de trabajo. Dentro de éstos departamentos tendremos el departamento técnico y el de suministros.
+
+ \\ \hline
+\textsc{Procesos} &  
+\begin{enumerate}
+	\item Solicitud de soporte técnico
+	\item Diagnóstico
+	\item Solicitud de recursos necesarios
+	\item Resolución del problema
+\end{enumerate}
+Posteriormente se presentará una descomposición de estos procesos en tareas en el formulario OM-3
+\\ \hline
+\textsc{Personal} & 
+\begin{enumerate}
+	\item Empleado
+	\item Técnico experto software y/o hardware
+	\item Suministrador o técnico externo
+\end{enumerate}
+\\ \hline
+\textsc{Recursos} & 
+\begin{enumerate}
+	\item Red interna de comunicaciones: permite llevar a cabo las solicitudes del soporte técnico a cualquier empleado y las peticiones de suministros que necesita el técnico.
+	\item Registro de proveedores externos: necesario si el problema requiere de algún servicio que no compete al departamento técnico de la empresa.
+\end{enumerate}
+
+\\ \hline
+\textsc{Conocimiento} & 
+\begin{enumerate}
+	\item Nociones básicas de informática por parte del empleado.
+	\item Amplio nivel de conocimiento del software y hardware de la empresa por parte de los técnicos.
+\end{enumerate}
+\\ \hline
+\textsc{Cultura y Potencial} &  --
+\\ \hline
+\end{tabularx}
+  \label{tab.OM2}
+\end{table}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formulario OM-3: descomposición del proceso de negocio.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Descripción del proceso de interés a partir de las tareas que lo componen.
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|p{0.2cm}|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\raggedright}X|>{\PBS\raggedright}X|} \hline
+\multicolumn{3}{|l}{\textbf{Modelo de Organización}} &
+\multicolumn{4}{|l|}{\textbf{Formulario OM-3: Descomposición de
+los Procesos}}\\ \hline\hline \textsc{N\textordmasculine} &
+\textsc{Tarea} &  \textsc{Realiza\-da por} &  \textsc{¿Dónde?} &
+\textsc{Recursos de Conocimiento} & \textsc{¿In\-ten\-si\-va en
+Conocimiento?} & \textsc{Im\-por\-tan\-cia} \\
+
+\hline 1. 
+& Solicitud de soporte técnico
+& Empleado
+& Departamento del empleado
+& Nociones básicas de informática
+& Baja 
+& 1
+\\ 
+
+\hline 2.
+& Diagnóstico
+& Técnico experto
+& Departamento del empleado
+& Amplio nivel de conocimiento en software / hardware (formal o no)
+& Muy alta 
+& 5 
+\\ 
+
+\hline 3.
+& Solicitud de recursos necesarios
+& Técnico experto
+& Departamento técnico
+& --
+& No
+& 1
+\\ 
+
+\hline 4.
+& Resolución del problema
+& Técnico experto / técnico externo
+& Departamento técnico o del empleado (dependiendo del problema concreto)
+& Conocimiento en software / hardware (formal o no)
+& Alta
+& 5
+\\
+\hline
+\end{tabularx}
+\label{tab.OM3}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formulario OM-4: activos de conocimiento.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Descripción del componente \textit{conocimiento} del modelo de la organización.
+
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|p{1.3cm}|p{1.3cm}|p{1.3cm}|X|X|X|X|} \hline
+\multicolumn{3}{|l}{\textbf{Modelo de Organización}} & \multicolumn{4}{|l|}{\textbf{Formulario OM-4: Activos de Conocimiento}} \\ \hline\hline
+\textsc{Recurso de Conocimiento} & \textsc{Pertenece a} &  \textsc{Usado en} &  \textsc{¿Forma
+Correcta?} & \textsc{¿Lugar Correcto?} & \textsc{¿Tiempo Correcto?} & \textsc{¿Calidad Correcta?}\\ \hline
+Nociones básicas de informática
+& Empleado
+& 1. Solicitud de soporte técnico
+& Si
+& Si
+& Si
+& No, es incompleta
+\\ 
+\hline
+Conoci\-miento en software
+& Técnico experto
+& 2. Diagnóstico; 4. Resolución del problema
+& No
+& Si
+& Si
+& No siempre
+\\ 
+\hline
+Conoci\-miento en hardware
+& Técnico experto
+& 2. Diagnóstico; 4. Resolución del problema
+& No
+& Si
+& Si
+& No siempre
+\\ 
+\hline
+Conoci\-miento formal en software
+& Bibliografía
+& 2. Diagnóstico; 4. Resolución del problema
+& Si
+& No
+& Si
+& Si
+\\ 
+\hline
+Conoci\-miento formal en hardware
+& Bibliografía
+& 2. Diagnóstico; 4. Resolución del problema
+& Si
+& No
+& Si
+& Si
+\\ 
+\hline
+\end{tabularx}
+
+  \label{tab.OM4}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formulario OM-5: Análisis de viabilidad.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Elementos a considerar en el análisis de la viabilidad del proyecto.
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|} \hline
+
+
+\textbf{Modelo de Organización} & \textbf{Formulario OM-5: Elementos del Documento de Viabilidad}\\ \hline\hline
+\textsc{Viabilidad Empresarial} 
+& La solución propuesta, el SBC, mejoraría la productividad de la empresa, dado que permitiría a los empleados del departamento técnico dedicarse a tareas más importantes. También se reduciría el número de conflictos entre los empleados y el departamento técnico. 
+
+Un valor añadido del sistema es que los empleados podrían llegar a ser autosuficientes en algunos de sus problemas.
+
+El coste de la solución propuesta es el de construir un SBC y la cesión de empleados y expertos en algunas de las fases del desarrollo del sistema y de las pruebas. Consideramos que estos costes serían menores a unos cursos de formación para todo el personal de plantilla y todos los futuros empleados.
+
+Esta solución no implicaría cambios en la estructura de la organización, conllevando un riesgo muy bajo para la empresa.
+\\ \hline
+\textsc{Viabilidad Técnica} 
+& La formalización del conocimiento es en general sencilla, ya que muchos de los conceptos son muy perceptibles con claridad para un experto, cuyos métodos son totalmente adecuados en la situación actual. Cuando la experiencia del experto no sea suficientemente clara se podrá consultar el conocimiento formal de los recursos bibliográficos.
+
+El desarrollo del sistema no es crítico en el tiempo ni en recursos ya que el departamento técnico va a seguir siendo necesario pese a la implantación de la solución.
+
+Se considera que el sistema es válido si logra resolver buena parte de los problemas de los empleados sin intervención de un técnico. Esto se comprobará mediante un período de prueba donde se hará un implantación reducida del sistema.
+
+El uso del sistema sería sencillo, ya que el propio sistema es el que pregunta o sugiere al usuario información acerca del problema.
+
+\\ \hline
+\textsc{Viabilidad del Proyecto} 
+& La empresa pondrá expertos del departamento técnico que sean necesarios para obtener el conocimiento, estando todos bastante ilusionados con el proyecto ya que les liberaría de trabajos poco gratificantes.
+
+Para el sistema se necesitarían unos terminales libres de fallos que ejecutarían el SBC de los que, estimaríamos, habría uno por departamento.
+
+Se considera que estamos ante un proyecto realizable con muchas expectativas de exito y que obtendría resultados positivos a corto-medio plazo tras la implantación.
+
+
+\\ \hline
+\textsc{Acciones Propuestas}
+ & Se ha encontrado en la organización la oportunidad de mejorar la eficiencia del departamento técnico eliminando, en la medida de lo posible, la asistencia técnica a los empleados de otros departamentos. Para esto se propone la construcción de un SBC que permitiría a los usuarios resolver muchos de sus problemas, que son de sencilla solución, liberando de la tarea de Diagnóstico a los técnicos.
+ 
+ Con esto liberaríamos mucha carga de trabajo al departamento técnico, que mejoraría su productividad en otras tareas de forma sustancial, lo que proporciona a la empresa mayores beneficios económicos. Se debe tener en cuenta que por un tiempo la empresa tendrá que ceder algunos de sus expertos para el desarrollo del sistema y hacer un desembolso económico para costear el sistema y los equipos necesarios para su implantación.
+ \\ \hline
+\end{tabularx}
+\caption{Formulario OM-5.}
+  \label{tab.OM5_2}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Análisis de Impactos y Mejoras: Modelado de las Tareas y los Agentes.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formulario TM-1: análisis de tareas.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Descripción detallada de tareas en el contexto del proceso de interés.
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|} \hline
+
+\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas}
+ \\ \hline\hline
+\textsc{Tarea} 
+& 2. Diagnóstico
+\\ \hline
+\textsc{Organización}  
+& Proceso donde se realiza la identificación del problema por parte del técnico, usualmente en el departamento del empleado.
+\\ \hline
+\textsc{Objetivo y valor} 
+& Identificar las causas del problema del equipo del empleado, necesario para poder dar una solución adecuada en los siguientes procesos.
+\\ \hline
+\textsc{Dependencia y Flujos} 
+& \textit{1. Tareas precedentes:} 
+1. Solicitud de soporte técnico
+\\
+ &  \textit{2. Tareas que le siguen:} 
+ 3. Solicitud de recursos necesarios (opcional); 4. Resolución del problema.
+ \\ \hline
+\textsc{Objetos manipulados} 
+& 1. Objetos de entrada de la tarea:
+Descripción del problema.
+\\
+  &  2. Objetos de salida de la tarea.
+ Diagnóstico realizado (causas, solución al problema)
+ \\
+  &  3. Objetos internos: --
+  \\
+& \emph{Todos estos objetos incluyen elementos de información y conocimiento.}
+\\ \hline
+\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:}
+la frecuencia es variable (cuando un empleado avisa a técnico) y la duración del diagnóstico suele ser corta exceptuando algún caso concreto.
+\\
+& \textit{2. Control:} Es una precondición necesaria para el arreglo del equipo del empleado.
+\\
+& \textit{3. Restricciones:} --
+\\ \hline
+\textsc{Agentes} &
+Lo realiza el técnico experto.
+\\ \hline
+\textsc{Conocimiento y
+Capacidad} &
+Conocimiento en software / hardware (formal o no)
+ \\ \hline
+\textsc{Recursos} &
+--
+ \\ \hline
+\textsc{Calidad y eficiencia} &
+Es dependiente del nivel particular del conocimiento que posee el técnico concreto y de las indicaciones iniciales que aporta el empleado, que si son escasas afectarán al tiempo que tarda el diagnóstico.
+\\ \hline
+\end{tabularx}
+
+  \label{tab.TM1}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formulario TM-2: análisis de los cuellos de botella del conocimiento.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Especificación del conocimiento que se emplea en una tarea, sus cuellos de botella y posibles mejoras.
+
+%% Software
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+\textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+\textsc{Nombre} &  \multicolumn{2}{l|}{Conocimiento software}\\ \hline
+\textsc{Poseído por} &  \multicolumn{2}{X|}{Técnico experto}\\ \hline
+\textsc{Usado en} &  \multicolumn{2}{l|}{2. Diagnóstico; 4. Resolución del problema}\\ \hline
+\textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{Informática técnica}\\ \hline
+
+\textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+\textbf{¿Cuello de botella/debe ser mejorado?}
+\\ \hline Formal, riguroso & & No es accesible por el empleado, mejorable por el SBC. 
+\\ \hline Empírico, cuantitativo & X &
+\\ \hline Heurístico, sentido común & X & El experto puede pasar algunas cosas por alto. 
+\\ \hline Altamente especializado, específico del dominio & X & 
+\\ \hline Basado en la experiencia & X & Una baja experiencia puede resultar en un diagnóstico muy lento, mejorable por el SBC. 
+\\ \hline Basado en la acción &  & 
+\\ \hline Incompleto & X & Es un cuello de botella ya que estamos tratando con una tecnología que evoluciona rápidamente en el tiempo. Este problema no sería mejorable por el SBC.
+\\ \hline Incierto, puede ser incorrecto & & 
+\\ \hline Cambia con rapidez & X & Problema que obliga a mantener el conocimiento continuamente actualizado. No sería mejorable por el SBC.
+\\ \hline Difícil de verificar &  &  
+\\ \hline Tácito, difícil de transferir & X & Sí, podría ser mejorado por el SBC 
+\\ \hline \textbf{Forma del conocimiento} & &
+\\ \hline Mental& X & 
+\\ \hline Papel &  & 
+\\ \hline Electrónica &  & 
+\\ \hline Habilidades & X &
+\\ \hline Otros& & 
+\\ \hline \textbf{Disponibilidad del Conocimiento} &  &
+\\ \hline Limitaciones en tiempo & X & Mejorable por el SBC 
+\\ \hline Limitaciones en espacio & & 
+\\ \hline Limitaciones de acceso & &
+\\ \hline Limitaciones de calidad & X & No siempre es el mismo, es mejorable por el SBC .
+\\ \hline Limitaciones de forma & X & No está especificado de formalmente, esto sería mejorable por el SBC.
+\\ \hline
+\end{tabularx}
+  \label{tab.TM2}
+\end{table}
+
+
+%% Hardware 
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+\textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+\textsc{Nombre} &  \multicolumn{2}{l|}{Conocimiento hardware}\\ \hline
+\textsc{Poseído por} &  \multicolumn{2}{X|}{Técnico experto}\\ \hline
+\textsc{Usado en} &  \multicolumn{2}{l|}{2. Diagnóstico; 4. Resolución del problema}\\ \hline
+\textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{Informática técnica}\\ \hline
+
+\textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+\textbf{¿Cuello de botella/debe ser mejorado?}
+\\ \hline Formal, riguroso & & No es accesible por el empleado, mejorable por el SBC. 
+\\ \hline Empírico, cuantitativo & X &
+\\ \hline Heurístico, sentido común & X & El experto puede pasar algunas cosas por alto. 
+\\ \hline Altamente especializado, específico del dominio & X & 
+\\ \hline Basado en la experiencia & X & Una baja experiencia puede resultar en un diagnóstico muy lento, mejorable por el SBC. 
+\\ \hline Basado en la acción &  & 
+\\ \hline Incompleto & X & Es un cuello de botella ya que estamos tratando con una tecnología que evoluciona rápidamente en el tiempo. Este problema no sería mejorable por el SBC.
+\\ \hline Incierto, puede ser incorrecto & & 
+\\ \hline Cambia con rapidez & X & Problema que obliga a mantener el conocimiento continuamente actualizado. No sería mejorable por el SBC.
+\\ \hline Difícil de verificar &  &  
+\\ \hline Tácito, difícil de transferir & X & Sí, podría ser mejorado por el SBC 
+\\ \hline \textbf{Forma del conocimiento} & &
+\\ \hline Mental& X & 
+\\ \hline Papel &  & 
+\\ \hline Electrónica &  & 
+\\ \hline Habilidades & X &
+\\ \hline Otros& & 
+\\ \hline \textbf{Disponibilidad del Conocimiento} &  &
+\\ \hline Limitaciones en tiempo & X & Mejorable por el SBC 
+\\ \hline Limitaciones en espacio & & 
+\\ \hline Limitaciones de acceso & &
+\\ \hline Limitaciones de calidad & X & No siempre es el mismo, es mejorable por el SBC .
+\\ \hline Limitaciones de forma & X & No está especificado de formalmente, esto sería mejorable por el SBC.
+\\ \hline
+\end{tabularx}
+  \label{tab.TM2}
+\end{table}
+
+
+%% Software formal
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+\textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+\textsc{Nombre} &  \multicolumn{2}{l|}{Conocimiento software formal}\\ \hline
+\textsc{Poseído por} &  \multicolumn{2}{X|}{Bibliografía}\\ \hline
+\textsc{Usado en} &  \multicolumn{2}{l|}{2. Diagnóstico; 4. Resolución del problema}\\ \hline
+\textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{Informática técnica}\\ \hline
+
+\textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+\textbf{¿Cuello de botella/debe ser mejorado?}
+\\ \hline Formal, riguroso & X &
+\\ \hline Empírico, cuantitativo & &
+\\ \hline Heurístico, sentido común & &
+\\ \hline Altamente especializado, específico del dominio & X & 
+\\ \hline Basado en la experiencia & &
+\\ \hline Basado en la acción &  & 
+\\ \hline Incompleto & X & Es un cuello de botella ya que estamos tratando con una tecnología que evoluciona rápidamente en el tiempo. Este problema no sería mejorable por el SBC.
+\\ \hline Incierto, puede ser incorrecto & & 
+\\ \hline Cambia con rapidez & X & Problema que obliga a mantener el conocimiento continuamente actualizado. No sería mejorable por el SBC.
+\\ \hline Difícil de verificar & &  
+\\ \hline Tácito, difícil de transferir & X & Sí, podría ser mejorado por el SBC 
+\\ \hline \textbf{Forma del conocimiento} & &
+\\ \hline Mental&  & 
+\\ \hline Papel & X & 
+\\ \hline Electrónica & X & 
+\\ \hline Habilidades &  &
+\\ \hline Otros& & 
+\\ \hline \textbf{Disponibilidad del Conocimiento} &  &
+\\ \hline Limitaciones en tiempo & &
+\\ \hline Limitaciones en espacio & & 
+\\ \hline Limitaciones de acceso & X & No siempre se le puede tener acceso, mejorable por el SBC.
+\\ \hline Limitaciones de calidad & &
+\\ \hline Limitaciones de forma & & 
+\\ \hline
+\end{tabularx}
+  \label{tab.TM2}
+\end{table}
+
+%% Hardware formal
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|p{5cm}|>{\PBS\raggedright}p{0.8cm}|X|} \hline
+\textbf{Modelo de Tareas} & \multicolumn{2}{l|}{\textbf{Formulario TM-2: Elemento de Co\-no\-ci\-mien\-to}} \\ \hline\hline
+\textsc{Nombre} &  \multicolumn{2}{l|}{Conocimiento hardware formal}\\ \hline
+\textsc{Poseído por} &  \multicolumn{2}{X|}{Bibliografía}\\ \hline
+\textsc{Usado en} &  \multicolumn{2}{l|}{2. Diagnóstico; 4. Resolución del problema}\\ \hline
+\textsc{Dominio} &  \multicolumn{2}{p{7.5cm}|}{Informática técnica}\\ \hline
+
+\textbf{Naturaleza del conocimiento} & \emph{(Sí/No)} &
+\textbf{¿Cuello de botella/debe ser mejorado?}
+\\ \hline Formal, riguroso & X &
+\\ \hline Empírico, cuantitativo & &
+\\ \hline Heurístico, sentido común & &
+\\ \hline Altamente especializado, específico del dominio & X & 
+\\ \hline Basado en la experiencia & &
+\\ \hline Basado en la acción &  & 
+\\ \hline Incompleto & X & Es un cuello de botella ya que estamos tratando con una tecnología que evoluciona rápidamente en el tiempo. Este problema no sería mejorable por el SBC.
+\\ \hline Incierto, puede ser incorrecto & & 
+\\ \hline Cambia con rapidez & X & Problema que obliga a mantener el conocimiento continuamente actualizado. No sería mejorable por el SBC.
+\\ \hline Difícil de verificar & &  
+\\ \hline Tácito, difícil de transferir & X & Sí, podría ser mejorado por el SBC 
+\\ \hline \textbf{Forma del conocimiento} & &
+\\ \hline Mental&  & 
+\\ \hline Papel & X & 
+\\ \hline Electrónica & X & 
+\\ \hline Habilidades &  &
+\\ \hline Otros& & 
+\\ \hline \textbf{Disponibilidad del Conocimiento} &  &
+\\ \hline Limitaciones en tiempo & &
+\\ \hline Limitaciones en espacio & & 
+\\ \hline Limitaciones de acceso & X & No siempre se le puede tener acceso, mejorable por el SBC.
+\\ \hline Limitaciones de calidad & &
+\\ \hline Limitaciones de forma & & 
+\\ \hline
+\end{tabularx}
+  \label{tab.TM2}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formulario AM-1: descripción de los agentes.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Descripción de los agentes implicados en las tareas de interés.
+
+\begin{table}[H]
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|} \hline
+\textbf{Modelo de Agentes} & \textbf{Formulario AM-1: Agentes} \\ \hline\hline
+\textsc{Nombre} 
+&  Técnico experto
+\\ \hline
+\textsc{Organización} 
+&  Agente humano perteneciente al departamento técnico.
+\\ \hline
+\textsc{Implicado en} & 2. Diagnóstico; 3. Solicitud de recursos necesarios; 4. Resolución del problema
+ \\ \hline
+\textsc{Se comunica con} & Empleados, técnicos externos y suministrador  \\ \hline
+\textsc{Conocimiento} & Conocimiento de software / hardware \\ \hline
+\textsc{Otras Competencias} 
+& Capacidad de comunicación con los empleados y habilidad para manejar problemas que se salen de lo ordinario.
+\\ \hline
+\textsc{Responsabilidades y restricciones} &  Tratar a los empleados de forma igualitaria (sin trato de favores, no mezclar rencillas personales, etc).
+\\ \hline
+\end{tabularx}
+ \label{tab.AM1}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%FINAL DEL LIBRO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

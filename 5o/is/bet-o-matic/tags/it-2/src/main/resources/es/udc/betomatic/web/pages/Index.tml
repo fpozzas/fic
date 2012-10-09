@@ -1,0 +1,9 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	t:type="Layout" t:pageTitle="title"
+	xml:space="preserve">
+
+<p class="welcome">
+    <span class="awesome">${message:welcome1}<img src="${context:/img/awesome32.png}" />${message:welcome2}</span>
+</p>
+   
+</html>

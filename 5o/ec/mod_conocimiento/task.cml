@@ -1,0 +1,43 @@
+TASK diagnostico-pc;
+    GOAL:
+        "Encontrar el problema que causa la queja del usuario";
+    ROLES:
+        INPUT:
+            complaint: "Queja acerca de un comportamiento del PC"
+        OUTPUT:
+            faults: "Conjunto de posibles causas que han podido originar la queja";
+            evidence: "Conjunto de observaciones obtenidas a lo largo del diagnóstico acerca del problema";
+END TASK diagnostico-pc;
+
+TASK-METHOD metodo-diagnostico;
+    REALIZES: diagnostico-pc;
+    DECOMPOSITION:
+        INFERENCES: cover, select, specify, verify;
+        TRANSFER-FUNCTIONS: obtain;
+    ROLES:
+        INTERMEDIATE:
+            differential: "soluciones candidatas que siguen activas";
+            hypothesis: "solución candidata";
+            result: "booleano que indica el resultado del test para la solución candidata";
+            expected-finding: "datos que se esperan encontrar para que la solución sea valida";
+            actual-finding: "datos que se observan en realidad";
+    CONTROL-STRUCTURE:
+        WHILE NEW-SOLUTION cover(complaint -> hypothesis) DO
+            differential := hypothesis ADD differential;
+        END WHILE
+        REPEAT
+            select(differential -> hypothesis);
+            specify(hypothesis -> observable);
+            obtain(observable -> finding);
+            evidence := finding ADD evidence;
+            FOR-EACH hypothesis IN differential DO
+                verify(hypothesis + evidence) -> result);
+                IF result == false
+                    THEN differential := differential SUBTRACT hypothesis;
+                END IF
+            END FOR-EACH
+        UNTIL
+            SIZE differential <= 1 OR "no quedan más observables";
+        END REPEAT
+        faults := differential;
+END TASK-METHOD metodo-diagnostico;

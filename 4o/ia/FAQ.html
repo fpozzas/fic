@@ -1,0 +1,25 @@
+﻿<html>
+<title>Preguntas frecuentes PRACTICA 1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<body>
+
+
+
+ACTUALIZADO 13:07 miércoles, 3 de diciembre de 2008
+<h1><font size="4">Cuestiones Generales</font></h1>
+<ol>
+  <li><font color="#0000ff">PREGUNTA:</font><i> ¿Cuál es la fecha de entrega del código de la práctica?</i><br /><font color="#ff0000">RESPUESTA:</font> La primera entrega de la memoria se refiere al análisis previo a la resolución del problema (métodos), incluyendo el planteamiento de las heurísticas que más tarde serán utilizadas. La segunda entrega de la memoria se refiere exclusivamente a la presentación y discusión de resultados. Es aquí cuando es necesario haber realizado una implementación, y por tanto, cuando se entrega el CODIGO de la práctica. <br /><br /></li>
+  <li><font color="#0000ff">PREGUNTA:</font><i> ¿Cómo se define formalmente el estado inicial, final, ...?</i><br /><font color="#ff0000">RESPUESTA:</font> La definición formal tiene en cuenta cómo se van a representar los estados en la solución al problema de búsqueda (Véase ejemplos pág. 73 del libro de Russell y Norvig) <br /><br /></li>
+  <li><font color="#0000ff">PREGUNTA:</font><i> Los algoritmos de búsqueda ciega (anchura, profundidad) que se encuentran en el libro de Inteligencia Artificial (Moret y colaboradores) difieren con respecto a los del libro de Russell y Norvig en cuanto al momento de realizar la prueba de meta. Esto influye en el análisis de complejidad. Por tanto, ¿qué versión utilizamos?</i><br /><font color="#ff0000">RESPUESTA:</font> La que se desee, siempre y cuando se citen las fuentes. <br /><br /></li>
+  <li><font color="#0000ff">PREGUNTA:</font><i> Las funciones de coste g y heurística h, ¿deben estar expresadas en las mismas unidades?</i><br /><font color="#ff0000">RESPUESTA:</font> Dado que van a ser utilizadas en el algoritmo A*, tendrán necesariamente que medir las mismas magnitudes y ser del mismo orden para que ninguna de las dos determine por si misma la elección del siguiente nuevo mejor estado. Es decir, que si h mide distancia en kilómetros, g no puede contabilizar movimientos porque en este caso h sería siempre mucho mayor que g, y la búsqueda estaría determinada por h. <br /><br /></li>
+  <li><font color="#0000ff">PREGUNTA:</font><i> ¿Con qué grado de exactitud debe medir la función heurística h la distancia a la meta?</i><br /><font color="#ff0000">RESPUESTA:</font> Dado que se trata de una función que calcula una estimación <u>no es necesario</u> que proporcione, para cada estado, la <strong>distancia exacta</strong> a la meta. Es labor de los algoritmos de búsqueda encontrar el camino a la meta y, en el caso del algoritmo A*, el camino de coste óptimo. Por tanto, la función heurística debería ser una función matemática, computable eficientemente en el sentido de no ser tan costosa a la hora de obtener sus valores como lo es el propio proceso de búsqueda, y que proporcione valores estimativos. <br /><br /></li>
+  <li><font color="#0000ff">PREGUNTA:</font><i> ¿Con qué algoritmos hay que considerar la aparición de mínimos locales en las funciones heurísticas?</i><br /><font color="#ff0000">RESPUESTA:</font> No hay que considerar ningún algoritmo. Se trata de determinar, en general, bajo qué circunstancias del problema (considerando todas sus condiciones y restricciones), una función heurística aplicada a un estado producirá un valor mejor que para otro que en realidad está más cerca de la meta. Luego se puede incorporar uno o varios ejemplos explicativos. <br /><br /></li>
+  <li><font color="#0000ff">PREGUNTA:</font><i> ¿Cuántos algoritmos hay que implementar?</i><br /><font color="#ff0000">RESPUESTA:</font> A*, ascensión a colinas y el algoritmo de búsqueda ciega seleccionado. <br /><br /></li>
+</ol>
+<h1><font size="4">Cuestiones Específicas<br /></font></h1>
+<ol>
+  <li><font color="#0000ff">PREGUNTA:</font><i> En qué formato electrónico se entregan las memorias?</i><br /><font color="#ff0000">RESPUESTA:</font> Se entregan en formato pdf, aunque escriben utilizando los modelos proporcionados de L<sup><small>A</small></sup>T<small>e</small>X, Word y OpenOffice. </li>
+</ol>
+
+</body>
+</html>

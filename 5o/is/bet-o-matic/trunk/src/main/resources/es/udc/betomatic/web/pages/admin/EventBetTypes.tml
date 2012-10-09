@@ -1,0 +1,75 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	  xmlns:p="tapestry:parameter"
+	  t:type="Layout" t:pageTitle="title"
+	  xml:space="preserve">
+
+	<t:if test="event">
+	    <h2>${message:manageEvent} ${event.name}</h2>
+
+		<t:if test="betTypes">
+
+
+			<!-- Print bet types. -->
+
+			<table class="betTypes">
+
+				<tr>
+					<th>${message:betTypeQuestion}</th>
+					<th>${message:betTypeOptions}</th>
+					<t:if test="eventHasStarted"><th>${message:action}</th></t:if>
+				</tr>
+
+				<tr t:type="Loop" t:source="betTypes" t:value="betType">
+					<td>${betType.question}</td>
+					<td>
+						<t:if test="hasOptions">
+							<ul>
+								<li t:type="Loop" t:source="betOptions" t:value="betOption">
+									${betOption.name} (<t:output value="betOption.quota" format="numberFormat"/>)
+								</li>
+							</ul>
+
+							<p:else>
+								${errorMessage}
+							</p:else>
+						</t:if>
+
+					</td>
+					<t:if test="eventHasStarted"><td>
+					    <t:if test="eventHasStarted">
+							<a href="#" t:type="PageLink" t:page="admin/SetWinners"
+							   t:context="setLinksContext">
+								<t:if test="betType.multipleWinner">${message:setWinners}
+								<p:else>${message:setWinner}</p:else>
+								</t:if>
+							</a>
+							<p:else>
+								${message:eventHasNotFinished}
+							</p:else>
+					    </t:if>
+					</td></t:if>
+				</tr>
+			</table>
+
+
+			<p:else>
+				<p>${message:noBetTypes}.</p>
+			</p:else>
+
+		</t:if>
+
+
+	    <t:if test="!eventHasStarted">
+			<a href="#" t:type="PageLink" t:page="admin/AddBetType"
+			   t:context="addLinksContext" class="addNetBetTypeLink">
+				${message:addNewBetType}
+			</a>
+	    </t:if>
+
+		<p:else>
+			<p>${message:noEvent}.</p>
+		</p:else>
+
+	</t:if>
+
+</html>

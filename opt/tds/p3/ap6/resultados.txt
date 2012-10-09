@@ -1,0 +1,8 @@
+Alumno: Daniel Fernández Núñez
+
+6. Enventanado
+1) En la rectancular apena se distinguen los dos lobulos mientras
+que en la de Hamming se ven perfectamente.
+2) Ocurre los contrario, en la rectangular se distinguen ambos lobulos
+mientras que en la de Hamming ambos lobulos se solapan en uno y apenas 
+se distinguen.

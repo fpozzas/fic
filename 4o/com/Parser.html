@@ -1,0 +1,715 @@
+<html><head>
+
+
+  <meta name="keywords" content="Lex,Yacc,Parser,tutorial,compiler,translator,
+	      grammars">
+  <meta name="description" content="Wish to write a parser to parse a text
+   file without the knowledge of lex/yacc,grammars,regular expressions etc.">
+  <title>How to write a Parser / translator using Lex /Yacc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></head><body bgcolor="#ffffff" link="#0000ee" text="#000000" vlink="#ff0000"><script type="text/javascript" src="Parser_files/hb.js"></script>
+<script type="text/javascript" src="Parser_files/lycosRating.js"></script><link rel="stylesheet" type="text/css" href="Parser_files/lycosRating.css">
+
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+var cm_role = "live";
+var cm_host = "tripod.lycos.com";
+var cm_taxid = "/memberembedded";
+var tripod_member_name = "ashimg";
+var tripod_member_page = "ashimg/Parser.html";
+var tripod_ratings_hash = "1230071904:b2fec183314ef9b6a0c192d7b12b0633";
+
+var lycos_ad_category = null;
+
+var lycos_ad_remote_addr = "85.49.2.23";
+var lycos_ad_www_server = "www.tripod.lycos.com";
+var lycos_ad_track_small = "http://members.tripod.com/adm/img/common/ot_smallframe.gif?rand=871851";
+var lycos_ad_track_served = "http://members.tripod.com/adm/img/common/ot_adserved.gif?rand=871851";
+//--><!]]></script>
+<script type="text/javascript" src="Parser_files/init.js"></script><script type="text/javascript" src="Parser_files/memberembedded.js"></script>
+<script style="display: none;" type="text/javascript" src="Parser_files/code-start.js"></script>
+<script style="display: none;" type="text/javascript" src="Parser_files/code-middle.js"></script>
+<script style="display: none;" type="text/javascript" src="Parser_files/code-end.js"></script>
+<noscript> <img
+src="http://members.tripod.com/adm/img/common/ot_noscript.gif?rand=871851"
+alt="" width="1" height="1" /> <!-- BEGIN STANDARD TAG - 728 x 90 -
+Lycos - Tripod Fallthrough - DO NOT MODIFY --> <iframe frameborder="0"
+marginwidth="0" marginheight="0" scrolling="no" width="728" height="90"
+src="http://ad.yieldmanager.com/st?ad_type=iframe&ad_size=728x90&section=209094"></iframe>
+
+<!-- END TAG -->
+</noscript>
+
+<table bgcolor="#ffffff">
+ <tbody><tr>
+  <td>
+  <table border="0" width="85">
+   <tbody><tr>
+    <td align="center" bgcolor="#000099" valign="center">
+    <font color="#ffffff" face="verdana, geneva" size="-1">
+    <b>BEST<br>of POD</b>
+    <table border="0">
+     <tbody><tr>
+      <td align="center" bgcolor="#ffffff" valign="center">
+      <center>
+      <a href="http://www.tripod.com/pod_central/pods/techbits/">
+      <img src="Parser_files/techbits_icon.html" border="0" height="64" width="62"></a></center>
+      </td>
+     </tr>
+    </tbody></table> 
+    </font>
+    </td>
+   </tr>
+   <tr>
+    <td align="center" bgcolor="#000000">
+    <a href="http://www.tripod.com/">
+    <img src="Parser_files/logo_small.html" border="0" height="28" width="62"></a>
+    </td>
+   </tr>
+  </tbody></table>
+  </td>
+ </tr>
+</tbody></table>
+
+<h1 align="center">
+  <img src="Parser_files/write.gif" height="40" width="40"><font color="#ffffff">
+  </font><em><strong><b><font color="Brown">How to Write a Simple Parser<br>
+             by Ashim Gupta</font></b></strong></em>
+</h1>
+<p>
+<font color="Green">This is a simple tutorial which gives certain simple
+yet necessary steps required to 
+write a Parser. It won't cover too much details about Programming Languages constructs.</font><br>
+<font color="Green"> The Compiler Design Tools used in this tutorial are
+LEX (Lexical Analysis) YACC (Yet another Compiler Compiler).</font>
+</p>
+<p>
+  </p><hr>
+<p>
+<font color="Black"><b><em>Certain Basic Concepts and
+Definitions:</em></b></font><br>
+</p>
+<h3>
+  <font color="crimson">What is a Parser
+  ?</font></h3>
+<font color="#000066">A Parser for a Grammar is a program
+  which takes in the Language string
+  as it's input and produces either a corresponding Parse tree or an
+Error.</font>
+<h3>
+  <font color="crimson">What is the Syntax of a Language?</font></h3>
+<p><font color="#000066">The Rules which
+  tells whether a string is a valid Program or not are called the
+  Syntax.</font></p>
+<h3>
+  <font color="crimson">What is the Semantics of a
+  Language?</font><br>
+  </h3>
+<p><font color="#000066">The Rules which gives meaning to programs
+  are called the Semantics of a Language.</font></p>
+<h3>
+  <font color="crimson">What are tokens ?</font><br>
+  </h3>
+<p><font color="Black"><font color="#000066">When a string representing
+a program is broken into sequence of substrings,such that each
+substring represents a constant,identifier,operator , keyword etc of
+the language, these substrings are called the tokens of the Language.</font></font></p>
+<h3>
+  <font color="crimson">What is the Lexical Analysis ?</font><br>
+  </h3>
+<p><font color="#000066">The
+  Function of a lexical Analyzer is to read the input stream representing
+  the Source program, one character ata a time and to translate
+  it into valid
+  tokens.</font></p>
+<h3>
+  <font color="crimson">How can we represent a token in a language
+  ?</font><br>
+  </h3>
+<p><font color="#000066">The
+  Tokens in a Language are represented by a set of Regular Expressions.
+  A regular expression specifies a set of strings to be matched. It 
+  contains text characters and operator characters.The Advantage of
+  using regular expression is that a recognizer can be automatically
+  generated.</font></p>
+<h3>
+  <font color="crimson">How are the tokens recognized ?</font><br>
+  </h3>
+<p><font color="crimson"><font color="#000066">The tokens which are represented by an Regular
+  Expressions are recognized in an input string by means of a state transition Diagram and Finite Automata.</font></font></p>
+<h3>
+  <font color="crimson">Are Lexical Analysis and Parsing two different Passes
+  ?</font><br>
+  </h3>
+<p><font color="#000066">These two can form two different passes
+  of a Parser. The Lexical analysis can
+  store all the recognized tokens in an intermediate file
+  and give it to the &nbsp;Parser
+  as an input. However it is more convenient to have the
+  lexical Analyzer as
+  a coroutine or a subroutine which the Parser calls whenever
+  it requires a token.</font></p>
+<h3>
+  <font color="crimson">How do we write the Regular Expressions
+  ?</font><br>
+  </h3>
+<p><font color="#000066">The
+  following are the most general notations used for expressing a
+  R.E.</font></p>
+<p>
+</p><center>
+  <table align="center" border="1" cellpadding="2">
+    <tbody><tr>
+      <th><font color="Green">Symbol</font></th>
+      <th><font color="Green">Description</font></th>
+    </tr>
+    <tr>
+      <td><font color="#000066">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |</font></td>
+      <td><font color="#000066">OR (alternation)</font></td>
+    </tr>
+    <tr>
+      <td><font color="#000066">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;() &nbsp;&nbsp;
+	&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; </font></td>
+      <td><font color="#000066">Group of Subexpression</font></td>
+    </tr>
+    <tr>
+      <td><font color="#000066">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;*
+	</font></td>
+      <td><font color="#000066">0 or more Occurrences</font></td>
+    </tr>
+    <tr>
+      <td><font color="#000066">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? &nbsp;
+	</font></td>
+      <td><font color="#000066">0 or 1 Occurrence</font></td>
+    </tr>
+    <tr>
+      <td><font color="#000066">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +
+	</font></td>
+      <td><font color="#000066">1 or more Occurrences</font></td>
+    </tr>
+    <tr>
+      <td><font color="#000066">&nbsp; &nbsp; &nbsp; {n,m} </font></td>
+      <td><font color="#000066">n-m Occurrences</font></td>
+    </tr>
+  </tbody></table>
+</center>
+<p></p>
+<p>
+<font color="#000066"> Suppose we want to express
+the 'C' identifiers as a regular Expression:-</font><br>
+<font color="Green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; identifier=letter(letter|digit)*</font><br>
+<font color="#000066">Where letter denotes
+the character set a-z &amp; A-Z</font><br> 
+<font color="Green">
+In LEX we can write it as &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;[a-zA-Z][a-zA-Z0-9]* </font><br>
+<br><font color="#000066">
+The Rules for writting R.E are:-<br>
+* An operator character may be turned into a text character by enclosing
+it in quotes, or by preceding it with a \ (backslash).<br>
+* a/b matches "a" but only if followed by b (the b is not matched)<br>
+* a$ matches "a" only if "a" occurs at the end of a line<br>
+* ^a matches "a" only if "a" occurs at the beginning of a line<br>
+* [abc] matches any charcter that is an "a", "b" or "c"<br>
+* [^abc] matches any charcter but "a", "b" and "c".<br>
+* ab?c matches abc and ac<br>
+* Within the square brackets most operators lose their special meanings
+except "\" and "-". the "^" which takes there special meaning.<br>
+* "\n" always matches newline, with or without the quotes. If you want to match the character "\" followed by "n", use \\n.<br>
+
+</font></p>
+<h3>
+  <font color="crimson">What are the Advantages of using Context-Free grammars
+  ?</font></h3>
+<p><br>
+  <font color="Black">
+  o </font><font color="#000066">It is precise and &nbsp;easy to
+      understand.</font><font color="Black"><br>
+      o </font><font color="#000066">It is easier to determine syntatic
+          ambiguities and conflicts in the grammar.<br>
+            </font></p>
+<h3>
+  <font color="crimson">If Context-free grammars can represent every regular
+    expression ,Why do
+one needs R.E at all?</font></h3>
+<p><font color="#000066"><br>
+  o Regular Expression are Simpler than Context-free grammars.<br>
+  o It is easier to construct a recognizer for R.E than Context-Free grammar.<br>
+  o Breaking the Syntatic structure into Lexical &amp; non-Lexical parts
+  provide
+  better front end for the Parser.<br>
+  o R.E are most powerfull in describing the lexical constructs like
+  identifiers,
+  keywords etc while Context-free grammars in representing the
+  nested
+  or block structures of the Language.<br>
+</font></p>
+<h3>
+  <font color="crimson">What are the Parse Trees
+  ?</font></h3>
+<p><font color="#000066"><br>
+  Parse trees are the Graphical representation of the grammar which filters
+  out<br>
+  the choice for replacement order of the Production
+  rules.</font><font color="Green"><br>
+  e.g<br>
+  &nbsp; &nbsp; &nbsp; for a production &nbsp;P-&gt;ABC<br>
+  the parse tree would be<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; P<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp;/ &nbsp; \&nbsp;\<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp;/ &nbsp; &nbsp; &nbsp;\ &nbsp;\<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;A
+  &nbsp; &nbsp; &nbsp; &nbsp; B &nbsp;C</font></p>
+<h3>
+  <font color="crimson">What are Terminals and non-Terminals in a grammar
+?</font></h3>
+<p><font color="#000066"><br>
+  Terminals:- All the basic symbols or tokens of which the language is
+  composed
+  of are called Terminals. In a Parse Tree the Leafs represents
+  the Terminal Symbol.<br>
+  Non-Terminals:- These are syntactic variables in the grammar which
+  represents a set of strings the grammar
+  is composed of. In a Parse tree all the inner nodes represents
+  the Non-Terminal symbols.<br>
+</font></p>
+<h3>
+  <font color="crimson">What are Ambiguious Grammars
+?</font></h3>
+<p><font color="#000066"><br>
+  A Grammar that produces more than one Parse Tree for the same sentences
+  or the Production rules in a grammar is said to be
+  ambiguous.</font><font color="Green"><br>
+  e.g consider a simple mathematical expression</font><font color="#000066"><br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp;</font><font color="Green">E-&gt;E*E<br>
+  This can have two Parse tree according to assocciativity of the operator<br>
+  '*'</font><font color="#000066"><br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  </font><font color="Green">&nbsp;E &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;E<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; \
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; \<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *&nbsp; &nbsp;&nbsp;&nbsp;
+  E &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; E&nbsp; &nbsp; &nbsp;&nbsp;*<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp;\ &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;/ \<br>
+  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; E &nbsp; &nbsp;E &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; E &nbsp; E&nbsp; &nbsp; <br>
+</font></p>
+<h3>
+  <font color="crimson">
+  What is bottom up Parsing ?</font></h3>
+<p><font color="#000066"><br>
+  The Parsing method in which the Parse tree is constructed from the
+      input
+      language string begining from the leaves and going up to the root node.<br>
+  Bottom-Up parsing is also called shift-reduce parsing due to it's
+  implementation.<br>
+  The YACC supports shift-reduce pasing.<br>
+  e.g &nbsp;Suppose there is a grammar G having a production E<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;E-&gt;E*E<br>
+  and an input string &nbsp; x*y.<br>
+  The left hand side of any production are called Handles.
+  thus the handle for this example is E.<br>
+  The shift action is simply pushing an input symbol on a stack. When the
+  R.H.S
+  of a production is matched the stack elements are popped and replaced by
+  the corresponding Handle. This is the reduce action.
+  <br>
+  Thus in the above example , The parser shifts the input token 'x' onto
+      the stack. Then again it shifts the token '*' on the top of the stack.
+      Still
+      the production is not satisfied so it shifts the next token 'y' too. Now
+      the production E is matched so it pops all the three tokens from the stack
+      and replaces it with the handle 'E'. Any action that is specified with the
+      rule is carried out.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; If the input string reaches the
+      end of file /line and no
+      error has occurred then the parser executes the 'Accept' action signifing
+      successfull completion of parsing. Otherwise it executes an 'Error'
+  action.</font></p>
+<h3>
+  <font color="crimson">What is the need of Operator precedence
+  ?</font></h3>
+<p><font color="#000066"><br>
+  The shift reduce Parsing has a basic limitation. A grammar which can 
+  represent a left-sentential parse tree as well as right-sentential parse
+  tree
+  cannot be handled by shift reduce parsing. Such a grammar ought to have two
+  non-terminals in the production rule. So the Terminal sandwitched between<br>
+  these two non-terminals must have some associativity and precedence. This
+  will help the parser to understand which non-terminal would be expanded
+  first.</font></p>
+<br>
+<h3>
+  <font color="crimson">What is a LR Parser
+  ?</font></h3>
+<p><font color="#000066"><br>
+  The LR means Left-to- Right signifying the parser which reads the input
+  &nbsp;string from left to right. An LR parser can be written for almost all
+  Programming
+  &nbsp;constructs.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  An LR parser consists of two parts:- Driver Routine &amp; Parsing
+  &nbsp;Table. The Driver routine is same for all the Parsers ,only &nbsp;the
+  Parsing Table
+  &nbsp;changes. The Parsing Table is essentially a form of representing the
+  State-
+  &nbsp;Transition Diagram for the language. It consists the entries for all
+  possible
+  &nbsp;States &nbsp;and the input symbols. In each state there in a predetermined
+  next state
+  &nbsp;depending upon the input symbol. If there is any duplicate entry or
+  two next 
+  &nbsp;states for the same symbol, then there is an ambiguity in the
+  grammar.</font></p>
+<h3>
+  <font color="crimson">
+  What is LALR Parser ?</font></h3>
+<p><font color="#000066"><br>
+  LALR is Look-ahead LR parser. It differs from LR in the fact that it will
+  look
+  ahead one symbol in the input string before going for a reduce action.
+  Look-
+  ahead helps in knowing if the complete rule has been matched or
+  not.</font><font color="Green"><br>
+  e.g Consider a grammar G with production<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;P-&gt;AB|ABC<br>
+  When the Parser shifts the Symbol B it can reduce to P . But if the next
+  Symbol was C then it has not matched the complete rule. A LALR parser will shift one
+  extra token and then take a decision to reduce or
+  shift.</font></p>
+<hr>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<h2>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<i>
+  <font color="Brown"><b>LEX-the Lexical Analyzer</b></font></i>
+</h2>
+<p>
+<font color="#000066">The Lex utility generates a 'C' code which is nothing
+but a yylex() function
+which can be used as an interface to YACC. A good amount of details on Lex
+can be obtained from the Man Pages itself. A Practical approach to certain
+fundamentals are given here.<br>
+&nbsp; &nbsp; &nbsp; &nbsp; The General Format of a Lex File consists of
+three sections:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1. Definitions<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2. Rules<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3. User Subroutines<br>
+Definitions consists of any &nbsp;external 'C' definitions used in the lex
+actions or
+subroutines . e.g all preprocessor directives like #include, #define macros
+etc.
+These are simply copied to the lex.yy.c file. &nbsp;The other type of definitions
+are Lex 
+definitions which are essentially the lex substitution strings,lex start
+states and lex 
+table size declarations.The Rules is the basic part which specifies the regular
+expressions and their corresponding actions. The User Subroutines are the
+function definitions of the functions that are used in the Lex actions.
+<br><br></font></p>
+<font color="#000066"><font color="Green"> Things to remember:</font><br>
+<font color="#000066">
+1. If there is no R.E for the input string , it will be copied to the standard output.<br>
+2. The Lex resolves the ambiguity in case of matching by choosing the longest match first 
+or by choosing the rule given first.<br>
+3. All the matched expressions are contained in yytext whose length is yyleng.<br>
+</font></font><p></p>
+<p>
+<font color="#000066"><font color="crimson">When shall we use the Lex Substitution Strings
+?</font><font color="#000066"><br>
+Lex Substitution Strings are of importance when the regular expressions
+become very large and unreadable. In that case it is better to break them into
+smaller substitution strings and then use them in the Rules Sections. Another use
+is when a particular Regular Expression appears quite often in number of
+Rules.</font></font></p>
+<p>
+<font color="#000066"><font color="crimson">When shall one use the Start states
+?</font><font color="#000066"><br>
+Start states helps in resolving the reduce -reduce error in the Parser. It
+is particularly important when one wants to return different tokens for the
+same Regular Expression depending upon what is the previous scanned token.<br> 
+e.g suppose we have two tokens /keywords CustName &amp; ItemName followed
+by a string. If the BNF is such that the string reduces to two non terminals
+then there is reduce/reduce conflict. To avoid this it will be better to return
+two different tokens for the string depending upon whether CustName was scanned
+previously or ItemName.</font></font></p>
+<p>
+<font color="#000066"><font color="crimson">How can one determine correct Table Size
+Declarations?</font><font color="#000066"><br>
+There is indeed no hard and fast rule for the above. The best method is not
+to give any sizes initially. The default table sizes are sufficient for small
+applications.
+However if the limits are crossed then Lex itself will generate errors
+messages giving info on the size violations. Then one can experiment by incrementally
+increasing the corresponding sizes.</font></font></p>
+<p>
+<font color="#000066"><font color="crimson">When does it become important to give 'C' code to
+identify a token instead of a R.E?</font><font color="#000066"><br>
+Sometimes one might notice that after adding one more R.E to the Lex rules
+, the number of Lex states increases tremendously. This happens when the particular
+R.E has a subexpression which clashes with other R.E. Huge number of states
+implies more case statements and hence reduces the execution speed of yylex
+functions.  Thus it is more economical to identify an initial yet deterministic part
+of the token and then use &nbsp;input() &amp; unput() functions to identify the remaining
+part of the token.<br>
+One nice example is that of a 'C' comment ( /* comment */). After identifying
+the '/*' one can write a simple 'C' action to identify the remaining
+token.</font></font></p>
+<p>
+<font color="#000066"><font color="crimson">
+How do we redirect the Stdin to a particular FILE *
+?</font><br>
+<font color="#000066">
+Normally the Lex takes the input from the Standard input through a macro
+definition<br>
+</font><font color="Green"><br>
+#define &nbsp;lex_input() &nbsp;
+&nbsp;(((yytchar=yysptr&gt;yysbuf?U(*--yysptr):getc(yyin))==10?
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;(yylineno++,yytchar):yytchar)==EOF?0:yytchar)</font></font></p>
+<p>
+<font color="#000066"><font color="#000066">To redirect the yyyin from stdin just do the
+following</font><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <font color="Green">FILE *
+fp=fopen("Filename","r");<br>
+&nbsp; &nbsp; &nbsp; &nbsp; yyin=fp;</font><font color="#000066"><br>
+Another &nbsp;leagal but bad workaround is to redefine this Macro in the
+definitions section
+by replacing yyin with fp. However this will always give a Warning during
+compilation.</font></font></p>
+<p>
+<font color="#000066"><font color="red">What is the significance of the yywrap() function ?</font><br>
+<font color="#000066">
+The yywrap() function is executed when the lexical analyzer reaches the
+end of the input file. It is generally used to print a summary of
+lexical analysis or to open another file for reading.
+The yywrap() function should return 0 if it has arranged for additional
+input, 1 if the end of the input has been reached.
+</font></font></p>
+<p>
+<font color="#000066">  </font></p><hr>
+<p></p>
+<p align="center">
+<font color="#000066"><b><font color="Brown"><i>YACC-Yet Another
+Compiler-Compiler</i></font></b></font></p>
+<p align="left">
+<font color="#000066"><font color="#000066">Yacc is the Utility which generates the function
+'yyparse' which is indeed the Parser.
+Yacc describes a context free , LALR(1) grammar and supports both bottom-up
+and top-down parsing.The general format for the YACC file is very similar to
+that of the Lex file.<br></font></font></p>
+<p>
+<font color="#000066"><font color="#000066">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font color="Black">1. Declarations<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2. Grammar
+Rules</font><font color="Fuchsia"><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+</font><font color="Black">3.
+Subroutines</font><font color="#000066"><br>
+In Declarations apart from the legal 'C' declarations there are few Yacc
+specific declarations which begins with a %sign.<br><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+</font><font color="Black">1. &nbsp;%union
+</font><font color="#000066">&nbsp; &nbsp;It defines the Stack type
+for the Parser.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+It is a union of various datas/structures/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+objects. <br><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="Black">
+2. &nbsp;%token &nbsp;&nbsp;</font><font color="#000066"> 
+These are the terminals returned by &nbsp;the yylex<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+function to the yacc. A token can also have type<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+associated with it for good type checking and <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+syntax directed translation. A type of a token <br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ can be specified as %token &lt;stack member&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ tokenName.<br><br>
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+</font><font color="Black">3. %type
+</font><font color="#000066"> &nbsp; &nbsp; &nbsp;The type
+of a non-terminal symbol in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+the Grammar rule can be specified with this.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The format is %type &lt;stack member&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+non-terminal.<br><br>
+</font>
+<font color="Black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;4. %noassoc &nbsp;</font><font color="#000066">
+Specifies that there is no associativity <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+of a terminal symbol.<br><br>
+&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="Black">5. 
+%left &nbsp; &nbsp; </font><font color="#000066">
+&nbsp;Specifies the left associativity of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a Terminal Symbol<br><br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; </font><font color="Black">6.
+%right </font><font color="#000066"> &nbsp; &nbsp; Specifies
+the right assocoativity of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a Terminal Symbol.<br><br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; </font><font color="Black">7.
+%start &nbsp; </font><font color="#000066"> &nbsp; Specifies
+the L.H.S non-terminal symbol  of a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+production rule which should be taken as the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+starting point of the grammar rules.<br><br>
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </font><font color="Black">8.
+%prec &nbsp;</font><font color="#000066"> &nbsp;
+Changes the precedence level associated with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a particular rule to that of the following<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+token name or literal.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The grammar rules are specified as follows:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Context-free grammar production-<br>
+</font><font color="Green">&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+p-&gt;AbC</font><font color="#000066"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Yacc Rule-<br>
+</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="Green">p : A b C &nbsp; { /* &nbsp; 'C' actions
+&nbsp; */}</font><font color="#000066"><br>
+The general style for coding the rules is to have all Terminals in upper-case
+and all non-terminals in lower-case.<br>
+To facilitates a proper syntax directed translation the Yacc has something
+called pseudo-variables which forms a bridge between the values of
+terminal/non-terminals and the actions. These pseudo variables are
+</font><font color="Green">$$,$1,$2,$3......
+</font><font color="#000066">&nbsp; The $$ is the L.H.S
+value of the rule whereas $1 is the first R.H.S value of the rule and so
+is $2 etc. The default type for pseudo variables is integer unless they are specified by
+%type , <br>
+</font><font color="Green">%token &lt;type&gt; etc.</font></font></font></p>
+<p align="left">
+<font color="#000066"><font color="#000066"><font color="crimson">How are Recursions handled in the grammar rule
+?</font><font color="#000066"><br>
+Recursions are of two types left or right recursions. The left recursion
+is of form<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+</font><font color="Green">&nbsp;list : &nbsp;item &nbsp; &nbsp;{
+/* first item */ }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;list
+&nbsp;item &nbsp;{ /* rest of the items */
+}</font><font color="#000066"><br>
+The right recursion is of form<br>
+&nbsp; &nbsp; &nbsp; &nbsp; </font><font color="Green">&nbsp; list
+&nbsp;: item &nbsp;{ /* first item */ }<br>
+&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | item list
+&nbsp;{ /* rest of items */ }</font><font color="#000066"><br>
+In right Recursion the Parser is a bit bigger then that of left recursion
+and the items are matched from right to left.
+</font><font color="crimson"><br></font></font></font></p>
+<p>
+<font color="#000066"><font color="#000066"><font color="crimson">How are symbol table or data structures built in the actions
+?<font color="#000066"><br>
+For a proper syntax directed translation it is important to make full
+use of the pseudo variables. One must have structures/classes defined of all the
+productions which can form a proper abstraction. The yystack should then be a union of
+pointers of all such structures/classes. The reason why pointers should be used instead
+of structures is to save space and also to avoid copying structures when the
+rule is reduced. Since the stack is always updated i.e on reduction the stack
+elements are popped and repaced by L.H.S so any data that was refered gets
+lost.</font></font></font></font></p>
+
+<hr>
+<h2 align="left"><font color="#000066"><font color="#000066"><font color="crimson">EXAMPLE</font></font></font></h2>
+<p align="left">
+<font color="#000066"><font color="#000066"><font color="crimson"><font color="Brown">The above description gives a fairly good
+sight into the fundamentals
+of Parsing,Lex and YACC. &nbsp; A small yet complete example with 
+detailed description is given in the next Page. It also tells about
+commonly seen errors and ways to resolve them.</font></font></font></font></p>
+<p align="left"><font color="#000066"><font color="#000066"><font color="crimson"><a href="http://ashimg.tripod.com/example.html">click for example ..</a></font></font></font></p>
+<hr>
+<font color="#000066"><font color="#000066"><font color="crimson">  </font></font></font><h2 align="left"><font color="#000066"><font color="#000066"><font color="crimson">Object-Oriented YACC</font></font></font></h2>
+<p align="left">
+<font color="#000066"><font color="#000066"><font color="crimson"><font color="Brown">An Object Oriented version of YACC. 
+This modified version allows for multiple instances of same parser
+which can be used concurrently or in parallel.</font></font></font></font></p>
+<p align="left"><font color="#000066"><font color="#000066"><font color="crimson"><a href="http://ashimg.tripod.com/ooyacc.html">click for ooyacc</a></font></font></font></p>
+<hr>
+<h2><font color="#000066"><font color="#000066"><font color="crimson">LINKS<br>
+</font></font></font></h2>
+<p align="left"><font color="#000066"><font color="#000066"><font color="crimson"><a href="http://www.parsifalsoft.com/isdp.html">
+Introduction to Syntax Directed Parsing</a><br>
+<font color="Black">
+A page by Parsifal Software, discusses about
+syntax Directed translation.</font></font></font></font></p><font color="#000066"><font color="#000066"><font color="crimson"><br>
+
+</font></font></font><p align="left"><font color="#000066"><font color="#000066"><font color="crimson"><a href="http://www.cs.vu.nl/%7Edick/PTAPG.html">Parsing Techniques - 
+A Practical Guide</a><br>
+<font color="Black">
+A free book by Dick Grune and Ceriel J.H. Jacobs,
+Vrije Universiteit, Amsterdam, The Netherlands. A very good source ,
+must read this!! </font>
+</font></font></font></p>
+<p align="left"><font color="#000066"><font color="#000066"><font color="crimson"><a href="http://www.cse.ogi.edu/DISC/classes/cs510/lexyacc.src/">
+
+Examples of Lex and Yacc</a><br>
+</font></font></font></p>
+<hr>
+<p align="center"><font color="#000066"><font color="#000066"><font color="crimson"><a href="http://members.tripod.com/%7Eashimg/index.html">
+<img src="Parser_files/home2.gif" align="top" border="0"></a>
+<a href="http://members.tripod.com/%7Eashimg/example.html"><img src="Parser_files/right.gif" align="top" border="0"></a>
+<br>
+<font color="Black">Home &nbsp;&nbsp;Next</font></font></font></font></p>
+<hr>
+<p><font color="#000066"><font color="#000066"><font color="crimson">Contact : <font color="Black">For Any suggestion/comments drop a mail</font><br>
+<a href="mailto:ashimg@synopsys.com">ashimg@synopsys.com</a></font></font></font></p>
+<table border="1" width="100%">
+  <tbody><tr>
+    <td align="center" width="48%"><a href="http://ashimg.tripod.com/">HOME</a></td>
+    <td align="center" width="52%"><a href="http://practical-management.com/">Practical-Management.com</a></td>
+  </tr>
+</tbody></table>
+<p><font color="#000066"><font color="#000066"><font color="crimson">&nbsp;</font></font></font></p>
+<p><font color="#000066"><font color="#000066"><font color="crimson">&nbsp;</font></font></font></p>
+<!-- END GUESTBOOK CODE -->
+</body></html>

@@ -1,0 +1,40 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.a*; *.src)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (Target 1), 0x0000 // Tools: 'MCS-51'
+GRPOPT 1,(Source Group 1),1,0,0
+
+OPTFFF 1,1,2,637534208,0,0,0,0,<.\p3.A51><p3.A51> 
+
+
+TARGOPT 1, (Target 1)
+ CLK51=12000000
+  OPTTT 1,1,1,0
+  OPTHX 0,65535,0,0,0
+  OPTLX 120,65,8,<.\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTBL 0,(User's Manual)<DATASHTS\INFINEON\M517A.PDF>
+  OPTBL 1,(Add on databooks)<DATASHTS\ADDBOOKS.PDF>
+  OPTBL 2,(C500 Instruction Set Manual)<DATASHTS\INFINEON\M500.PDF>
+  OPTDL (S8051.DLL)()(D500.DLL)(-p517A)(S8051.DLL)()(T500.DLL)(-p517A)
+  OPTDBG 509,0,()()()()()()()()()() ()()()()
+  OPTKEY 0,(DLGD500)((5048=-1,-1,-1,-1,0)(98=-1,-1,-1,-1,0)(82=516,133,714,241,0)(83=484,350,682,458,1)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(86=-1,-1,-1,-1,0)(87=-1,-1,-1,-1,0)(88=-1,-1,-1,-1,0)(89=-1,-1,-1,-1,0)(90=-1,-1,-1,-1,0)(102=-1,-1,-1,-1,0)(80=-1,-1,-1,-1,0)(81=-1,-1,-1,-1,0)(91=-1,-1,-1,-1,0)(92=-1,-1,-1,-1,0)(93=-1,-1,-1,-1,0)(94=-1,-1,-1,-1,0)(100=-1,-1,-1,-1,0)(101=-1,-1,-1,-1,0)(5031=240,205,443,361,0)(104=-1,-1,-1,-1,0))
+  OPTBB 0,0,85,1,-16777134,0,0,0,0,1,<p3.A51>()()
+  OPTWA 0,1,(ACC)
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

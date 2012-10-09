@@ -1,0 +1,43 @@
+AUTOR:
+Daniel Fernández Núñez (infdfn01)
+
+PRÁCTICA 6:
+Implementación de la gramática siguiente:
+
+S ‐> E 
+E ‐> E + T | T 
+T ‐> T * F | F 
+F ‐> ( E ) | 0N | 1N | 2N | ... | 9N 
+N ‐> 0N | 1N | 2N | ... | 9N | λ 
+
+usando yacc combinado con lex.
+Esta gramática es una extensión de la gramática que
+imitaba a una calculadora sencilla vista en clase, sólo
+que en este caso tenemos que permitir la entrada de 
+operandos de más de un dígito.
+Por lo tanto he modificado el código de los apuntes
+de forma que el parsing de las cifras y operadores
+se hace mediante lex; se ha añadido soporte para números
+de más de una cifra; y se modificado de forma que se
+puedan ir introduciendo varias cadenas en una 
+misma ejecución.
+
+###############
+COMPILACION:
+make
+ó
+make all
+
+###############
+EJEMPLOS:
+$ ./p6
+7*3
+Resultado: 21
+(4+1)*2
+Resultado: 10
+10*25
+Resultado: 250
+10+10+10+(5+5)
+Resultado: 40
+10+*10
+syntax error

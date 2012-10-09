@@ -1,0 +1,109 @@
+BL51 BANKED LINKER/LOCATER V5.00                                                        02/04/2010  13:22:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.00, INVOKED BY:
+C:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE p3.obj TO p3 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  p3.obj (PRAC03)
+
+
+LINK MAP OF MODULE:  p3 (PRAC03)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0010H     UNIT         PILA
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0050H     UNIT         CODIGO
+
+
+
+SYMBOL TABLE OF MODULE:  p3 (PRAC03)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PRAC03
+  I:0008H         SEGMENT       PILA
+  C:0003H         SEGMENT       CODIGO
+  D:00F0H         SYMBOL        B
+  C:0046H         SYMBOL        DELAY
+  C:0003H         SYMBOL        INICIO
+  C:0042H         SYMBOL        INTERMITENCIA
+  C:0016H         SYMBOL        MULP0
+  C:001AH         SYMBOL        MULP1
+  C:001EH         SYMBOL        MULP2
+  C:0022H         SYMBOL        MULP3
+  C:0030H         SYMBOL        MULPB0
+  C:0037H         SYMBOL        MULPB1
+  C:003EH         SYMBOL        MULPB2
+  C:0026H         SYMBOL        MULPORT0
+  C:000DH         SYMBOL        MULPORTS
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  N:0000H         SYMBOL        PRAC03
+  C:004CH         SYMBOL        RETARDO
+  D:0081H         SYMBOL        SP
+  C:0000H         LINE#         11
+  C:0003H         LINE#         21
+  C:0006H         LINE#         22
+  C:0008H         LINE#         25
+  C:000BH         LINE#         26
+  C:000DH         LINE#         31
+BL51 BANKED LINKER/LOCATER V5.00                                                      02/04/2010  13:22:23  PAGE 2
+
+
+  C:000EH         LINE#         32
+  C:000FH         LINE#         33
+  C:0012H         LINE#         34
+  C:0015H         LINE#         35
+  C:0016H         LINE#         37
+  C:0018H         LINE#         38
+  C:0019H         LINE#         39
+  C:001AH         LINE#         41
+  C:001CH         LINE#         42
+  C:001DH         LINE#         43
+  C:001EH         LINE#         45
+  C:0020H         LINE#         46
+  C:0021H         LINE#         47
+  C:0022H         LINE#         49
+  C:0024H         LINE#         50
+  C:0025H         LINE#         51
+  C:0026H         LINE#         54
+  C:0029H         LINE#         56
+  C:002CH         LINE#         57
+  C:002EH         LINE#         58
+  C:002FH         LINE#         59
+  C:0030H         LINE#         60
+  C:0033H         LINE#         61
+  C:0035H         LINE#         62
+  C:0036H         LINE#         63
+  C:0037H         LINE#         64
+  C:003AH         LINE#         65
+  C:003CH         LINE#         66
+  C:003DH         LINE#         67
+  C:003EH         LINE#         68
+  C:0040H         LINE#         69
+  C:0041H         LINE#         70
+  C:0042H         LINE#         75
+  C:0045H         LINE#         76
+  C:0046H         LINE#         78
+  C:0048H         LINE#         79
+  C:004AH         LINE#         80
+  C:004CH         LINE#         82
+  C:004EH         LINE#         83
+  C:0050H         LINE#         84
+  C:0052H         LINE#         85
+  -------         ENDMOD        PRAC03
+
+Program Size: data=24.0 xdata=0 code=83
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

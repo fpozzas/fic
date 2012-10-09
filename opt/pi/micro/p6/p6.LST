@@ -1,0 +1,64 @@
+A51 MACRO ASSEMBLER  P6                                                                   02/04/2010 18:48:34 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN p6.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE p6.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME PRAC06
+                       2     ;
+                       3     ; PRACTICA 06. Generador de señal
+                       4     ;
+                       5     PILA    SEGMENT IDATA
+----                   6             RSEG PILA
+0000                   7             DS 16
+                       8     ;
+----                   9             CSEG AT 0
+0000 020003           10             LJMP INICIO
+                      11     ;
+                      12             USING 0
+0003                  13     INICIO:
+                      14             ; Poner timer en modo 1
+0003 758901           15             MOV TMOD,#01h
+0006 D297             16             SETB P1.7
+0008 120013           17             LCALL Delay
+000B C297             18             CLR P1.7
+000D 120013           19             LCALL Delay
+0010 020003           20             LJMP INICIO
+0013                  21     Delay:
+0013 758A0C           22             MOV TL0,#0Ch
+0016 758CFE           23             MOV TH0,#0FEH
+0019 D28C             24             SETB TR0
+001B                  25     Bucle:
+001B 308DFD           26             JNB TF0,Bucle
+001E C28C             27             CLR TR0
+0020 C28D             28             CLR TF0
+0022 22               29             RET
+                      30     END     
+A51 MACRO ASSEMBLER  P6                                                                   02/04/2010 18:48:34 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BUCLE. . . . . . .  C ADDR   001BH   A   
+DELAY. . . . . . .  C ADDR   0013H   A   
+INICIO . . . . . .  C ADDR   0003H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+PILA . . . . . . .  I SEG    0010H       REL=UNIT
+PRAC06 . . . . . .  N NUMB   -----       
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

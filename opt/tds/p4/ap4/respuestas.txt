@@ -1,0 +1,33 @@
+Apartado 4.1.1 Compresión del margen dinámico
+- Con el escalado con compresión del margen del rango dinámico podemos
+ver muchas más curvas de nivel, por lo que podemos apreciar mejor los
+detalles de la imagen.
+
+Apartado 4.1.2 Centrado de la TF
+- Las DFT en 2D son las equivalentes al caso unidimensional
+para cada imagen:
+ Linea vertical = delta --TF-> pulso
+ Linea horizontal = pulso --TF-> delta 
+ Rectangulos = filtros paso bajo --TF-> sinc
+ Circulo --TF-> sinc 3D
+
+Apartado 4.2 Filtrado paso bajo
+- Con un d0=65 se obtiene un filtrado semejante a los del apartado 3.
+En las graficas de las TF se aprecia como los valores pequeños (los
+de colores "debiles") desaparecen en la TF filtrada.
+
+Apartado 4.3 Filtrado paso alto
+- Con un d0=25 obtenemos un filtrado de los bordes semejante al 
+del apartado 3. Los valores altos de la TF desaparecen
+
+Apartado 4.4 Compresión de imágenes
+- Con la imagen de Lena de 512x512 tenemos un nnz=262144, despues de
+aplicarle el filtro con un f0=10000 tenemos un nnz=24014 y la 
+calidad de la imagen es bastante aceptable. A partir de 10000 ya se
+empieza a notar bastante la perdida de calidad.
+
+Apartado 4.5 Filtrado banda eliminada
+- Para eliminar el ruido se simular el banda eliminada con una combinacion
+de filtro paso bajo y filtro paso alto. En este caso con el filtro
+paso bajo con un ajustado d0=43.84 obtenemos una reconstrucción bastante
+buena de la imagen original.

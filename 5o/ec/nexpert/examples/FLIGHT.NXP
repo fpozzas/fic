@@ -1,0 +1,25 @@
+    Airline|Number|  Weekday|   Price| Departing| Bool|
+*******************************************************
+       True|   102|   Sunday|     1.0|    Coruna| True|
+   American|   112|Wednesday|  312.00|La Guardia| True|
+   American|    78|   Friday|  267.00|    Newark| True|
+Continental|    94|  Tuesday|  350.00|    Newark| True|
+Continental|    49| Saturday|  328.00|    Newark| True|
+      Delta|   507|Wednesday|  328.00|       JFK| True|
+      Delta|   705|   Sunday|  328.00|       JFK| True|
+  Northwest|    11| Thursday|  265.00|La Guardia| True|
+  Northwest|    16|   Friday|  290.00|    Newark| True|
+  Northwest|   238| Saturday|  329.00|La Guardia| True|
+     Pan_Am|   349|   Monday|  211.00|       JFK| True|
+     Pan_Am|   115|Wednesday|  278.00|       JFK| True|
+     Pan_Am|   222| Thursday|  310.00|    Newark| True|
+     Pan_Am|    45|   Sunday|  380.00|       JFK| True|
+        TWA|    74|  Tuesday|  256.00|    Newark| True|
+        TWA|    48| Thursday|  278.00|       JFK| True|
+        TWA|   198| Saturday|  237.00|       JFK| True|
+        TWA|   562|   Sunday|  390.00|       JFK| True|
+     United|   458|   Monday|  269.00|La Guardia| True|
+     United|   802|   Friday|  367.00|    Newark| True|
+     United|   302| Saturday|  427.00|    Newark| True|
+*******************************************************
+@(#)flight.nxp	1.1 90/06/04

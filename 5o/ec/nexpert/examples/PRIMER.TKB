@@ -1,0 +1,285 @@
+(@VERSION=	020)
+(@PROPERTY=	control	@TYPE=String;)
+(@PROPERTY=	definition	@TYPE=String;)
+(@PROPERTY=	function_status	@TYPE=String;)
+(@PROPERTY=	level	@TYPE=Float;)
+(@PROPERTY=	orientation	@TYPE=String;)
+(@PROPERTY=	position	@TYPE=String;)
+(@PROPERTY=	pressure	@TYPE=Float;)
+(@PROPERTY=	problem	@TYPE=Boolean;)
+(@PROPERTY=	time_init	@TYPE=Date;@FORMAT="hh:mm:ss";)
+(@PROPERTY=	x	@TYPE=String;)
+(@PROPERTY=	x_detection	@TYPE=String;)
+(@PROPERTY=	y	@TYPE=String;)
+(@PROPERTY=	z	@TYPE=String;)
+
+
+(@CLASS=	aux_tanks
+	(@PROPERTIES=
+		function_status
+		level
+		problem
+	)
+)
+
+(@CLASS=	navigational_devices
+	(@PROPERTIES=
+		x
+		y
+		z
+	)
+)
+
+(@CLASS=	regular_tanks
+	(@PROPERTIES=
+		level
+		problem
+	)
+)
+
+(@CLASS=	tanks
+	(@SUBCLASSES=
+		aux_tanks
+		regular_tanks
+	)
+	(@PROPERTIES=
+		level
+		problem
+	)
+)
+
+
+(@OBJECT=	auxiliary_tank_1
+	(@CLASSES=
+		aux_tanks
+	)
+	(@PROPERTIES=
+		function_status
+		level
+		problem
+	)
+)
+
+(@OBJECT=	auxiliary_tank_2
+	(@CLASSES=
+		aux_tanks
+	)
+	(@PROPERTIES=
+		function_status
+		level
+		problem
+	)
+)
+
+(@OBJECT=	check_reference
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	contact_control_center
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	current_task
+	(@PROPERTIES=
+		Value	@TYPE=String;
+	)
+)
+
+(@OBJECT=	device
+	(@PROPERTIES=
+		orientation
+		position
+		x_detection
+	)
+)
+
+(@OBJECT=	device_rotation
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	execute_rotation
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	gyro
+	(@CLASSES=
+		navigational_devices
+	)
+	(@PROPERTIES=
+		control
+		definition
+		time_init
+		x
+		y
+		z
+	)
+)
+
+(@OBJECT=	pump_breakdown
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	tank_1
+	(@CLASSES=
+		regular_tanks
+	)
+	(@PROPERTIES=
+		level
+		pressure
+		problem
+	)
+)
+
+(@OBJECT=	tank_2
+	(@CLASSES=
+		regular_tanks
+	)
+	(@PROPERTIES=
+		level
+		problem
+	)
+)
+
+(@OBJECT=	time_elapsed_since_problem
+	(@PROPERTIES=
+		Value	@TYPE=Float;
+	)
+)
+
+(@OBJECT=	valve_problem
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@SLOT=	navigational_devices.x
+	(@SOURCES=
+		(Let	(SELF.x)	("x1"))
+	)
+)
+
+(@SLOT=	navigational_devices.y
+	(@INITVAL=	"y4")
+)
+
+(@SLOT=	navigational_devices.z
+	(@SOURCES=
+		(AskQuestion	(SELF.z)	(NOTKNOWN))
+		(RunTimeValue	("z28"))
+	)
+)
+
+(@SLOT=	execute_rotation
+	(@CONTEXTS=	
+		device_rotation
+	)
+)
+
+(@RULE=	R1
+	(@LHS=
+		(>=	(SECOND(gyro.time_init))	(0))
+		(Is	(device.x_detection)	("low"))
+	)
+	(@HYPO=	check_reference)
+	(@RHS=
+		(Let	(current_task)	("defueling"))
+	)
+)
+
+(@RULE=	R2
+	(@LHS=
+		(Yes	(valve_problem))
+		(>	(time_elapsed_since_problem)	(45.0))
+	)
+	(@HYPO=	contact_control_center)
+)
+
+(@RULE=	R3
+	(@LHS=
+		(Is	(device.position)	("nominal"))
+		(Is	(gyro.control)	("set"))
+	)
+	(@HYPO=	device_rotation)
+	(@RHS=
+		(Do	(STRCAT(gyro.x,(STRCAT(gyro.y,gyro.z))))	(gyro.definition))
+		(Do	(NOW())	(gyro.time_init))
+	)
+)
+
+(@RULE=	R4
+	(@LHS=
+		(Is	(current_task)	("refueling"))
+		(Is	(device.orientation)	("outward"))
+	)
+	(@HYPO=	execute_rotation)
+)
+
+(@RULE=	R6
+	@INFCAT=2;
+	(@LHS=
+		(Is	(current_task)	("defueling"))
+		(Yes	(tank_2.problem))
+	)
+	(@HYPO=	pump_breakdown)
+)
+
+(@RULE=	R5
+	(@LHS=
+		(Is	(current_task)	("defueling"))
+		(<	(tank_1.level)	(50.0))
+		(<	(<|aux_tanks|>.level)	(20.0))
+	)
+	(@HYPO=	pump_breakdown)
+	(@RHS=
+		(Let	(<|aux_tanks|>.function_status)	("on"))
+	)
+)
+
+(@RULE=	R7
+	(@LHS=
+		(>	(tank_1.level*2.0/3.0)	(85.0))
+		(<	(tank_2.level)	(20.0))
+	)
+	(@HYPO=	tank_2.problem)
+)
+
+(@RULE=	R8
+	(@LHS=
+		(Is	(current_task)	("refueling"))
+		(>	(tank_1.pressure)	(300.0))
+		(Is	(device.orientation)	("inward"))
+	)
+	(@HYPO=	valve_problem)
+	(@RHS=
+		(Show	("valve_pb"))
+	)
+)
+
+(@GLOBALS=
+	@INHVALUP=FALSE;
+	@INHVALDOWN=TRUE;
+	@INHOBJUP=FALSE;
+	@INHOBJDOWN=FALSE;
+	@INHCLASSUP=FALSE;
+	@INHCLASSDOWN=TRUE;
+	@INHBREADTH=TRUE;
+	@INHPARENT=FALSE;
+	@PWTRUE=TRUE;
+	@PWFALSE=FALSE;
+	@PWNOTKNOWN=FALSE;
+	@EXHBWRD=TRUE;
+	@PTGATES=TRUE;
+	@PFACTIONS=TRUE;
+	@SOURCESON=TRUE;
+	@CACTIONSON=TRUE;
+)

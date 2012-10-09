@@ -1,0 +1,5 @@
+Todas las cuestiones se implementan en ap3_analisis, la ejecución se
+divide en varias secciones que se van pasando con ENTER.
+
+dibuja.m contiene el código para la representación de los 5 sistemas en 
+el plano Z y su respuesta en frecuencia.

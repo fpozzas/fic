@@ -1,0 +1,160 @@
+A51 MACRO ASSEMBLER  P2                                                                   02/04/2010 12:42:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN p2.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE p2.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME PRAC02
+                       2     ;
+                       3     ; PRACTICA 2: Modos de direccionamiento
+                       4     ;
+                       5     
+  001B                 6     N27 EQU 1BH
+  1000                 7     MILHEX EQU 1000H
+  0000                 8     CERO EQU 00H
+  0001                 9     UNO EQU 01H
+  0002                10     DOS EQU 02H
+  0003                11     TRES EQU 03H
+  0004                12     CUATRO EQU 04H
+  0005                13     CINCO EQU 05H
+  0006                14     SEIS EQU 06H
+  0007                15     SIETE EQU 07H
+                      16     ;
+  0000                17     VRESET CODE 0
+                      18     ;
+0000                  19             ORG VRESET      ;Pone origen
+                      20             USING 0         ;Uso del banco de registros 0
+                      21     
+                      22     ;
+                      23     ; Modo de direccionamiento inmediato
+                      24     ;
+                      25     ;
+0000                  26     MOD_DIR_INM:
+0000 741B             27             MOV A,#N27
+0002 901000           28             MOV DPTR,#MILHEX
+0005 75D000           29             MOV PSW,#CERO
+0008 E500             30             MOV A,00h ; Dirección de R0 del banco de reginstros 0
+000A 7800             31             MOV R0,#CERO
+000C 7901             32             MOV R1,#UNO
+000E 7A02             33             MOV R2,#DOS
+0010 7B03             34             MOV R3,#TRES
+0012 7C04             35             MOV R4,#CUATRO
+0014 7D05             36             MOV R5,#CINCO
+0016 7E06             37             MOV R6,#SEIS
+0018 7F07             38             MOV R7,#SIETE
+                      39     ; Modo de direccionamiento directo
+  0030                40     X0 DATA 30H
+  0031                41     X1 DATA X0+1
+                      42     ;
+001A                  43     MOD_DIR_DIR:
+001A 753080           44             MOV 30h,#80H
+001D E530             45             MOV A,30h ; X0
+001F F531             46             MOV 31h,A
+0021 8590F0           47             MOV B,90h ; P1
+0024 75E00A           48             MOV ACC,#0AH
+                      49     ;
+                      50     ; Modo de direccionamiento registro
+                      51     ;
+                      52             USING 2
+0027                  53     MOD_DIR_REG:
+0027 75D010           54             MOV PSW,#10H    
+002A 78E0             55             MOV R0,#ACC
+                      56     ;
+                      57     ; Modo de direccionamiento indirecto por registro
+                      58     ;
+A51 MACRO ASSEMBLER  P2                                                                   02/04/2010 12:42:55 PAGE     2
+
+  1000                59     Y0 XDATA MILHEX
+  1001                60     Y1 XDATA Y0+1
+                      61     ;
+002C                  62     MOD_DIR_IND_REG:
+002C 7830             63             MOV R0,#X0
+002E E6               64             MOV A,@R0
+002F 901000           65             MOV DPTR,#Y0
+0032 F0               66             MOVX @DPTR,A
+                      67     ;
+                      68     ; Modo de direccionamiento indirecto indexado
+                      69     ;
+0033                  70     MOD_DIR_INDEX:
+0033 900049           71             MOV DPTR,#TABLA
+0036 7401             72             MOV A,#01H ; 00H, 01H, 02H, etc para obtener los caracteres en ASCII
+0038 93               73             MOVC A,@A+DPTR ; En A tenemos 32(decimal), el espacio en blanco en ASCII
+                      74     ;
+                      75     ; Modo de direccionamiento orientado a la pila
+                      76     ;
+  0050                77     PILA    IDATA   50H
+                      78     ;
+0039                  79     MOD_DIR_PIL:
+0039 75814F           80             MOV SP,#PILA-1
+003C C0E0             81             PUSH ACC
+003E 75E000           82             MOV ACC,#00H
+0041 D0E0             83             POP ACC   ;
+                      84             ; POP AR0 ; En la version del lab solo deja mover al acumulador
+                      85     ;
+                      86     ; Modo de direccionamiento orientado a bits
+                      87     ;
+  0000                88     XB      BIT     0       ; Define simbolo de bit
+                      89     ;
+0043                  90     MOD_DIR_BITS:
+0043 A290             91             MOV C,P1.0 ; C es el bit de acarreo
+0045 9200             92             MOV XB,C
+                      93     ; Bucle
+0047 80FE             94             SJMP $
+                      95     ;
+                      96     ; Tabla de texto
+                      97     ;
+0049 4120434F         98     TABLA:  DB      'A CORUÑA'
+004D 5255D141                
+                      99     ;
+                     100     END
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  P2                                                                   02/04/2010 12:42:55 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CERO . . . . . . .  N NUMB   0000H   A   
+CINCO. . . . . . .  N NUMB   0005H   A   
+CUATRO . . . . . .  N NUMB   0004H   A   
+DOS. . . . . . . .  N NUMB   0002H   A   
+MILHEX . . . . . .  N NUMB   1000H   A   
+MOD_DIR_BITS . . .  C ADDR   0043H   A   
+MOD_DIR_DIR. . . .  C ADDR   001AH   A   
+MOD_DIR_INDEX. . .  C ADDR   0033H   A   
+MOD_DIR_IND_REG. .  C ADDR   002CH   A   
+MOD_DIR_INM. . . .  C ADDR   0000H   A   
+MOD_DIR_PIL. . . .  C ADDR   0039H   A   
+MOD_DIR_REG. . . .  C ADDR   0027H   A   
+N27. . . . . . . .  N NUMB   001BH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+PILA . . . . . . .  I ADDR   0050H   A   
+PRAC02 . . . . . .  N NUMB   -----       
+PSW. . . . . . . .  D ADDR   00D0H   A   
+SEIS . . . . . . .  N NUMB   0006H   A   
+SIETE. . . . . . .  N NUMB   0007H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+TABLA. . . . . . .  C ADDR   0049H   A   
+TRES . . . . . . .  N NUMB   0003H   A   
+UNO. . . . . . . .  N NUMB   0001H   A   
+VRESET . . . . . .  C ADDR   0000H   A   
+X0 . . . . . . . .  D ADDR   0030H   A   
+X1 . . . . . . . .  D ADDR   0031H   A   
+XB . . . . . . . .  B ADDR   0020H.0 A   
+Y0 . . . . . . . .  X ADDR   1000H   A   
+Y1 . . . . . . . .  X ADDR   1001H   A   
+
+
+REGISTER BANK(S) USED: 0 2 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

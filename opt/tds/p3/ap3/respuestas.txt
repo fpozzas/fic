@@ -1,0 +1,22 @@
+Alumno: Daniel Fernández Núñez
+3.1. Secuencias de prueba
+- Como w0 = pi/2 = 2*pi/4, lo que queremos es desplazar
+la gráfica de la TF que va de [0,2*pi) en 2*pi/4, es decir,
+en un cuarto de su longitud, por lo que habrá que desplazar
+N/4 posiciones.
+
+3.2. Señales de audio
+- Tanto como para N=8192 como cualquier N, el valor de k0
+será de N*f0/fs.
+- En la audición de las señales desplazadas se aprecia que
+se agudizan las señales cuanto más grande es f0 (hasta un 
+limite de fs/2). La señal vista.wav no se entiende (menos aún
+con f0=fs/2).
+- Para decodificar la señal de f0=fs/2 solo basta con multiplicar
+de nuevo con d(n) ya que como volvemos a desplazar f0 (f0+f0=fs)
+la señal vuelve al punto inicial y queda decodificada.
+- Para f0=fs/2 se obtiene una decodificacion perfecta pero para
+f0=2000 se distingue lo que dice pero no es perfecto.
+- Para codificada.wav no se entiende si se reproduce directamente,
+sin embargo si decodificamos con f0=fs/2 se puede oir sin ruido 
+un "consejo" de Homer Simpson.

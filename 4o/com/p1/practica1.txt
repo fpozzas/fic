@@ -1,0 +1,48 @@
+AUTOR:
+Daniel Fernández Núñez (infdfn01)
+
+PRÁCTICA1: 
+Implementación de un reconocedor léxico de números
+reales. Se ha implementado mediante el método de tabla
+compacta y autómata programado. Se ha usado como base el
+reconocedor de los apuntes, que he modificado añadiendole 
+el reconocimiento de los signos positivos y negativos tanto
+en la parte entera como en la exponencial.
+Si el número es aceptado, se imprime desglosado en parte entera,
+parte fraccional y parte exponencial. He optado por hacer esto
+en vez de una tabla de simbolos explicitamente (sólo habría que
+guardar las partes del número desglosadas que se imprimen 
+en una matriz).
+###############
+COMPILACION:
+make
+ó
+make all
+
+###############
+EJEMPLOS (válidos tambien para p1_automata):
+./p1_tabla 12
+Entera: 12
+Fraccional:
+Exponencial:
+
+./p1_tabla -12E-2
+Entera: -12
+Fraccional:
+Exponencial: -2
+
+./p1_tabla -19.27
+Entera: -19
+Fraccional: 27
+Exponencial:
+
+./p1_tabla 19.27E-73
+Entera: 19
+Fraccional: 27
+Exponencial: -73
+
+-/p1_tabla -19.-27E-73
+No es un número real.
+
+./p1_tabla 19.27d-73
+No es un número real.

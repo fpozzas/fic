@@ -1,0 +1,104 @@
+BL51 BANKED LINKER/LOCATER V5.00                                                        02/04/2010  12:42:55  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.00, INVOKED BY:
+C:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE p2.obj TO p2 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  p2.obj (PRAC02)
+
+
+LINK MAP OF MODULE:  p2 (PRAC02)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0008H                  *** GAP ***
+            REG     0010H     0008H     ABSOLUTE     "REG BANK 2"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0051H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  p2 (PRAC02)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PRAC02
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  N:0000H         SYMBOL        CERO
+  N:0005H         SYMBOL        CINCO
+  N:0004H         SYMBOL        CUATRO
+  N:0002H         SYMBOL        DOS
+  N:1000H         SYMBOL        MILHEX
+  C:0043H         SYMBOL        MOD_DIR_BITS
+  C:001AH         SYMBOL        MOD_DIR_DIR
+  C:0033H         SYMBOL        MOD_DIR_INDEX
+  C:002CH         SYMBOL        MOD_DIR_IND_REG
+  C:0000H         SYMBOL        MOD_DIR_INM
+  C:0039H         SYMBOL        MOD_DIR_PIL
+  C:0027H         SYMBOL        MOD_DIR_REG
+  N:001BH         SYMBOL        N27
+  D:0090H         SYMBOL        P1
+  I:0050H         SYMBOL        PILA
+  N:0000H         SYMBOL        PRAC02
+  D:00D0H         SYMBOL        PSW
+  N:0006H         SYMBOL        SEIS
+  N:0007H         SYMBOL        SIETE
+  D:0081H         SYMBOL        SP
+  C:0049H         SYMBOL        TABLA
+  N:0003H         SYMBOL        TRES
+  N:0001H         SYMBOL        UNO
+  C:0000H         SYMBOL        VRESET
+  D:0030H         SYMBOL        X0
+  D:0031H         SYMBOL        X1
+BL51 BANKED LINKER/LOCATER V5.00                                                      02/04/2010  12:42:55  PAGE 2
+
+
+  B:0020H.0       SYMBOL        XB
+  X:1000H         SYMBOL        Y0
+  X:1001H         SYMBOL        Y1
+  C:0000H         LINE#         27
+  C:0002H         LINE#         28
+  C:0005H         LINE#         29
+  C:0008H         LINE#         30
+  C:000AH         LINE#         31
+  C:000CH         LINE#         32
+  C:000EH         LINE#         33
+  C:0010H         LINE#         34
+  C:0012H         LINE#         35
+  C:0014H         LINE#         36
+  C:0016H         LINE#         37
+  C:0018H         LINE#         38
+  C:001AH         LINE#         44
+  C:001DH         LINE#         45
+  C:001FH         LINE#         46
+  C:0021H         LINE#         47
+  C:0024H         LINE#         48
+  C:0027H         LINE#         54
+  C:002AH         LINE#         55
+  C:002CH         LINE#         63
+  C:002EH         LINE#         64
+  C:002FH         LINE#         65
+  C:0032H         LINE#         66
+  C:0033H         LINE#         71
+  C:0036H         LINE#         72
+  C:0038H         LINE#         73
+  C:0039H         LINE#         80
+  C:003CH         LINE#         81
+  C:003EH         LINE#         82
+  C:0041H         LINE#         83
+  C:0043H         LINE#         91
+  C:0045H         LINE#         92
+  C:0047H         LINE#         94
+  -------         ENDMOD        PRAC02
+
+Program Size: data=16.0 xdata=0 code=81
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

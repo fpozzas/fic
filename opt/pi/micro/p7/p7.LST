@@ -1,0 +1,101 @@
+A51 MACRO ASSEMBLER  P7                                                                   02/05/2010 12:03:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN p7.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE p7.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME PRAC07
+                       2     ;
+                       3     ; PRACTICA 07. Control de un servomotor
+                       4     ;
+                       5     PILA    SEGMENT IDATA
+----                   6             RSEG PILA
+0000                   7             DS 16
+                       8     ;
+----                   9             CSEG AT 0
+0000 02000D           10             LJMP INICIO
+                      11     ;
+                      12             USING 0
+000B                  13     ORG 0Bh
+000B 8014             14     JMP ISRservo
+000D                  15     INICIO:
+000D 758100   F       16             MOV SP,#PILA-1
+                      17             ; Inicialización del timer
+0010 758901           18             MOV TMOD,#01h
+0013 758AF0           19             MOV TL0,#0F0h
+0016 758CFF           20             MOV TH0,#0FFh
+0019 D2AF             21             SETB EA
+001B D2A9             22             SETB ET0
+001D D28C             23             SETB TR0
+001F 80FE             24             SJMP $
+                      25     ;
+0021                  26     ISRservo:
+0021 C0D0             27             PUSH PSW
+0023 C0E0             28             PUSH ACC
+0025 C2AF             29             CLR EA
+0027 C2A9             30             CLR ET0
+0029 C28C             31             CLR TR0
+                      32             USING 1
+                      33             ; Inicialización del timer para 1,5ms
+                      34             ; 1,5 ms -> 1500 ciclos
+                      35             ; FFh - 1500 = 64035 = FA23h
+                      36             ; Ajustamos con +10 ciclos por retardos de 
+                      37             ; las instrucciones intermedias -> FA23h + 0Ad = FA2Dh
+002B 758A2D           38             MOV TL0,#2Dh
+002E 758CFA           39             MOV TH0,#0FAh
+0031 D293             40             SETB P1.3
+0033 D28C             41             SETB TR0
+0035 308DFD           42     Bucle1: JNB TF0,Bucle1
+0038 C28D             43             CLR TF0
+003A C28C             44             CLR TR0
+                      45             ; Inicialización del timer para 20ms
+                      46             ; 20 ms -> 20.000 ciclos
+                      47             ; FFh - 20000 = 45535 = B1DFh
+                      48             ; Ajustamos con +10 ciclos por retardos de 
+                      49             ; las instrucciones intermedias -> B1DFh + 0Ad = FAE9h
+003C C293             50             CLR P1.3
+003E 758AE9           51             MOV TL0,#0E9h
+0041 758CB1           52             MOV TH0,#0B1h
+                      53             USING 0
+0044 D2AF             54             SETB EA
+0046 D2A9             55             SETB ET0
+0048 D28C             56             SETB TR0
+004A D0E0             57             POP ACC
+004C D0D0             58             POP PSW
+A51 MACRO ASSEMBLER  P7                                                                   02/05/2010 12:03:26 PAGE     2
+
+004E 32               59             RETI
+                      60     END     
+A51 MACRO ASSEMBLER  P7                                                                   02/05/2010 12:03:26 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+BUCLE1 . . . . . .  C ADDR   0035H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+INICIO . . . . . .  C ADDR   000DH   A   
+ISRSERVO . . . . .  C ADDR   0021H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+PILA . . . . . . .  I SEG    0010H       REL=UNIT
+PRAC07 . . . . . .  N NUMB   -----       
+PSW. . . . . . . .  D ADDR   00D0H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 1 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

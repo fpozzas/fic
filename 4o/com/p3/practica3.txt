@@ -1,0 +1,43 @@
+AUTOR:
+Daniel Fernández Núñez (infdfn01)
+
+PRÁCTICA3: 
+Implementación de la grámatica siguiente:
+E ‐> TV 
+V ‐> +TV | λ 
+T‐>  FW  
+W ‐> *FW | λ 
+F ‐> (E) | n 
+mediante un LL(1). La tabla de esta gramática viene en los
+apuntes de la asignatura.
+Las cadenas se pasan mediante la linea de comandos, preferiblemente
+entre comillas dobles para no tener problemas con la consola de Linux.
+El programa detecta qué cadenas son válidas y cuales no, en este
+último caso indica en qué caracter aparece el error de parsing.
+###############
+COMPILACION:
+make
+ó
+make all
+
+###############
+EJEMPLOS:
+./p3 "n"
+ÉXITO: Cadena aceptada
+
+./p3 "n*n"
+ÉXITO: Cadena aceptada
+
+./p3 "n*(n)+n"
+ÉXITO: Cadena aceptada
+
+./p3 "(n*(n))+n"
+ÉXITO: Cadena aceptada
+
+./p3 "(n*(n)+n"
+Se esperaba: )
+Error: Cadena no aceptada
+
+./p3 "n*n*+n"
+Operador no esperado: +
+Error: Cadena no aceptada

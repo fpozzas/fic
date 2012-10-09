@@ -1,0 +1,5 @@
+Alumno: Daniel Fernández Núñez
+Apartado 4. Reflexiones circulares
+- Se cumple la propiedad, ya que los módulos se mantienen
+iguales mientras se invierten las fases.
+

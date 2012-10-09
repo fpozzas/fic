@@ -1,0 +1,94 @@
+KNOWLEDGE-BASE red-diagnosticopc;
+    USES:
+        dependencia-estado FROM esquema-diagnosticopc,
+        regla-manifestacion FROM esquema-diagnosticopc;
+    EXPRESSIONS:
+        /***********************/
+        /* dependencia-estado  */
+        /***********************/
+        
+        /* Caso1: No arranca */
+        placa.status=quemada CAUSA arranque.status=no;
+        fuente.status=quemada CAUSA arranque.status=no;
+        torre-pc.status=sin-alimentacion CAUSA arranque.status=no;
+        torre-pc.status=apagado CAUSA arranque.status=no;
+        
+        /* Caso2: No copia ficheros */
+        espacio-disponible.status=insuficiente CAUSA copia-fichero.status=no;
+        permisos-fichero.status=insuficiente CAUSA copia-fichero.status=no;
+        
+        /* Caso3: No funciona el ratón */
+        raton.status=estropeado CAUSA comportamiento-raton.status=no-funciona;
+        raton.status=no-conectado CAUSA comportamiento-raton.status=no-funciona;
+        
+        /* Caso4: No funciona la pantalla */
+        tarjeta-grafica.status=estropeada CAUSA comportamiento-pantalla.status=no-funciona;
+        pantalla.status=apagada CAUSA comportamiento-pantalla.status=no-funciona;
+        pantalla.status=sin-alimentacion CAUSA comportamiento-pantalla.status=no-funciona;
+        pantalla.status=sin-senal CAUSA comportamiento-pantalla.status=no-funciona;
+        
+        /* Caso5: La pantalla muestra errores gráficos */
+        tarjeta-grafica.status=error CAUSA comportamiento-pantalla.status=artefactos;
+        
+        /* Caso6: No hay conexión a internet */
+        cable-red.status=estropeado CAUSA conexion-internet.status=no;
+        cable-red.status=no-conectado CAUSA conexion-internet.status=no;
+        enlace-red.status=caido CAUSA conexion-internet.status=no;
+        
+        /* Caso7: No funciona el sonido */
+        tarjeta-sonido.status=estropeada CAUSA audio.status=no;
+        auriculares.status=estropeados CAUSA audio.status=no;
+        auriculares.status=no-conectado CAUSA audio.status=no;
+        
+        /* Caso8: El sonido sale con ruido */
+        tarjeta-sonido.status=error CAUSA audio.status=ruido;
+        auriculares.status=estropeados CAUSA audio.status=ruido;
+        
+        /* Caso9: El teclado no funciona */
+        teclado.status=estropeado CAUSA comportamiento-teclado.status=no-funciona;
+        teclado.status=no-conectado CAUSA comportamiento-teclado.status=no-funciona;
+        
+        /* Caso10: El teclado saca caracteres incorrectos */
+        configuracion-regional.status=incorrecta CAUSA comportamiento-teclado.status=caracteres-incorrectos;
+        
+        /***********************/
+        /* regla-manifestacion */
+        /***********************/
+
+        /* Caso1: No arranca */
+        fuente.status=quemada SE-MANIFIESTA olor.value=quemada;
+        torre-pc.status=sin-alimentacion SE-MANIFIESTA cable-alimentacion-pc.value=desconectado;
+        torre-pc.status=apagado SE-MANIFIESTA boton-encendido-pc.value=off;
+        
+        /* Caso2: No copia ficheros */
+        espacio-disponible.status=insuficiente SE-MANIFIESTA tamano-fichero.value > espacio-libre-disco.value;
+        
+        /* Caso3: No funciona el ratón */
+        raton.status=desconectado SE-MANIFIESTA cable-raton.value=desenchufado;
+        
+        /* Caso4: No funciona la pantalla */
+        pantalla.status=apagada SE-MANIFIESTA boton-pantalla.value=off;
+        pantalla.status=sin-alimentacion SE-MANIFIESTA cable-pantalla-alimentacion.value=desenchufado;
+        pantalla.status=sin-senal SE-MANIFIESTA cable-pantalla-tarjeta-grafica.value=desenchufado;
+        
+        /* Caso5: La pantalla muestra errores gráficos */
+        /* No contiene reglas de manifestación */
+        
+        /* Caso6: No hay conexión a internet */
+        cable-red.status=no-conectado SE-MANIFIESTA apariencia-cable-red.value=desconectado;
+        cable-red.status=estropeado SE-MANIFIESTA apariencia-cable-red.value=defectuoso;
+        
+        /* Caso7: No funciona el sonido */
+        auriculares.status=no-conectado SE-MANIFIESTA cable-auriculares.value=desconectado;
+        
+        /* Caso8: El sonido sale con ruido */
+        /* No contiene reglas de manifestación */
+        
+        /* Caso9: El teclado no funciona */
+        teclado.status=no-conectado SE-MANIFIESTA cable-teclado.value=desconectado;
+        
+        /* Caso10: El teclado saca caracteres incorrectos */
+        configuracion-regional.status=incorrecta SE-MANIFIESTA barra-idioma.value=incorrecto;
+        
+END KNOWLEDGE-BASE red-diagnosticopc;
+        

@@ -1,0 +1,13 @@
+Alumno: Daniel Fernández Núñez
+
+5. Convoluciones Lineales vs. Circulares
+- La longitud de la convolución lineal es L1+L2-1
+mientras que la de la circular mide N. Para que sean
+iguales N debe ser mayor o igual que la longitud de la
+convolución lineal, es decir, N>=L1+L2-1
+5.2. Cuestión práctica
+- Si tenemos que y=conv(x1,x2) y queremos hallar x1, podemos
+pasar al dominio de la frecuencia donde Y=X1*X2 y entonces
+X1=Y/X2, donde x2 serán 3 deltas en las posiciones de los alumnos
+que influyen al hacer la suma, es decir, [1,1,0,0,0,0,0,1], por
+lo tanto L2=8.

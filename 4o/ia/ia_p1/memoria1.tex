@@ -1,0 +1,238 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel} % Separacion de palabras
+\usepackage[utf8]{inputenc}
+%\usepackage[ansinew]{inputenc} % Escribir directamente acentos
+\usepackage{epsfig} % Inclusion de graficos EPS
+\usepackage{url} % Pretty-print de urls
+\usepackage{geometry} % Margenes del documento
+\usepackage{multicol} % Texto en multiples columnas (tablas)
+\usepackage{fancyhdr} % Cabeceras y pies de paginas
+\usepackage{caption} % Formato de "caption"
+\usepackage{multirow}
+
+\geometry{a4paper} % Tamano y margenes del documento
+\geometry{left=2.5cm,top=2.5cm}
+\geometry{bottom=2.5cm,right=2.5cm}
+% Estilo de los pies de figura/tabla
+\captionsetup{format=hang,font=small,labelfont=bf}
+\pagestyle{fancy} % Cabecera izquierda y derecha
+\fancyhead[LE,LO]{\small Resolución de problemas de búsqueda} 
+\fancyhead[RE,RO]{\small \textit{Inteligencia artificial}}
+\fancyfoot[CO,CE]{\thepage} % Formato de pie de pagina
+%------------------------- Comienzo del documento
+\begin{document}
+%------------------------- Seccion de configuracion de variables
+\setlength\arraycolsep{8pt} % Separacion de columnas (array)
+\setlength\tabcolsep{8pt} % Separacion de columnas (tabular)
+\renewcommand{\arraystretch}{1.5} % Separacion entre filas
+\parskip=0.3em % Espacio entre parrafos
+\def\tablename{Tabla} % Tabla en lugar de Cuadro
+
+%------------------------- Texto de la memoria
+%-------------------PORTADA DE LA MEMORIA-------------------% 
+\thispagestyle{empty} % Página sin cabeceras ni pies 
+\rule{\textwidth}{1pt} \vspace{2pt} 
+\begin{center} 
+\Huge
+\begin{tabular}{@{}c} 
+Resolución \\ 
+de problemas de búsqueda\\ 
+{\Large Memoria de Prácticas de Inteligencia Artificial}\\ 
+{\Large Primera Entrega}\\
+\end{tabular} 
+\end{center} 
+\rule{\textwidth}{1pt} 
+% 
+\vspace{2cm} \begin{center}\today\end{center} 
+% 
+\vfill 
+% 
+\begin{flushright} 
+\large 
+\begin{tabular}{@{}l} 
+{\Large\upshape\bfseries Autor:}\\[8pt] 
+Daniel Fernández Núñez \itshape{danielfdezn@gmail.com}\\[10pt] 
+{\Large\upshape\bfseries Directorio de entrega:} infdfn01\\[8pt] 
+\end{tabular} 
+\end{flushright} 
+
+%---------------- RESUMEN ---------------------------------- %
+\newpage 
+\thispagestyle{empty} % Página sin cabeceras ni pies 
+\begin{abstract} 
+En esta práctica se tratará de proponer soluciones para un simple juego recreativo formulándolo como un problema de búsqueda. El juego consiste en que a partir de un número de tres cifras y, mediante incrementos y decrementos en una unidad de sus dígitos, se debe llegar a un número meta teniendo en cuenta una serie de restricciones. Se considerarán distintos algoritmos de búsqueda ciega e informada, 
+se evaluarán y se extraerán las conclusiones pertinentes.
+\end{abstract} 
+
+\newpage 
+\thispagestyle{empty} % Página sin cabeceras ni pies 
+\tableofcontents 
+
+\newpage
+\section{Introducción}
+El problema que nos ocupa es un sencillo juego cuyo objetivo es el de que a partir de un número de 3 dígitos y con una serie de modificaciones sobre estos tendremos que llegar a un número destino. Las modificaciones consisten en que sólo podremos incrementar o disminuir en una unidad de cada vez al dígito que elijamos. Sin embargo, no podremos disminuir un dígito para pasar de 0 a 9 ni aumentarlo para ir de 9 a 0, por lo que tendremos que hacer 9 modificaciones si queremos realizar este caso extremo. Otra restricción es que no podremos modificar dos veces de forma consecutiva a un dígito, lo cual podría complicar las cosas una vez estemos acercándonos al número meta. Existen también un conjunto de números prohibidos definidos a priori por los que no podremos pasar al intentar llegar al resultado final, por lo que dependiendo de cómo esté configurado este conjunto es posible que nunca podamos llegar a una solución.
+
+Por consiguiente un movimiento válido consiste en: modificar un dígito en una unidad tal que no se salga del rango [0,9], que este dígito no se haya modificado en el movimiento anterior y que el número resultado no esté prohibido. De aquí deducimos que como máximo vamos a tener 6 movimientos en el caso inicial y 4 en los posteriores, y esta cifra se disminuirá dependiendo de si estamos en los límites o por culpa de los números prohibidos.
+
+El objetivo del juego, formulado como un problema de búsqueda, es obtener la secuencia de movimientos o camino que se debe realizar para, partiendo de un estado inicial dado, llegar hasta el estado solución. 
+\section{Definiciones formales}
+\begin{itemize}
+\item \textbf{Estado inicial:} puede ser cualquier combinación de tres cifras, aunque si queremos mantener cierta coherencia, debemos evitar que sea un número prohibido.
+\item \textbf{Estado meta:} al igual que el estado inicial, una combinación de tres cifras cualquiera. Este número no debe estar contenido en el conjunto de números prohibidos si queremos que en un principio finalice.
+\item \textbf{Representación de estados:} el número se representará por un vector de tres posiciones de números enteros. Por ejemplo, para el número 748 tendremos que:
+\begin{center}
+	$V(3) = 7 ; V(2) = 4 ; V(1) = 8;$
+\end{center}	
+\item \textbf{Conjunto de operadores y restricciones:} se trata de definir operaciones tales que cumplan con las restricciones dadas en el enunciado. Los operadores y restricciones para cada dígito $i$ son mostrados en la tabla \ref{t1}, en la cual $V$ es el estado actual, $V''$ es el estado antecesor, $V'$ es el estado sucesor y $B$ es el conjunto de estados prohibidos. Por lo tanto, como en este caso solo jugamos con un número de 3 dígitos, tendremos 6 operadores posibles con 3 restricciones a verificar por cada uno de ellos.
+\begin{table}[!ht]\footnotesize
+\caption{Operadores y restricciones}\label{t1} 
+\begin{center} 
+\begin{tabular}{cccc} 
+\hline\noalign{\smallskip} Operador & Precondiciones & Resultado & Comentario \\
+\hline\multirow{3}{*}{INC$i$} 
+& $V(i)<9$ &  &  \\
+& $V(i) = V''(i)$ & $V'(i)=V(i)+i$ & Incrementar dígito \textit{i} \\
+& $V(3)\times100+V(2)\times10+{V(1)}+10^{i-1} \not\in B$ & & \\ 
+\hline\multirow{3}{*}{DEC$i$} 
+& $V(i)>1$ &  &  \\
+& $V(i) = V''(i)$ & $V'(i)=V(i)-i$ & Decrementar dígito \textit{i} \\
+& $V(3)\times100+V(2)\times10+{V(1)}-10^{i-1} \not\in B$ & & \\ 
+\hline 
+\end{tabular} 
+\end{center} 
+\end{table}
+\item \textbf{Prueba de meta:} comprobamos si el vector coincide dígito a dígito con el número meta y, de ser así, finalizamos la búsqueda.
+\item \textbf{Función de coste:} es 1 para todas las operaciones, por lo que el coste total del camino para una solución es el número de operaciones invertidas en el proceso.
+\end{itemize}
+
+\section{Análisis de métodos de búsqueda ciega} 
+En este apartado se analizaran los distintos factores que influirán en la decisión de elegir entre búsqueda ciega por anchura o por profundidad. 
+\subsection{Gasto en memoria}
+El número de estados total a priori sería el rango de enteros de entre 0 y 999, es decir, 1000 estados posibles. Sin embargo, debemos tener en cuenta la restricción de que no podemos modificar un dígito dos veces consecutivas, por lo que en cada estado tendremos que tener un método de saber cual ha sido el dígito modificado anteriormente. 
+
+En una primera aproximación podemos pensar en añadir una variable adicional al estado en la que se indica el dígito modificado. Así pues el número de estados a considerar sería de $4 \times 1000$, donde el el estado estaría representado por un vector de cuatro enteros donde los tres primeros son el número y el cuarto es otro entero que se corresponde con el dígito modificado.
+
+Otra forma de implementar esto sería asegurarse de que el estado actual tenga un puntero al estado anterior y así poder obtener su número y saber cual es el dígito que se ha modificado. Con esto sólo necesitamos un vector de tres enteros en vez de los cuatro de la anterior solución, ya que en búsqueda ciega se suele mantener un puntero de un estado hacia su padre ya en el algoritmo y no se necesitaría guardarlo de forma explícita. Este ahorro de un entero en memoria puede parecer pequeño a priori pero puede ser vital para algoritmos exponenciales como anchura.
+\subsection{Optimalidad}
+Esta característica tiene que ver no tanto con este caso particular sino más por la implementación de los algoritmos de búsqueda que nos ocupan. En anchura se explorarán todos los posibles caminos desde el comienzo del algoritmo, por lo que en el momento en el que encuentre una primera solución ese camino será óptimo. 
+
+Sin embargo en profundidad si se encuentra una solución no podemos afirmar que será óptima ya que por la implementación del algoritmo es posible que se diera un rodeo para llegar a esa solución.
+\subsection{Completitud}
+Antes de analizar esta característica sobre los algoritmos de búsqueda que nos ocupan, debemos analizar que si dados un estado inicial y otro meta cualquiera podremos siempre obtener una solución. Sin las restricciones es obvio que podremos llegar siempre al estado meta desde cualquier estado inicial con las operaciones que se nos permiten. La restricción de no modificar un dígito dos veces consecutivas tampoco es un impedimento. Un ejemplo: 
+	\begin{quote} Estamos en el estado 345, el meta es el 346 y acabamos de modificar las unidades. Una de las posibles soluciones sería 345 -\textgreater  335 -\textgreater  336 -\textgreater  346. Intuitivamente vemos que esta técnica se puede aplicar en cualquier situación.
+	\end{quote}
+La únicas formas en las que no podríamos llegar a un estado meta es que éste pertenezca al conjunto de los números prohibidos o que la ruta al numero destino esté bloqueada por números prohibidos (por ejemplo, la meta es 999 y \{998, 989,899\} es el conjunto de números prohibidos).
+
+Usando la búsqueda en anchura y suponiendo que el estado final no está en el conjunto de números prohibidos ni bloqueado por estos, siempre vamos a encontrar una solución y va a ser óptima. Con busqueda en profundidad también encontraremos siempre una solución si garantizamos que el algoritmo no va a entrar en un bucle, pero en este caso la solución no tiene porqué ser óptima.
+\subsection{Factor de ramificación}
+El factor de ramificación es por definición el número medio de estados posibles que pueden derivar de cada una de las configuraciones. Esto es importante ya que nos ayuda a saber el espacio que ocupara la búsqueda en anchura. Suponiendo que todas las posibles configuraciones son equiprobables, que no tenemos en cuenta números prohibidos y que descartaremos los movimientos pertinentes por la restricción de no modificar un dígito dos veces consecutivas, distinguiremos los siguientes casos:
+\begin{enumerate}
+\item \textbf{Los tres dígitos son $0$ o $9$:}\\
+$000,999,900,909,990,099,090,009$\\
+(Variaciones con repeticion de 2 elementos tomados de 3 en 3)\\
+$2 \mbox{ mov} \times 2^3 = 2 \times 8 = 16\mbox{ mov} $
+\item \textbf{Dos dígitos son $0$ o $9$ y uno es $0<x<9$:}\\
+$00x,0x0,x00,99x,9x9,x99,90x,09x,9x0,0x9,x90,x09$\\
+(Variaciones con repeticion de 2 elementos tomados de 2 en 2 por 3 casos)\\
+Supongamos que la probabilidad de que un dígito sea el que se haya modificado en el estado anterior es equiprobable:\\
+$((2/3 \times 3 \mbox{ mov} ) + (1/3 \times 2 \mbox{ mov} )) \times (2^2\times3)) \times 8 = (2.66) \times 96 = 256\mbox{ mov} $
+\item \textbf{Un dígito es $0$ o $9$ y dos son $0<x<9$:}\\
+$0xx,9xx,x0x,x9x,xx0,xx9$\\
+(Variaciones con repeticion de 2 elementos tomados de 1 en 1 por 3 casos)\\
+$((2/3 \times 3 \mbox{ mov} ) + (1/3 \times 4 \mbox{ mov} )) \times (2*3) \times 8^2 = (3.333)\times 384 = 1280\mbox{ mov} $ 
+\item \textbf{Los tres dígitos son $0<x<9$:}\\
+(Variaciones con repetición de 8 elementos tomados de 3 en 3)\\
+$4 \mbox{ mov}  \times 8^3 = 4 \times 512 = 2048\mbox{ mov} $
+\end{enumerate}
+Teniendo en cuenta que tenemos 1000 casos totales, entonces el factor de ramificación $b$ es:\\
+\begin{equation}
+b = \frac{16 + 256 + 1280 + 2048}{1000} = 3.6
+\end{equation}
+Este resultado resulta lógico puesto que lo más probable es que el estado actual se encuentre en el "interior" del rango de números, donde el número de movimientos es 4, así que es normal que la media de estados se situe cerca de este.
+
+Ahora intentemos aproximar el número medio de profundidades que le llevará al algoritmo de busqueda en anchura para encontrar una solución. Ya que son todos casos equiprobables calcularemos el caso más desfavorable y dividiremos esa profundidad entre 2. No es una aproximación muy exhaustiva pero valdrá como ejemplo.
+\begin{quote}
+Supongamos estado inicial 000 y estado meta 999. Uno de los caminos óptimos sería:
+000 -\textgreater 001 -\textgreater  011 -\textgreater  111 -\textgreater  112 ...
+que son 9 + 9 + 9 = 27 movimientos o niveles de profundidad.
+\end{quote}
+Si tomamos como que media de pasos es el caso más desfavorable entre 2, tenemos que $27/2 \approx 14$ niveles de media, por lo que en memoria tendriamos almacenados aproximadamente $3.6^{14}\approx 6.14 \times 10^7$ estados.
+\subsection{Conclusiones}
+Lo más óptimo sería utilizar busqueda en anchura, ya que nos garantiza encontrar siempre que sea posible un camino óptimo y en un tiempo razonablemente corto. Sin embargo, estamos sujetos a la disponibilidad de recursos de memoria para usar este algoritmo:
+\begin{quote}
+	Cada uno de los dígitos es un número de 0 a 9 y se puede expresar con 4 bits. Por lo tanto cada estado ocuparía en memoria $3\times 4 = 12$ bits = $1.5$ Bytes. En el caso medio de 14 profundidades con ramificación efectiva de 3,6 esto se traduciría en un tamaño medio en memoria de $3.6^{14} \times 1.5 = 87.84$ MB, y eso sin contar el tamaño ocupado por los punteros y demás variables del programa. Esto aún podría ser asumible, pero en el peor caso de 27 profundidades ocuparía $3.6^{27} \times 1.5 = 1.395$ PetaBytes, una cantidad de memoria inasumible en la actualidad. 
+\end{quote}
+Por lo tanto tendremos que estar sujetos a la disponibilidad de memoria,  limitando el número de profundidades de búsqueda y además controlar también el consumo de recursos. Si el algoritmo de búsqueda en anchura no consigue un solución antes de llegar al límite de consumo de recursos, entonces es cuando se debe acudir al algoritmo de busqueda en profundidad.
+\section{Heurísticas}
+En este apartado propondremos dos heurísticas para usar con los algoritmos de búsqueda informada y analizaremos sus características.
+\subsection{Heurística de los dígitos incorrectos}
+Consiste en contar el número de dígitos que no son iguales a los del número meta.
+\paragraph{}
+\textbf{Expresión matemática.} Sean $a_1,a_2,a_3$ los tres dígitos que componen el número del estado actual $n$ y sean $f_1,f_2,f_3$ los del estado meta. Entonces se define la heurística como:
+\begin{equation}
+h_1(n)=\sum_{i=1}^{3}S_i
+\end{equation}
+donde $S_i$ es una función que se define como:
+\begin{equation}
+S_i=
+\left\{
+\begin{array}{c c}
+0 & a_i=f_i\\
+1 & \mbox{otro caso}
+\end{array}\right.
+\end{equation}
+\paragraph{}
+\textbf{Idoneidad.} Esta heurística resulta de relajar las restricciones del problema original. Se ha simplificado de forma que podríamos suponer que podemos llegar al dígito meta en un sólo movimiento, es decir, esta heurística nos dice el mínimo número de movimientos para llegar al estado final. Es la mayor abstracción del problema original que podríamos conseguir, por lo que es una heurística admisible.
+\paragraph{}
+\textbf{Demostración de no sobreestimación.} Sabemos que no va a sobreestimar por lo dicho en el apartado anterior: la heurística se ha obtenido a partir de la abstracción del problema original. Por lo tanto, el número de movimientos que necesitaríamos para llegar a la meta será mayor con todas las restricciones que con la heurística, por lo que:
+$$\forall n,h_1(n)\leq h^*(n)$$
+donde $h\*(n)$ es la función que devuelve el coste óptimo para llegar a meta.
+\paragraph{}
+\textbf{Mínimos locales.} Esta heurística tiene un grave problema que ilustraremos en el siguiente ejemplo:
+\begin{quote}
+Supongamos que estamos en el estado 321 y que el meta es 765. Aquí $h_1(321)=3$ puesto que ninguna de los dígitos está en meta. Sin embargo, hagamos el movimiento que hagamos, la función seguirá siendo 3 durante varios movimientos aunque vayamos en la dirección correcta.
+\end{quote}
+Esto se conoce como una \textit{meseta}, un área plana donde todos los estados tienen el mismo valor de la función heurística y es imposible determinar la dirección correcta. Una de las soluciones más usuales sería realizar un salto en el espacio de estados para tratar de encontrar una región diferente, aunque en este caso particular lo más probable es que nos encontrásemos de nuevo en una meseta. Este problema hace que esta heurística sea poco recomendable para este juego.
+\subsection{Heurística de las distancias}
+Esta heurística se define como la suma de las distancias de cada dígito a su correspondiente del número meta.
+\paragraph{}
+\textbf{Expresión matemática.}  Sean $a_1,a_2,a_3$ los tres dígitos que componen el número del estado actual $n$ y sean $f_1,f_2,f_3$ los del estado meta. Entonces se define la heurística como:
+\begin{equation}
+h_2(n)=\sum_{i=1}^3|a_i-f_i|
+\end{equation}
+\paragraph{}
+\textbf{Idoneidad.} Esta heurística se obtiene mediante una abstracción de las restricciones del problema original suponiendo que podemos modificar un dígito en tantos movimientos como indica la distancia para llegar al dígito meta, sin tener en cuenta las restricciones de los números prohibidos ni de no podemos modificar un dígito dos veces consecutivamente. Es decir, es una cota inferior de la función de coste del problema original, por lo que es un heurística admisible de este.
+\paragraph{}
+\textbf{Demostración de no sobreestimación.} Como ya se dijo, la heurística es una abstracción del problema original y no va a sobreestimar ya que, aunque la distancia de el número exacto de pasos para ir de un dígito hasta al meta, siempre podemos tener problemas con las restricciones que nos harán incrementar el número de pasos, por lo que:
+$$\forall n,h_2(n)\leq h^*(n)$$
+donde $h^*(n)$ es la función que devuelve el coste óptimo para llegar a meta.
+\paragraph{}
+\textbf{Mínimos locales.} Esta heurística no tiene el grave problema de las mesetas de la heurística anterior, pero si tiene otro tipo que se pondrá de manifiesto en el siguiente ejemplo:
+\begin{quote}
+Supongamos que nuestro estado actual es 654 y que el meta es 754 y que el último dígito modificado es el de las centenas. Aquí tenemos que $h_2(654)=1$,es decir, que nos falta un solo movimiento para llegar a la meta. Sin embargo, no podemos modificar las centenas por culpa de las restricciones iniciales, por lo que al modificar alguno de los otros dos el valor de la función heurística se nos va a incrementar irremediablemente a 2.
+\end{quote}
+Este problema es conocido como de \textit{máximos locales}, estados puntuales mejores que cualquiera de sus vecinos posibles pero peores que otros estados más lejanos. Cuando aparecen cerca de la solución, como es nuestro caso, se denominan \textit{estribaciones}. Una de las soluciones que se suelen proponer para estos casos (y que en este problema funcionaría bien) es el de regresar a un nodo previo e intentar ir en una dirección diferente. Este problema no es tan grave como el de las mesetas, ya que una vez nos encontremos en la estribación no es necesario más que unos poco movimientos más para llegar al número final, lo que hace que esta heurística sea muy recomendable para este juego.
+
+%------------------------- Fin del documento
+\begin{thebibliography}{1}
+\bibitem{moret} 
+V. Moret, A. Alonso, M. Cabrero, B. Guijarro, E. Mosqueira.
+\newblock {\em Fundamentos de Inteligencia Artificial (2a Ed)}, capitulo Resolución de problemas pp. 
+17--60. 
+\newblock Servicio de Publicaciones, UDC, 2000.
+\end{thebibliography}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+

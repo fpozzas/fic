@@ -1,0 +1,133 @@
+A51 MACRO ASSEMBLER  P3                                                                   02/04/2010 13:22:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.00a
+OBJECT MODULE PLACED IN p3.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE p3.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME PRAC03
+                       2     ;
+                       3     ; PRACTICA 03. Instrucciones de control y llamadas a subrutinas
+                       4     ;
+                       5     ;
+                       6     PILA    SEGMENT IDATA ; Pila a RAM interna
+----                   7             RSEG PILA ; Activa segmento
+0000                   8             DS 16 ; Reserva 16 bytes a la PILA
+                       9     ;
+----                  10             CSEG AT 0 ; Segmento absoluto en 0
+0000 020000   F       11             LJMP INICIO ; A inicio programa
+                      12     ;
+                      13     CODIGO  SEGMENT CODE
+----                  14             RSEG CODIGO ; Activa segmento de código
+                      15             USING 0 ; Banco de registros 0
+                      16     
+                      17     ;
+                      18     ; Bucle del programa principal
+                      19     ;
+0000                  20     INICIO:
+0000 758100   F       21             MOV SP,#PILA-1; Pone puntero a inicio PILA
+0003 7401             22             MOV A,#1
+                      23             ;LCALL MulPorts; Multiplicación de ports
+                      24             ;LCALL Mulport0; Idem
+0005 120000   F       25             LCALL Intermitencia ; Intermitencia de 1 segundo
+0008 80FE             26             SJMP $ ; Bucle de espera
+                      27     ;;;;;;;;;
+000A                  28     MulPorts:
+                      29             ; Salto incondicional a partir de @A+DPTR
+                      30             ; Multiplicamos por 4 -> dos desplazamientos a la izquierda
+000A 23               31             RL A
+000B 23               32             RL A
+000C 900000   F       33             MOV DPTR,#MULP0
+000F 8590F0           34             MOV B,P1
+0012 73               35             JMP @A+DPTR
+0013                  36     MULP0:
+0013 E580             37             MOV A,P0
+0015 A4               38             MUL AB
+0016 22               39             RET
+0017                  40     MULP1:
+0017 E590             41             MOV A,P1
+0019 A4               42             MUL AB
+001A 22               43             RET
+001B                  44     MULP2:
+001B E5A0             45             MOV A,P2
+001D A4               46             MUL AB
+001E 22               47             RET
+001F                  48     MULP3:
+001F E5B0             49             MOV A,P3
+0021 A4               50             MUL AB
+0022 22               51             RET
+                      52     ;;;;;;;;
+0023                  53     Mulport0:
+0023 8590F0           54             MOV B,P1
+                      55             ; Salto condicional segun valor de A
+0026 B40004           56             CJNE A,#0,MULPB0
+0029 E580             57             MOV A,P0
+002B A4               58             MUL AB
+A51 MACRO ASSEMBLER  P3                                                                   02/04/2010 13:22:23 PAGE     2
+
+002C 22               59             RET
+002D B40104           60     MULPB0: CJNE A,#1,MULPB1
+0030 E590             61             MOV A,P1
+0032 A4               62             MUL AB
+0033 22               63             RET
+0034 B40104           64     MULPB1: CJNE A,#1,MULPB2
+0037 E5A0             65             MOV A,P2
+0039 A4               66             MUL AB
+003A 22               67             RET
+003B E5B0             68     MULPB2: MOV A,P3
+003D A4               69             MUL AB
+003E 22               70             RET
+                      71     ;;;;;;;;
+003F                  72     Intermitencia:
+                      73             ; 12MHz -> en realidad es 1MHz
+                      74             ; DJNZ -> 2 ciclos -> 500000 DJNZs
+003F 209101           75             JB P1.1,Delay
+0042 22               76             RET
+0043                  77     Delay:
+0043 7B08             78             MOV R3,#8
+0045 7A9B             79             MOV R2,#155
+0047 79FF             80             MOV R1,#255
+0049                  81     Retardo:
+0049 D9FE             82             DJNZ R1,Retardo
+004B DAFC             83             DJNZ R2,Retardo
+004D DBFA             84             DJNZ R3,Retardo
+004F 22               85             RET
+                      86     END
+A51 MACRO ASSEMBLER  P3                                                                   02/04/2010 13:22:23 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+CODIGO . . . . . .  C SEG    0050H       REL=UNIT
+DELAY. . . . . . .  C ADDR   0043H   R   SEG=CODIGO
+INICIO . . . . . .  C ADDR   0000H   R   SEG=CODIGO
+INTERMITENCIA. . .  C ADDR   003FH   R   SEG=CODIGO
+MULP0. . . . . . .  C ADDR   0013H   R   SEG=CODIGO
+MULP1. . . . . . .  C ADDR   0017H   R   SEG=CODIGO
+MULP2. . . . . . .  C ADDR   001BH   R   SEG=CODIGO
+MULP3. . . . . . .  C ADDR   001FH   R   SEG=CODIGO
+MULPB0 . . . . . .  C ADDR   002DH   R   SEG=CODIGO
+MULPB1 . . . . . .  C ADDR   0034H   R   SEG=CODIGO
+MULPB2 . . . . . .  C ADDR   003BH   R   SEG=CODIGO
+MULPORT0 . . . . .  C ADDR   0023H   R   SEG=CODIGO
+MULPORTS . . . . .  C ADDR   000AH   R   SEG=CODIGO
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PILA . . . . . . .  I SEG    0010H       REL=UNIT
+PRAC03 . . . . . .  N NUMB   -----       
+RETARDO. . . . . .  C ADDR   0049H   R   SEG=CODIGO
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

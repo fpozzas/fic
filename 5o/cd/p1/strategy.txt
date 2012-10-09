@@ -1,0 +1,16 @@
+mientras (vector>1)
+- Coger los 2 menores
+- Mergearlos e insertarlos de nuevo (esto implicaría un sort, o un sum(newprob<vector))
+- Guardar en el cellarray las dos probabilidades iniciales y dónde se situa en el nuevo cacharro en el vector.
+fin
+
+% vuelta atras
+
+crear un nuevo cell array que contendrá las probabilidades (vector) y las cadenas provisionales
+
+mientras cellarray>0
+ - Obtener la última fila del cell array
+ - Insertar los elementos en las dos primeras posiciones del vector (son los menores)
+ - Concatenarle a las dos primeras posiciones de las cadenas 0 y 1
+ - Eliminar posición
+ fin

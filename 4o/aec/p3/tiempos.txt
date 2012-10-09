@@ -1,0 +1,28 @@
+p3a
+Resultados: OK
+nfilas x ncols      Tiempo secuencial    Tiempo SSE2(double)    Aceleración
+15000 x 15000       100:957              99:117                 1,018563919
+15000 x 20000       140:537              138:426                1,015250025
+15000 x 25000       193:300              176:855                1,092985779
+
+p3b
+Resultados: OK
+nfilas x ncols      Tiempo secuencial    Tiempo SSE2(float)    Aceleración
+15000 x 15000       3:331                1:909                 1,744892614
+15000 x 20000       4:170                2:392                 1,743311037
+15000 x 25000       68:368               67:765                1,008898399
+
+p3c1
+Resultados: OK
+nfilas x ncols      Tiempo secuencial    Tiempo SSE2(float)    Aceleración
+15000 x 15000       3:372                2:155                 1,564733179
+15000 x 20000       73:200               74:29                 0,988801686
+15000 x 25000       88:806               96:719                0,918185672
+
+
+p3c2
+Resultados: OK
+nfilas x ncols      Tiempo secuencial    Tiempo SSE2(float)    Aceleración
+15000 x 15000       3:372                1:835                 1,83760218
+15000 x 20000       73:200               88:560                0,826558266
+15000 x 25000       88:806               120:62                0,739667838

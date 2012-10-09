@@ -1,0 +1,194 @@
+(@VERSION=	020)
+(@PROPERTY=	capacidad_maxima	@TYPE=Float;)
+(@PROPERTY=	carga	@TYPE=Float;)
+(@PROPERTY=	descripcion	@TYPE=String;)
+(@PROPERTY=	hora_inicio	@TYPE=Float;)
+(@PROPERTY=	necesidad_almacenamiento	@TYPE=Float;)
+(@PROPERTY=	propietario	@TYPE=String;)
+(@PROPERTY=	usuarios_autorizados	@TYPE=String;)
+
+
+(@CLASS=	actividad
+	(@SUBCLASSES=
+		servidor_ficheros
+		servidor_procesos
+	)
+	(@PROPERTIES=
+		capacidad_maxima
+		descripcion
+		hora_inicio
+		propietario
+		usuarios_autorizados
+	)
+)
+
+(@CLASS=	servidor_ficheros
+	(@PROPERTIES=
+		capacidad_maxima
+		descripcion
+		hora_inicio
+		necesidad_almacenamiento
+		propietario
+		usuarios_autorizados
+	)
+)
+
+(@CLASS=	servidor_procesos
+	(@PROPERTIES=
+		capacidad_maxima
+		carga
+		descripcion
+		hora_inicio
+		propietario
+		usuarios_autorizados
+	)
+)
+
+
+(@OBJECT=	AUTORIZADO
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	cliente
+	(@CLASSES=
+		servidor_ficheros
+	)
+	(@PROPERTIES=
+		capacidad_maxima
+		descripcion
+		hora_inicio
+		necesidad_almacenamiento
+		propietario
+		usuarios_autorizados
+	)
+)
+
+(@OBJECT=	cliente2
+	(@CLASSES=
+		servidor_procesos
+	)
+	(@PROPERTIES=
+		capacidad_maxima
+		carga
+		descripcion
+		hora_inicio
+		propietario
+		usuarios_autorizados
+	)
+)
+
+(@OBJECT=	denegar_cliente
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	eliminar_cliente
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	hay_procesos_ilegales
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	hora_actual
+	(@PROPERTIES=
+		Value	@TYPE=Float;
+	)
+)
+
+(@OBJECT=	sevidor_ficheros
+	(@PROPERTIES=
+		usuarios_autorizados
+	)
+)
+
+(@OBJECT=	sevidor_procesos
+	(@PROPERTIES=
+		usuarios_autorizados
+	)
+)
+
+(@OBJECT=	tipo_servidor_ficheros
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@SLOT=	servidor_ficheros.capacidad_maxima
+	(@INITVAL=	100)
+)
+
+(@SLOT=	servidor_ficheros.usuarios_autorizados
+	(@INITVAL=	"x1046,s5023")
+)
+
+(@SLOT=	servidor_procesos.capacidad_maxima
+	(@INITVAL=	100)
+)
+
+(@SLOT=	servidor_procesos.usuarios_autorizados
+	(@INITVAL=	"x1046,s5023")
+)
+
+(@SLOT=	cliente.necesidad_almacenamiento
+	@PROMPT="¨Cuales son las necesidades de almacenamiento de este cliente?";
+)
+
+(@RULE=	Denegar2
+	(@LHS=
+		(Yes	(tipo_servidor_ficheros))
+		(<	(|servidor_ficheros|.capacidad_maxima-cliente.necesidad_almacenamiento)	(0))
+	)
+	(@HYPO=	denegar_cliente)
+)
+
+(@RULE=	Denegar1b
+	(@LHS=
+		(Member	(cliente)	(<|servidor_procesos|>))
+		(Execute	("TestMultiValue")	(@ATOMID=sevidor_procesos.usuarios_autorizados;\
+@STRING="@SUPERSET,@STRAT=SETFWRD,@TEST=@V(cliente.propietario),\
+@RETURN=AUTORIZADO.value,@COMP=STRING";))
+		(No	(AUTORIZADO))
+	)
+	(@HYPO=	denegar_cliente)
+)
+
+(@RULE=	Denegar1a
+	(@LHS=
+		(Yes	(tipo_servidor_ficheros))
+		(Execute	("TestMultiValue")	(@ATOMID=sevidor_ficheros.usuarios_autorizados;\
+@STRING="@SUPERSET,@STRAT=SETFWRD,@TEST=@V(cliente.propietario),\
+@RETURN=AUTORIZADO.value,@COMP=STRING";))
+		(No	(AUTORIZADO))
+	)
+	(@HYPO=	denegar_cliente)
+)
+
+(@RULE=	Eliminar1
+	(@LHS=
+		(>	(hora_actual-cliente.hora_inicio)	(3))
+	)
+	(@HYPO=	eliminar_cliente)
+)
+
+(@RULE=	ProcesosIlegales
+	(@LHS=
+		(Yes	(denegar_cliente))
+		(Yes	(eliminar_cliente))
+	)
+	(@HYPO=	hay_procesos_ilegales)
+)
+
+(@RULE=	SerMiembro
+	(@LHS=
+		(Member	(cliente)	(<|servidor_ficheros|>))
+	)
+	(@HYPO=	tipo_servidor_ficheros)
+)

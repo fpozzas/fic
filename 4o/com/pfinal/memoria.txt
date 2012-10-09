@@ -1,0 +1,47 @@
+Alumnos:
+	Daniel Fernández Núñez
+	Luis Yáñez Rodríguez
+
+Descripción de la práctica
+--------------------------
+
+El objetivo de nuestra práctica ha sido crear un juego de aventura
+conversacional clásica mediante las técnicas vistas a lo largo
+del año en la asignatura.
+El juego es básicamente un shell en el que se insertan comandos que
+pueden desencadenar en acciones si tienen sentido en el estado actual
+en el que se encuentra la aventura. También se ofrece la posibilidad
+de ejecutar la aventura pasandole como parametro un script con
+los comandos a realizar.
+
+Partes de la práctica
+---------------------
+
+- Los analizadores léxico y sintactico son, respectivamente, el escaner 
+(hecho en flex) y el parser (hecho en yacc)
+
+- Comprobaciones de errores son "personalizadas" para cada tipo de error
+posible. Por ejemplo, ponemos "usar horquilla con chicle" y no tenemos
+en el inventario horquilla, decimos que "no tienes ese objeto". Sin embargo,
+si está en el inventario pondríamos "no puedes usarlo con horquilla" ya que,
+aunque tengas la horquilla, el evento del chicle sólo se activa con el objeto
+apuntes. 
+Esta comprobación exhaustiva de errores es bastante irreal en el contexto de una
+aventura conversacional, ya que daría demasiadas pistas al jugador, pero consideramos
+que es correcto en el sentido "academico" de la práctica.
+
+- No usamos una tabla de simbolos centralizada, si no que la hemos estructurado de la
+siguiente forma: tenemos una tabla de Salas (array global salas) que a su vez
+cada Sala incluye tablas de Objetos, Interactuables y enlaces hacia otras Salas.
+También existe un Inventario global, que es donde el personaje almacena los objetos
+que va consiguiendo a lo largo del juego.
+
+- Además de la aventura propiamente dicha, hemos creado un API con varias funciones
+para la creación de salas, objetos, interactuables, añadir objetos a salas, 
+al inventario, etc.
+
+Ejemplos
+--------
+Aunque la práctica es puramente interactiva, se le puede pasar como argumento un
+fichero de texto con los comandos pertinentes. Hemos incluido el fichero
+walkthrought.txt, que contiene los comandos exactos para completar la aventura.

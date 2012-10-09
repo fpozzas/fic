@@ -1,0 +1,46 @@
+AUTOR:
+Daniel Fernández Núñez (infdfn01)
+
+PRÁCTICA 5: 
+Implementación de la grámatica siguiente:
+E'‐>E 
+E‐>E+T|T 
+T‐>T*F|F 
+F‐>(E)|id 
+mediante un LR. Se ha implementado a partir de la tabla
+obtenida a traves del métedo SLR que aparece en los apuntes
+de la asignatura.
+Las cadenas se pasan mediante la linea de comandos, preferiblemente
+entre comillas dobles para no tener problemas con la consola de Linux.
+El programa detecta qué cadenas son válidas y cuales no, en este
+último caso indica en qué caracter aparece el error de parsing.
+###############
+COMPILACION:
+make
+ó
+make all
+
+###############
+EJEMPLOS:
+
+./p5 "n"
+ÉXITO: Cadena aceptada
+
+./p5 "n+n"
+ÉXITO: Cadena aceptada
+
+./p5 "n+(n*n)"
+ÉXITO: Cadena aceptada
+
+./p5 "(n)*(n+(n*n))"
+ÉXITO: Cadena aceptada
+
+./p5 "(n)*(n+(*n*n))"
+No hay acción para el par (4,*)
+No se esperaba el carácter '*' en la posición 9
+Error: Cadena no aceptada
+
+./p5 "n*(n+n))"
+No hay acción para el par (1,))
+No se esperaba el carácter ')' en la posición 8
+Error: Cadena no aceptada

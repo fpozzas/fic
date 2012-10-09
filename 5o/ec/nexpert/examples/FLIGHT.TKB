@@ -1,0 +1,246 @@
+(@VERSION=	020)
+(@COMMENTS="@(#)flight.tkb	1.1 90/06/04")
+(@PROPERTY=	Address1	@TYPE=String;)
+(@PROPERTY=	Address2	@TYPE=String;)
+(@PROPERTY=	Airline	@TYPE=String;)
+(@PROPERTY=	Bool	@TYPE=Boolean;)
+(@PROPERTY=	Class	@TYPE=String;)
+(@PROPERTY=	DepartingFrom	@TYPE=String;)
+(@PROPERTY=	Duration	@TYPE=Integer;)
+(@PROPERTY=	FrequentFlyer	@TYPE=Boolean;)
+(@PROPERTY=	Fullname	@TYPE=String;)
+(@PROPERTY=	Number	@TYPE=Integer;)
+(@PROPERTY=	Phone	@TYPE=String;)
+(@PROPERTY=	Price	@TYPE=Float;)
+(@PROPERTY=	Selected	@TYPE=Boolean;)
+(@PROPERTY=	Weekday	@TYPE=String;)
+
+
+(@CLASS=	Flights
+	(@PROPERTIES=
+		Airline
+		DepartingFrom
+		Number
+		Price
+		Weekday
+	)
+)
+
+(@CLASS=	PossibleFlights
+	(@PROPERTIES=
+		Selected
+	)
+)
+
+(@CLASS=	SelectedFlights
+)
+
+
+(@OBJECT=	a
+	(@CLASSES=
+		Flights
+	)
+	(@PROPERTIES=
+		Airline
+		Bool
+		DepartingFrom
+		Number
+		Price
+		Weekday
+	)
+)
+
+(@OBJECT=	American
+	(@PROPERTIES=
+		FrequentFlyer
+	)
+)
+
+(@OBJECT=	b
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	Continental
+	(@PROPERTIES=
+		FrequentFlyer
+	)
+)
+
+(@OBJECT=	cursor
+	(@PROPERTIES=
+		Value	@TYPE=Integer;
+	)
+)
+
+(@OBJECT=	Delta
+	(@PROPERTIES=
+		FrequentFlyer
+	)
+)
+
+(@OBJECT=	MyFlight
+	(@CLASSES=
+		Flights
+	)
+	(@PROPERTIES=
+		Airline
+		DepartingFrom
+		Number
+		Price
+		Weekday
+	)
+)
+
+(@OBJECT=	Northwest
+	(@PROPERTIES=
+		FrequentFlyer
+	)
+)
+
+(@OBJECT=	Pan_Am
+	(@PROPERTIES=
+		FrequentFlyer
+	)
+)
+
+(@OBJECT=	Passenger
+	(@PROPERTIES=
+		Address1
+		Address2
+		Fullname
+		Phone
+	)
+)
+
+(@OBJECT=	probar_atomic_update
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	probar_grouped_retrieve
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	probar_retrieve_bool
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	retrieve_en_metaslot
+	(@PROPERTIES=
+		Value	@TYPE=Float;
+	)
+)
+
+(@OBJECT=	start
+	(@PROPERTIES=
+		Value	@TYPE=Boolean;
+	)
+)
+
+(@OBJECT=	Trip
+	(@PROPERTIES=
+		Class
+		Duration
+		Weekday
+	)
+)
+
+(@OBJECT=	TWA
+	(@PROPERTIES=
+		FrequentFlyer
+	)
+)
+
+(@OBJECT=	United
+	(@PROPERTIES=
+		FrequentFlyer
+	)
+)
+
+(@SLOT=	retrieve_en_metaslot
+	(@SOURCES=
+		(Retrieve	("flight.nxp")	(@TYPE=NXPDB;@SLOTS=retrieve_en_metaslot.Value;\
+@FIELDS="Price";@CURSOR=cursor;))
+	)
+)
+
+(@RULE=	R1
+	(@LHS=
+		(Reset	(cursor))
+		(=	(retrieve_en_metaslot)	(2.0))
+	)
+	(@HYPO=	b)
+)
+
+(@RULE=	Find_Possible_Flights
+	(@LHS=
+		(Reset	(cursor))
+	)
+	(@HYPO=	probar_atomic_update)
+	(@RHS=
+		(Let	(MyFlight.Airline)	("American"))
+		(Let	(MyFlight.Weekday)	("Sunday"))
+		(Do	(102)	(MyFlight.Number))
+		(Do	(1.0)	(MyFlight.Price))
+		(Let	(MyFlight.DepartingFrom)	("Coruna"))
+		(Write	("flight.nxp")	(@TYPE=NXPDB;@SLOTS=MyFlight.Airline,MyFlight.Weekday,\
+MyFlight.Price;@FIELDS="Airline","Weekday",\
+"Price";@QUERY="(Number=102)";@CURSOR=cursor;\
+))
+	)
+)
+
+(@RULE=	Find_Possible_Flights
+	(@LHS=
+		(Retrieve	("flight.nxp")	(@TYPE=NXPDB;@FILL=ADD;@NAME="'Flight_'!Number!";\
+@CREATE=|Flights|;@PROPS=Airline,Number,Price,\
+Weekday,DepartingFrom;@FIELDS="Airline","Number",\
+"Price","Weekday","Departing";@QUERY="(Number>102) and (Weekday like \"Sunday\")\
+";))
+		(Equal	(<|Flights|>.Weekday)	(Trip.Weekday))
+	)
+	(@HYPO=	probar_grouped_retrieve)
+	(@RHS=
+		(CreateObject	(<|Flights|>)	(|PossibleFlights|))
+	)
+)
+
+(@RULE=	Find_Possible_Flights
+	(@LHS=
+		(Reset	(cursor))
+		(Retrieve	("flight.nxp")	(@TYPE=NXPDB;@SLOTS=a.Airline,a.Number,a.Price,\
+a.Weekday,a.DepartingFrom,a.Bool;@FIELDS="Airline",\
+"Number","Price","Weekday","Departing","Bool";\
+@QUERY="(Number>102) and (Bool=True)";@CURSOR=cursor;\
+))
+		(Yes	(a.Bool))
+	)
+	(@HYPO=	probar_retrieve_bool)
+)
+
+(@GLOBALS=
+	@INHVALUP=FALSE;
+	@INHVALDOWN=TRUE;
+	@INHOBJUP=FALSE;
+	@INHOBJDOWN=FALSE;
+	@INHCLASSUP=FALSE;
+	@INHCLASSDOWN=TRUE;
+	@INHBREADTH=TRUE;
+	@INHPARENT=FALSE;
+	@PWTRUE=TRUE;
+	@PWFALSE=TRUE;
+	@PWNOTKNOWN=TRUE;
+	@EXHBWRD=TRUE;
+	@PTGATES=TRUE;
+	@PFACTIONS=TRUE;
+	@SOURCESON=TRUE;
+	@CACTIONSON=TRUE;
+	@SUGLIST=probar_retrieve_bool;
+)
