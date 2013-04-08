@@ -1,0 +1,32 @@
+<head>
+<title>Ejemplo de prueba 3</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+<img src="shortLine.gif">
+<p>
+
+
+<h2>P2: INV con x reemplazado por  x[x[k]/k-1]</h2> El array x[x[k]/k-1]
+representa el array que es igual que x salvo en k-1 donde contiene x[k] (o
+sea lo que contiene x en el lugar k).
+
+<pre>
+    a &lt= k &lt= b  
+    and forall i, a &lt= i &lt  k : x[x[k]/k-1][i] = x0[i+1]
+    and forall i, k &lt= i &lt= b : x[x[k]/k-1][i] = x0[i]
+</pre>
+<br>
+
+<h2>P3: P2 con  k reemplazada por k+1</h2>
+<pre>
+    a &lt= k+1 &lt= b  
+    and forall i, a &lt= i &lt  k+1 : x[x[k+1]/k+1-1][i] = x0[i+1]   
+    and forall i, k+1 &lt= i &lt= b : x[x[k+1]/k+1-1][i] = x0[i]
+</pre>
+
+
+</body>

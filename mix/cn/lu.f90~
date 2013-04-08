@@ -1,0 +1,48 @@
+program ej1
+implicit none
+integer (kind=4) :: x,n
+real (kind=8), dimension(:,:), allocatable :: a
+real (kind=8), dimension(:), allocatable :: b
+integer (kind=4) :: i,j
+interface
+	function calcularLU(a,b)
+	real (kind=8), dimension(:,:) :: a
+	real (kind=8), dimension(:) :: b
+	end function
+end interface
+
+	open(1,file='matriz.dat',form='formatted')
+	rewind(1)
+	read(1,*) n
+	allocate(a(n,n))
+	allocate(b(n))
+	do i = 1,n
+		read(1,*) a(i,:), b(i)
+	end do
+	close(1)
+	do i=1,n
+		print*,a(i,:)
+	end do
+
+end program ej1
+
+function calcularLU(a,b) result(x)
+	implicit none
+	integer (kind=4) :: n,x
+	real (kind=8), dimension(:,:) :: a
+	real (kind=8), dimension(:) :: b
+	integer (kind=4) :: i,j
+	n = size(b)
+	do i=1,n
+		a(i,i) = a(i,i) - dot_product(a(i,1:(i-1)),a(1:(i-1),i))
+		if (a(i,i)==0) then 
+			print*,"Factorización LU imposible"
+			exit
+		end if
+		do j=i+1,n
+			a(i,j) = a(i,j) - dot_product(a(i,1:(i-1)),a(1:(i-1),j))
+			a(j,i) = (a(j,i) - dot_product(a(j,1:(i-1)),a(1:(i-1),i)))/a(i,i)
+		end do 
+	end do
+	x = 1;
+end function calcularLU

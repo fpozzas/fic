@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>Teor&iacute;a de Aut&oacute;matas y Lenguajes Formales - Pr&aacute;cticas</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+<FONT FACE="Arial,Helvetica">
+<FONT COLOR="#7bd4afccb168"><H2>Teor&iacute;a de Aut&oacute;matas y Lenguajes Formales (2007/08)</H2></FONT>
+</FONT>
+
+<CENTER>
+<H2>Pr&aacute;ctica 1</H2>
+<H3>(Expresiones regulares y aut&oacute;matas)</H3>
+<H4>Enunciado</H4>
+</CENTER>
+
+<HR>
+<P>
+
+<!--------------------------------------------------------------------------------->
+
+El objetivo de esta pr&aacute;ctica es reforzar los conceptos relacionados con las
+expresiones regulares, con los aut&oacute;matas finitos,
+y con algunas de las transformaciones b&aacute;sicas que se pueden realizar entre estos formalismos.
+<P>
+Descarga el fichero
+<A HREF="ocaml-talf.tar.gz">ocaml-talf.tar.gz</A>
+y descompr&iacute;melo en un directorio propio, porque algunas de las operaciones
+est&aacute;n ya implementadas:
+<UL>
+	<LI> Se proporcionan dos funciones, <TT>cadena_of_string</TT> y
+             <TT>cadena_of_file</TT>, 
+             para construir valores del tipo de dato <TT>simbolo list</TT>.
+             <P>
+	<LI> Se proporcionan dos funciones, <TT>er_of_string</TT> y
+             <TT>er_of_file</TT>, para construir valores del tipo
+             de dato <TT>er</TT>.
+             <P>
+        <LI> Se proporcionan dos funciones, <TT>af_of_string</TT> y
+             <TT>af_of_file</TT>,
+             para construir valores del tipo de dato <TT>af</TT>.
+             <P>
+        <LI> Se proporciona también la función <TT>dibuja_af</TT>,
+             para poder visualizar y/o imprimir la representación
+             gráfica de un valor de tipo <TT>af</TT>.
+             <P>
+	<LI> Se proporciona la funci&oacute;n 
+             <TT>escaner_af : Auto.simbolo list -> Auto.af -> bool</TT>,
+             que verifica si una cadena de s&iacute;mbolos terminales es aceptada o no por
+             un aut&oacute;mata finito.
+</UL>
+Se pide implementar lo siguiente:
+<OL>
+        <LI> Una funci&oacute;n <TT>traza_af : Auto.simbolo list -> Auto.af -> bool</TT>,
+             que no sólo verifique si una cadena de s&iacute;mbolos terminales es aceptada o no por
+             un aut&oacute;mata finito, sino que además imprima por pantalla todas las configuraciones
+             instantáneas, es decir, todos los pares de la forma (estados actuales, símbolos
+             pendientes), por los que va pasando
+             el proceso de reconocimiento de dicha cadena. Valor de este apartado: 3 puntos.
+             <P>
+	<LI> Una funci&oacute;n <TT>af_of_er : Auto.er -> Auto.af</TT>,
+             que dada una expresión regular devuelva el autómata finito que
+             acepta exactamente el lenguaje regular denotado por dicha expresión
+             regular. Valor de este apartado: 4 puntos.
+             <P>
+	<LI> Un programa ejecutable de nombre <TT>talfgrep</TT>. El programa
+             debe recibir dos parámetros en la línea de comandos: una
+             expresión regular y el nombre de un fichero de texto.  Posteriormente, durante
+             su ejecución, el programa debe imprimir por pantalla las líneas
+             del fichero que encajan con la expresión regular recibida, precedidas del
+             número de línea que ocupan dentro de dicho fichero. Valor de este apartado: 3 puntos.
+             <P>
+</OL>
+Para ello, echa primero un vistazo al fichero <A HREF="manual.ps">manual.ps</A>
+o <A HREF="manual.pdf">manual.pdf</A>, el
+cual contiene la definici&oacute;n de los tipos de datos involucrados,
+con sus correspondientes constructores. Realiza las implementaciones
+de los apartados 1 y 2 en el fichero <TT>auto.ml</TT>, y la del apartado 3 en
+un fichero de nombre <TT>talfgrep.ml</TT>. Estos dos ficheros son los únicos
+que debes entregar despu&eacute;s.
+<P>
+Tiempo para la realizaci&oacute;n de la pr&aacute;ctica: 3 semanas.
+<P>
+<HR size=5>
+
+<!--------------------------------------------------------------------------------->
+</BODY>
+</HTML>
+
+

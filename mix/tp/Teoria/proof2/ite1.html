@@ -1,0 +1,31 @@
+<head>
+<title>Ejemplo 2: Plan de prueba </title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+
+<li><a href="ite2.html">Seguir</a></li>
+<li><a href="plan.html">Plan de prueba</a></li>
+<img src="shortLine.gif">
+
+<pre>
+
+ { PRE: x0 = x and y0 = y }
+
+    if (x &gt y) then y := x
+
+               else x := y
+
+ { POST: x = y = max(x0,y0) }
+
+<hr>
+
+ 1) Probar |= { PRE and x &gt y } y := x { POST }
+
+</pre>
+
+</body>
+

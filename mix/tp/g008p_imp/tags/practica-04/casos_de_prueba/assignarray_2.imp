@@ -1,0 +1,2 @@
+Bool a[4]:=true;
+a[1]:= not (a[2]);

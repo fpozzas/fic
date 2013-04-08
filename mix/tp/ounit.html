@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="http://www.madsgroup.org/docencia/theme/standard/styles.php" />
+
+    <meta name="keywords" content="moodle, TP0607: Librería OUnit " />
+    <title>TP0607: Librería OUnit</title>
+    <link rel="shortcut icon" href="http://www.madsgroup.org/docencia/theme/standard/favicon.ico" />
+    <!--<style type="text/css">/*<![CDATA[*/ body{behavior:url(http://www.madsgroup.org/docencia/lib/csshover.htc);} /*]]>*/</style>-->
+
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/javascript-static.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/javascript-mod.php"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/overlib.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/cookies.js"></script>
+
+<script language="JavaScript" type="text/javascript" defer="defer">
+
+<!-- // Non-Static Javascript functions
+
+setTimeout('fix_column_widths()', 20);
+
+function openpopup(url,name,options,fullscreen) {
+  fullurl = "http://www.madsgroup.org/docencia" + url;
+  windowobj = window.open(fullurl,name,options);
+  if (fullscreen) {
+     windowobj.moveTo(0,0);
+     windowobj.resizeTo(screen.availWidth,screen.availHeight);
+  }
+  windowobj.focus();
+  return false;
+}
+
+function inserttext(text) {
+  text = ' ' + text + ' ';
+  if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+    var caretPos = opener.document.forms['theform'].message.caretPos;
+    caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+  } else {
+    opener.document.forms['theform'].message.value  += text;
+  }
+  opener.document.forms['theform'].message.focus();
+}
+
+
+// done hiding -->
+</script>
+</head>
+
+<body  class="mod-resource course-15" id="mod-resource-view">
+    
+<div id="page">
+
+    <div id="header">
+        <div class="headermain">Tecnología de la Programación 2006/07</div>
+        <div class="headermenu"><table><tr><td><form action="http://www.madsgroup.org/docencia/mod/resource/view.php" target="_top"><input type="hidden" name="id" value="583" /><input type="submit" value="&lt;" /></form></td><td><form action="http://www.madsgroup.org/docencia/course/jumpto.php" method="get" target="_top" name="navmenu" class="popupform"><select name="jump" onchange="self.location=document.navmenu.jump.options[document.navmenu.jump.selectedIndex].value;">
+   <option value="http://www.madsgroup.org/docencia/mod/forum/view.php?id=499">Foro de Noticias</option>
+   <option value="http://www.madsgroup.org/docencia/mod/ficha/view.php?id=500">Ficha</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=648">Leccion 1</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=649">Lección 2</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=652">Puntos fijos</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=665">Lección 3</option>
+   <optgroup label=" Prácticas">   <option value="http://www.madsgroup.org/docencia/mod/forum/view.php?id=516">Foro de las Prácticas</option>
+   <option value="http://www.madsgroup.org/docencia/mod/wiki/view.php?id=517">Horarios de prácticas</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=518">Criterios de calificación</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=543">Acceso a los repositorios de Subversion</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=535">Práctica 1. Uso de Subversion</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=583">Práctica 2. Intérprete IMP</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=584" selected="selected">Saltar a...</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=585">Código práctica 2</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=607">Práctica 3. Tipos y arrays en el intérprete IMP.</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=608">Código práctica 3</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=656">Práctica 4. Variables locales en el intérprete IMP</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=657">Código práctica 4</option>
+   </optgroup>   <optgroup label=" Herramientas de desarrollo
+">   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=548">Control de Versiones</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=592">Documentación incrustada en el código</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=593">JUnit</option>
+   </optgroup>   <optgroup label=" 
+Semántica">   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=640">Semántica Operacional</option>
+    </optgroup></select><noscript id="noscriptnavmenu" style="display: inline;"><input type="submit" value="Ir" /></noscript><script type="text/javascript">
+<!--
+document.getElementById("noscriptnavmenu").style.display = "none";
+-->
+</script></form>
+</td><td><form action="http://www.madsgroup.org/docencia/mod/resource/view.php" target="_top"><input type="hidden" name="id" value="585" /><input type="submit" value="&gt;" /></form></td></tr></table></div>
+    </div>
+    <div class="clearer">&nbsp;</div>
+    <table class="navbar"><tr><td>
+        <div class="breadcrumb"><a target="_top" href="http://www.madsgroup.org/docencia/">Docencia</a> &raquo; <a target="_top" href="http://www.madsgroup.org/docencia/course/view.php?id=15">TP0607</a> &raquo; <a target="_top" href="index.php?id=15">Recursos</a> &raquo; Librería OUnit</div>
+        <div class="navbutton">&nbsp;</div>
+    </td></tr></table>
+    <div class="clearer">&nbsp;</div>
+    <!-- END OF HEADER -->
+    <div id="content">
+<table align="center"   class="generalbox" border="0" cellpadding="20" cellspacing="0"><tr><td  class="generalboxcontent"><style type="text/css">
+		.codigo { 
+			margin-left: 1cm; 
+			margin-right: 1cm; 
+			margin-bottom: 0cm; 
+			background: #e6e6e6; 
+			border: 1px solid #000000; 
+			padding: 0.05cm; 
+			font-family: courier, monospace; 
+			font-size: 10pt; 
+		}		
+</style>
+
+
+
+<h2>Librería <code>OUnit</code></h2>
+
+<p>
+	La librería OUnit se utiliza para implementar test de unidad en OCaml.
+</p>
+
+<p>
+	Cada alumno debe descargar e instalar esta librería en su cuenta (103 K) si
+	ésta no se encuentra instalada en su máquina. 
+</p>
+<p>	
+	Los pasos a seguir para instalar y utilizar la libreria en un directorio
+	de la cuenta de usuario son:
+</p>
+
+
+<ul>
+	<li>
+		Descarga de la librería <a href="http://www.xs4all.nl/~mmzeeman/ocaml/ounit-1.0.2.tar.gz">OUnit</a>
+	</li>
+	<li>
+		Instalación y compilación de la librería en el directorio <code>/home/i/infxxx00/lib</code>
+	</li>
+</ul>	
+<p class="codigo">
+	[user@localhost:/home/i/infxxx00/lib]$ tar xvfz ounit-1.0.2.tar.gz<br />
+	[user@localhost:/home/i/infxxx00/lib]$ cd ounit-1.0.2<br />
+	[user@localhost:/home/i/infxxx00/lib/ounit-1.0.2]$ make all
+</p>
+		
+<ul>		
+	<li>
+		Utilización de la librería en el toplevel
+	</li>
+</ul>
+<p class="codigo">
+	[user@localhost]$ ocaml<br />
+	Objective Caml version 3.09.2<br />
+	<br />
+	# #directory "/home/i/infxxx00/lib/ounit-1.0.2";;<br />
+	# #load "unix.cma";;<br />
+	# #load "oUnit.cma";;<br />
+	# open OUnit;;
+</p>
+
+<ul>
+	<li>Compilación con la librería</li>		
+</ul>
+
+<p class="codigo">
+[user@localhost]$ ocamlc -o output -I "/home/i/infxxx00/lib/ounit-1.0.2" unix.cma oUnit.cmo fichero.ml
+</p>
+
+<ul>
+	<li>Documentación</li>		
+</ul>
+<p class="codigo">
+	[user@localhost:/home/i/infxxx00/lib/ounit-1.0.2]$ make doc <br />
+	[user@localhost:/home/i/infxxx00/lib/ounit-1.0.2]$ ls doc/ <br />
+	index_attributes.html&nbsp;&nbsp;&nbsp;index_methods.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;manual <br />
+	index_classes.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index_modules.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OUnit.html <br />
+	index_class_types.html&nbsp;&nbsp;index_module_types.html&nbsp;&nbsp;README <br />
+	index_exceptions.html&nbsp;&nbsp;&nbsp;index_types.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style.css <br />
+	index.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index_values.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type_OUnit.html
+</p>
+</td></tr></table><center><p><font size="1">Última modificación:  Monday,  12 de March de 2007, 13:14</font></p></center>
+</div> <!-- end div containerContent -->
+<!-- START OF FOOTER -->
+<div id="footer">
+
+
+<div class="logininfo">Ud. está en el sistema como <a target="_top" href="http://www.madsgroup.org/docencia/user/view.php?id=946&amp;course=15">Daniel Fernandez Nuñez</a>. (<a target="_top" href="http://www.madsgroup.org/docencia/login/logout.php">Salir</a>)</div>
+
+
+
+</div>
+</div>
+</body>
+</html>

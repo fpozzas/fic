@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04
+END
+env.ml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/env.ml
+END
+lector.ml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/lector.ml
+END
+lexer.mll
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/lexer.mll
+END
+tipos.ml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/tipos.ml
+END
+eval.mli
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/eval.mli
+END
+env.mli
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/env.mli
+END
+tests.ml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/tests.ml
+END
+main.ml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/main.ml
+END
+parser.mly
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/parser.mly
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/Makefile
+END
+eval.ml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/docencia/svn/tp0607/g008p_imp/!svn/ver/25/tags/practica-04/eval.ml
+END

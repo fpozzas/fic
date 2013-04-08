@@ -1,0 +1,259 @@
+﻿En la construcción de una RNA, ¿qué provoca el aumento del número de capas?
+a. Aumenta la habilidad para procesar información compleja.
+b. Se complica el entrenamiento.
+c. Disminuye la habilidad para procesar información compleja.
+d. a y b son correctas. (*)
+
+¿Qué provoca el sobreentrenamiento?
+a. Perdemos capacidad de generalización. (*)
+b. Mejora el rendimiento de la RNA.
+c. Nada, es como si la red cesara de entrenar.
+d. Ninguna de las anteriores.
+
+¿Cuándo es adecuado el uso de Redes de Neuronas Artificiales?
+a) Siempre, ya que resuelven cualquier tipo de problema de forma más eficiente y con un coste menor.
+b) Cuando otras técnicas de computación convencional o la Inteligencia Artificial fallan. (*)
+c) Es equivalente a utilizar cualquier otro tipo de solución.
+
+¿Cuáles son los principales factores a tener en cuenta en la construcción de RNA?
+a) Tamaño de la red, rapidez de la red y funciones de los EPs. (*)
+b) Tamaño de la red, número de EP en las capas ocultas y función de transferencia.
+c) Rapidez de la red, tipo de aprendizaje y número de capas ocultas. 
+
+Indica la afirmación FALSA:
+a) La regla delta, la retropropagación y el aprendizaje por refuerzo son tipos de aprendizaje supervisado.
+b) El aprendizaje no supervisado se usa cuando sólo se conoce como debería ser el comportamiento en general de la red y no se dispone de un ejemplo completo del comportamiento deseado.
+c) El aprendizaje competitivo y el estocástico son tipos de aprendizaje supervisado. (*)
+
+Los factores a tener en cuenta para el Desarrollo-Construcción de una RNA son:
+a) Tamaño de la red.
+b) Rapidez de la red.
+c) Funciones de los Eps
+d) Todas las anteriores. (*)
+
+Según la cantidad y tipo de datos que tengamos se elegirá entre:
+a) Aprendizaje supervisado y no supervisado. (*)
+b) Aprendizaje competitivo y adaptativo.
+c) Todas las anteriores.
+d) Ninguna de las anteriores.
+
+En cuál de los siguientes casos no es recomendable el empleo de Sistemas Conexionistas?
+a) La solución no requiere explicación.
+b) Hay suficientes ejemplos bien etiquetados y con adecuada variabilidad, incluyendo ruidos y/o contradicciones.
+c) Cuando el problema se puede abordar con otras técnicas de computación convencionales o incluso de Inteligencia Artificial. (*)
+d) Necesidad de una respuesta rápida y/o precisen gran cantidad de componentes.
+
+¿Cuáles son los principales factores a tener en cuenta para la construcción de una RNA?
+a) Tamaño de la red, rapidez de la red y funciones de los elementos de procesado. (*)
+b) Rapidez de la red y control de aprendizaje.
+c) Sólo el tamaño de la red.
+d) Sólo la rapidez de la red.
+
+¿Qué dos circunstancias sugieren el empleo de RNA multicapa?
+a) En problemas complejos y simples.
+b) En problemas complejos o cuando existe una gran diferencia entre los datos de entrada y salida. (*)
+c) En problemas lineales y de escaso nivel de computación.
+d) En problemas donde existe una correspondencia directa entre entradas y salidas.
+
+¿Cuándo se debe emplear el aprendizaje supervisado?
+a) Cuando no se dispone de la respuesta adecuada para cada estímulo de entrada al sistema.
+b) Nunca se debe emplear el aprendizaje supervisado.
+c) Cuando se dispone de la respuesta adecuada para cada estímulo de entrada al sistema.(*)
+d) Siempre se puede emplear el aprendizaje supervisado.
+
+¿Cuál es el objetivo del proceso de entrenamiento de una RNA?
+a) Que la RNA memorice los casos de entrenamiento.
+b) Que la RNA no aprenda
+c) Que la RNA no sea capaz de generalizar.
+d) Que la RNA aprenda, generalice y no memorice los casos de entrenamiento. (*)
+
+El uso de los Sistemas Conexionistas es recomendable:
+a) Siempre.
+b) Siempre que sea posible debido a sus múltiples funcionalidades.
+c) Cuando fallen las otras técnicas de computación convencional.(*)
+d) Nunca.
+
+El “momentum”:
+a) Refuerza las tendencias generales y cancela las oscilatorias.(*)
+b) Incrementa la tasa de aprendizaje.
+c) Decrementa la tasa de aprendizaje.
+d) Ninguna de las anteriores es correcta.
+
+¿Cuál de estas afirmaciones NO es correcta?
+a) El nº de Eps en la capa de entrada viene determinado por los datos que se aportan al sistema.
+b) El nº de Eps en la capa de salida viene determinado por los datos que se esperan del sistema.
+c) El nº de Eps en las capas intermedias viene determinado por la ecuación: (x+1)+(x-1)/2 = número_de_elementos_de_la_capa_x. (*)
+d) El nº de Eps en las capas intermedias es fundamentalmente intuitivo.
+
+
+
+
+La “ganancia” en el aprendizaje:
+a) Debe ser elevada al final para que aprenda rápido cuando se esté acercando a la convergencia.
+b) Es conveniente que sea variable en las distintas fases del entrenamiento.(*)
+c) Debe ser pequeña para que no oscile a ambos lados del valor de convergencia adecuado.
+d) Debe ser elevado en todo caso.
+
+¿Cuál de estas fases es posterior en la metodología de las RNA?
+a) Identificación del problema.
+b) Entrenamiento de la red.
+c) Análisis de resultados.
+d) Ajuste de parámetros.(*)
+
+1) ¿Cuáles son los principales factores a tener en cuenta en la construcción de las RNA?
+a) El tamaño de la red, la rapidez de la red y el número de capas.
+b) El tamaño de la red, la rapidez de la red y las funciones de los elementos de procesado. (*)
+c) El tamaño de la red, las funciones de los elementos de procesado y el número de capas.
+d) La rapidez de la red, las funciones de los elementos de procesado y el número de capas.
+
+2) ¿Qué conocemos como “capacidad de modificar adecuadamente la conducta del sistema de acuerdo a las modificaciones de los estímulos y/o del entorno durante la creación de las RNA?
+a) Elección del modelo.
+b) Aprendizaje. (*)
+c) Topología.
+d) Prueba.
+
+3) La capacidad de generalización está relacionada con:
+a) El menor o mayor número posible de casos típicos o atípicos usados durante el aprendizaje.
+b) El sobreentrenamiento (al pasarle un CE pequeño, hay que pasárselo más veces al sistema, con lo que se puede producir sobreentrenamiento).
+c) Ambas. (*)
+d) Ninguna.
+
+4) ¿Cuál es el objeto de entrenar una RNA?
+a) Aprender, generalizar y no memorizar casos de entrenamiento. (*)
+b) Aprender, generalizar y memorizar casos de entrenamiento.
+c) Aprender, no generalizar y no memorizar casos de entrenamiento.
+d) Aprender, no generalizar y memorizar casos de entrenamiento.
+
+El planteamiento de las variantes que intervienen en un problema y sus posibles valores se lleva a cabo en:
+a. La identificación del problema(*)
+b. Desarrollo – Construcción de la RNA
+c. Instalación de las herramientas Hw y Sw
+d. Ajuste de parámetros
+
+
+En el estudio bibliográfico no se lleva a cabo el análisis de
+a. Otras técnicas aplicadas al mismo problema
+b. Problemas parecidos abordados con esta técnica por otros autores
+c. Nuestras aplicaciones de esta técnica y métodos a problemas similares
+d. Distintas técnicas aplicadas por otros autores a problemas distintos(*)
+
+La aplicación de las RNA no es adecuada en
+a. Problemas donde se demostraron útiles anteriormente
+b. Problemas abordables con otras técnicas y métodos de computación convencional(*)
+c. La solución no requiere explicación
+d. No se dispone de expertos genuinos capaces de explicar su conocimiento adecuadamente
+
+Antes de la implementación hay que hacer consideraciones previas:
+a. Usar la primera red que se nos venga a la cabeza
+b. Dejar la decisión del número de elementos de procesado para el final
+c. Plantearse el tipo y las características de los PEs(*)
+d. Usar siempre la misma función de activación
+
+¿Cuáles son las redes que alcanzan siempre la estabilidad?
+a. Las feedback
+b. Las feedforward(*)
+c. Las dos
+d. Ninguna
+
+¿Cuál de los siguientes puntos no se debe tener en cuenta en el aprendizaje?
+a. La velocidad de aprendizaje
+b. El momento
+c. El número de PEs(*)
+d. El signo algebraico de la derivada de la función error
+
+Cual de las siguientes no es una etapa de la Metodología de RNA
+a) Contexto Teórico (*)
+b) Estudio Bibliográfico
+c) Desarrollo
+d ) Todas lo son
+
+Cuando se va a construir una red de neuronas artificiales...
+a) hay que comprobar previamente si el problema es abordable por otro método. (*)
+b) es mejor diseñar nuestro modelo que adecuar uno de los modelos generales ya existentes, ya que estos sólo son validos en casos muy específicos.
+c) a) y b) son correctas.
+d) Ninguna es correcta
+
+A la hora de diseñar una red de neuronas artificiales...
+a) el número de elementos de una capa oculta es siempre: (CapaAnterior+ CapaPosterior)/2
+b) es mejor usar redes con retroalimentación.
+c) las funciones de los elementos de procesado se determinan por el método "ensayo-error". (*)
+d) Todas son correctas.
+
+En una red de neuronas artificiales, hay q tener en cuenta durante el proceso de aprendizaje...
+a) que la tasa de aprendizaje debe ser constante para evitar que los casos aislados tomen relevancia.
+b) que el MOMENTUM refuerza tendencias generales y cancela las oscilatorias si se maneja bien. (*)
+c) que si la derivada de la función de error tiene siempre el mismo signo hay que decrementar la tasa de aprendizaje.
+d) Ninguna es correcta.
+
+El conjunto de entrenamiento...
+a) cuanto más grande es, más veces se le pasa al sistema.
+b) no debe contener ningún caso atípico.
+c) siempre mejora notablemente los resultados al aumentarle el número de casos.
+d) Ninguna es correcta. (*)
+
+Las metodologías en redes de neuronas artificiales...
+a)Tan solo existe una bien definida
+b)No son necesarias
+c)Son muy útiles para evitar los errores (*)
+d) Se utilizan en el campo de las aplicaciones prácticas y no en el teórico
+
+El primer paso de la metodología en RNA es:
+a) Construcción de la RNA
+b)Construcción del conjunto de prueba y entrenamiento
+c)Análisis de las herramientas disponibles en el mercado y selección de las más
+apropiadas
+d)Identificación del problema (*)
+
+Indique cual es la afirmación correcta
+a) Solo existe un tipo de sinapsis
+b)Las sinapsis pueden ser químicas o mecánicas
+c)Las sinapsis químicas se caracterizan porque son conductos directos para el
+paso del impulso eléctrico
+d)La mayoría de las sinapsis son químicas (*)
+
+2. ¿Cando é recomendable empregar un Sistema Conexionista en substitución dun programa algorítmico?
+a) Cando a extensión do programa algorítmico supere 100 liñas
+b) Cando resulte imposible (ou pouco eficiente) abordar o problema algoritmicamente (*)
+c) Cando se necesite clasificar algo
+d) Nunca
+
+
+
+
+
+
+
+
+- La metodología en redes de neuronas artificiales tiene una serie de etapas: identificación de problema,
+adecuación - justificación del uso de la RNA, desarrollo - construcción de la RNA, análisis de las herramientas
+disponibles en el mercado y selección de las más apropiadas (hardware y software),... pero entre la
+identificación de problema y la adecuación - justificación del uso de la RNA existe otra fase, ¿cuál?
+a) Estudio bibliográfico. (*)
+b) Construcción de los conjuntos de prueba y de entrenamiento.
+c) Validación del sistema.
+d) Ajuste de parámetros (modo y tasa de aprendizaje, topología del sistema...)
+
+- ¿Cuál de estos puntos no se aborda en la fase de "análisis de las herramientas disponibles en el mercado
+y selección de las más apropiadas (hardware y software)"?
+a) Precio.
+b) Conocimiento previo por el equipo investigador.
+c) Portabilidad.
+d) Instalación de las herramientas hardware y software. (*)
+
+1.Cual de las siguientes afirmaciones es falsa:
+a) El uso de S.C solo es justificable cuando otras técnicas de computación convencional o incluso de la I.A fallen, no pudiendo abordar eficientemente el problema a resolver
+b) Los S.C son adecuados cuando se necesita una rápida respuesta
+c) Los S.C son adecuados cuando se dispone de expertos que expliquen su conocimiento(x)
+d) Los S.C son adecuados a problemas donde se demostraron útiles previamente
+
+2. Cual de las siguientes afirmaciones es falsa:
+a) Las funciones EPs pueden ser distintas en cada nivel de la red
+b) Para implementar un S.C se elige un modelo básico y se adapta al problema particular
+c) Si los datos de entrada son muy distintos a los de salida se necesitará una representación interna de los datos
+d) La habilidad del S.C para procesar información compleja disminuye proporcionalmente al nº de capas(x)
+
+3. El valor de la tasa de aprendizaje será:
+a) Grande para que aprenda rápido
+b) Pequeña para que no oscile a ambos lados del valor del valor de convergencia
+c) Constante
+d) Se debe llegar a un compromiso entre A y B (X)

@@ -1,0 +1,240 @@
+--Consulta 1
+select * from emp;
+
+--Consulta 2
+select * from dept;
+
+--Consulta 3
+select * from emp where job = 'CLERK';
+
+--Consulta 4
+select * from emp where job = 'CLERK' order by ename;
+
+--Consulta 5
+select * from emp where job = 'CLERK' order by ename asc;
+ 
+--Consulta 6
+select empno, ename, sal from emp;
+
+--Consulta 7
+select dname from dept;
+
+--Consulta 8
+select dname from dept order by dname;
+
+--Consulta 9
+select dname from dept order by loc;
+
+--Consulta 10
+select dname from dept order by loc desc;
+
+--Consulta 11
+select ename, job from emp order by sal;
+
+--Consulta 12
+select ename, job from emp order by job, sal;
+
+--Consulta 13
+select ename, job from emp order by job desc, sal;
+
+--Consulta 14
+select sal, comm from emp where depno = 30;
+
+--Consulta 15
+select sal, comm from emp where depno = 30 order by comm;
+
+--Consulta 16
+select comm from emp;
+select distinct comm from emp;
+
+--Consulta 17
+select distinct ename, com from emp;
+
+--Consulta 18
+select distinct ename, sal from emp;
+
+--Consulta 19
+select distinct comm, deptno from emp;
+
+--Consulta 20
+select sal + 1000, ename from emp where depno = 30;
+
+--Consulta 21
+select sal, sal + 1000 as NUEVO_SALARIO, ename from emp where depno = 30;
+
+--Consulta 22
+select ename from emp where comm > (sal / 2);
+
+--Consulta 23
+select ename from emp where (comm = null) or (comm <= (sal * 0.25));
+
+--Consulta 24
+select 'Nombre:', ename, 'Salario:',  sal from emp;
+
+--Consulta 25
+select empno, sal, comm from emp where (empno > 7500);
+
+--Consulta 26
+select * from emp where (ename >= 'J'); 
+
+--Consulta 27
+select sal, comm, (sal + comm) from emp where comm is not null order by empno;
+
+--Consulta 28
+select sal, comm, (sal + comm) from emp where comm is null order by empno;
+
+--Consulta 29
+select ename from emp where (sal > 1000) and (mgr = 7698);
+
+--Consulta 30
+select ename from emp where not ((sal > 1000) and (mgr = 7698));
+
+--Consulta 31
+select ename, ((comm * 100) / sal) from emp;
+
+--Consulta 32
+select * from emp where (deptno = 10) and (ename not like '%LA%');
+
+--Consulta 33
+select * from emp where mgr is null;
+
+--Consulta 34
+select dname from dept where (dname <> 'SALES') and (dname <> 'RESEARCH');
+
+--Consulta 35
+select ename, deptno from emp where (deptno <> 10) and (sal > 800) order by hiredate;
+
+--Consulta 36
+select ename, (sal / comm) from emp where (comm is not null) and (comm <> 0) order by ename;
+
+--Consulta 37
+select * from emp where (ename like '_____');
+
+--Consulta 38
+select * from emp where (ename like '_____%');
+
+--Consulta 39
+select * from emp where ((ename like 'A%') and (sal > 1000)) or ((comm is not null) and (deptno = 30));
+
+--Consulta 40
+select ename, sal, nvl((sal + comm),sal) from emp order by sal, nvl((sal + comm),sal);
+
+--Consulta 41
+select ename, sal, comm from emp where (sal > comm / 2) and (sal < comm);
+
+--Consulta 42
+select ename, sal, comm from emp where not ((sal > comm / 2) and (sal < comm));
+
+--Consulta 43
+select ename, job from emp where (job like '%MAN') and (ename like 'A%');
+
+--Consulta 44
+select ename, job from emp where ename || job like 'A____%MAN';
+
+--Consulta 45
+select ename from emp where ename not like '______%';
+
+--Consulta 46
+select ename, nvl((sal + comm), sal) as SALTOTAL_ACTUAL, nvl((sal + comm), sal) * 1.06 as SALTOTAL_SIG_ANO, nvl((sal + comm), sal) * 1.07 as SALTOTAL_SIG_DOS_ANOS, 'SI' as TIENE_COMISION from emp where comm is null union select ename, nvl((sal + comm), sal) as SALTOTAL_ACTUAL, nvl((sal + comm), sal) * 1.06 as SALTOTAL_SIG_ANO, nvl((sal + comm), sal) * 1.07 as SALTOTAL_SIG_DOS_ANOS, 'NO' as TIENE_COMISION from emp where comm is not null;
+
+--Consulta 47
+select ename, hiredate from emp where job <> 'SALESMAN';
+
+--Consulta 48
+select * from emp where empno in (7844,7900,7521,7782,7934,7678,7369);
+
+--Consulta 49
+select * from emp order by deptno, empno desc;
+
+--Consulta 50
+select * from emp where (empno < mgr) and (((sal >1000) and (sal < 2000)) or deptno = 30);
+
+--Consulta 51
+select max(sal), sum(comm), count(ename) from emp;
+
+--Consulta 52
+select * from emp where sal > (select sal from emp where empno = 7934) order by sal;
+
+--Consulta 53
+select ename, job, sal from emp where (ename = 'ALLEN') or (sal > (select sal from emp where ename = 'ALLEN'));
+
+--Consulta 54
+select max(ename) from emp;
+
+--Consulta 55
+select max(sal), min(sal), (max(sal) - min(sal)) from emp;
+
+--Consulta 56
+select ename, sal from emp where sal = (select max(sal) from emp) or sal = (select min(sal) from emp);
+
+--Consulta 57
+select D.dname, E.deptno, avg(E.sal) from dept D inner join emp E on D.deptno = E.deptno where E.sal < 5000 group by D.dname, E.deptno having min(E.sal) > 900;
+
+--Consulta 58
+select E.ename, D.loc from dept D inner join emp E on D.deptno = E.deptno where D.loc like '_____%' order by D.loc desc, E.ename;
+
+--Consulta 59
+select ename from emp where sal >= (select avg(sal) from emp);
+
+--Consulta 60
+select ename from emp EMP1 where sal >= (select avg(sal) from emp EMP where EMP.deptno = EMP1.deptno);
+
+--Consulta 61
+select count(distinct job), count (ename), count(distinct sal), sum(sal) from emp where deptno = 30;
+
+--Consulta 62
+select count(all comm) from emp;
+
+--Consulta 63
+select count(ename) from emp where deptno = 20;
+
+--Consulta 64
+select deptno, count(ename) from emp where (select count(ename) from emp) > 3 group by deptno;
+
+--Consulta 65
+select ename, job from emp where (deptno = '10') and job in (select job from emp E, dept D where E.deptno = (select D.deptno from dept where dname = 'SALES'));
+
+--Consulta 66
+select ename, empno, mgr from emp where empno in (select mgr from emp group by mgr) order by ename desc;
+
+--Consulta 67
+select * from emp where job = some(select job from emp E, dept D where (D.deptno = E.deptno) and (loc = 'CHICAGO'));
+
+--Consulta 68
+select job, count(ename) from emp group by job;
+
+--Consulta 69
+select deptno, sum(sal) from emp group by deptno;
+
+--Consulta 70
+select deptno from dept where not deptno = some(select distinct deptno from emp);
+
+--Consulta 71
+select ename from emp where empno not in (select mgr from emp where mgr is not null);
+
+--Consulta 72
+select E.deptno, D.dname, count(ename), avg(E.sal) * 12 from emp E inner join dept D on D.deptno = E.deptno group by E.deptno, D.dname;
+
+--Consulta 73
+select ename, comm from emp  where deptno = 30 order by comm desc;
+
+--Consulta 74
+select ename from emp E join dept D on D.deptno = E.deptno where (D.loc = 'NEW YORK') or (D.loc = 'DALLAS');
+
+--Consulta 75
+select EM.ename, JEFE.ename from emp EM join emp JEFE on EM.empno = JEFE.mgr;  
+
+--Consulta 76
+select E.ename, D.deptno, D.dname from emp E join dept D on D.deptno = E.deptno where E.sal >= (select max(sal) from emp where E.deptno = deptno);
+
+--Consulta 77
+select E.empno, E.ename, count(D.ename) from emp D left join emp E on D.mgr = E.empno group by E.empno, E.ename;
+
+--Consulta 78
+select sum(sal), dname from emp E, dept D where E.deptno = D.deptno group by dname having sum(sal) in (select max(sum(sal))from emp E, dept D where E.deptno = D.deptno group by dname);
+
+--Consulta 79
+select * from emp where sal in (select sal from (select distinct sal from emp order by sal desc) where rownum <= 2);
+
+--Consulta 80
+select loc, count(empno) from emp E, dept D where E.deptno = D.deptno and D.deptno not in (select D.deptno from dept D left join emp E on E.deptno = D.deptno where empno is null) group by loc having count(empno) > 4;

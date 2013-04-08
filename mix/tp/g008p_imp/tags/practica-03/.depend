@@ -1,0 +1,14 @@
+lexer.cmo: tipos.cmo parser.cmi 
+lexer.cmx: tipos.cmx parser.cmx 
+parser.cmo: tipos.cmo parser.cmi 
+parser.cmx: tipos.cmx parser.cmi 
+lector.cmo: parser.cmi lexer.cmo 
+lector.cmx: parser.cmx lexer.cmx 
+env.cmo: tipos.cmo env.cmi 
+env.cmx: tipos.cmx env.cmi 
+eval.cmo: tipos.cmo env.cmi eval.cmi 
+eval.cmx: tipos.cmx env.cmx eval.cmi 
+main.cmo: tipos.cmo lector.cmo eval.cmi env.cmi 
+main.cmx: tipos.cmx lector.cmx eval.cmx env.cmx 
+eval.cmi: tipos.cmo env.cmi 
+parser.cmi: tipos.cmo 

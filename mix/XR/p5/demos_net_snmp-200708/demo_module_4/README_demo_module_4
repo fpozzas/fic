@@ -1,0 +1,206 @@
+
+
+README for demo_module_4
+***********************************************************************
+
+This code example demonstrates how to implement data persistence
+for a module, across agent restarts.  See the System Management
+Agent Developer's Guide for more information about storing persistent
+data.
+
+
+Introduction
+------------
+	
+The demo_module_4 is based on the SDK-DEMO4-MIB.txt MIB, which implements
+the me4FileGroup objects. me4FileTable monitors a set of files. File size
+and file permissions are monitored for each file. By default, the 
+following files are monitored:
+
+/etc/hosts
+/etc/group
+/etc/passwd
+/etc/crontab
+
+The module user can specify different files to be monitored by using 
+snmp SET requests. Any changes to the list of monitored files are persistent
+across agent restarts. In other words, when the agent is restarted, the 
+list of files being monitored is the same as before restart.
+
+
+Files
+-----
+
+The demo_module_4 code example includes the following files, by default located
+in the directory demo_module_4.
+
+* Makefile - makefile to build demo_module_4.so shared library file
+* demo_module_4.c - module source code
+* demo_module_4.h - module header file
+* SDK-DEMO4-MIB.txt - MIB file for this module
+
+
+How to Build the demo_module_4 Code Example
+===========================================
+
+To set up your build environment for the demo:
+
+1. Copy the demo code to a directory for which you have write permission.
+   For example:
+   $ cp -R demo_module_4  $HOME/XR/demo
+
+2. Create a mibs directory that you can use to store MIB files for the 
+   demo code examples, if you have not already done so. 
+   For example:
+   $ mkdir $HOME/.snmp/mibs
+   
+   
+To build the example:
+
+1. Change to the directory where you copied the demo module files. 
+   For example:
+
+   $ cd $HOME/XR/demo/demo_module_4
+   
+
+2. Use the make command to generate object files.
+  
+   $ make
+      
+3. Copy the module shared library object to the lib directory you created. 
+   For example:
+
+   $ cp demo_module_4.so $HOME/XR/demo/lib
+   
+4. Copy the SDK-DEMO4-MIB.txt file to the mibs directory you created for 
+   the demos.
+   For example:
+     
+   $ cp SDK-DEMO4-MIB.txt $HOME/.snmp/mibs
+   
+   
+
+Setting Up Agent to Run the demo_module_4 Module
+=================================================
+
+1. Edit the agent's configuration file $HOME/.snmp/snmpd.conf,
+   and insert a dlmod statement for the module. This statement enables 
+   the agent to load the module.
+   For example:
+   
+   dlmod demo_module_4 $HOME/XR/demo/lib/demo_module_4.so
+    
+    
+2. Start the SMA snmp agent. If the agent is already running, 
+   stop and restart it in debug mode.
+   For example:
+   
+   $ snmpd -Lo -f -Ddemo_module_4 <port>
+    
+   The optional -Ddemo_module_4 argument sends debugging statements from 
+   demo_module_4. The -Lo option to send debugging statements to the screen 
+   instead.
+
+   When the module is started, the file /var/net-snmp/demo_module_4.conf
+   is read and then the latest token values are appended to the file.
+   The demo_module_4.conf file is created if it doesn't exist.  When you 
+   later use snmpset to specify new token values, the new values are 
+   appended to the file.
+   
+
+
+Testing the demo_module_4 Module
+================================
+
+1. Set your MIBS and MIBDIRS environment variables to
+   include the appropriate paths.  
+   For example, in the csh: 
+    
+   $ export MIBS=+SDK-DEMO4-MIB
+   
+   Note that step 1 is not required, but it enables snmp commands to access 
+   the MIB to provide variable names instead of OIDs in its output. 
+   
+   
+2. Issue an snmpget or snmpwalk request to test the module.
+   For example:
+
+   $ snmpwalk -v1 -c <community> <host>:<port>  SDK-DEMO4-MIB::sdkDemo4MIB
+   
+   SDK-DEMO4-MIB::me4FileIndex.1 = Gauge32: 1
+   SDK-DEMO4-MIB::me4FileIndex.2 = Gauge32: 2
+   SDK-DEMO4-MIB::me4FileIndex.3 = Gauge32: 3
+   SDK-DEMO4-MIB::me4FileIndex.4 = Gauge32: 4
+   SDK-DEMO4-MIB::me4FileName.1 = STRING: "/etc/hosts"
+   SDK-DEMO4-MIB::me4FileName.2 = STRING: "/etc/group"
+   SDK-DEMO4-MIB::me4FileName.3 = STRING: "/etc/passwd"
+   SDK-DEMO4-MIB::me4FileName.4 = STRING: "/etc/crontab"
+   SDK-DEMO4-MIB::me4FileSize.1 = Gauge32: 254
+   SDK-DEMO4-MIB::me4FileSize.2 = Gauge32: 751
+   SDK-DEMO4-MIB::me4FileSize.3 = Gauge32: 1266
+   SDK-DEMO4-MIB::me4FileSize.4 = Gauge32: 651
+   SDK-DEMO4-MIB::me4FilePerm.1 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.2 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.3 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.4 = STRING: "644"
+ 
+  
+3. Issue an snmpset command to specify a different file name.
+   For example, to monitor file /etc/fstab:
+
+   $ snmpset -v1 -c <community> <host>:<port> SDK-DEMO4-MIB::me4FileName.1 \
+     s "/etc/fstab"
+
+   SDK-DEMO4-MIB::me4FileName.1 = STRING: /etc/fstab
+
+ 
+4. Verify the results of the set request by using the snmpwalk command.
+   For example: 
+
+   $ snmpwalk -v1 -c <community> <host>:<port>  SDK-DEMO4-MIB::sdkDemo4MIB
+
+   SDK-DEMO4-MIB::me4FileIndex.1 = Gauge32: 1
+   SDK-DEMO4-MIB::me4FileIndex.2 = Gauge32: 2
+   SDK-DEMO4-MIB::me4FileIndex.3 = Gauge32: 3
+   SDK-DEMO4-MIB::me4FileIndex.4 = Gauge32: 4
+   SDK-DEMO4-MIB::me4FileName.1 = STRING: "/etc/fstab"
+   SDK-DEMO4-MIB::me4FileName.2 = STRING: "/etc/group"
+   SDK-DEMO4-MIB::me4FileName.3 = STRING: "/etc/passwd"
+   SDK-DEMO4-MIB::me4FileName.4 = STRING: "/etc/crontab"
+   SDK-DEMO4-MIB::me4FileSize.1 = Gauge32: 1103
+   SDK-DEMO4-MIB::me4FileSize.2 = Gauge32: 751
+   SDK-DEMO4-MIB::me4FileSize.3 = Gauge32: 1266
+   SDK-DEMO4-MIB::me4FileSize.4 = Gauge32: 651
+   SDK-DEMO4-MIB::me4FilePerm.1 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.2 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.3 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.4 = STRING: "644"
+
+
+5. Verify that the file information that you changed is saved across
+   agent restarts by restarting the agent and repeating the snmpwalk
+   in step 4.
+   
+   For example:
+   
+   $ snmpd -f <port>
+   $ snmpwalk -v1 -c <community> <host>:<port>  SDK-DEMO4-MIB::sdkDemo4MIB
+
+   SDK-DEMO4-MIB::me4FileIndex.1 = Gauge32: 1
+   SDK-DEMO4-MIB::me4FileIndex.2 = Gauge32: 2
+   SDK-DEMO4-MIB::me4FileIndex.3 = Gauge32: 3
+   SDK-DEMO4-MIB::me4FileIndex.4 = Gauge32: 4
+   SDK-DEMO4-MIB::me4FileName.1 = STRING: "/etc/fstab"
+   SDK-DEMO4-MIB::me4FileName.2 = STRING: "/etc/group"
+   SDK-DEMO4-MIB::me4FileName.3 = STRING: "/etc/passwd"
+   SDK-DEMO4-MIB::me4FileName.4 = STRING: "/etc/crontab"
+   SDK-DEMO4-MIB::me4FileSize.1 = Gauge32: 254
+   SDK-DEMO4-MIB::me4FileSize.2 = Gauge32: 751
+   SDK-DEMO4-MIB::me4FileSize.3 = Gauge32: 1266
+   SDK-DEMO4-MIB::me4FileSize.4 = Gauge32: 651
+   SDK-DEMO4-MIB::me4FilePerm.1 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.2 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.3 = STRING: "644"
+   SDK-DEMO4-MIB::me4FilePerm.4 = STRING: "644"
+
+

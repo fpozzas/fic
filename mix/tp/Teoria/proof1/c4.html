@@ -1,0 +1,37 @@
+<head>
+<title>Ejemplo de prueba 1</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+
+<h1></h1>
+
+
+<li><a href="c5.html">Seguir</a></li>
+<li><a href="plan.html">Plan de prueba</a></li>
+<img src="shortLine.gif">
+
+
+<pre>
+
+ { PRE: x &gt= 0 }                
+
+     Q := 0;
+
+     R := x;
+     { INV: 0 &lt= R  and  x = Q * y + R }
+     while R &gt= y do
+
+       (R := R - y;
+       <b>{ P1: 0 &lt= R and x = (Q+1) * y + R }</b>
+       Q := Q + 1)
+       { INV: 0 &lt= R  and  x = Q * y + R }
+
+ { POST: 0 &lt= R &lt y  and  x = Q * y + R }
+
+</pre>
+
+</body>

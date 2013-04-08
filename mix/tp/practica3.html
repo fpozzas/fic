@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="http://www.madsgroup.org/docencia/theme/standard/styles.php" />
+
+    <meta name="keywords" content="moodle, TP0607: Práctica 3. Tipos y arrays en el intérprete IMP. " />
+    <title>TP0607: Práctica 3. Tipos y arrays en el intérprete IMP.</title>
+    <link rel="shortcut icon" href="http://www.madsgroup.org/docencia/theme/standard/favicon.ico" />
+    <!--<style type="text/css">/*<![CDATA[*/ body{behavior:url(http://www.madsgroup.org/docencia/lib/csshover.htc);} /*]]>*/</style>-->
+
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/javascript-static.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/javascript-mod.php"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/overlib.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/cookies.js"></script>
+
+<script language="JavaScript" type="text/javascript" defer="defer">
+
+<!-- // Non-Static Javascript functions
+
+setTimeout('fix_column_widths()', 20);
+
+function openpopup(url,name,options,fullscreen) {
+  fullurl = "http://www.madsgroup.org/docencia" + url;
+  windowobj = window.open(fullurl,name,options);
+  if (fullscreen) {
+     windowobj.moveTo(0,0);
+     windowobj.resizeTo(screen.availWidth,screen.availHeight);
+  }
+  windowobj.focus();
+  return false;
+}
+
+function inserttext(text) {
+  text = ' ' + text + ' ';
+  if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+    var caretPos = opener.document.forms['theform'].message.caretPos;
+    caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+  } else {
+    opener.document.forms['theform'].message.value  += text;
+  }
+  opener.document.forms['theform'].message.focus();
+}
+
+
+// done hiding -->
+</script>
+</head>
+
+<body  class="mod-resource course-15" id="mod-resource-view">
+    
+<div id="page">
+
+    <div id="header">
+        <div class="headermain">Tecnología de la Programación 2006/07</div>
+        <div class="headermenu"><table><tr><td><form action="http://www.madsgroup.org/docencia/mod/resource/view.php" target="_top"><input type="hidden" name="id" value="585" /><input type="submit" value="&lt;" /></form></td><td><form action="http://www.madsgroup.org/docencia/course/jumpto.php" method="get" target="_top" name="navmenu" class="popupform"><select name="jump" onchange="self.location=document.navmenu.jump.options[document.navmenu.jump.selectedIndex].value;">
+   <option value="http://www.madsgroup.org/docencia/mod/forum/view.php?id=499">Foro de Noticias</option>
+   <option value="http://www.madsgroup.org/docencia/mod/ficha/view.php?id=500">Ficha</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=648">Leccion 1</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=649">Lección 2</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=652">Puntos fijos</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=665">Lección 3</option>
+   <optgroup label=" Prácticas">   <option value="http://www.madsgroup.org/docencia/mod/forum/view.php?id=516">Foro de las Prácticas</option>
+   <option value="http://www.madsgroup.org/docencia/mod/wiki/view.php?id=517">Horarios de prácticas</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=518">Criterios de calificación</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=543">Acceso a los repositorios de Subversion</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=535">Práctica 1. Uso de Subversion</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=583">Práctica 2. Intérprete IMP</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=584">Librería OUnit</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=585">Código práctica 2</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=607" selected="selected">Saltar a...</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=608">Código práctica 3</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=656">Práctica 4. Variables locales en el intérprete IMP</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=657">Código práctica 4</option>
+   </optgroup>   <optgroup label=" Herramientas de desarrollo
+">   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=548">Control de Versiones</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=592">Documentación incrustada en el código</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=593">JUnit</option>
+   </optgroup>   <optgroup label=" 
+Semántica">   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=640">Semántica Operacional</option>
+    </optgroup></select><noscript id="noscriptnavmenu" style="display: inline;"><input type="submit" value="Ir" /></noscript><script type="text/javascript">
+<!--
+document.getElementById("noscriptnavmenu").style.display = "none";
+-->
+</script></form>
+</td><td><form action="http://www.madsgroup.org/docencia/mod/resource/view.php" target="_top"><input type="hidden" name="id" value="608" /><input type="submit" value="&gt;" /></form></td></tr></table></div>
+    </div>
+    <div class="clearer">&nbsp;</div>
+    <table class="navbar"><tr><td>
+        <div class="breadcrumb"><a target="_top" href="http://www.madsgroup.org/docencia/">Docencia</a> &raquo; <a target="_top" href="http://www.madsgroup.org/docencia/course/view.php?id=15">TP0607</a> &raquo; <a target="_top" href="index.php?id=15">Recursos</a> &raquo; Práctica 3. Tipos y arrays en el intérprete IMP.</div>
+        <div class="navbutton">&nbsp;</div>
+    </td></tr></table>
+    <div class="clearer">&nbsp;</div>
+    <!-- END OF HEADER -->
+    <div id="content">
+<table align="center"   class="generalbox" border="0" cellpadding="20" cellspacing="0"><tr><td  class="generalboxcontent"><style type="text/css">
+		.codigo { 
+			margin-left: 1cm; 
+			margin-right: 1cm; 
+			margin-bottom: 0cm; 
+			background: #e6e6e6; 
+			border: 1px solid #000000; 
+			padding: 0.05cm; 
+			font-family: courier, monospace; 
+			font-size: 10pt; 
+		}		
+</style>
+
+
+<h1>Práctica 3. Tipos y arrays en el intérprete IMP</h1>
+
+<h2>Introducción</h2>
+
+<h3>Tipos</h3>
+
+<p>
+En la tercera práctica se ampliará la funcionalidad del intérprete IMP añadiendo nuevos tipos de datos al lenguaje. En concreto, a los enteros que ya existían, se añádirán booleanos y cadenas de caracteres.
+</p>
+
+<p>
+En esta práctica el intérprete incorpora expresiones con cadenas de caracteres 
+(<code>sexp</code>) junto con las expresiones aritméticas y booleanas definidas 
+en la práctica anterior:
+</p>
+
+<p class="codigo">
+[user@localhost]$ cat cadena.imp <br />
+String s1 := "hola " ^ "mundo"; <br />
+String s2 := substring(s1, 0, 4); <br />
+print s2; <br /><br />
+[user@localhost]$ imp cadena.imp <br />
+"hola" <br />
+s1 := "hola mundo" <br />
+s2 := "hola"
+</p>
+
+<p>
+Así, en <code>tipos.ml</code> se ha definido un nuevo tipo 
+correspondiente a las expresiones con cadenas de caracteres y
+en <code>eval.ml</code> se ha implementado una nueva función para 
+evaluar este nuevo tipo de expresiones. 
+</p>
+
+<p>
+En la práctica anterior las variables sólo podían tomar valores enteros. Ahora, las variables utilizadas en las expresiones podrán ser enteras, booleanas o de tipo
+cadena: 
+</p>
+
+<p class="codigo">
+type aexp = <br />
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;| IntVar of variable <br />
+...<br />
+type bexp = <br />
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;| BoolVar of variable <br />
+...<br />
+type sexp = <br />
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;| StringVar of variable <br />
+...
+</p>
+ 
+<p>
+Se ha definido un comando genérico para la declaración de variables
+y asignación de valores a variables. Existe el riesgo de asignar
+expresiones de cualquiera de los tres tipos cuando se realiza
+una asignación o una declaración de variables. Para especificar
+el tipo de la expresión a asignar se ha creado el tipo <code>imp_exp</code>:
+</p>  
+
+<p class="codigo">
+type imp_exp = VInt of aexp | VBool of exp | VString of sexp<br />
+... <br />
+type comm = <br />
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;| MkVar of variable * imp_exp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;| Assign of variable * imp_exp<br />
+...
+</p>
+
+  
+<p>
+El entorno también ha sido modificado para poder
+almacenar distintos tipos de contenidos:
+</p>
+
+<p class="codigo">
+	type content = Int of int | Bool of bool | String of string
+</p>
+
+
+
+<h3>Arrays</h3>
+
+<p>
+En esta práctica, el intérprete también trabajará con arrays. Los arrays pueden
+ser de enteros, booleanos o cadenas de caracteres. En la declaración del array se especifica el tamaño del array y el valor inicial que tomarán todas las posiciones del array:
+</p>
+
+<p class="codigo">
+[user@localhost]$ cat array.imp<br />
+Int a[5] := 0;<br />
+Int i := 0;<br />
+while (i < 5) do<br />
+    a[i] := i;<br />
+    i := i + 1;<br />
+done;<br />
+Bool b[2] := true <br /><br />
+[user@localhost]$ imp array.imp<br />
+a[0] := 0;<br />
+a[1] := 1;<br />
+a[2] := 2<br />
+a[3] := 3;<br />
+a[4] := 4;<br />
+i := 5;<br />
+b[0] := true;<br />
+b[1] := true;
+</p>
+
+<p>
+En <code>tipos.ml</code> se han definido nuevos constructores
+que permiten utilizar arrays en las expresiones que acepta el intérprete:
+</p>
+
+<p class="codigo">
+type aexp = <br />
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;| IntArray of variable * aexp <br />
+...<br />
+type bexp = <br />
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;| BoolArray of variable * aexp <br />
+...<br />
+type sexp = <br />
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;| StringArray of variable * aexp<br />
+...
+</p>
+
+
+<p>
+Se ha definido también comandos para la declaración de arrays
+y para la asignación de un valor a una posición del array:
+</p>  
+
+<p class="codigo">
+type comm = <br />
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;| MkArray of variable * aexp * imp_exp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;| AssignArray of variable * aexp * imp_exp<br />
+...
+</p>
+
+
+<p>
+El entorno también ha sido modificado de la siguiente forma para
+permitir el almacenamiento de arrays:
+</p>
+
+<p class="codigo">
+type content = <br /> 
+... <br />
+&nbsp;&nbsp;&nbsp;&nbsp; | ArrayInt of (int * int) list<br />
+&nbsp;&nbsp;&nbsp;&nbsp; | ArrayBool of (int * bool) list<br />
+&nbsp;&nbsp;&nbsp;&nbsp; | ArrayString of (int * string) list
+</p>
+
+
+<h3>Nota</h3>
+<p>
+El analizador sintáctico (parser) utiliza reglas para reconocer expresiones a nivel sintáctico por lo que desconoce el tipo de las expresiones. De esta forma,  
+cuando recibe una nueva expresión, toma la primera regla que se ajusta a ella.
+Por este motivo, cuando el parser recibe una variable aislada, desconoce su tipo y toma la primera regla que se ajusta a la definición de variable, en este caso, crea una variable de tipo StringVar. Estos son algunos ejemplos del comportamiento del parser ante variables aisladas en expresiones:
+</p>
+
+<table>
+<tr><th>Código fuente</th><th>Representación</th></tr>
+<tr>
+<td class="codigo">Int x := 0;<br />
+print x;</td>
+<td class="codigo">Seq (MkVar ("x", VInt (MkInt 0)), Print (<b>VString (StringVar "x")</b>))</td>
+</tr>
+<tr>
+<td class="codigo">Bool a := true;<br />
+Bool b := false;<br />
+b := a;</td>
+<td class="codigo">Seq (MkVar ("a", VBool (MkBool true)),<br />
+&nbsp; Seq (MkVar ("b", VBool (MkBool false)),<br />
+&nbsp;&nbsp;  Assign ("b", <b>VString (StringVar "a")</b>)))
+</td>
+</tr>
+<tr><td class="codigo">Int a[5] := 0;<br />
+Int b := 10;<br />
+b := a[3];</td>
+<td class="codigo">Seq (MkArray ("a", MkInt 5, VInt (MkInt 0)),<br />
+&nbsp; Seq (MkVar ("b", VInt (MkInt 10)),<br />
+  &nbsp;&nbsp; Assign ("b", <b>VString (StringArray ("a", MkInt 3))</b>)))
+</td>
+</tr>
+</table>
+
+<p>
+Se deberá tener en cuenta esta característica del parser para la correcta evaluación de expresiones y comandos, esto es, ante una <code>StringVar</code> o un <code>StringArray</code> se deberá comprobar el tipo real de la variable.
+</p>
+
+
+<h2>Tareas a realizar</h2>
+
+<p>
+En la aplicación de docencia se encuentran los ficheros con las modificaciones necesarias para incluir tipos y arrays para en el intérprete.
+</p>
+
+<p>Estos ficheros deberán mezclarse con el trabajo realizado para la práctica anterior en la copia de trabajo del alumno.</p>
+
+<p>
+Se deberá completar la implementación de <code>eval.ml</code> para permitir la utilización de variables y arrays en el intérprete.
+</p>
+
+<p>
+Si en el desarrollo de la práctica se crean nuevas funciones auxiliares, éstas deberán documentarse con <code>ocamldoc</code>.
+</p>
+
+<p>
+Tras implementar el soporte para tipos y arrays,
+se deberán crear al menos dos casos de prueba para cada una de las expresiones introducidas en esta práctica que demuestren el buen funcionamiento del intérprete.
+</p>
+
+
+<h2>Entrega</h2>
+
+<p>
+Una vez terminada la práctica, cada grupo deberá crear un tag en su
+repositorio de Subversion (https://www.madsgroup.org/docencia/svn/tp0607/gXXXp_imp, 
+donde gXXX es el identificador de grupo) con el nombre <code>practica-03</code>
+que deberá contener el código fuente de esta práctica junto con los casos
+de prueba desarrollados.
+</p>
+
+<p>
+La fecha límite de entrega de esta práctica es el martes, 17 de abril de 2007 a
+las 15:00 horas.
+</p>
+</td></tr></table><center><p><font size="1">Última modificación:  Monday,  26 de March de 2007, 15:32</font></p></center>
+</div> <!-- end div containerContent -->
+<!-- START OF FOOTER -->
+<div id="footer">
+
+
+<div class="logininfo">Ud. está en el sistema como <a target="_top" href="http://www.madsgroup.org/docencia/user/view.php?id=946&amp;course=15">Daniel Fernandez Nuñez</a>. (<a target="_top" href="http://www.madsgroup.org/docencia/login/logout.php">Salir</a>)</div>
+
+
+
+</div>
+</div>
+</body>
+</html>

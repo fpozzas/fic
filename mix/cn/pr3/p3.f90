@@ -1,0 +1,207 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! Computación Numérica                 !!!!!!
+!!!!! Tercera Práctica de Fortran 90       !!!!!!
+!!!!! Alumnos:                             !!!!!!
+!!!!! Daniel Fernández Núñez (infdfn01)    !!!!!!
+!!!!! Juan Font Alonso (infjfa00)          !!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!!! Módulo variables
+!!!!!!!!!!!!!!!!!!!!
+module variables
+implicit none
+real (kind=8) :: a,b,x,xant,e
+contains
+	function f(x) result(res)
+		real (kind=8) :: x,res
+		!!res = dcos(x)+dsin(x)+dtan(x)
+		res = -x**2 + 4*x + 5
+	end function f
+end module variables
+
+!!! Programa principal
+!!!!!!!!!!!!!!!!!!!!!!
+
+program practica3
+	use variables
+	implicit none
+	interface
+		subroutine regulafalsi
+		end subroutine regulafalsi
+		subroutine rfaitken
+		end subroutine rfaitken
+		subroutine amsterdan
+		end subroutine amsterdan
+	end interface
+	a = -0.5
+	b = 10.25
+	e = 1E-12
+	call amsterdan
+end program practica3
+
+!!! Subrutina Regula Falsi
+!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+subroutine regulafalsi
+	use variables
+	implicit none
+	integer (kind=4) :: i
+	x = a
+	do i = 0,1000
+		xant = x
+		x = a - f(a) * (b - a) / (f(b) - f(a))
+		if (abs(x-xant) < e*abs(x)) then
+			exit
+		end if
+		if (f(a)*f(x)<0) then
+			b = x
+		else
+			a = x
+		end if
+		print *,x
+	end do
+end subroutine regulafalsi
+
+subroutine rfaitken
+	use variables
+	implicit none
+	real (kind=8) :: xaitken,xaitkenant,xk,xk1,xk2,errf,eraitken
+	logical :: parada
+	integer (kind=4) :: i
+	xk = a
+	xk1 = a
+	xk2 = a
+	xaitken = 0
+	xaitkenant = 0
+	parada = .FALSE.
+	eraitken = 0
+	do i = 1,1000
+		xk = xk1
+		xk1 = xk2
+		!! Regula falsi
+		xk2 = a - f(a) * (b - a) / (f(b) - f(a))
+		!! Aitken
+		if (i>2) then
+			xaitkenant = xaitken
+			if (parada .EQV. .FALSE.) then 
+				xaitken = xk - ((xk1 - xk)**2)/(xk2 - 2*xk1 + xk)
+				!! Criterio de parada para aitken (Error relativo)
+				eraitken = (abs(xaitken-xaitkenant)/abs(xaitken))
+				if (eraitken < e) then
+					parada = .TRUE.
+				end if
+			else
+				xaitken = 0
+				eraitken = 0
+			end if
+		end if
+		!! Criterio de parada para regula-falsi (Error relativo)
+		errf = (abs(xk2-xk1)/(abs(xk2)))
+		print *,i,xk2,errf,xaitken,eraitken
+		if  (errf < e) then
+			exit
+		end if
+		
+		if (f(a)*f(xk2)<0) then
+			b = xk2
+		else
+			a = xk2
+		end if
+	end do
+end subroutine rfaitken
+
+subroutine amsterdan
+	use variables
+	implicit none
+	real (kind=8) :: x0,x1,x2,x3,m,n,q,x3ant,er,punto
+	real (kind=8), dimension(3) :: mx,mf
+	integer (kind=4) :: i
+	x0 = a
+	x1 = b
+	punto = 0
+	x3 = 0
+	do i = 1,1000
+! 		!! Hacemos diferencias divididas para x0,x1,x2 pero intercambiando las x por su imagen y viceversa
+! 		m = (x0 - x1)/(f(x0) - f(x1))
+! 		n = (x1 - x2)/(f(x1) - f(x2))
+! 		q = (m - n)/(f(x0) - f(x2))
+! 		!! En el polinomio interpolador, sustituimos las x por 0
+! 		x3 = x0 + m*(0 - f(x0)) + q*(0 - f(x0))*(0 - f(x1))
+		x3ant = x3
+		x2 = 0.5*(x0 + x1)
+		mx(1) = x0
+		mx(2) = x1
+		mx(3) = x2
+		mf(1) = f(x0)
+		mf(2) = f(x1)
+		mf(3) = f(x2)
+		call difdiv(mf,mx,punto,x3)
+		if ((x0<x3) .AND. (x3<x1)) then
+			if (f(x3)*f(x1)<0) then
+				x0 = x3
+			else
+				x1 = x3
+			end if
+		else
+			if (f(0.5*(x0+x2))*f(x1)<0) then
+				x3 = 0.5*(x0+x2)
+				x0 = x3
+			else 
+				if (f(0.5*(x2+x1))*f(x0)<0) then
+					x3 = 0.5*(x2+x1)
+					x1 = x3
+				else
+					print*,"*** Error ***"
+					exit
+				end if
+			end if
+		end if
+		er = (abs(x3-x3ant)/(abs(x3)))
+		print*,i,x3,er
+		if (er<e) then
+			exit
+		end if
+	end do
+	contains 
+		subroutine difdiv(x,f,punto,imagen)
+			implicit none
+			real (kind=8) :: punto,imagen, polinomio, difer
+			real (kind=8), dimension(:) :: x,f
+			integer (kind=4) :: i,j
+			imagen = 0
+			do i=1,size(x)
+				difer = 1
+				do j=1,(i-1)
+					difer = difer*(punto - x(j))
+				end do
+				imagen = imagen + aux(x(1:i),f(1:i))*difer
+			end do
+		end subroutine difdiv
+		recursive function aux(x,f) result(res)
+			implicit none
+				real (kind=8), dimension(:) :: x,f
+				real (kind=8) :: res
+				if (size(x)>=2) then
+					res = (aux(x(1:size(x)-1),f(1:size(x)-1)) - aux(x(2:size(x)),f(2:size(x))))/(x(1) - x(size(x)))
+				else
+					res = f(1)
+				end if
+		end function aux
+end subroutine amsterdan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

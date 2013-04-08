@@ -1,0 +1,16 @@
+Int i := 0;
+Int x := 2;
+if (i < 10)
+	then
+		Int i := 10;
+		x := i + x;
+		if (i > 0)
+			then
+				Int x:= 30;
+				i := x*2;
+			else
+				skip;
+		fi;
+	else
+		skip;
+fi;

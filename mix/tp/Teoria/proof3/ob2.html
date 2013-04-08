@@ -1,0 +1,51 @@
+<head>
+<title>Ejemplo de prueba 3</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+<img src="shortLine.gif">
+<p>
+
+Demostrar que
+
+<pre>
+<b> INV and (k &lt b) ==&gt P3 </b>
+</pre>
+
+O sea, que si suponemos
+<pre>
+(*)    a<=k<=b and forall i, a <= i <  k : x[i]=x0[i+1]
+                   and forall i, k <= i <= b : x[i]=x0[i]
+                   and (k &lt b)
+</pre>
+tenemos que probar
+<pre>
+a <= k+1 <= b  
+    and forall i, a <= i <  k+1 : x[x[k+1]/k+1-1][i] = x0[i+1]   
+        and forall i, k+1 <= i <= b : x[x[k+1]/k+1-1][i] = x0[i]
+</pre>
+En efecto:
+<pre>
+<li>  (k &lt b) and a<=k<=b ==&gt a<=k < b
+      a<=k ==&gt a <= k+1 y k < b ==&gt k+1 <= b.
+      por lo tanto ya hemos probado que a <= k+1 <= b que
+      es la primera cl&aacute;usula de P3.
+<li>  Ahora, forall i, a <= i < k :x[x[k+1]/k][i]=x[i] (pues i es distinto
+      de k), pero por la hip&oacute;tesis (*) este x[i] es igual a x0[i+1]
+      al ser i < k. Si i=k entonces x[x[k+1]/k][i]=x[i+1]
+      =x0[i+1] por la tercera cl&aacute;usula de (*). Esto prueba la segunda
+      cl&aacute;usula de P3.
+<li>  Finalmente, si k+1 <= i <= b entonces k <= i <= b y adem&aacute;s i es
+      diferente de k y x[x[k+1]/k][i]=x[i] que es igual a x0[i] por la
+      tercera cl&aacute;usula de (*).      
+</pre>
+<ul>
+
+</ul>
+
+<b>QED</b>
+
+</body>

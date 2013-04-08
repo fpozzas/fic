@@ -1,0 +1,7 @@
+Int x:=4;
+Int p:=0;
+while (x>0) do
+	p:=p+x;
+	x:=x-1;
+done;
+	

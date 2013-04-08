@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>practica5</TITLE>
+
+</HEAD>
+
+<BODY >
+
+
+
+<P>
+<DIV ALIGN="CENTER">
+<SPAN  CLASS="textbf">
+ SISTEMAS OPERATIVOS II
+ </SPAN>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Tercer curso Ingenier&#237;a Inform&#225;tica . Curso 2007-2008
+
+</DIV>
+
+<P>
+<SPAN  CLASS="textbf">Pr&#225;ctica 5:</SPAN> Procesos en UNIX: se&#241;ales
+
+<P>
+Continuar la codificaci&#243;n de un int&#233;rprete de comandos (shell) en UNIX. Al igual que en la
+pr&#225;ctica anterior
+
+<UL>
+<LI>Los argumentos entre corchetes [] son opcionales. 
+</LI>
+<LI>Los argumentos separados por <TT>|</TT>  indican que debe ir uno u otro, pero no ambos simultaneamente.
+</LI>
+<LI>No debe dilapidar memoria (ejemplo: variable que se asigna cada vez que se llama a una funci&#243;n y no se
+libera).
+</LI>
+<LI>Cuando el shell no pueda ejecutar una acci&#243;n por alg&#250;n motivo, debe indicarlo con un
+mensaje como el que se obtiene con <TT>sys_errlist[errno]</TT> o con <EM>perror()</EM> (por ejemplo,
+si no puede cambiar de directorio debe indicar por qu&#233;). 
+</LI>
+<LI>En ning&#250;n caso debe producir un error de ejecuci&#243;n (segmentation, bus error ...), salvo 
+que se diga explicitamente
+</LI>
+<LI>Las direcciones de memoria deben mostrase en <SPAN  CLASS="textbf">hexadecimal</SPAN>. 
+</LI>
+<LI>La informaci&#243;n que se nuestra en pantalla no debe incluir en ningun caso l&#237;neas en blanco. 
+</LI>
+<LI>El shell leer&#225; de su entrada est&#225;ndar y escribir&#225; en su salida est&#225;ndar, de manera que
+podr&#237;a ser ejecutado un archivo de comandos invocando al shell con su entrada est&#225;ndar
+redireccionada a dicho archivo.
+</LI>
+</UL>
+
+<P>
+En esta pr&#225;ctica el shell  incorporar&#225; las funciones para comprobar el
+funcionamiento de los manejadores de se&#241;ales. Todo el manejo de se&#241;ales
+se hara con la interface de System V R4 (<EM>sigaction, sigprocmask ...</EM>). Los nombres de la
+se&#241;ales se especificar&#225;n sin el SIG. Pueden usarse las funciones que se suministran para 
+convertir entre nombre de una senal y su valor como entero.
+
+<P>
+<DL COMPACT>
+<DT><SPAN  CLASS="textbf">pila [<EM>tam</EM>] [<EM>addr</EM>]</SPAN></DT>
+<DD>Establece una pila alternativa para la ejecuci&#243;n 
+de los manejadores de las se&#241;ales (los que se instalen con el flag SA_ONSTACK). <EM>tam</EM> representa
+el tama&#241;o y <EM>addr</EM> la direcci&#243;n. Si se especifica un solo argumento se entiende que es 
+el tama&#241;o y la direcci&#243;n se obtendr&#225; asign&#225;ndola con <EM>malloc()</EM>. Si no se especifica
+ ni tama&#241;o ni direcci&#243;n nos informar&#225; del tama&#241;o de la pila alternativa y de su
+direcci&#243;n.
+</DD>
+<DT><SPAN  CLASS="textbf">senal [S1] [S2] ...</SPAN></DT>
+<DD>No da informaci&#243;n del estado de cada se&#241;al:  manejada 
+(con la direcci&#243;n del menjador, los flags y 
+la m&#225;scara asociada), ignorada o acci&#243;n por defecto, asi como
+de si est&#225; enmascarada o no. Ejemplo
+<PRE>
+#senal INT HUP SEGV
+INT  Enmacarada     manejador 0x30045a00 SA_RESTART SA_NODEFER. mascara asociada SIGUP SIGUSR1 
+HUP  No enmascarada Accion por defecto 
+SEGV No emmascarada Ignorada
+</PRE>
+Si no se especifican se&#241;ales nos informa de todas
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">mask [-n] [S1] [S2] ...</SPAN></DT>
+<DD>Enmascara (mediante <EM>sigprocmask</EM>) 
+las se&#241;ales
+S1 S2 ....Con -n las desenmascara. 
+Si no se especifican se&#241;ales nos informa de como est&#225;n las se&#241;ales (igual que el comando
+senal sin argumentos).
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">ignore [S1] [S2] ...</SPAN></DT>
+<DD>Ignora las se&#241;ales
+S1 S2 .... Si no se especifican se&#241;ales nos informa de como est&#225;n las se&#241;ales (igual que el comando
+senal sin argumentos). 
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">default [S1] [S2] ...</SPAN></DT>
+<DD>Pone las se&#241;ales
+S1 S2 ...a su acci&#243;n por defecto. Si no se especifican se&#241;ales nos informa de como 
+est&#225;n las se&#241;ales (igual que el comando senal sin argumentos).  
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">cont [-r] [S1] [S2] ...</SPAN></DT>
+<DD>Nos informa de los contadores de la se&#241;ales
+S1 S2 ..., con -r resetea los contadores de dichas s&#241;ales. Si no se especifican se&#241;ales
+lo hace para todas (tanto mostrar los contadores como resetearlos en su caso)
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">handler[-v] [-r] [-p] [-t] [-f]</SPAN></DT>
+<DD><SPAN  CLASS="textbf">  [-dN] [-mSEN1] [-mSEN2] ...SIG [SIG2] ...</SPAN>.
+
+<P>
+Instala un manejador para las se&#241;ales SIG1, (SIG2 ...) (Recordar que el manejador
+es la funci&#243;n que se ejecuta CUANDO llega la se&#241;al). El manejador incrementar&#225; 
+un contador
+que indica cuantas veces se ha ejecutado. Adem&#225;s se admitir&#225;n las siguientes opciones
+<DL COMPACT>
+<DT>-mSEN</DT>
+<DD>Se a&#241;ade SEN al conjunto de se&#241;ales enmascaradas DURANTE la ejecuci&#243;n
+del manejador (miempro sa_mask de la
+estructura <EM>sigaction</EM>)
+</DD>
+<DT>-dN</DT>
+<DD>El manejador se queda en espera N segundos (con la llamada <EM>sleep</EM>). Dicha espera 
+debe ser la &#250;ltima instrucci&#243;n dentro del manejador
+</DD>
+<DT>-v</DT>
+<DD>El manejador al ejecutarse debe imprimir en pantalla la se&#241;al que se ha recibido,
+cuantas veces se ha ejecutado dicho manejador (el valor del contador) as&#237;
+como la direcci&#243;n del par&#225;metro que recibe. De no indicarse -v el manejador NO DEBE IMPRIMIR NADA en
+pantalla.
+</DD>
+<DT>-r</DT>
+<DD>El manejador reenv&#237;a al proceso la se&#241;al para la cual es manejador. En caso de
+reenviarse la se&#241;al, debe hacerse despu&#233;s de imprimir en pantalla (en caso de que se imprima) y
+antes de quedarse en espera (en caso de que se haya especificado -sN)
+</DD>
+<DT>-t</DT>
+<DD>El manejador es temporal se instala con el flag SA_RESETHAND
+</DD>
+<DT>-p</DT>
+<DD>El manejador se ejecutar&#225; en la pila alternativa (se instala con el flag SA_ONSTACK
+</DD>
+<DT>-f</DT>
+<DD>El manejador se instala con el flag SA_NODEFER
+</DD>
+</DL>
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">maxhandler [<EM>n </EM>]</SPAN></DT>
+<DD>Establece el n&#250;mero m&#225;ximo de veces que el manejador
+ instalado con <EM>-r</EM> se
+reenv&#237;a la se&#241;al (puede utilizarse para ello el contador de se&#241;ales recibidas).
+ Si no se especifica <EM>n</EM> se indicar&#225; a cuanto est&#225; establecido dicho valor.
+Un valor 0 indica que no ha l&#237;mite predefinido.
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">bucle</SPAN></DT>
+<DD>Hace que el shell entre en un bucle infinito.
+ Instala un manejador para SIGINT  que permite salir del bucle pulsando control-c 
+ para seguir ejecutando el shell.
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">segmentation</SPAN></DT>
+<DD>produce un fallo de segmentaci&#243;n en el shell. 
+(No vale enviar SIGSEGV, tiene que ser un fallo de segmentaci&#243;n de verdad). 
+
+<P>
+</DD>
+<DT><SPAN  CLASS="textbf">fpe</SPAN></DT>
+<DD>produce una excepci&#243;n de la unidad en punto flotante en el shell. 
+(No vale enviar SIGFPE, tiene que ser una excepci&#243;n de la unidad en punto flotante de verdad). 
+
+<P>
+</DD>
+</DL>
+
+<P>
+<SPAN  CLASS="textbf">Informaci&#243;n detallada de las llamadas al sistema y las funciones de la librer&#237;a
+ debe obternerse con man</SPAN> (sigaction, sigprocmask, sigaltstack,  ...)
+
+<P>
+<SPAN  CLASS="textbf">FORMA DE ENTREGA</SPAN>
+Como en pr&#225;cticas anteriores
+
+<P>
+<SMALL>FECHA DE ENTREGA </SMALL>V<SMALL>IERNES 13 </SMALL>J<SMALL>UNIO 2008</SMALL>
+<BR><HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,37 @@
+<head>
+<title>Plan de prueba</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+<img src="shortLine.gif">
+
+<ul>
+<li> <a href="invar.html">Generar el invariante INV</a> 
+y demostrar que lo es, o sea, demostrar 
+<pre>  { INV and k &lt b } cuerpo_del_bucle { INV }
+</pre>
+
+<li> probar 
+<pre>  { PRE } k := a { INV }
+</pre>
+lo que significa 
+<pre>  probar que |= { INV' } k := a { INV }
+   y que  PRE ==&gt INV'
+   siendo INV' el resultado de "subir" INV a trav&eacute;s de k:=a.
+</pre>
+
+<li> Probar 
+<pre>  INV and ~(k &lt b) ==&gt POST
+</pre>
+
+<li> usar la regla de composici&oacute;n para "pegar" todo y obtener
+<pre>  { PRE } programa { POST }
+</pre>
+
+</ul>
+</body>
+
+

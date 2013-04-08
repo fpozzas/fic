@@ -1,0 +1,87 @@
+SDK-DEMO3-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        DisplayString
+                FROM RFC1213-MIB
+        enterprises
+                FROM RFC1155-SMI
+        OBJECT-TYPE
+                FROM RFC-1212
+        demo
+                FROM SDK-DEMO1-MIB;
+
+
+sdkDemo3MIB   OBJECT IDENTIFIER ::= { demo 3 }
+
+--
+-- There is mandatoryly 1 Group in the example.
+-- The "Load" group contains information about system load
+--
+
+me3LoadGroup OBJECT IDENTIFIER ::= { sdkDemo3MIB 1 }
+me3traps     OBJECT IDENTIFIER ::= { sdkDemo3MIB 2 }
+me3trapInfo  OBJECT IDENTIFIER ::= { sdkDemo3MIB 3 }
+
+
+-- 
+-- Properties in the "Load" group
+--
+
+me3SystemLoadAvg1min OBJECT-TYPE
+    SYNTAX      DisplayString
+    ACCESS      read-only
+    STATUS      mandatory
+    DESCRIPTION
+                "Load average of the system over the last 1 minute."
+    ::= { me3LoadGroup 1 }
+
+me3SystemLoadAvg5min OBJECT-TYPE
+    SYNTAX      DisplayString
+    ACCESS      read-only
+    STATUS      mandatory
+    DESCRIPTION
+                "Load average of the system over the last 5 minutes."
+    ::= { me3LoadGroup 2 }
+
+me3SystemLoadAvg15min OBJECT-TYPE
+    SYNTAX      DisplayString
+    ACCESS      read-only
+    STATUS      mandatory
+    DESCRIPTION
+                "Load average of the system over the last 15 minutes."
+    ::= { me3LoadGroup 3 }
+
+--
+-- Trap Definitions for this MIB begin
+--
+
+statusChange TRAP-TYPE
+    ENTERPRISE me3traps
+    VARIABLES { statusOID, objectStatus, eventDescription }
+    DESCRIPTION "A statusChange trap signifies that the status of an object has changed." 
+::= 1
+
+statusOID  OBJECT-TYPE
+    SYNTAX OBJECT IDENTIFIER
+    ACCESS read-only
+    STATUS current
+    DESCRIPTION "The identification of the object for which the status changed."
+::= { me3trapInfo 1 }
+
+objectStatus OBJECT-TYPE
+    SYNTAX       DisplayString (SIZE (0..255))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION "The current status of the object. One of OK, ERROR."
+::= { me3trapInfo 2 }
+
+eventDescription OBJECT-TYPE
+    SYNTAX       DisplayString (SIZE (0..255))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION "The detailed description of the event."
+::= { me3trapInfo 3 }
+
+
+END
+

@@ -1,0 +1,56 @@
+----------------------------------------------------------
+-- Module DEMO-1 MIB
+----------------------------------------------------------
+
+SDK-DEMO1-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        DisplayString
+                FROM RFC1213-MIB
+        enterprises
+                FROM RFC1155-SMI
+        OBJECT-TYPE
+                FROM RFC-1212;
+
+EXPORTS demo;
+
+demo          OBJECT IDENTIFIER ::= { enterprises 4242 }
+sdkDemo1MIB   OBJECT IDENTIFIER ::= { demo 1 }
+
+--
+-- There are currently 1 Group in the example.
+-- The "Load" group contains information about system load
+--
+
+me1LoadGroup OBJECT IDENTIFIER ::= { sdkDemo1MIB 1 }
+
+-- 
+-- Properties in the "Load" group
+--
+
+me1SystemLoadAvg1min OBJECT-TYPE
+    SYNTAX      DisplayString
+    ACCESS      read-only
+    STATUS      mandatory
+    DESCRIPTION
+                "Load average of the system over the last 1 minute."
+    ::= { me1LoadGroup 1 }
+
+me1SystemLoadAvg5min OBJECT-TYPE
+    SYNTAX      DisplayString
+    ACCESS      read-only
+    STATUS      mandatory
+    DESCRIPTION
+                "Load average of the system over the last 5 minutes."
+    ::= { me1LoadGroup 2 }
+
+me1SystemLoadAvg15min OBJECT-TYPE
+    SYNTAX      DisplayString
+    ACCESS      read-only
+    STATUS      mandatory
+    DESCRIPTION
+                "Load average of the system over the last 15 minutes."
+    ::= { me1LoadGroup 3 }
+
+END
+

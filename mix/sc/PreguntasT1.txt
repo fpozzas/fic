@@ -1,0 +1,430 @@
+﻿Las RNA son un campo de gran interes debido a: 
+a) la habilidad para aprender automaticamente (*) 
+b) la habilidad de tener ideas para resolver problemas 
+c) la habilidad para decidir 
+d) ninguna de las anteriores 
+
+¿Quienes proponen el modelo de neurona artificial seguido en clase? 
+a) McCulloch y Pits.  (*)
+b) Hebb y Rochester. 
+c) Anderson y Grossberg. 
+d) Camilo Golgi y Williams. 
+
+Cuál de estos nombres NO pertenece a uno de los precursores de los sistemas conexionistas con respecto a las Bases Biológicas: 
+a) Ramon y Cajal 
+b) Camilo Golgi 
+c) Williams 
+d) Mc Culloch (*)
+
+Quienes fueron los tres personajes que más han hecho por acercar a una explicación experimentas el misterio de la vida nerviosa: 
+- Cajal, Mc Culloch y Pitts 
+- Golgi, Cajal y Williams 
+- Paulov, Sherrinton y Lashley 
+- Cajal, Sherrinton y Paulov (*) 
+
+Quien postuló en 1888 la “Teoría de la Neurona” 
+- Camilo Golgi 
+- Ramón y Cajal  (*)
+- Mc Culloch 
+- Pitts 
+
+Quién dijo: “La superioridad funcional del SN de los humanos estaría relacionada con la abundancia prodigiosa y con la cuantía considerable de las llamadas neuronas de axón corto” 
+- Ramón y Cajal (*) 
+- Williams 
+- Sherrintong 
+- Paulov 
+
+Quién de estos nombres no pertenece a un precursor de los sist. conexionistas en el ámbito computacional: 
+- Ramón y Cajal (*) 
+- Mc Culloch 
+- Pitts 
+- Hebb 
+
+Quienes proponen en 1943 el modelo de neurona artificial que lleva su nombre 
+- Hebb y Rochester 
+- Hebb y Von Neuman 
+- Mc Culloch y Pitts (*)
+- Mc Culloch y Cajal 
+
+Quien postula en 1949 “una vía de neuronas es reforzada cada vez que dicha vía es usada” 
+- Hebb (*) 
+- Ramón y Cajal 
+- Mc Culloch 
+- Pitts 
+
+Quién propone un sist. de aprendizaje para la modificación de la sinapsis denominada “ Regla de Aprendizaje Sináptico”. 
+- Pitts 
+- Mc Culloch 
+- Hebb (*) 
+- Rochester 
+
+Que es el Perceptron 
+- Máquina con un comportamiento no adaptativo presentado por Mc Culloch y Pitts. 
+- Máquina con un comportamiento no adaptativo presentado por Hebb 
+- Máquina con un comportamiento adaptativo capaz de reconocer patrones dotado de la regla del aprendizaje denominado “autoasociacion” y presentado por Rochester. 
+- Máquina con un comportamiento adaptativo capaz de reconocer patrones dotado de la regla del aprendizaje denominado “autoasociacion” y presentado Rosenblatt. (*) 
+
+Quién desarrolla en 1959 el ADALINE 
+- Mc Culloch y Pitts 
+- Hebb 
+- Widrow y Hoff (*) 
+- Rosenblatt 
+- Rochester 
+
+Cuales son las primeras RNA aplicadas a un problema del mundo real. 
+- Neurona artificial 
+- Perceptron 
+- ADALINE 
+- MADALINE (*) 
+
+Por qué se produjo el declive de las RNA durante casi 20 años. 
+- Porque se dejó de escribir sobre ellas 
+- Por la aparición de otras tecnologías más novedosas. 
+- Porque no se demostró que no podría resolver problemas no lineales. (*) 
+- Porque no servían para resolver problemas del mundo real. 
+
+Qué nombre no pertenece a un impulsor de las RNA después de su declive. 
+- Grossberg 
+- Fukushima 
+- Godel (*) 
+- Kohonen 
+Cual fue el principal impulsor del renacimiento de RNA después de su declive 
+- Fukushima 
+- Grossberg 
+- Hopfield (*) 
+- Kohonen 
+
+Porqué destacó Hopfield 
+- Por presentar el Perceptron 
+- Por desarrollar el ADALINE 
+- Por demostrar que no era factible crear una teoría automatizada de la inteligencia. 
+- Por presentar con fuerte fundamentación matemática y de forma coherente el modo de trabajar de los modelos de RNA (*) 
+
+Cuál de estas no es una causa por la que las RNA son un campo de gran interés 
+- Habilidad de estos sist. para aprender automáticamente 
+- Habilidad para poder funcionar de forma aceptable en presencia de información inexacta pero no cuando se producen deterioros o fallos en sus componentes. (*) 
+- Al interés existente por la búsqueda de arquitecturas de computadores que permitan el procesamiento en paralelo. 
+- La similitud con los modelos neurofisiológicos del cerebro, pudiéndose de esto modo intercambiar modelos e investigaciones entre los de RNa y Neurociencias, potenciándose ambas. 
+
+El flujo de informacion entre dos neuronas, debido a la teoria de la polarizacion dinamica propuesta por Santiago Ramon y Cajal en 1890, sigue: 
+a) sigue una unica direccion  (*)
+b) puede seguir cualquier direccion 
+c) fluye de izquierda a derecha 
+d) fluye de derecha a izquierda 
+
+¿Cual de las siguientes afirmaciones es falsa, teniendo en mente el modelo propuesto por McCulloch y Pitts en el año 1943? 
+a) Es un dispositivo binario 
+b) Tiene un umbral variable 
+c) Las entradas negativas tienen accion absoluta 
+d) Una entrada excitadora activa anula a todas las inhibidoras (*) 
+
+Un sistema conexionista puede funcionar en un ambiente con ruido. 
+a) Verdadero, pq la informacion esta distribuida  (*)
+b) Verdadero, pq el ruido es una entrada mas del propio sistema conexionista 
+c) Falso, pq esto querria decir que la informacion no reside en ningun sitio 
+d) Falso, pq el ruido anula cualquier salida valida que el sistema produzca. 
+
+Santiago Ramón y Cajal postuló: 
+a) La "Teoría de la polarización dinámica" 
+b) La "Teoría de la neurona" 
+c) La a) y la b) son ciertas  (*)
+d) Ninguna de las anteriores
+
+¿Cuál de estas afirmaciones es cierta? 
+a) La inteligencia artificial conexionista SIMULA la inteligencia. 
+b) Widrow-Hoff desarrollaron el ADALINE. (*)
+c) En el organismo las neuronas están aisladas unas de otras. 
+d) La sinapsis es la unión física entre neuronas. 
+
+En el modelo normalizado de McCulloch-Pitts, cuál de estas 
+afirmaciones es FALSA? 
+a) Es un dispositivo binario con 2 estados y umbral fijo. 
+b) Recibe sinapsis excitadoras del mismo peso. 
+c) El estado 1 representa inactivo y el 0 activo.  (*)
+d) La salida es igual a la salida por el peso de la conexión.
+
+¿Quién es el autor de la cita: "su teoría neuronal ha sido tan fuertemente establecida como la base de nuestra ciencia, que nosotros ignorábamos qué pasaba antes, y hemos olvidado que él fue el primero que lo propuso"? 
+a) Ramón y Cajal 
+b) Camilo Golgi 
+c) McCulloch (*)
+d) Hebb 
+
+¿A quién se refería? 
+a) Lashley 
+b) Rochester 
+c) Ramón y Cajal (*)
+d) Rosenblatt 
+
+¿Con qué relacionas a Pitts y McCulloch? 
+a) Con el ADALINE 
+b) Con el modelo de neurona artificial que lleva su nombre (*)
+c) Con la "Teoría de la Polarización Dinámica" 
+d) Con las MADALINE 
+
+El declive de las Redes de Neuronas Artificiales es debido a: 
+a) Anderson 
+b) Hopfield 
+c) Kohonen 
+d) Minsky y Papert (*)
+
+Anderson pertenece al grupo de 
+a) Los precursores de los SC en las Bases Biológicas 
+b) Los precursores computacionales 
+c) El Resurgir e Impulsores de las RNA (*)
+d) El declive de las RNA 
+
+La obra "Behaviour, Purpose and Teleology" 
+a) Trata el tema del Perceptron 
+b) No tiene nada que ver con los SC 
+c) Trata de hacer a las máquinas teleológicas (*)
+d) Pertenece a Craik 
+Von Neumann es 
+a) El autor de "The Nature of Explanation" 
+b) El descubridor de la habilidad de los SC de aprender automáticamente 
+c) Uno de los hombres que más han hecho por explicar experimentalmente la vida nerviosa 
+d) El "padre" de las computadoras actuales basadas en la lógica booleana. (*)
+
+El postulado de Hebb respecto al aprendizaje dice: 
+a) el cambio de estado se realiza en base a una función umbral. 
+b) una vez entrenado el sistema funciona de forma adecuada o aceptable en presencia de fallos en alguno de sus elementos. 
+c) un canal cuanto menos usada es menos se refuerza.  (*)
+d) el canal sólo puede tener valores positivos 
+
+El modelo de neurona de McCullochs y Pitts tiene dos tipos de entradas: 
+a) excitadoras con acción absoluta e inhibidoras. 
+b) inhibidoras con acción absoluta o excitadoras.  (*)
+c) ninguna de la anteriores, ninguna de ellas tení­a acción absoluta. 
+d) b) y además las entradas son reales como en el Adaline.
+
+Cual fue la principal causa ,reflejada en el libro de Minsky Paper, que propició el declive de las redes de neuronas artificiales durante casi 20 años ? 
+a.) La excesiva complejidad en la estructura de las redes de neuronas artificiales. 
+b.) La creencia de que era imposible encontrar una solución al problema del aprendizaje en las capas ocultas ya que se desconocía la salida y la limitación en lo que los perceptrones podían llegar a reconocer. (*)
+c.) La escasa utilidad que las redes de neuronas artificiales podían tener al aplicarlas a problemas del mundo real. 
+d.) No existió tal declive.
+
+¿Quién de estos personajes no se puede considerar un precursor de las RNA? 
+a. Hebb 
+b. McCulloch 
+c. Hopfield  (*)
+d. Pitts 
+
+¿Quién destaca como precursor de los SC en las bases biológicas?
+a)Turing, Hebb y Ramón y Cajal
+b)Ramón y Cajal, Golgi, Williams y Lashley (*)
+c)Golgi, Ramón y Cajal, Sherrington y Pavlov
+
+¿Quién afirmó: “La superioridad funcional del sistema nervioso de los humanos estaría relacionada con la abundancia prodigiosa y con la cuantía considerable de las llamadas neuronas de axón corto” ?
+a)Ramón y Cajal (*)
+b)McCulloch
+c)Sherrington y Pavlov
+
+
+
+¿Porqué razón principal las RNA son actualmente un campo de gran interés?
+a)Debido a la habilidad de estos sistemas de corregir sus propios errores durante el entrenamiento
+b)Debido a la habilidad que poseen para obtener siempre errores muy próximos a 0.
+c)Debido a la habilidad de estos sistemas para aprender automáticamente (*)
+
+¿En que año se produce el nacimiento de las RNA como consecuencia de la aparición de 3 trabajos teóricos?
+a) 1943 (*)
+b) 1938
+c) 1890
+
+¿Quién es considerado padre de los computadores actuales?
+a) Turing
+b) Von Neuman (*)
+c) McCulloch
+
+¿Cuál es el objetivo de de la rama conexionista de la inteligencia artificial?
+a. Reproducir la función de inteligencia.
+b. Reproducir la estructura física que permite la inteligencia.
+c. Reproducir el comportamiento humano.
+d. Reproducir la función de inteligencia y la estructura que permite la inteligencia. (*)
+
+¿Cuándo comienza el declive de las RNA?
+a. Con la publicación del libro “Perceptrons” de Minsky y Papert. (*)
+b. El desarrollo del Cognitron de Fukushima.
+c. Presentación de la “Máquina Conexionista” de Daniel Hillis.
+d. Publicación del régimen de Lovelace.
+
+¿Qué acción producen las entradas negativas en el elemento de procesado formal de McCulloch y Pitts?
+a. Acción excitadora.
+b. No tienen acción alguna.
+c. Acción inhibidora. (*)
+d. Establecen el umbral del elemento de procesado.
+
+¿Cuáles son los problemas del método lógico de Ramón LLul para la resolución de problemas complejos?
+a. Determinar los principios elementales que atañen a un problema.
+b. No extraer más principios elementales de los que realmente atañen a un problema.
+c. Determinar los principios elementales que atañen a un problema y no extraer más principios elementales de los que realmente atañen a un problema. (*)
+d. No presenta ningún problema, es un método perfecto.
+
+Cuáles fueron las primeras RNA aplicadas a un problema del mundo real?
+a) PERCEPTRONES
+b) MADALINES (*)
+c) COGNITRONES
+d) Todavía no se han aplicado más que a simulaciones teóricas.
+
+
+Indica la afirmación falsa.
+Las RNA son un campo de gran interés debido a:
+a) Las RNA tienen la habilidad de aprender automáticamente.
+b) Fallan cuando reciben información inexacta o se deteriora alguno de sus componentes. (*)
+c) Están relacionadas con la búsqueda de arquitecturas de computadoras que permitan el procesamiento en paralelo.
+d) Las RNA son similares a los modelos neurofisiológicos del cerebro, pudiéndose de este modo inercambiar modelos e investigaciones entre los de RNA y Neurociencias, potenciándose ambas.
+
+¿Quién sienta las bases de la Ingeniería Neuronal?
+a) McCullogh.
+b) Pitts.
+c) Santiago Ramón y Cajal. (*)
+d) Golgi.
+
+Al morirse una neurona, ¿se está perdiendo la información que almacenaba?
+a) Sí, cada neurona guarda una información concreta.
+b) No, ya que la información se encuentra distribuída por todo el SN.(*)
+c) Sí, pero solo si se muere más de una debido a que la información reside en la sinapsis.
+d) No, ya que las neuronas de axón corto no almacenan información.
+
+3) ¿A qué se debe la superioridad del SN de los humanos con respecto al del resto de seres vivos?
+a) A la abundancia prodigiosa de neuronas de axón corto que poseen los humanos.(*)
+b) A las neuronas, las del ser humano son más complejas y están mucho más desarrolladas que las del resto de seres vivos.
+c) A la percepción sensorial, mucho más evolucionada en el humano.
+d) Ninguna de las anteriores es correcta.
+
+4) El modelo de neurona artificial de McCullogh y Pitts consistía en:
+a) Un dispositivo de procesamiento con umbral fijo que posee múltiples salidas interconectadas con la red neuronal.
+b) Un dispositivo binario que recibe conexiones excitadoras e inhibidoras de igual peso.
+c) Un dispositivo binario con dos estados y un umbral fijo que recibe conexiones excitadoras de igual peso e inhibidoras de acción absoluta.(*)
+d) Un elemento de procesado de acción equivalente a un perceptrón multicapa de dos entradas.
+
+¿A qué se debe el declive de las RNA a finales de los 60?
+a) A las limitaciones en lo que los perceptrones podían aprender a reconocer.(*)
+b) A la crisis de desarrollo software debida a la falta de programadores de RNA.
+c) A la falta de un consenso en el enfoque práctico que debían tener las RNA.
+d) Al auge de la programación funcional muy de moda en aquella década.
+
+
+
+¿Cuál de estas consideraciones NO es correcta?
+a) Hebb propone la “Regla de Aprendizaje Sináptico”.
+b) La “Máquina Conexionista” de Daniel Hillis supuso un gran logro hardware.
+c) El “Informe Ligthill” contribuyó al declive de las RNA.
+d) Rosenblatt, entre 1958 y 1962, presenta el Adaline. (*)
+
+¿A quién se le atribuye el verdadero renacimiento de las RNA?
+a) A Hopfield que presenta, con fuerte fundamentación matemática, el modo de trabajar de los modelos de RNA.(*)
+b) A Ramón y Cajal con su “Teoría Neurotrópica”.
+c) A Minsky Papert que en su libro titulado “Perceptrons” encuentra la solución al problema del aprendizaje en las capas ocultas.
+d) A Hebb que propone un sistema de aprendizaje para la modificación de la sinapsis llamado “Regla de Hebb”.
+
+“A Logical Calculus of the Ideas Inmanent in Nervous Activity” de McCulloch y Pitts demostró:
+a) La partes estrucuturales de la neurona.
+b) Cómo cualquier ley de entrada-salida podía modelizarse con una red de neuronas formales por ellos definidas.(*)
+c) Que cuando dos procesos cerebrales están en activo conjuntamente o cuando existe una inmediata sucesión, uno de ellos tiende a propagar la excitación del otro.
+d) El desarrollo del ADALINE, que conformarán las Madalines, las cuales son las primeras RNA aplicadas a un problema del mundo real.
+
+La “Teoría de la Avalancha” que propone Grossberg servirá de base:
+a) Para el desarrollo de las futuras “Redes Autoorganizativas”.
+b) Para el comportamiento adaptativo del Perceptron.
+c) Para los “Modelos Biológicos”.(*) 
+d) Ninguna de las anteriores es correcta.
+
+¿Quién describió el primer sistema conexionistas en 1890 afirmando: “cuando dos procesos cerebrales están en activo conjuntamente o cuando existe una inmediata sucesion, uno de ellos tiende a propagar la excitación del otro”.
+a) McCulloch.
+b) Williams. (*)
+c) Pitts.
+d) Santiago Ramón y Cajal.
+
+¿Cuál de estos es un disositivo binario con 2 estados y un umbral fijo que recibe conexiones o sinapsis excitadoras de igual peso e inhibidoras de acción absoluta?
+a) El primer sistema conexionista descrito por Williams en 1890.
+b) El modelo de neurona artificial propuesto en 1943 por McCulloch y Pitts.(*)
+c) La Máquina de Turing.
+d) La Maquina Conexionista presentada por Daniel Hillis.
+
+
+
+
+
+¿Para qué se aplicaron las primeras RNA en el mundo real?
+a) Como medio de investigación en base a “Modelos Biológicos”.
+b) Como medio de investigación en base a la idea sobre el “Pensamiento de las Máquinas”.
+c) Como filtros adaptativos para eliminar ecos y ruidos en las líneas telefónicas comerciales. (*)
+d) Como medio de investigación en la Biomedicina.
+
+¿Qué neurofisiólogo fue muy importante en el resurgir de las RNA en 1969 al realizar las primeras aproximaciones de la “Memoria Lineal Asociativa”?
+a) Fukushima.
+b) Grossberg.
+c) Kohonen.
+d) Anderson. (*)
+
+¿Cuál fue la idea clave principal en el renacimiento de las RNA?
+a) “Una vía de neuronas es reforzada cada vez que dicha vía es usada”.
+b) “Las RNA deben ser primero modelos cerebrales y luego dispositivos útiles de procesamiento”. (*)
+c) “Las RNA han de ser máquinas con un comportamiento adaptativo capaz de reconocer patrones, dotado de la regla de aprendizaje denominada de “autoasociació”, donde el estímulo y la unidad de respuesta están asociados por la acción de las entradas”.
+d) “No es factible formalizar las teorías científica, por lo que no es posible crear una teoría automatizada de la inteligencia”.
+
+¿Cuál de estos trabajos teóricos, publicados en 1943, y de gran importancia en el nacimiento de las RNA, puso de manifiesto de qué modo las máquinas podrían emplear los conceptos de la lógica y de la abstracción, y demostró cómo cualquier ley de entrada-salida podría modelizarse con una red de neuronas?
+a) “Behavour, Propose and Teleology”, de Rosenblueth, Wener y Bigelow.
+b) “The Nature of Explanation”, de Crank.
+c) “A Logical Calculus of the idea Inmanent in Neurous Activity”, de McCulloch y Pitts. (*)
+d) “Perceptrons”.
+
+Quienes destacan en el resurgir e impulsores de las RNA
+a) McCulloch y Pitts
+b) Hebb y Rochester
+c) Rosenblatt, Widrow y Holf
+d) Anderson, Fukushima y Grossberg (*)
+
+Qué busca Craik en “The Nature of Explanation”
+a) encontrar un conjunto de principios sencillos que explicaran las actividades de la mente humana
+b) proponer que las máquinas empleen modelos y analogías en la resolución de problemas (*)
+c) demostrar que cualquier ley de entrada-salida podía modelizarse con una red de neuronas formales
+d) nada de lo anterior.
+
+Ramón y Cajal observó que las células del sistema nervioso en los seres humanos...
+a) eran mucho más complejas que en los animales, aunque ambos tenían aproxidamente 
+el mismo número de neuronas.
+b) eran mucho más complejas que en los animales y muchísimo más abundantes.
+c) eran igual de complejas que en los animales, pero mucho más abundantes. (*)
+d) Ninguna es correcta.
+
+¿Por qué son interesantes las redes de neuronas artificiales actualmente?
+a) Porque resuelven problemas mejor que los algoritmos existentes para dichas 
+situaciones.
+b) Porque son capaces de aprender y además funcionan incluso cuando la infomación 
+es inexacta. (*)
+c) Porque su parecido con el sistema nervioso es perfecto.
+d) Todas son correctas.
+
+3. ¿Quen destaca como impulsor do rexurdir das RNA?
+a) Anderson (*)
+b) Cajal
+c) Widrow
+d) Todos
+
+- Según las reflexiones hechas por Santiago Ramón y Cajal hace casi 100 años, ¿con qué estaría relacionada la superioridad funcional del sistema nervioso de los seres humanos sobre el de los animales?
+a) Con las diferencias cualitativas entre las células del SN de los seres humanos y las de los animales. (*)
+b) Con la cuantía de neuronas de axón corto.
+c) El sistema nervioso de los animales es superior al de los seres humanos.
+d) Con la composición de las neuronas.
+
+- El modelo de neurona artificial de McCulloch y Pitts se caracteriza por:
+a) Ser un dispositivo binario con 2 estados y umbral fijo que recibe conexiones o sinapsis excitadoras de igual peso e inhibidoras de acción absoluta. (*)
+b) Ser un dispositivo binario con 2 estados y umbral fijo que recibe conexiones o sinapsis excitadoras de diferentes pesos e inhibidoras de acción absoluta.
+c) Ser un dispositivo binario con 2 estados y sin un umbral fijo que recibe conexiones o sinapsis excitadoras de diferentes pesos e inhibidoras de acción absoluta.
+d) Ser un dispositivo binario con 2 estados y sin un umbral fijo que recibe conexiones o sinapsis excitadoras de igual peso e inhibidoras de acción absoluta.
+
+Quien presenta la "Máquina Conexionista"?
+a)Anderson
+b)Grossberg
+c)Daniel Hillins (X)
+
+2.¿Qué establece Hopfield?
+a)que las RNA deben ser primero modelos cerebrales y luego dispositivos útiles de procesamiento. (X)
+b)que no era factible formalizar, en lógica de primer orden, las teorías científicas y que, por tanto, no era posible crear una teoría automatizada de la inteligencia
+c)que: "una vía de neuronas es reforzada cada vez que dicha vía es usada"
+
+¿Cuándo presenta el psicólogo Rosenblatt el Perceptrón?
+a)entre 1.958 y 1.962, (X)
+b)entre 1962 y 1970
+c)entre 1970 y 1978

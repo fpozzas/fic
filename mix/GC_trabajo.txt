@@ -1,0 +1,18 @@
+ 
+1. Introducción a las interfaces gráficas
+2. El sistema X.org
+2.1 DRI
+3. Aceleración con OpenGL
+3.1 GLX
+3.2 AIGLX
+3.3 Xgl
+3.3.1 Xglx
+3.3.2 Xegl
+4. Gestores de composición de ventanas
+4.1 Metacity
+4.2 Compiz
+4.3 KWin
+5. Otros sistemas con composición
+5.1 Aqua
+5.2 Aero
+6. Ejemplos de código

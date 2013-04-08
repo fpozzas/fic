@@ -1,0 +1,40 @@
+<head>
+<title>Ejemplo de prueba 1</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+
+<h1></h1>
+
+<li><a href="c9.html">Seguir</a></li>
+<li><a href="plan.html">Plan de prueba</a></li>
+<img src="shortLine.gif">
+
+<pre>
+
+ { PRE: x &gt= 0 }                  
+     { P4: 0 &lt= x  and  x = 0 * y + x }
+     Q := 0;
+     { P3: 0 &lt= x  and  x = Q * y + x }
+     R := x;
+     { INV: 0 &lt= R  and  x = Q * y + R }
+     while R &gt= y do
+       { P2: 0 &lt= (R-y) and x = (Q+1) * y + (R-y) }
+       (R := R - y;
+       { P1: 0 &lt= R and x = (Q+1) * y + R }
+       Q := Q + 1
+       { INV: 0 &lt= R  and  x = Q * y + R }
+     <b>{ P5: 0 &lt= R and x = Q * y + R and ~(R &gt= y) }</b>
+ { POST: 0 &lt= R &lt y  and  x = Q * y + R }
+
+</pre>
+
+<img src="shortLine.gif">
+<a href="ob3.html">Obligaci&oacute;n de prueba 3</a>
+
+
+</body>
+

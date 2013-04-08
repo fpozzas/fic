@@ -1,0 +1,2 @@
+String a[5] := "lol";
+print a[3];

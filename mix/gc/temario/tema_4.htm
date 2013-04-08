@@ -1,0 +1,101 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="es">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Tema 4</title>
+<meta name="Microsoft Theme" content="canvas 0011, default">
+</head>
+
+<body background="../../_themes/canvas/cnvbkgnd.jpg" bgcolor="#FFFFFF" text="#000000" link="#0066CC" vlink="#006666" alink="#996699"><!--mstheme--><font face="Arial, Arial, Helvetica">
+
+<h1><!--mstheme--><font color="#336666">Tema 4: Transformaciones<!--mstheme--></font></h1>
+<p>4.1 Transformaciones en 2D: Traslación, escalado y rotación</p>
+<p>4.2 Composición de transformaciones y eficiencia</p>
+<p>4.3 Otras transformaciones</p>
+<p>4.4 Transformaciones en 3D</p>
+
+<p>&nbsp;</p>
+
+<h3><!--mstheme--><font color="#336666">Preguntas a resolver con trabajo del alumno<!--mstheme--></font></h3>
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Material<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Apuntes de los <a href="../Traslacion,escalado,rotacion.htm">puntos 4.1 y 4.2</a><!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Transformaciones 2D<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Introducción a la Graficación por Computadora pp. 
+			193-195)<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Apuntes de los <a href="../Traslacion,escalado,rotacion.htm">puntos 4.1 y 4.2</a><!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Coordenadas homogéneas y transformaciones<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Introducción a la Graficación por Computadora pp. 
+			196-199)<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Apuntes de los <a href="../Traslacion,escalado,rotacion.htm">puntos 4.1 y 4.2</a><!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Composición de transformaciones<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Introducción a la Graficación por Computadora pp. 
+			201 y 202)<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Otras transformaciones<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Share o sesgo: Fotocopias (Introducción a la Graficación por 
+			Computadora pp. 200)<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Reflexión: Fotocopias (Graficas por Computadora pp. 210-212)<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Transformaciones 3D<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Introducción a la Graficación por Computadora pp. 
+			206-210)<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+	<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+	<!--mstheme--></font><!--msthemelist--></td></tr>
+	<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Preguntas<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Transformaciones 2D<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Notar que:<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Los rotaciones se hacen con respecto al origen<!--mstheme--></font><!--msthemelist--></td></tr>
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Los escalados modifican el tamaño y también la posición de 
+				los objetos<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+			<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Pregunta:<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Calcula las matrices compuestas de rotación y escalado sobre 
+				el origen<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+			<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Coordenadas homogéneas y transformaciones<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Por qué utilizar coordenadas homogéneas?<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Composición de transformaciones<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Por qué componer transformaciones?<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿El orden de aplicación es indiferente?<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Ejercicio: Calcula la matriz compuesta para realizar 1º 
+				traslación y 2º escalado y la matriz compuesta para realizar 1º 
+				escalado y 2º traslación<!--mstheme--></font><!--msthemelist--></td></tr>
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Es la misma matriz compuesta?<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fíjate en el orden de aplicación de las transformaciones 
+				!!!!!!!!!!<!--mstheme--></font><!--msthemelist--></td></tr>
+				<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+				<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+			<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+	<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+	<!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+<h3><!--mstheme--><font color="#336666">Contenidos adicionales al Tema<!--mstheme--></font></h3>
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Ejemplo de aplicación de tranformaciones en Matlab:
+	<a href="../cubo_matlab/cubo_matlab.zip">cubo_matlab.zip</a><!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+
+<!--mstheme--></font></body>
+
+</html>

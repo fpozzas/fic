@@ -1,0 +1,98 @@
+(**************)
+(* PRACTICA 7 *)
+(**************)
+			
+(******)
+(*Ej 1*)
+(******)
+
+let x = 0 in (let x = x + 1 in 2 * x), 2 * x;;
+
+(* - : int * int = (2,0) *)
+
+let ap (x,y) = y x;;
+
+(* val ap : 'a * ('a -> 'b) -> 'b = <fun>  *)
+
+ap (2, (/)) 3;;
+
+(* - : int = 0  *)
+
+let rec pam x = function [] -> [] | h::t -> h x :: pam x t;;
+
+(* val pam : 'a -> ('a -> 'b) list -> 'b list = <fun> *)
+
+pam 0;;
+
+(* - : (int -> 'a) list -> 'a list = <fun> *)
+
+let f =
+let rep g x = g (g x)
+in rep (function x -> x * x);;
+
+(* val f : int -> int = <fun> *)
+
+
+f 2;;
+
+(* - : int = 16 *)
+
+
+let rec dev f x = function 0 -> [] | n -> x :: dev f (f x) (n-1);;
+
+(* val dev : ('a -> 'a) -> 'a -> int -> 'a list = <fun> *)
+
+dev ((+) 2) 3 4;;
+
+(* - : int list = [3,5,7,9] *)
+
+let apa x f = f x;;
+(* val apa : 'a -> ('a -> 'b) -> 'b = <fun> *)
+
+List.map (apa 2) [(function x -> x * x); succ; (+)1; (-) 1];;
+(*- : int list = [4; 3; 3; -1] *)
+
+let apa_rep n x f =
+     let rec aux x = function 0 -> x
+                            | n -> aux (apa x f) (n-1)
+     in aux x (abs n);;
+(* val apa_rep : int -> 'a -> ('a -> 'a) -> 'a = <fun> *)
+
+apa_rep (-2) "x" (function x -> x ^ x);;
+(* - : string = "xxxx" *)
+
+let fop op f g = function y -> op (f y) (g y);;
+(* val fop : ('a -> 'b -> 'c) -> ('a -> 'b) -> 'a = <fun> *MAL* *)
+(* val fop : ('a -> 'b -> 'c) -> ('d -> 'a) -> ('d -> 'b) -> 'd -> 'c = <fun> *)
+
+let suma = fop (+);;
+(* val suma : ('a -> int) -> ('a -> int) -> 'a -> int = <fun> *)
+
+let f = let f1 x = x * x in let f2 x = f1 x * x in suma f1 f2 in f 2;;
+(* - : int = 20 *MAL* *)
+(* - : int = 12 *)
+
+(******)
+(*Ej 2*)
+(******)
+
+let rec split = function
+		[] -> ([],[])
+		| h::[] -> ([h],[])
+		| h1::h2::t -> let x,y = split t in
+						(h1::x , h2:: y);;
+
+(******)
+(*Ej 3*)
+(******)
+
+let sumpro2 n =
+		if n<1 then (0,1)
+		else 
+			let rec aux x y = function
+				0 -> (x,y)
+			 	| n -> aux (x+n) (y*n) (n-1)
+					in aux 0 1 n;;
+		
+		
+		

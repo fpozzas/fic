@@ -1,0 +1,33 @@
+<head>
+<title>Ejemplo de prueba: Usando Arrays</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+
+<a href="a2.html">Seguir</a>
+<a href="plan.html">Plan de prueba</a>
+<img src="shortLine.gif">
+
+<pre>
+
+<b>{ PRE: a &lt= b and x = x0 }</b>
+
+
+    k := a;
+
+
+    while k &lt b do
+
+      (k := k + 1;
+ 
+      x[k-1] := x[k])
+
+
+<b>{ POST: forall i, a &lt= i &lt b : x[i] = x0[i+1] }</b>
+
+</pre>
+
+</body>

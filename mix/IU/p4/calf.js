@@ -1,0 +1,154 @@
+mh = 5;
+minima_nota_mh = 7.7;
+lastfocus = ''
+
+function updateCalf(n) { //actualiza las notas escritas con letras
+	initCalf(n);
+	next = n+1;
+	if ((nota<minima_nota_mh) || (document.getElementById("calfnt"+n).checked==false))  {
+		array = document.getElementsByName("rg"+next);
+		if (array!=null){
+			if (array[0].checked) array[0].focus();
+			else if (array[1].checked) array[1].focus();
+			else if (array[2].checked) array[2].focus();
+			else {array[2].checked="checked"; array[2].focus();}
+		}
+	}
+	else document.getElementById("mh"+n).focus();
+}
+
+function onFocusMH(n){
+	next = n + 1;
+	if (((lastfocus == ("calfsc"+n)) || (lastfocus == ("calfnp"+n))) && (document.getElementById("calfnt"+n).checked==false)) {
+		array = document.getElementsByName("rg"+next);
+		if (array!=null){
+			if (array[0].checked) {array[0].focus();}
+			else if (array[1].checked) {array[1].focus();}
+			else if (array[2].checked) {array[2].focus();}
+			else {array[2].checked="checked"; array[2].focus();}
+		}
+	}
+	else if (((document.getElementById("calfnt"+next).checked==false) ||
+		(document.getElementById("calfnota"+next).value < minima_nota_mh)) &&
+		((lastfocus==("calfsc"+next)) || (lastfocus==("calfnp"+next)) || (lastfocus==("calfnt"+next)))) {
+			array = document.getElementsByName("rg"+n);
+			if (array!=null){
+				if (array[0].checked) array[0].focus();
+				else if (array[1].checked) array[1].focus();
+				else if (array[2].checked) array[2].focus();
+				else {array[2].checked="checked"; array[2].focus();}
+			}
+	}
+	lastfocus="mh"+n;
+}
+
+function uncheckMH(n){
+	if (document.getElementById("mh"+n).checked) {
+		if ((document.getElementById("calfnt"+n).checked==false) || (nota < minima_nota_mh)) {
+			alert("Se ha desmarcado la casilla de matrícula");
+			document.getElementById("mh"+n).checked=false;
+			mh++;
+		}
+	}
+}
+
+function initCalf(n){
+	nota = document.getElementById("calfnota"+n).value;
+	if (document.getElementById("calfnt"+n).checked){
+		if ((nota<5) && (nota>=0))
+		document.getElementById("nota"+n).innerHTML="Suspenso";
+		else if ((nota<6) && (nota>=5))  
+		document.getElementById("nota"+n).innerHTML="Suficiente";
+		else if ((nota<7) && (nota>=6))
+		document.getElementById("nota"+n).innerHTML="Bien";
+		else if ((nota<9) && (nota>=7))
+		document.getElementById("nota"+n).innerHTML="Notable";
+		else if (nota>=9)
+		document.getElementById("nota"+n).innerHTML="Sobresaliente";
+		else document.getElementById("nota"+n).innerHTML="-";
+	}
+	else if (document.getElementById("calfsc"+n).checked) 
+	document.getElementById("nota"+n).innerHTML="Sin calificar";
+	else if (document.getElementById("calfnp"+n).checked)
+	document.getElementById("nota"+n).innerHTML="No presentado";
+	uncheckMH(n)
+}
+
+function updateTestSC(n) {
+	document.getElementById("calfnota"+n).disabled=true;
+	document.getElementById("calfnp"+n).checked=false;
+	document.getElementById("calfnt"+n).checked=false;
+	initCalf(n);
+}
+
+function updateTestNP(n) {
+	document.getElementById("calfnota"+n).disabled=true;
+	document.getElementById("calfsc"+n).checked=false;
+	document.getElementById("calfnt"+n).checked=false;
+	initCalf(n);
+}
+
+function updateTestNT(n) {
+	document.getElementById("calfnota"+n).disabled=false;
+	document.getElementById("calfnp"+n).checked=false;
+	document.getElementById("calfsc"+n).checked=false;
+	initCalf(n);
+}
+
+function saveFocus(id){
+	lastfocus = id;
+}
+
+function testMH(n){
+	var nota = document.getElementById("calfnota"+n).value;
+	if (document.getElementById("mh"+n).checked) {
+		mh--;
+		if (mh<0) { 
+			alert("Error: se sobrepasa el límite de "+nmh+" matrículas");
+			document.getElementById("mh"+n).checked=false;
+			mh++;
+		}
+		else if (nota < minima_nota_mh){
+			alert("Error no se puede dar asignar una matrícula: minimo establecido: "+minima_nota_mh);
+			document.getElementById("mh"+n).checked=false;
+			mh++;
+		}
+		else if (document.getElementById("calfnt"+n).checked==false) {
+			alert("Error: no has confirmado Nota");
+			document.getElementById("mh"+n).checked=false;
+			mh++;
+		}
+	}
+	else mh++;
+	document.getElementById("nmh").innerHTML=mh;
+}
+
+function initMH(){
+	i = 1;
+	flag = 0;
+	while(document.getElementById("mh"+i)!=null){
+		if (document.getElementById("mh"+i).checked){
+			if ((document.getElementById("calfnt"+i).checked==true) && (document.getElementById("calfnota"+i).value >= minima_nota_mh)){
+				if (mh>0) mh--;
+				else flag = 1;
+			}
+			else document.getElementById("mh"+i).checked=false;
+		}
+		i++;
+	}
+	document.getElementById("nmh").innerHTML=mh;
+	if (flag==1) {alert("El número de matrículas era asignadas sobrepasaba el límite de " + mh + ". Se deberían desmarcar algunas.");}
+}
+
+function init(){
+	i = 1;
+	while (document.getElementById("calfnota"+i)!=null) {initCalf(i); i++ }
+	initMH();
+	array = document.getElementsByName("rg1");
+	if (array!=null){
+			if (array[0].checked) array[0].focus();
+			else if (array[1].checked) array[1].focus();
+			else if (array[2].checked) array[2].focus();
+			else {array[2].checked="checked"; array[2].focus();}
+		}
+}

@@ -1,0 +1,1221 @@
+1- ¿Por qué las continuas pérdidas de elementos del sistema nervioso no comprometen su funcionamiento?
+a) El número de neuronas perdidas representa un porcentaje relativamente bajo.
+b) El conocimiento está distribuido entre todos los elementos.
+c) a y b son correctas.
+d) Sí representa un grave problema, pues con cada elemento perdido se pierde información.
+
+2 - ¿La elevada complejidad del sistema nervioso viene dada por?
+a) La gran complejidad de sus pocos elementos.
+b) La contigüidad de todos los elementos.
+c) El elevado número de elementos y conexiones entre ellos.
+d) Ninguna de las anteriores.
+
+3 - ¿Que se produce en una sinapsis?
+a) Un retardo de tiempo.
+b) La integración y el filtrado de la información.
+c) Se crean conexiones entre los elementos.
+d) a y b son correctas.
+
+4 - ¿En qué dos ramas tradicionalmente se ha dividido la inteligencia artificial?
+a) La heurística y la cognitiva.
+b) La simbólica y la pragmática.
+c) La conexionista y la neuronal.
+d) La simbólica y la conexionista.
+
+5 - ¿En que tres pasos se resume el flujo de la información en un elemento de una red neuronal?
+a) Percepción, generalización y abstracción.
+b) Recepción, procesado y salida.
+c) Entrenamiento, simulación y evaluación.
+d) Ninguna de las anteriores.
+
+6 - ¿Cuáles son las tres partes principales de una neurona y que función desempeñan?
+a) Las dendritas que reciben la información, el soma o cuerpo neuronal que la procesa y el axón que la envía.
+b) El soma que recibe la información, las dendritas que la procesan y el axón que la envía.
+c) Las puertas que reciben la información, el axón que la procesa y el soma que la envía.
+d) El axón que recibe la información, el soma que la procesa y las dendritas que la envían.
+
+7 - ¿Quienes proponen el modelo de neurona artificial seguido en clase?
+a) McCulloch y Pits.
+b) Hebb y Rochester.
+c) Anderson y Grossberg.
+d) Camilo Golgi y Williams.
+
+8 - Mar y Poggio formulan tres niveles de compresión en el cerebro:
+a) Nivel de computación, algorítmico y de mecánica.
+b) Nivel perceptor, procesador y emisor.
+c) Nivel de adquisición, de computación y de transmisión.
+d) Ninguna de las anteriores.
+
+9 - Los intentos de simular facetas de los seres vivos se dividen en varios aspectos:
+a) Físico, relacional e intelectual.
+b) Físico y metafísico.
+c) Físico, metafísico e intelectual.
+d) Ninguna de las anteriores.
+
+Respuestas: 1c, 2c, 3d, 4d, 5b, 6a, 7a, 8a, 9c
+ 
+ 
+###########################################################
+
+
+Las RNA son un campo de gran interes debido a:
+
+a) la habilidad para aprender automaticamente (*)
+
+b) la habilidad de tener ideas para resolver problemas
+
+c) la habilidad para decidir
+
+d) ninguna de las anteriores
+
+
+La superioridad del cerebro humano frente a la de los demas animales se debe a:
+
+a) la forma de cerebro que hace que todas las neuronas se comuniquen
+
+b) la elevada cantidad de neuronas y conexiones entre ellas (*)
+
+c) la elevada cantidad de materia gris y materia blanca
+
+d) tener un cerebelo altamente desarrollado
+
+
+En la sinapsis quimica
+
+a) una neurona se contrae
+
+b) una neurona produce un impulso electrico
+
+c) una neurona libera una sustancia quimica (*)
+
+d) una neurona se queda paralizada
+
+
+#######################################################3
+
+
+1. ¿Cuál es la rama de la Ciencia encargada del estudio del SN?
+a.- Neurobiología
+b.- Neuroanatomía
+c.- Neurología
+d.- Neurofisiología
+
+(Respuesta: c)
+
+2. ¿Qué tipos de células tiene el SN involucradas en la integración de estímulos?
+a.- Solo neuronas
+b.- Solo células del SG
+c.- Neuronas y células del SG
+d.- Ninguna de las anteriores
+
+(Respuesta: c)
+
+3. La división motora del SN se encarga de transmitir las órdenes dirigidas a los órganos efectores mediante:
+a.- Vías piramidales y voluntarias
+b.- Vías extrapiramidales y piramidales
+c.- Vías automáticas y extrapiramidales
+d.- Ninguna de las otras
+
+(Respuesta: b)
+
+#######################################################3
+
+1. El flujo de informacion entre dos neuronas, debido a la teoria de la polarizacion dinamica propuesta por Santiago Ramon y Cajal en 1890, sigue:
+
+a) sigue una unica direccion
+b) puede seguir cualquier direccion
+c) fluye de izquierda a derecha
+d) fluye de derecha a izquierda
+
+Respuesta correcta: a) o c) (pendiente de confirmacion)
+
+
+2. Existe una superioridad entre el Sistema Neuronal de los humanos y el Sistema Neuronal de los animales.
+
+a) Verdadero, debido a la mayor complejidad de las neuronas que forman el Sistema Neuronal humano.
+b) Verdadero, ya que el SN humano posee un mayor numero de elementos y de conexiones.
+c) Falso, porque no existe una superioridad entre ambos Sistemas Neuronales.
+d) Falso, la diferencia entre los humanos y los animales no reside en el Sistema Neuronal
+
+Respuesta correcta: b)
+
+
+3. ¿Cual de las siguientes afirmaciones es falsa, teniendo en mente el modelo propuesto por McCulloch y Pitts en el año 1943?
+
+a) Es un dispositivo binario
+b) Tiene un umbral variable
+d) Las entradas negativas tienen accion absoluta
+d) Una entrada excitadora activa anula a todas las inhibidoras
+
+Respuesta correcta: d)
+
+
+4. Un sistema conexionista puede funcionar en un ambiente con ruido.
+
+a) Verdadero, pq la informacion esta distribuida
+b) Verdadero, pq el ruido es una entrada mas del propio sistema conexionista
+c) Falso, pq esto querria decir que la informacion no reside en ningun sitio
+d) Falso, pq el ruido anula cualquier salida valida que el sistema produzca.
+
+Respuesta correcta: a)
+
+Espero que la gente siga posteando y podamos asi aprobar el examen. Un saludo.
+
+
+######################################################################
+
+1)No preocupa excesivamente la pérdida de neuronas
+a) porque la cantidad que se pierde es pequeña y la información está localizada.
+--> b) porque la información está distribuida.
+c) porque provoca que las neuronas sean menos especí­ficas.
+d) sí que preocupa.
+
+2)La información que se recibe del exterior va desde los receptores hasta la corteza cerebral
+pasando por estaciones intermedias. Estas son:
+a) numerosas para ayudar el filtrado de la información.
+--> b) un lugar idóneo para la sinápsis.
+c) numerosas para evitar retardos sinápticos.
+d) b) y c) son correctas.
+
+3)El postulado de Hebb respecto al aprendizaje dice:
+a) el cambio de estado se realiza en base a una función umbral.
+b) una vez entrenado el sistema funciona de forma adecuada o aceptable en presencia de fallos en alguno de sus elementos.
+--> c) un canal cuanto menos usada es menos se refuerza.
+d) el canal sólo puede tener valores positivos
+
+4)El modelo de neurona de McCullochs y Pitts tiene dos tipos de entradas:
+a) excitadoras con acción absoluta e inhibidoras.
+--> b) inhibidoras con acción absoluta o excitadoras.
+c) ninguna de la anteriores, ninguna de ellas tení­a acción absoluta.
+d) b) y además las entradas son reales como en el Adaline.
+
+5)La rama conexionista de la Inteligencia Artificial (IA) pretende:
+a) simular la función del sistema nervioso sin importar cómo.
+b) simular la función de inteligencia importando el cómo.
+--> c) emular la estructura y la función de inteligencia.
+d) ninguna de las anteriores
+
+6)El Sistena Nervioso (SN) de los seres humanos es superior al de los animales debido
+a) al elevado nº de neuronas de axón corto que permiten una mejor transmisión y procesado de información.
+b) al tamaño de su corteza cerebral y a la elevada cantidad de substancia gris.
+--> c) al elevedo nº de neuronas de axón corto que permiten el procesado de información.
+d) a) y b) son correctas.
+
+
+
+###########################
+
+7) Los sistemas de asociación:
+a) se encuentran entre la división sensorial y la motora
+b) se encarga de recibir estímulos del entorno.
+c) hace posible alcanzar un alto nivel de abstracción, peronalidad y generalidad.
+--> d) a) y c) son correctas.
+
+Cool El primer circuito neuronal simple:
+a) consiste en una línea de conducción entre dos células.
+b) consiste en varias líneas de conducción entre dos células.
+c) está basado en el concepto de sinapsis: uniones funcionales entre los elementos contituyentes de los circuitos.
+--> d) ninguna de las anteriores.
+
+9) Las neuronas
+a) aparacen aisladas y poco a poco se van estableciendo conexiones entre ellas a medida que se van
+haciendo más importantes por el nº de activaciones que reciben a través de la división sensorial.
+--> b) siempre forman parte de circuitos.
+c) sólo forman estructuras funcionales.
+d) son elementos muy complejos.
+
+10) Las partes de una neurona son:
+a) cuerpo celular o zona integradora, axón o zona receptora y árbol dendrítico.
+b) zona receptora, zona emisora y axón.
+c) axón, soma y zona integradora.
+--> d) ninguna de las anteiores es una afirmación correcta.
+
+11) En la sinapsis entre neuronas
+a) el paso del impulso es unidireccional en la sinapsis química y eléctrica.
+b) el paso del impulso es unidireccional en la sinapsis química.
+c) la superficie de contacto de la sinapsis química es inferior que en la eléctrica.
+--> d) b) y c) son correctas.
+
+12) La salida de un elemento emisor es siempre la mima
+--> a) verdadero.
+b) falso porque los elementos receptores no tienen porque recibir siempre la misma información.
+c) verdadero y además produce siempre los mismo efectos en el receptor.
+d) ninguna de las anteriores.
+
+13) El tejido cerebral
+a) alcanza su maduración en la edad adulta, cuando el hombre tiene suficiente experiencia sobre
+los estímulos que recibe del exterior.
+b) alcanza su maduración al nacer, pero no sirve para mucho sino intervienen los estímulos del exterior
+en el aprendizaje.
+c) puede cambiar físicamente durante la vida debido al número elevado de activaciones que producen
+algunos estímulos.
+--> d) b) y c).
+
+14) El olvido fisiológico se debe
+--> a) a la poca repetición del estímulo involucrado.
+b) a la muerte de neuronas por oxidación.
+c) a un traumatismo cerebral. Smile
+d) ninguna de las anteriores
+
+
+##################
+
+¿Cuál de los siguientes NO es un motivo por el cual el estudio del cerebro es difícil?
+a) Porque tiene una alta densidad de neuronas.
+b) Porque no disponemos de ejemplares analizables. ( Correcta )
+c) Porque usamos el propio cerebro para analizarlo.
+d) Porque los experimentos en éste campo son caros.
+
+¿Para qué se necesitan MUCHOS elementos neuronales?
+a) Para asociar la información en problemas complejos. ( Correcta )
+b) Para transferir la información en distancias largas.
+c) Para que la información se transmita más rápido.
+d) Ninguna de las anteriores es correcta.
+
+
+######################
+
+1.) Cual fue la principal causa ,reflejada en el libro de Minsky Paper, que propició el declive de las redes de neuronas artificiales durante casi 20 años ?
+
+a.) La excesiva complejidad en la estructura de las redes de neuronas artificiales.
+
+b.) La creencia de que era imposible encontrar una solución al problema del aprendizaje en las capas ocultas ya que se desconocía la salida y la limitación en lo que los perceptrones podían llegar a reconocer. (correcta)
+
+c.) La escasa utilidad que las redes de neuronas artificiales podían tener al aplicarlas a problemas del mundo real.
+
+d.) No existió tal declive.
+
+
+2.) Todos sabemos que los sistemas conexionistas emulan el sistema nervioso central, pero que diferencia hay entre la simulación y la emulación ?
+
+a.) Emular consiste tanto en reproducir su estructura como su función, mientras que la simulación solo presta atención a su función y no a la estructura. (correcta)
+
+b.) La única diferencia es que la simulación es un proceso más específico y complejo.
+
+c.) No hay ninguna diferencia, simular y emular es lo mismo.
+
+d.) Simular consiste tanto en reproducir su estructura como su función, mientras que la emulación solo presta atención a su función y no a su estructura.
+
+
+3.) Qué es la sinapsis ?
+
+a.) La zona de las neuronas dónde reside la información.
+
+b.) La especialidad que se encarga de estudiar cómo se transmite la información entre las neuronas.
+
+c.) El espacio que hay entre dos neuronas y en el cual se produce el intercambio de información. (correcta)
+
+d.) Ninguna de las anteriores.
+
+#############################33
+
+1. ¿Quién de estos personajes no se puede considerar un precursor de las RNA?
+a. Hebb
+b. McCulloch
+c. Hopfield
+d. Pitts
+
+2. ¿Cúal es la función principal del Sistema Neuronal?
+a. Asegurar el control y la comunicación (homeostasis) dentro del organismo.
+b. Determinar la producción de un trabajo intelectual, motor o neurosecretor.
+c. Procesar la información que le llega y enviarla al cerebro codificada.
+d. Ninguna de las anteriores.
+
+3. El predominio de las sinapsis químicas puede ser debido a:
+a. Su superficie de contacto es superior que en las eléctricas.
+b. La informacion se transmite de forma bidireccional
+c. A y B son ciertas
+d. Ninguna de las anteriores
+
+4. ¿Qué ciencia estudia el funcionamiento normal de los elementos constituyentes del Sistema Neuronal?
+a. La neurofisiología
+b. La neuroanatomía
+c. La sinapsis
+d. La neuropsicología 
+
+c,a,d,a
+
+#####################################
+
+1. Cual de las siguientes afirmaciones son correctas:
+a) El sistema nervioso es preciso, puntual y más rápido (X)
+b) El sistema endocrino es más específico y más rápido
+c) El sistema nervioso en inespecífico
+d) Ninguna de las anteriores
+
+2. La parte receptora de la neurona es:
+a) El axón
+b) Cuerpo celular
+c) Dentritas (X)
+d) Ninguna de las anteriores
+
+3. La complejidad del sistema nervioso es debida a:
+a) Hay muchos elementos
+b) Hay muchas conexiones entre los elementos
+c) Todas las anteriores ( X )
+d) Ninguna de las anteriores 
+
+#################################
+
+1) ¿Quién sienta las bases de la Ingeniería Neuronal?
+
+a) McCullogh.
+b) Pitts.
+c) Santiago Ramón y Cajal. (X)
+d) Golgi.
+
+2) Al morirse una neurona, ¿se está perdiendo la información que almacenaba?
+
+a) Sí, cada neurona guarda una información concreta.
+b) No, ya que la información se encuentra distribuída por todo el SN.(X)
+c) Sí, pero solo si se muere más de una debido a que la información reside en la sinapsis.
+d) No, ya que las neuronas de axón corto no almacenan información.
+
+3) ¿A qué se debe la superioridad del SN de los humanos con respecto al del resto de seres vivos?
+
+a) A la abundancia prodigiosa de neuronas de axón corto que poseen los humanos.(X)
+b) A las neuronas, las del ser humano son más complejas y están mucho más desarrolladas que las del resto de seres vivos.
+c) A la percepción sensorial, mucho más evolucionada en el humano.
+d) Ninguna de las anteriores es correcta.
+
+4) El modelo de neurona artificial de McCullogh y Pitts consistía en:
+
+a) Un dispositivo de procesamiento con umbral fijo que posee múltiples salidas interconectadas con la red neuronal.
+b) Un dispositivo binario que recibe conexiones excitadoras e inhibidoras de igual peso.
+c) Un dispositivo binario con dos estados y un umbral fijo que recibe conexiones excitadoras de igual peso e inhibidoras de acción absoluta.(X)
+d) Un elemento de procesado de acción equivalente a un perceptrón multicapa de dos entradas.
+
+5) ¿A qué se debe el declive de las RNA a finales de los 60?
+
+a) A las limitaciones en lo que los perceptrones podían aprender a reconocer.(X)
+b) A la crisis de desarrollo software debida a la falta de programadores de RNA.
+c) A la falta de un consenso en el enfoque práctico que debían tener las RNA.
+d) Al auge de la programación funcional muy de moda en aquella década.
+
+6) ¿Cuál de estas consideraciones NO es correcta?
+
+a) Hebb propone la “Regla de Aprendizaje Sináptico”.
+b) La “Máquina Conexionista” de Daniel Hillis supuso un gran logro hardware.
+c) El “Informe Ligthill” contribuyó al declive de las RNA.
+d) Rosenblatt, entre 1958 y 1962, presenta el Adaline. (X)
+
+7) ¿A quién se le atribuye el verdadero renacimiento de las RNA?
+
+a) A Hopfield que presenta, con fuerte fundamentación matemática, el modo de trabajar de los modelos de RNA.(X)
+b) A Ramón y Cajal con su “Teoría Neurotrópica”.
+c) A Minsky Papert que en su libro titulado “Perceptrons” encuentra la solución al problema del aprendizaje en las capas ocultas.
+d) A Hebb que propone un sistema de aprendizaje para la modificación de la sinapsis llamado “Regla de Hebb”.
+
+Cool “A Logical Calculus of the Ideas Inmanent in Nervous Activity” de McCulloch y Pitts demostró:
+
+a) La partes estrucuturales de la neurona.
+b) Cómo cualquier ley de entrada-salida podía modelizarse con una red de neuronas formales por ellos definidas.(X)
+c) Que cuando dos procesos cerebrales están en activo conjuntamente o cuando existe una inmediata sucesión, uno de ellos tiende a propagar la excitación del otro.
+d) El desarrollo del ADALINE, que conformarán las Madalines, las cuales son las primeras RNA aplicadas a un problema del mundo real.
+
+9) La “Teoría de la Avalancha” que propone Grossberg servirá de base:
+
+a) Para el desarrollo de las futuras “Redes Autoorganizativas”.
+b) Para el comportamiento adaptativo del Perceptron.
+c) Para los “Modelos Biológicos”.(X)
+d) Ninguna de las anteriores es correcta.
+
+10) El axón es la zona de la neurona donde:
+
+a) Se produce la integración de la información.
+b) Se recibe la información para el posterior procesamiento.
+c) Se envía la información ya procesada.(X)
+d) Se recibe, procesa y envía la información ya que se considera una entidad independiente del SN.
+
+11) ¿Qué pretenden emular los Sistemas Conexionistas?
+
+a) El Sistema Nervioso Central.(X)
+b) Sfc
+c) Sdsd
+d) Sdsd
+
+No sé que coño le ha pasado.
+
+12) ¿Cuál NO corresponde con una disciplina de la Ciencia involucrada en el estudio de los Sistemas Nerviosos?
+
+a) Neurobiología.
+b) Neurofisiología.
+c) Neuropsicología.
+d) Neurosociología.(X)
+
+
+13) ¿Qué consecuencias provoca la paulatina muerte neuronal?
+
+a) El decremento del campo dendrítico y las relaciones interneuronales se hacen más específicas.
+b) El incremento del campo dendrítico y las relaciones interneuronales se hacen más específicas.(X)
+c) El decremento del campo dendrítico y las relaciones interneuronales se hacen menos específicas.
+d) El incremento del campo dendrítico y las relaciones interneuronales se hacen menos específicas.
+
+14) La “división sensorial” se encarga de:
+
+a) De enviar al entorno las respuestas elaboradas en el SN.
+b) De recibir los estímulos del entorno.(X)
+c) De asociar las informaciones aferentes.
+d) Ninguna de las anteriores es correcta.
+
+15) Marr y Poggio formularon tres niveles de comprensión en el cerebro:
+
+a) De computación, algorítmico y de mecánica.(X)
+b) Algorítmico, conexionista y glial.
+c) Conexionista, glial y de mecánica.
+d) Conexionista, algorítmico y de mecánica.
+
+16) ¿Por qué está formado el SN (Sistema Nervioso)?
+
+a) SNC (Sistema Nervioso Central), SI (Sistema Intermedio) y SNP (Sistema
+Nervioso Periférico).
+b) SNC y SNA (Sistema Nervioso Asociativo).
+c) SNC y SNP.(X)
+d) SI y SNP.
+
+17) El SNC (Sistema Nervioso Central) está compuesto por una acumulación compacta de:
+
+a) Neuronas.
+b) Neuronas y células gliales.(X)
+c) Neuronas, células gliales y terminaciones nerviosas.
+d) Neuronas, células gliales y dendritas.
+
+1Cool La neurofisiología es una neurociencia que ocupa del:
+
+a) Estudio de los SN de animales inferiores, permitiendo un posterior estudio comparativo con el SN de organismos superiores.
+b) Estudio del funcionamiento normal de los elementos constituyentes del SN.(X)
+c) Estudio específico de conductas adquiridas mediante las que el hombre mantiene relaciones adaptadas con el mundo exterior que le rodea.
+d) Estudio del SN.
+
+19) Una neurona típica consta de:
+
+a) Soma, axón y árbol dendrítico.(X)
+b) Cuerpo celular y axón.
+c) Cuerpo celular y árbol dendrítico.
+d) Ninguna de las anteriores es correcta.
+
+
+20) La transmisión de señales se produce:
+
+a) Unidireccionalmente en la sinapsis, tanto química como eléctrica.
+b) Unidireccionalmente en la sinapsis eléctrica y bidireccionalmente en la química.
+c) Bidireccionalmente en la sinapsis, tanto química como eléctrica.
+d) Unidireccionalmente en la sinapsis química y bidireccionalmente en la eléctrica.(X)
+
+21) ¿Cuándo se considera que el modelo y el sistema a modelizar son equivalentes?
+
+a) Cuando ofrecen las mismas salidas.
+b) Cuando el modelo es capaz de eliminar el ruido de la entrada.
+c) Cuando ofrecen el mismo comportamiento frente a excitaciones equivalentes.(X)
+d) Cuando poseen las mismas características estructurales.
+
+22) El uso de los Sistemas Conexionistas es recomendable:
+
+a) Siempre.
+b) Siempre que sea posible debido a sus múltiples funcionalidades.
+c) Cuando fallen las otras técnicas de computación convencional.(X)
+d) Nunca.
+
+23) El “momentum”:
+
+a) Refuerza las tendencias generales y cancela las oscilatorias.(X)
+b) Incrementa la tasa de aprendizaje.
+c) Decrementa la tasa de aprendizaje.
+d) Ninguna de las anteriores es correcta.
+
+24) ¿Cuál de estas afirmaciones NO es correcta?
+
+a) El nº de Eps en la capa de entrada viene determinado por los datos que se aportan al sistema.
+b) El nº de Eps en la capa de salida viene determinado por los datos que se esperan del sistema.
+c) El nº de Eps en las capas intermedias viene determinado por la ecuación: (x+1)+(x-1)/2 = número_de_elementos_de_la_capa_x. (X)
+d) El nº de Eps en las capas intermedias es fundamentalmente intuitivo.
+
+
+25) La “ganancia” en el aprendizaje:
+
+a) Debe ser elevada al final para que aprenda rápido cuando se esté acercando a la convergencia.
+b) Es conveniente que sea variable en las distintas fases del entrenamiento.(X)
+c) Debe ser pequeña para que no oscile a ambos lados del valor de convergencia adecuado.
+d) Debe ser elevado en todo caso.
+
+26) ¿Cuál de estas fases es posterior en la metodología de las RNA?
+
+a) Identificación del problema.
+b) Entrenamiento de la red.
+c) Análisis de resultados.
+d) Ajuste de parámetros.(X)
+
+Tuve que poner las (X) porque este foro no m pilló la negrita.
+
+
+#####################################################
+
+1. Cuál de estos nombres NO pertenece a uno de los precursores de los sistemas conexionistas con respecto a las Bases Biológicas:
+- Ramon y Cajal
+- Camilo Golgi
+- Williams
+- Mc Culloch X
+
+2. Quienes fueron los tres personajes que más han hecho por acercar a una explicación experimentas el misterio de la vida nerviosa:
+- Cajal, Mc Culloch y Pitts
+- Golgi, Cajal y Williams
+- Paulov, Sherrinton y Lashley
+- Cajal, Sherrinton y Paulov X
+3. Quien postuló en 1888 la “Teoría de la Neurona”
+- Camilo Golgi
+- Ramón y Cajal X
+- Mc Culloch
+- Pitts
+4. Quién dijo: “La superioridad funcional del SN de los humanos estaría relacionada con la abundancia prodigiosa y con la cuantía considerable de las llamadas neuronas de axón corto”
+- Ramón y Cajal X
+- Williams
+- Sherrintong
+- Paulov
+5. Quién de estos nombres no pertenece a un precursor de los sist. conexionistas en el ámbito computacional:
+- Ramón y Cajal X
+- Mc Culloch
+- Pitts
+- Hebb
+6. Quienes proponen en 1943 el modelo de neurona artificial que lleva su nombre
+- Hebb y Rochester
+- Hebb y Von Neuman
+- Mc Culloch y Pitts X
+- Mc Culloch y Cajal
+7. Quien postula en 1949 “una vía de neuronas es reforzada cada vez que dicha vía es usada”
+- Hebb X
+- Ramón y Cajal
+- Mc Culloch
+- Pitts
+8. Quién propone un sist. de aprendizaje para la modificación de la sinapsis denominada “ Regla de Aprendizaje Sináptico”.
+- Pitts
+- Mc Culloch
+- Hebb X
+- Rochester
+
+9. Que es el Perceptron
+- Máquina con un comportamiento no adaptativo presentado por Mc Culloch y Pitts.
+- Máquina con un comportamiento no adaptativo presentado por Hebb
+- Máquina con un comportamiento adaptativo capaz de reconocer patrones dotado de la regla del aprendizaje denominado “autoasociacion” y presentado por Rochester.
+- Máquina con un comportamiento adaptativo capaz de reconocer patrones dotado de la regla del aprendizaje denominado “autoasociacion” y presentado Rosenblatt. X
+10. Quién desarrolla en 1959 el ADALINE
+- Mc Culloch y Pitts
+- Hebb
+- Widrow y Hoff X
+- Rosenblatt
+- Rochester
+11. Cuales son las primeras RNA aplicadas a un problema del mundo real.
+- Neurona artificial
+- Perceptron
+- ADALINE
+- MADALINE X
+12. Por qué se produjo el declive de las RNA durante casi 20 años.
+- Porque se dejó de escribir sobre ellas
+- Por la aparición de otras tecnologías más novedosas.
+- Porque no se demostró que no podría resolver problemas no liniales. X
+- Porque no servían para resolver problemas del mundo real.
+
+13. Qué nombre no pertenece a un impulsor de las RNA después de su declive.
+- Grossberg
+- Fukushima
+- Godel X
+- Kohonen
+14. Cual fue el principal impulsor del renacimiento de RNA después de su declive
+- Fukushima
+- Grossberg
+- Hopfield X
+- Kohonen
+15. Porqué destacó Hopfield
+- Por presentar el Perceptron
+- Por desarrollar el ADALINE
+- Por demostrar que no era factible crear una teoría automatizada de la inteligencia.
+- Por presentar con fuerte fundamentación matemática y de forma coherente el modo de trabajar de los modelos de RNA X
+16. Cuál de estas no es una causa por la que las RNA son un campo de gran interés
+- Habilidad de estos sist. para aprender automáticamente
+- Habilidad para poder funcionar de forma aceptable en presencia de información inexacta pero no cuando se producen deterioros o fallos en sus componentes. X
+- Al interés existente por la búsqueda de arquitecturas de computadores que permitan el procesamiento en paralelo.
+- La similitud con los modelos neurofisiológicos del cerebro, pudiéndose de esto modo intercambiar modelos e investigaciones entre los de RNa y Neurociencias, potenciándose ambas.
+
+PREGUNTAS DEL TEMA 2.
+
+1. Cuál de estas informaciones es incorrecta:
+- La neurología es la ciencia encargada del estudio del SN en forma global
+- La neurobiología estudia el sist. nervioso de organismos inferiores y su metabolismo.
+- La neurofisiología estudia el funcionamiento normal de los elmentos del sist. nervioso, participa junto con la neurología y la neuroanatomía en el estudio del dispositivo mecánico del sist. nervioso.
+- La neuroanatomía estudia las conductas adquiridas mediante las que el ser humano mantiene relaciones adaptadas con el mundo exterior que le rodea, incluyendo el resto de los humanos. X
+2. Por qué fundamentalmente el sist. nervioso es considerado como la estructura única más compleja del universo.
+- Por estar su centro neurálgico en la cabeza
+- Por extenderse las terminaciones nerviosas extendidas por todo el cuerpo
+- Por el número de elementos de procesado (neuronas) y de conexiones entre ellas. X
+- Por tener que procesar información proveniente de fuentes diferentes (de órganos sensoriales diferentes).
+3. Cuál de estas afirmaciones no es correcta:
+- El sistema nerviosos recibe aproximadamente 1012 bist/seg de información. De toda esta información sólo se admiten conscientemente 102 bits/seg.
+- El sistema nerviosos recibe aproximadamente 108 bist/seg de información. De toda esta información sólo se admiten conscientemente 103 bits/seg.
+- El sistema nerviosos recibe aproximadamente 106 bist/seg de información. De toda esta información sólo se admiten conscientemente 102 bits/seg.
+- El sistema nerviosos recibe aproximadamente 109 bist/seg de información. De toda esta información sólo se admiten conscientemente 102 bits/seg. X
+4. Qué tipo de trabajos puede dar como respuesta el SN al recibir información
+- Trabajo intelectual o motor.
+- Trabajo neurosecretor o intelectual.
+- Trabajo motor voluntario o involuntario.
+- Trabajo intelectual, motor o neurosecretor. X
+
+5. Cuál es considerado el elemento funcional fundamental del SN
+- Las células del sist. Glial
+- El axón
+- Las dendritas
+- Las neuronas. X
+6. Cuál es la verdadera
+- Los vertebrados superiores tenemos neoformación neuronal toda la vida.
+- Los vertebrados superiores tenemos neoformación neuronal hasta los 50 años
+- Los vertebrados superiores tenemos neoformación neuronal hasta los 2 años como mucho. X
+- Los vertebrados superiores no tenemos neoformación neuronal.
+7. Cuál es la verdadera:
+- La pérdida de neuronas es muy perjudicial
+- La pérdida de neuronas no se produce hasta los 50 años.
+- La pérdida de neuronas hace que se pierda mucha información fundamental.
+- La pérdida de neuronas favorece al incremento del campo dendrítico. X
+8. Cuál es la falsa:
+- Entre las zonas periféricas y centrales del SN existe una correspondencia.
+- El código de frecuencia es un idioma único ofrecido por el “traductor” que actúa después de la recepción.
+- La información va desde los receptores hasta la corteza cerebral, sin pasar por estaciones intermedias. X
+- Se produce una filtración primaria” en el propio órgano receptor.
+9. Cuál es la falsa:
+- La división sensorial se encarga de encauzar la información recibida en órganos sensoriales hasta los centros de procesado del SN.
+- La división motora se encarga de transmitir las órdenes dirigidas a los órganos efectores.
+- La transmisión de órdenes por parte de la división motora puede ser mediante 2 vías: voluntaria o automática.
+- Las partes encefálicas bajas del SN se corresponden con las acciones controladas por procesos cognitivos y las partes altas se corresponden con acciones automáticas. X
+10. Cuál de estas afirmaciones sobre el sist. de asociación es falsa.
+- Se realiza una asociación de informaciones diferentes.
+- Se encuentran entre la división motora y sensorial.
+- Continúa en ellos el proceso de “evaluación” de los estímulos externos.X
+- Se produce en ellos la función integradora del SN.
+11. Marr y Poggio del MIT formularon qué niveles de compresión en el cerebro:
+- Niveles de computación , de integración y motor.
+- Niveles de computación, algorítmico y de integración.
+- Niveles sensorial, algorítmico y de integración.
+- Niveles de computación, algorítmico y mecánico. X
+
+################################3
+
+Pregunta 1) Santiago Ramón y Cajal postuló:
+
+a) La "Teoría de la polarización dinámica"
+b) La "Teoría de la neurona"
+c) La a) y la b) son ciertas
+d) Ninguna de las anteriores
+
+Pregunta 2) ¿Cuál de éstas NO es una parte de la neurona?
+
+a) Dendrita
+b) Soma
+c) Nervio sináptico
+d) Axón
+
+Pregunta 3) ¿Cuál de estas afirmaciones es cierta?
+
+a) La inteligencia artificial conexionista SIMULA la inteligencia.
+b) Widrow-Hoff desarrollaron el ADALINE.
+c) En el organismo las neuronas están aisladas unas de otras.
+d) La sinapsis es la unión física entre neuronas.
+
+Pregunta 4) En el modelo normalizado de McCulloch-Pitts, cuál de estas
+afirmaciones es FALSA?
+
+a) Es un dispositivo binario con 2 estados y umbral fijo.
+b) Recibe sinapsis excitadoras del mismo peso.
+c) El estado 1 representa inactivo y el 0 activo.
+d) La salida es igual a la salida por el peso de la conexión.
+
+c,c,b,c
+
+########################################
+
+1) ¿Quién es el autor de la cita: "su teoría neuronal ha sido tan fuertemente establecida como la base de nuestra ciencia, que nosotros ignorábamos qué pasaba antes, y hemos olvidado que él fue el primero que lo propuso"?
+a) Ramón y Cajal
+b) Camilo Golgi
+c) McCulloch Resp. correcta
+d) Hebb
+
+2) ¿A quién se refería?
+a) Lashley
+b) Rochester
+c) Ramón y Cajal Resp. correcta
+d) Rosenblatt
+
+3) ¿Con qué relacionas a Pitts y McCulloch?
+a) Con el ADALINE
+b) Con el modelo de neurona artificial que lleva su nombre Resp. correcta
+c) Con la "Teoría de la Polarización Dinámica"
+d) Con las MADALINE
+
+4) El declive de las Redes de Neuronas Artificiales es debido a:
+a) Anderson
+b) Hopfield
+c) Kohonen
+d) Minsky y Papert Resp. correcta
+
+5) Anderson pertenece al grupo de
+a) Los precursores de los SC en las Bases Biológicas
+b) Los precursores computacionales
+c) El Resurgir e Impulsores de las RNA Resp. correcta
+d) El declive de las RNA
+
+6) La obra "Behaviour, Purpose and Teleology"
+a) Trata el tema del Perceptron
+b) No tiene nada que ver con los SC
+c) Trata de hacer a las máquinas teleológicas Resp. correcta
+d) Pertenece a Crack
+
+7) Von Neumann es
+a) El autor de "The Nature of Explanation"
+b) El descubridor de la habilidad de los SC de aprender automáticamente
+c) Uno de los hombres que más han hecho por explicar experimentalmente la vida nerviosa
+d) El "padre" de las computadoras actuales basadas en la lógica booleana. Resp. correcta
+
+Cool La neurología estudia
+a) El desarrollo del SN desde su concepción hasta su nacimiento
+b) El sistema nervioso Resp. correcta
+c) El SN de organismos inferiores y su metabolismo
+d) El Sistema Glial
+
+
+#########################################
+
+
+1.-Cuáles fueron las primeras RNA aplicadas a un problema del mundo real?
+
+a) PERCEPTRONES
+b) MADALINES
+c) COGNITRONES
+d) Todavía no se han aplicado más que a simulaciones teóricas.
+
+
+Indica la afirmación falsa.
+
+
+2.-Las RNA son un campo de gran interés debido a:
+
+a) Las RNA tienen la habilidad de aprender automáticamente.
+b) Fallan cuando reciben información inexacta o se deteriora alguno de sus componentes.
+c) Están relacionadas con la búsqueda de arquitecturas de computadoras que permitan el procesamiento en paralelo.
+d) Las RNA son similares a los modelos neurofisiológicos del cerebro, pudiéndose de este modo inercambiar modelos e investigaciones entre los de RNA y Neurociencias, potenciándose ambas.
+
+3.-Una de las funciones básicas de la neurona es:
+
+a) Conductividad.
+b) Interoperativilidad.
+c) Excitabilidad.
+d) Troficidad.
+
+
+Indica la afirmación verdadera
+
+
+4.- La sorprendente capacidad del sistema nervioso para recibir, almacenar, procesar y transmitir una enorme cantidad de mensajes simultáneamente, sin que se confundan entre sí, en un breve tiempo y muy limitado espacio, viene dado por varios factores:
+
+a) El flujo de corriente que es bidireccional e intracelular.
+b) El grado de aislamiento de la membrana que impide el "lenguaje cruzado" erróneo entre las células nerviosas es mínimo.
+c) Es posible modificar la velocidad de conducción intracelular e intercelular.
+d) Hay unos dispositivos físicos especiales destinados a garantizar, no sólo una transmisión rápida y precisa sino también una igualmente rápida y precisa desaparición de la señal.
+
+5.- La generación de neuronas
+
+a) Es constante a lo largo de toda la vida de un vertebrado superior.
+b) Decrementa paulatinamente en el tiempo.
+c) Cesa totalmente a los 2 años de vida.
+d) Cesa totalmente tras el nacimiento del individuo.
+
+
+
+
+
+Soluciones:
+1b,2b,3b,4c,5c
+
+###########################################
+
+PREGUNTAS TEMA 1
+
+1. ¿Cuál es el objetivo de de la rama conexionista de la inteligencia artificial?
+
+a. Reproducir la función de inteligencia.
+b. Reproducir la estructura física que permite la inteligencia.
+c. Reproducir el comportamiento humano.
+d. Reproducir la función de inteligencia y la estructura que permite la inteligencia.
+
+Respuesta correcta: d.
+
+2. ¿Cuándo comienza el declive de las RNA?
+
+a. Con la publicación del libro “Perceptrons” de Minsky y Papert.
+b. El desarrollo del Cognitron de Fukushima.
+c. Presentación de la “Máquina Conexionista” de Daniel Hillis.
+d. Publicación del régimen de Lovelace.
+
+Respuesta correcta: a.
+
+3. ¿Qué acción producen las entradas negativas en el elemento de procesado formal de McCulloch y Pitts?
+
+a. Acción excitadora.
+b. No tienen acción alguna.
+c. Acción inhibidora.
+d. Establecen el umbral del elemento de procesado.
+
+Respuesta correcta: c
+
+4. ¿Cuáles son los problemas del método lógico de Ramón LLul para la resolución de problemas complejos?
+
+a. Determinar los principios elementales que atañen a un problema.
+b. No extraer más principios elementales de los que realmente atañen a un problema.
+c. Determinar los principios elementales que atañen a un problema y no extraer más principios elementales de los que realmente atañen a un problema.
+d. No presenta ningún problema, es un método perfecto.
+
+Respuesta correcta: c
+
+PREGUNTAS TEMA 2
+
+
+1. ¿Qué rama de la ciencia se encarga del estudio del funcionamiento normal de los elementos constituyentes del sistema nervioso?
+
+a) Neurología.
+b) Neuroanatomía.
+c) Neuropsicología.
+d) Neurofisiología.
+
+Respuesta correcta: d
+
+2. ¿Cuál es la principal tarea de la división motora del sistema nervioso?
+
+a) Integración de la información.
+b) Emitir las órdenes a los órganos efectores o ejecutadores.
+c) Asociación de la información.
+d) Filtrado de la información.
+
+Repuesta correcta: b
+
+3. ¿En qué partes se divide la sinapsis?
+
+a) Elemento presináptico, elemento postsináptico y espacio intersináptico.
+b) Elemento presináptico y elemento postsináptico.
+c) Elemento presináptico y espacio intersináptico.
+d) Elemento postsináptico y espacio intersináptico.
+
+Respuesta correcta: a
+
+4. ¿Quién acuño por primera vez el término sinapsis?
+
+a) Barbizet.
+b) Sherrington.
+c) Parker.
+d) Ramón y Cajal.
+
+Respuesta correcta: b
+
+5. ¿Cuáles son las partes constituyentes de la neurona?
+
+a) Soma.
+b) Soma y axón.
+c) Axón y dendritas.
+d) Soma, axón y dendritas.
+
+Respuesta correcta: d
+
+6. ¿Cuál es la sinapsis más abundante en el reino animal?
+
+a) Sinapsis eléctrica.
+b) Sinapsis química.
+c) Sinapsis eléctrica y química por igual.
+d) Sinapsis superficial.
+
+Respuesta correcta: b
+
+7. ¿Qué indica el nivel algorítmico de los niveles de compresión en el cerebro de Marr y Poggio?
+
+a) Las tareas que puede y debe llevar a cabo el sistema nervioso.
+b) La secuencia de operaciones que hacen que la información adquiera una característica útil.
+c) Como puede el aparato disponible ejecutar un algoritmo y por tanto realizar una computación.
+d) La forma en la que se integra la información.
+
+Respuesta correcta: b
+
+8. ¿Qué tres niveles de comprensión en el cerebro distinguen Marr y Poggio?
+
+a) Nivel mecánico y cuántico.
+b) Nivel lógico y físico.
+c) Nivel de computación, algorítmico y de mecánica.
+d) Nivel algorítmico y de mecánica.
+
+Respuesta correcta: c
+
+9. ¿Cuál es la parte de la neurona que se encarga de recibir la información?
+
+a) Las dendritas.
+b) El soma.
+c) El axón.
+d) Las uniones de intersticio.
+
+Respuesta correcta: a
+
+PREGUNTAS TEMA 3
+
+
+
+1. ¿Cuándo se considera que un modelo y el sistema teórico que representa son equivalentes?
+
+a) Cuando ofrecen el mismo comportamiento frente a excitaciones equivalentes.
+b) Cuando tienen las mismas entradas.
+c) Nunca son equivalentes.
+d) Siempre son equivalentes.
+
+Respuesta correcta: a
+
+2. ¿Qué dispositivo se encarga de emitir estímulos equivalentes al modelo y el sistema real que representa en el proceso de modelización?
+
+a) El elaborador.
+b) El comparador.
+c) El modelo.
+d) El sistema real.
+
+Respuesta correcta: b
+
+3. ¿Qué se considera como un modelo?
+
+a) Un patrón de comportamiento.
+b) La representación de un sistema real.
+c) La conceptualización de un proceso.
+d) Un diagrama de flujo de información.
+
+Respuesta correcta: b
+
+4. ¿Qué tipo de modelo de integración biológica es la utilizada por los ingenieros?
+
+a) Especificar primero un comportamiento y después intentar construir estructuras que lo ejecuten.
+b) Modelado en cascada.
+c) Especificar las estructuras conocidas de los sistemas biológicos y después estudiar el comportamiento que ocasiona.
+d) Modelado en espiral.
+
+Respuesta correcta: a
+
+PREGUNTAS TEMA 4
+
+
+1. ¿En cuál de los siguientes casos no es recomendable el empleo de Sistemas Conexionistas?
+
+a) La solución no requiere explicación.
+b) Hay suficientes ejemplos bien etiquetados y con adecuada variabilidad, incluyendo ruidos y/o contradicciones.
+c) Cuando el problema se puede abordar con otras técnicas de computación convencionales o incluso de Inteligencia Artificial.
+d) Necesidad de una respuesta rápida y/o precisen gran cantidad de componentes.
+
+Respuesta correcta: c
+
+2. ¿Cuáles son los principales factores a tener en cuenta para la construcción de una RNA?
+
+a) Tamaño de la red, rapidez de la red y funciones de los elementos de procesado.
+b) Rapidez de la red y control de aprendizaje.
+c) Sólo el tamaño de la red.
+d) Sólo la rapidez de la red.
+
+Respuesta correcta: a
+
+3. ¿Qué dos circunstancias sugieren el empleo de RNA multicapa?
+
+a) En problemas complejos y simples.
+b) En problemas complejos o cuando existe una gran diferencia entre los datos de entrada y salida.
+c) En problemas lineales y de escaso nivel de computación.
+d) En problemas donde existe una correspondencia directa entre entradas y salidas.
+
+Respuesta correcta: b
+
+4. ¿Cuándo se debe emplear el aprendizaje supervisado?
+
+a) Cuando no se dispone de la respuesta adecuada para cada estímulo de entrada al sistema.
+b) Nunca se debe emplear el aprendizaje supervisado.
+c) Cuando se dispone de la respuesta adecuada para cada estímulo de entrada al sistema.
+d) Siempre se puede emplear el aprendizaje supervisado.
+
+Respuesta correcta: c
+
+5. ¿Cuál es el objetivo del proceso de entrenamiento de una RNA?
+
+a) Que la RNA memorice los casos de entrenamiento.
+b) Que la RNA no aprenda
+c) Que la RNA no sea capaz de generalizar.
+d) Que la RNA aprenda, generalice y no memorice los casos de entrenamiento.
+
+Respuesta correcta: d
+
+######################################################
+
+
+PREGUNTAS TIPO TEST:
+
+TEMA 1:
+
+1.¿Quién destaca como precursor de los SC en las bases biológicas?
+a)Turing, Hebb y Ramón y Cajal
+b)Ramón y Cajal, Golgi, Williams y Lashley
+c)Golgi, Ramón y Cajal, Sherrington y Pavlov
+
+2. ¿Quién afirmó: “La superioridad funcional del sistema nervioso de los humanos estaría relacionada con la abundancia prodigiosa y con la cuantía considerable de las llamadas neuronas de axón corto” ?
+a)Ramón y Cajal
+b)McCulloch
+c)Sherrington y Pavlov
+
+3.¿Porqué razón principal las RNA son actualmente un campo de gran interés?
+a)Debido a la habilidad de estos sistemas de corregir sus propios errores durante el entrenamiento
+b)Debido a la habilidad que poseen para obtener siempre errores muy próximos a 0.
+c)Debido a la habilidad de estos sistemas para aprender automáticamente
+
+4.¿En que año se produce el nacimiento de las RNA como consecuencia de la aparición de 3 trabajos teóricos?
+a) 1943
+b) 1938
+c) 1890
+
+5.¿Quién es considerado padre de los computadores actuales?
+a) Turing
+b) Von Neuman
+c) McCulloch
+
+
+TEMA 2:
+
+6. La neurología:
+
+a) Estudia el desarrollo del sistema nervioso desde el momento de la concepción hasta el nacimiento.
+b) Estudia la disposición física o espacial de los elementos constitutivos del sistema nervioso.
+c) Es la rama de la ciencia encargada del sistema nervioso.
+
+
+
+7.¿A que edad cesa la neoformación de neuronas en los vertebrados superiores?
+a) Al alcanzar la madurez.
+b) Como mucho al alcanzar el 2º año de vida.
+c) Al nacer
+
+8.El Sistema Nervioso, ¿Cuántos tipos de células específicas tiene involucradas en la integración de los estímulos?
+a) Dos: neuronas y células del Sistema Glial
+b) Tres: neuronas, células nerviosas y células madre.
+c) Dos: neuronas y células del Sistema Nervioso.
+
+9.El Sistema nervioso se divide en Sistema Nervioso Central y Sistema Nervioso Periférico, ¿Cuáles son sus funciones principales?
+a) SNC: Recepción, SNP: Emisión e Integración
+b) SNC: Integración, SNP: Emisión y Recepción
+b) SNP: Integración, SNC: Emisión y Recepción
+
+10.¿Cuáles son las características de una neurona que la diferencian de otra célula?
+a) Intensidad de respuesta a excitabilidad, conductividad y troficidad
+b) Irritabilidad
+c) Es la única célula que transporta el influjo nervioso.
+
+11.Una neurona del SNC consta de 3 partes bien diferenciadas, que no poseen otras células:
+a) Núcleo, membrana y citoplasma
+b) Soma, axón y árbol dendrítico
+c) Soma, axón y mitocondria
+
+12.¿Que tipos de sinapsis básicos existen en el mundo animal?
+a) Química y física
+b) Eléctrica y química
+c) Eléctrica y funcional
+
+13.¿Cuales son las características que hace a la sinapsis químicas las más convenientes para la transmisión de señales en la mayor parte del SN?
+a) Las señales se transmiten en una sola dirección desde la neurona presináptica hacia la postsináptica.
+b) Las señales se transmiten en ambas direcciones
+c) Las señales se transmiten a todas las neuronas adyacentes a la que genera la señal.
+
+TEMA 3
+
+14.¿Qué es un modelo?
+a) Es la respuesta de un Sistema Conexionista ante un problema concreto.
+b) Es la representación de un sistema determinado
+c) Es la representación de los parámetros de entrada de un Sistema Conexionista.
+
+15.¿Cuándo se considera que un modelo y un sistema teórico son equivalentes?
+a) Si ambos tienen comportamientos opuestos frente a excitaciones equivalentes.
+b) Si el modelo es capaz de representar una parte del sistema teórico.
+c) Si ofrecen el mismo comportamiento frente a excitaciones equivalentes.
+
+16.¿Cuales son los 4 problemas más importantes del conocimiento en el mundo real?
+a) Incertidumbre, incompletitud, imprecisión e inconsistencia.
+b) Incertidumbre, incompletitud, imprecisión e incoherencia.
+c) Incertidumbre, incumpletitud, incoherencia e inconsistencia.
+
+TEMA 4
+
+17.¿Cuándo es adecuado el uso de Redes de Neuronas Artificiales?
+a) Siempre, ya que resuelven cualquier tipo de problema de forma más eficiente y con un coste menor.
+b) Cuando otras técnicas de computación convencional o la Inteligencia Artificial fallan.
+c) Es equivalente a utilizar cualquier otro tipo de solución.
+
+18.¿Cuáles son los principales factores a tener en cuenta en la construcción de RNA?
+a) Tamaño de la red, rapidez de la red y funciones de los EPs
+b) Tamaño de la red, número de EP en las capas ocultas y función de transferencia.
+c) Rapidez de la red, tipo de aprendizaje y número de capas ocultas.
+
+19.Indica la afirmación FALSA:
+a) La regla delta, la retropropagación y el aprendizaje por refuerzo son tipos de aprendizaje supervisado.
+b) El aprendizaje no supervisado se usa cuando sólo se conoce como debería ser el comportamiento en general de la red y no se dispone de un ejemplo completo del comportamiento deseado.
+c) El aprendizaje competitivo y el estocástico son tipos de aprendizaje supervisado.
+
+
+
+################SOLUCIONES####################
+
+1.b 11. b
+2.a 12. b
+3.c 13. a
+4.a 14. b
+5.b 15. c
+6.c 16. a
+7.b 17. b
+8.a 18. a
+9.b 19. c
+10.a
+
+
+#####################################
+
+
+
+
+1) ¿Qué es un modelo?
+
+1. Un modelo se considera como la representación de un sistema determinado.
+2. Un modelo es un conjunto de hipótesis tomadas del mundo real.
+3. Un modelo es el conjunto de características extraídas de algún tema de estudio.
+4. Ninguna de las anteriores.
+
+2) ¿Cuál de las siguientes afirmaciones es correcta?
+
+1. Normalmente, el comportamiento de cualquier modelo sometido a excitaciones adecuadas "simulará" el funcionamiento real del sistema estudiado.
+2. Normalmente, el comportamiento de cualquier modelo sometido a excitaciones adecuadas emulará el funcionamiento real del sistema estudiado.
+3. Un modelo que no es equivalente al sistema que estamos estudiando no se puede corregir.
+4. 2) y 3) son correctas.
+
+3) ¿Qué se procura en la construcción de un modelo?
+
+1. Que el modelo posea el número de características más simplificado posible que dé origen al comportamiento esperado, cuidando no omitir ningún parámetro importante.
+2. Que el modelo sea más complejo que el sistema real, así obtendremos resultados más logrados.
+3. Que el modelo tenga aproximádamente el mismo número de características aunque el comportamiento no se parezca.
+4. Ninguna de las anteriores.
+
+4) En la construcción de una RNA, ¿qué provoca el aumento del número de capas?
+
+1. Aumenta la habilidad para procesar información compleja.
+2. Se complica el entrenamiento.
+3. Disminuye la habilidad para procesar información compleja.
+4. 1) y 2) son correctas.
+
+5) ¿Qué provoca el sobreentrenamiento?
+
+1. Perdemos capacidad de generalización.
+2. Mejora el rendimiento de la RNA.
+3. Nada, es como si la red cesara de entrenar.
+4. Ninguna de las anteriores.
+
+
+
+Respuestas correctas:
+1) - 1
+2) - 1
+3) - 1
+4) - 4
+5) - 1 

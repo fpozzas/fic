@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="http://www.madsgroup.org/docencia/theme/standard/styles.php" />
+
+    <meta name="keywords" content="moodle, TP0607: Práctica 4. Variables locales en el intérprete IMP " />
+    <title>TP0607: Práctica 4. Variables locales en el intérprete IMP</title>
+    <link rel="shortcut icon" href="http://www.madsgroup.org/docencia/theme/standard/favicon.ico" />
+    <!--<style type="text/css">/*<![CDATA[*/ body{behavior:url(http://www.madsgroup.org/docencia/lib/csshover.htc);} /*]]>*/</style>-->
+
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/javascript-static.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/javascript-mod.php"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/overlib.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/cookies.js"></script>
+
+<script language="JavaScript" type="text/javascript" defer="defer">
+
+<!-- // Non-Static Javascript functions
+
+setTimeout('fix_column_widths()', 20);
+
+function openpopup(url,name,options,fullscreen) {
+  fullurl = "http://www.madsgroup.org/docencia" + url;
+  windowobj = window.open(fullurl,name,options);
+  if (fullscreen) {
+     windowobj.moveTo(0,0);
+     windowobj.resizeTo(screen.availWidth,screen.availHeight);
+  }
+  windowobj.focus();
+  return false;
+}
+
+function inserttext(text) {
+  text = ' ' + text + ' ';
+  if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+    var caretPos = opener.document.forms['theform'].message.caretPos;
+    caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+  } else {
+    opener.document.forms['theform'].message.value  += text;
+  }
+  opener.document.forms['theform'].message.focus();
+}
+
+
+// done hiding -->
+</script>
+</head>
+
+<body  class="mod-resource course-15" id="mod-resource-view">
+    
+<div id="page">
+
+    <div id="header">
+        <div class="headermain">Tecnología de la Programación 2006/07</div>
+        <div class="headermenu"><table><tr><td><form action="http://www.madsgroup.org/docencia/mod/resource/view.php" target="_top"><input type="hidden" name="id" value="608" /><input type="submit" value="&lt;" /></form></td><td><form action="http://www.madsgroup.org/docencia/course/jumpto.php" method="get" target="_top" name="navmenu" class="popupform"><select name="jump" onchange="self.location=document.navmenu.jump.options[document.navmenu.jump.selectedIndex].value;">
+   <option value="http://www.madsgroup.org/docencia/mod/forum/view.php?id=499">Foro de Noticias</option>
+   <option value="http://www.madsgroup.org/docencia/mod/ficha/view.php?id=500">Ficha</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=648">Leccion 1</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=649">Lección 2</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=652">Puntos fijos</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=665">Lección 3</option>
+   <optgroup label=" Prácticas">   <option value="http://www.madsgroup.org/docencia/mod/forum/view.php?id=516">Foro de las Prácticas</option>
+   <option value="http://www.madsgroup.org/docencia/mod/wiki/view.php?id=517">Horarios de prácticas</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=518">Criterios de calificación</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=543">Acceso a los repositorios de Subversion</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=535">Práctica 1. Uso de Subversion</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=583">Práctica 2. Intérprete IMP</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=584">Librería OUnit</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=585">Código práctica 2</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=607">Práctica 3. Tipos y arrays en el intérprete IMP.</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=608">Código práctica 3</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=656" selected="selected">Saltar a...</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=657">Código práctica 4</option>
+   </optgroup>   <optgroup label=" Herramientas de desarrollo
+">   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=548">Control de Versiones</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=592">Documentación incrustada en el código</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=593">JUnit</option>
+   </optgroup>   <optgroup label=" 
+Semántica">   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=640">Semántica Operacional</option>
+    </optgroup></select><noscript id="noscriptnavmenu" style="display: inline;"><input type="submit" value="Ir" /></noscript><script type="text/javascript">
+<!--
+document.getElementById("noscriptnavmenu").style.display = "none";
+-->
+</script></form>
+</td><td><form action="http://www.madsgroup.org/docencia/mod/resource/view.php" target="_top"><input type="hidden" name="id" value="657" /><input type="submit" value="&gt;" /></form></td></tr></table></div>
+    </div>
+    <div class="clearer">&nbsp;</div>
+    <table class="navbar"><tr><td>
+        <div class="breadcrumb"><a target="_top" href="http://www.madsgroup.org/docencia/">Docencia</a> &raquo; <a target="_top" href="http://www.madsgroup.org/docencia/course/view.php?id=15">TP0607</a> &raquo; <a target="_top" href="index.php?id=15">Recursos</a> &raquo; Práctica 4. Variables locales en el intérprete IMP</div>
+        <div class="navbutton">&nbsp;</div>
+    </td></tr></table>
+    <div class="clearer">&nbsp;</div>
+    <!-- END OF HEADER -->
+    <div id="content">
+<table align="center"   class="generalbox" border="0" cellpadding="20" cellspacing="0"><tr><td  class="generalboxcontent">
+
+
+
+
+
+<h1>Práctica 4. Variables locales en el intérprete IMP
+</h1>
+<h2>
+  Introducción
+</h2>
+Una variable local es una variable definida dentro de un ámbito local y, por
+tanto, sólo tiene validez dentro del bloque de código donde ha sido
+declarada:<br />
+<br />
+<div>
+  <table cellspacing="0" cellpadding="3" border="1" bgcolor="#eeeeee">
+    <tbody>
+    <tr>
+      <td><span style="font-family: courier new,courier,monospace;">
+        Int i := 0;</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">
+        while (i &lt; 10) do</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  Int x := i;</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  print x; (* x es una variable local *)</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  i := i + 1;</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">
+        done;</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">
+        print x; (* Error, x no está definida en el entorno *)</span>
+      </td>
+      <td><span style="font-family: courier new,courier,monospace;">Int i := 0;</span><br />i<span style="font-family: courier new,courier,monospace;">f (i &lt; 10) </span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  then</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">    Int x:= i * 2;</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">    x := x + 3; (* x es una
+        variable local *)</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">  else</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">    skip;</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">
+        fi;</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">
+        Int y := x + 2; (* Error, x no está definida en el entorno *)</span><br />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+El objetivo de esta práctica es añadir variables locales al intérprete.<br /><br />El primer paso consiste en redefinir el entorno para permitir la
+declaración de
+variables locales al entorno. Es importante remarcar el hecho de que
+los bloques de código, y por tanto los entornos locales, pueden estar
+anidados.<br /><br />Se han añadido tres nuevas funciones que permiten el uso de variables locales:<br />
+<br /><span style="font-family: courier new,courier,monospace;">
+val push_env : env -&gt; env</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">
+val pop_env : env -&gt; env</span><br style="font-family: courier new,courier,monospace;" /><span style="font-family: courier new,courier,monospace;">
+val add_local : env -&gt; name -&gt; content -&gt; env</span><br />
+<br />
+donde <span style="font-family: courier new,courier,monospace;">push_env</span> crea un nuevo entorno local, <span style="font-family: courier new,courier,monospace;">pop_env</span> elimina el entorno local y
+<span style="font-family: courier new,courier,monospace;">add_local</span> añade una variable local a un entorno local.<br /><span style="background-color: rgb(255, 255, 153); font-weight: bold;"><br /></span><h2>Tareas a realizar
+</h2>
+<ol><li>
+    Modificar el entorno para poder utilizar
+    entornos locales y variables locales a dichos entornos en el intérprete
+  </li><li>
+    Modificar eval.ml para permitir la creación y posterior eliminación de
+    entornos locales en los bloques de código
+  </li><li>
+    Documentar las funciones desarrolladas<br />
+  </li><li>
+    Realizar casos de prueba específicos que prueben el buen funcionamiento del intérprete con variables locales<br />
+  </li></ol>
+<h2>
+  Entrega
+</h2>
+La entrega de esta práctica se realizará en el repositorio de
+Subversion asignado a cada grupo,
+https://www.madsgroup.org/docencia/svn/tp0607/gXXXp_imp (gXXX es el
+identificador asignado a dicho grupo), en el que se deberá crear un tag
+denominado practica-04.<br /><br />La fecha límite de entrega de esta práctica es el miércoles, 2 de mayo de 2007 a las 15:00 de la tarde.<br /><br />
+</td></tr></table><center><p><font size="1">Última modificación:  Tuesday,  17 de April de 2007, 16:02</font></p></center>
+</div> <!-- end div containerContent -->
+<!-- START OF FOOTER -->
+<div id="footer">
+
+
+<div class="logininfo">Ud. está en el sistema como <a target="_top" href="http://www.madsgroup.org/docencia/user/view.php?id=946&amp;course=15">Daniel Fernandez Nuñez</a>. (<a target="_top" href="http://www.madsgroup.org/docencia/login/logout.php">Salir</a>)</div>
+
+
+
+</div>
+</div>
+</body>
+</html>

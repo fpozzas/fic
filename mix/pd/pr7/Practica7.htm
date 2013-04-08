@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=windows-1252">
+  <title>PD- Práctica 7</title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.0  (Win32)">
+  <meta name="AUTHOR" content="José María Molinelli Barba">
+  <meta name="CREATED" content="20061125;145310">
+  <meta name="CHANGEDBY" content="José María Molinelli Barba">
+  <meta name="CHANGED" content="20061125;260606">
+  <style>
+	<!--
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		P { margin-bottom: 0.21cm }
+		P.msonormal { margin-bottom: 0cm }
+	-->
+	</style>
+  <meta content="José Marí­a Molinelli" name="author">
+</head>
+<body dir="ltr" lang="es-ES">
+<p class="msonormal" style="margin-bottom: 0.56cm;" align="center"><font
+ face="Arial"><font style="font-size: 16pt;" size="4">Programación
+Declarativa<br>
+2006-2007<br>
+Práctica 7</font></font></p>
+<p style="margin-bottom: 0cm;"><font size="+1"><span lang="es-ES"><b>1.</b>
+Escriba el resultado de la compilación y ejecución de
+las siguientes frases, con tipos y valores, como lo indicaría
+el "toplevel" de ocaml:</span></font></p>
+<p
+ style="margin-left: 0.75cm; margin-top: 0.11cm; margin-bottom: 0.11cm;">
+<font size="+1"><br>
+</font></p>
+<p style="margin-top: 0.11cm; margin-bottom: 0.11cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;">let
+x = 0 in (let x = x + 1 in 2 * x), 2 * x;;<br>
+<br>
+</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-top: 0.11cm; margin-bottom: 0.11cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+<p style="margin-top: 0.11cm; margin-bottom: 0.11cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;"><br>
+let
+ap (x,y) = y x;; </font></font>
+</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+<p style="margin-top: 0.11cm; margin-bottom: 0.11cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;"><br>
+ap
+(2, (/)) 3;;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+<p style="margin-top: 0.11cm; margin-bottom: 0.11cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;"><br>
+let
+rec pam x = function [] -&gt; [] | h::t -&gt; h x :: pam x t;;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+<p style="margin-bottom: 0.11cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;">pam
+0;;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+&nbsp;<font face="Courier New, monospace" size="+1"><font
+ style="font-size: 11pt;"><br>
+let
+f =<br>
+let
+rep g x = g (g x)</font></font><font face="Courier New, monospace"
+ size="+1"><font style="font-size: 11pt;"><br>
+in
+rep (function x -&gt; x * x);;</font></font>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB"><font size="+1"><br>
+</font></p>
+<p style="margin-bottom: 0.11cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;">f
+2;;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+<p style="margin-bottom: 0cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;">let
+rec dev f x = function 0 -&gt; [] | n -&gt; x :: dev f (f x) (n-1);;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+<p style="margin-bottom: 0cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;">dev
+((+) 2) 3 4;;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;">
+<font size="+1"><br>
+</font></p>
+<p style="margin-top: 0.11cm; margin-bottom: 0.11cm;"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;"><br>
+let
+apa x f = f x;; </font></font>
+</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;">
+<font size="+1"><br>
+</font></p>
+<p style="margin-top: 0.11cm; margin-bottom: 0.11cm;"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;"><br>
+List.map
+(apa 2) [(function x -&gt; x * x); succ; (+)1; (-) 1];; </font></font>
+</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+&nbsp;<font style="font-size: 11pt;" size="+1"><font
+ face="Courier New, monospace"><br>
+let
+apa_rep n x f =<br>
+<span lang="es-ES">&nbsp;&nbsp;&nbsp; let
+rec aux x = function 0 -&gt; x</span></font></font><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp;&nbsp; |
+n -&gt; aux (apa x f) (n-1)</font></font><font style="font-size: 11pt;"
+ size="+1"><font face="Courier New, monospace"><span lang="es-ES"><br>
+&nbsp;&nbsp;&nbsp; in
+aux x (abs n);;</span></font></font>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB"><font size="+1"><br>
+</font></p>
+<p style="margin-bottom: 0.11cm;"><font face="Courier New, monospace"
+ size="+1"><font style="font-size: 11pt;">apa_rep
+(-2) "x" (function x -&gt; x ^ x);;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;">
+<font size="+1"><br>
+</font></p>
+<p style="margin-bottom: 0.11cm;" lang="en-GB"><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;">let
+fop op f g = function y -&gt; op (f y) (g y);;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"
+ lang="en-GB">
+<font size="+1"><br>
+</font></p>
+<p style="margin-bottom: 0.11cm;"><font face="Courier New, monospace"
+ size="+1"><font style="font-size: 11pt;">let
+suma = fop (+);;</font></font></p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;">
+<font size="+1"><br>
+</font></p>
+&nbsp;<font style="font-size: 11pt;" size="+1"><font
+ face="Courier New, monospace"><br>
+let
+f = let f1 x = x * x in<span lang="es-ES"> let
+f2 x = f1 x * x in</span></font></font><font
+ face="Courier New, monospace" size="+1"><font style="font-size: 11pt;">
+suma
+f1 f2</font></font><font face="Courier New, monospace" size="+1"><font
+ style="font-size: 11pt;"> in
+f 2;;</font></font>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.04cm 0.14cm; margin-bottom: 0cm;"><font
+ size="+1"><br>
+</font></p>
+<font size="3"><b><font size="+1"><br>
+</font><br>
+<font size="+1"><br>
+2.</font></b><font size="+1">
+Defina una función </font></font><font style="font-size: 11pt;"
+ size="+1"><font face="Courier New, monospace"><span
+ style="font-style: italic; font-weight: bold;">split</span><span
+ style="font-weight: bold;">:</span>
+'a list -&gt; 'a list * 'a list</font></font><font size="+1">, que
+divida una lista en dos: una con los elementos que ocupan posición
+impar en la original y otra con los que ocupan posición par;
+de forma que, por ejemplo,</font><font style="font-size: 11pt;"
+ size="+1"><font face="Courier New, monospace">
+split ['a'; 'e'; 'i'; 'o'; 'u']</font></font><font size="+1"> sea el
+par
+</font><font style="font-size: 11pt;" size="+1"><font
+ face="Courier New, monospace">(['a';
+'i'; 'u'], ['e'; 'o']</font></font><font size="+1">).</font>
+<p style="margin-bottom: 0cm;" align="justify"><font size="+1"><br>
+</font></p>
+<font size="+1"><span lang="es-ES"><b></b></span></font><font
+ face="Courier New, monospace" size="+1"></font>
+<p style="margin-bottom: 0cm; page-break-before: always;"><font
+ face="Arial, sans-serif"><b>3.&nbsp;</b><i><font size="2"></font></i></font><font
+ size="+1"> Realice una nueva
+definición para la función <i>sumpro</i> definida a
+continuación, de forma que sólo se utilice recursividad
+terminal.</font></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<font face="Courier New, monospace">let
+rec sumpro n =<br>
+if
+n &lt; 1 then (0,1)<br>
+</font><font face="Courier New, monospace">else
+let (s,p) = sumpro (n-1) in</font><font face="Courier New, monospace">
+(s+n,
+p*n);;</font>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font
+ face="Arial, sans-serif"><b>4</b></font><font size="+1"><b>.</b>
+Defina una función
+</font><font style="font-size: 11pt;" size="+1"><i>aBase:
+int -&gt; int -&gt; int</i>
+<i>list</i></font><font size="+1"><i>
+</i>tal que <i>aBase b n</i>
+devuelva la lista de enteros correspondiente a los dígitos de
+la representación en base b del número n (de forma que
+la cabeza de la lista corresponda al dígito menos
+significativo, y una función <i><font style="font-size: 11pt;">deBase:
+int -&gt; int list -&gt; int</font></i> tal que <i>deBase b l</i>
+devuelva el número entero cuya
+representación en base b corresponde a la lista l (es decir,
+de forma que <i>deBase b</i> sea la función inversa a <i>aBase
+b</i>). El parámetro <i>b</i> que indica la base será
+siempre un número entero estrictamente mayor que <i>1</i>, el
+número n será siempre un entero positivo y los
+elementos de la lista <i>l</i> serán siempre enteros no
+negativos estrictamente menores que <i>b</i>).</font></p>
+<p
+ style="margin-bottom: 0cm; page-break-before: always; color: rgb(51, 51, 255);"><font
+ size="+1">Por
+tanto, estas definiciones deberán comportarse de forma que las
+siguientes expresiones de tipo <i>bool </i>tengan todas valor <i>true
+</i>en <i>ocaml </i>:</font></p>
+<multicol style="color: rgb(51, 51, 255);" id="Sección1" cols="2"
+ gutter="47" dir="ltr"></multicol>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font size="2"><font
+ face="Courier New, monospace">aBase 10 1234 = [4;3;2;1]</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font
+ face="Courier New, monospace"><font size="2">aBase 100 1234 = [34; 12]</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font
+ face="Courier New, monospace"><font size="2">aBase 2 11 = [1;1;0;1]</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font size="2"><font
+ face="Courier New, monospace">aBase 3 11 = [2;0;1]</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font
+ face="Courier New, monospace"><font size="2">aBase 16 200 = [8;12]</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font
+ face="Courier New, monospace"><font size="2">deBase 10 [4;3;2;1] = 1234</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font
+ face="Courier New, monospace"><font size="2">deBase 100 [34; 12] = 1234</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font
+ face="Courier New, monospace"><font size="2">deBase 2 [1;1;0;1]= 11</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font size="2"><font
+ face="Courier New, monospace">deBase 3 [2;0;1] = 11</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font size="2"><font
+ face="Courier New, monospace">deBase 16 [8;12] = 200</font></font></p>
+<p style="margin-bottom: 0cm; color: rgb(51, 51, 255);"><font size="+1">y
+</font><font size="+1"><span style="font-style: italic;">deBase b
+(aBase b n) = n</span>, siempre
+que <i>b</i> y <i>n</i> cumplan los requisitos arriba mencionados.</font></p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<br>
+</body>
+</html>

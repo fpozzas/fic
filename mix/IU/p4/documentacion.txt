@@ -1,0 +1,17 @@
+DOCUMENTACION
+-------------
+
+- Mejoras de accesibilidad por teclado pensadas para un relleno secuencial de la práctica: frente  
+a una linea del formulario vací, se enfoca en el botón nota y lo marca. Con TAB pasamos a la caja 
+de texto donde se rellenará con la nota numérica. Si esta es menor que el mínimo establecido para 
+la matrícula de honor, al hacer TAB ya no se enfoca a al checkbox de MH sino que se pasa a la 
+siguiente fila.
+
+- Se ha considerado también la opción de que al salir del foco de Sin Calificar o No Presentado
+automaticamente se borre la caja de la nota, pero no podemos suponer esto porque el usuario se puede
+equivocar y accidentalmente borrar la nota. Simplemente lo que hacemos es deshabilitar la caja de texto
+y pasar el foco al siguiente objeto.
+
+- Existen unas variables en el fichero de JavaScript llamadas nmh (numero de matrícula) y minimo_nota_mh
+que en una aplicación real deberían ser obtenidas del HTML suministradas por el servidor, pero como no es
+el caso las hemos incluído en este fichero.

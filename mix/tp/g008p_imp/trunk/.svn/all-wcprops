@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/docencia/svn/tp0607/g008p_imp/!svn/ver/26/trunk
+END
+env.ml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/docencia/svn/tp0607/g008p_imp/!svn/ver/21/trunk/env.ml
+END
+lector.ml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/docencia/svn/tp0607/g008p_imp/!svn/ver/16/trunk/lector.ml
+END
+lexer.mll
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/docencia/svn/tp0607/g008p_imp/!svn/ver/26/trunk/lexer.mll
+END
+tipos.ml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/docencia/svn/tp0607/g008p_imp/!svn/ver/26/trunk/tipos.ml
+END
+eval.mli
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/docencia/svn/tp0607/g008p_imp/!svn/ver/26/trunk/eval.mli
+END
+env.mli
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/docencia/svn/tp0607/g008p_imp/!svn/ver/26/trunk/env.mli
+END
+tests.ml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/docencia/svn/tp0607/g008p_imp/!svn/ver/23/trunk/tests.ml
+END
+main.ml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/docencia/svn/tp0607/g008p_imp/!svn/ver/26/trunk/main.ml
+END
+parser.mly
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/docencia/svn/tp0607/g008p_imp/!svn/ver/26/trunk/parser.mly
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/docencia/svn/tp0607/g008p_imp/!svn/ver/13/trunk/Makefile
+END
+eval.ml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/docencia/svn/tp0607/g008p_imp/!svn/ver/26/trunk/eval.ml
+END

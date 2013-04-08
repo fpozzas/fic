@@ -1,0 +1,38 @@
+<head>
+<title>Ejemplo 2: Plan de prueba </title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+
+<h1>Ejemplo 2:  Plan de prueba</h1>
+
+<hr>
+
+<h2>Esquema de la prueba </h2>
+
+<pre>
+
+ { PRE: x0 = x and y0 = y }
+
+    if (x &gt y) then y := x
+
+               else x := y
+
+ { POST: x = y = max(x0,y0) }
+
+</pre>
+
+<ol>
+
+  <li> Probar |= { PRE and x &gt y } y := x { POST }
+  <li> Probar |=  { PRE and ~(x &gt y) } x := y { POST }
+  <li> concluir que |=  { PRE } if-then-else { POST }
+
+</ol>
+
+<hr>
+
+</body>

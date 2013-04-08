@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Lector.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Tipos" rel="Chapter" href="Tipos.html">
+<link title="Lector" rel="Chapter" href="Lector.html">
+<link title="Env" rel="Chapter" href="Env.html">
+<link title="Eval" rel="Chapter" href="Eval.html">
+<link title="Main" rel="Chapter" href="Main.html"><title>Int�rprete IMP : Tipos</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Lector.html">Next</a>
+</div>
+<center><h1>Module <a href="type_Tipos.html">Tipos</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Tipos: <code class="code">sig</code> <a href="Tipos.html">..</a> <code class="code">end</code></pre>Definición de los tipos para el compilador de IMP<br>
+<hr width="100%">
+<pre><span class="keyword">type</span> <a name="TYPEvariable"></a><code class="type"></code>variable = <code class="type">string</code> </pre>
+<div class="info">
+Almacena el nombre de una determinada variable<br>
+</div>
+
+<br><code><span class="keyword">type</span> <a name="TYPEimp_exp"></a><code class="type"></code>imp_exp = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">VBool</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEbexp">bexp</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">VInt</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">VString</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEsexp">sexp</a></code></code></td>
+
+</tr></table>
+
+
+<br><code><span class="keyword">type</span> <a name="TYPEaexp"></a><code class="type"></code>aexp = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MkInt</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para almacenar el valor del entero</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">IntVar</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para almacenar el nombre de la variable</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Sum</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para sumas de enteros</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Res</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para restas de enteros</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Mul</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para multiplicacion de enteros</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">IntArray</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para crear un array de enteros</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+<div class="info">
+Expresión de tipo entero<br>
+</div>
+
+<br><code><span class="keyword">type</span> <a name="TYPEbexp"></a><code class="type"></code>bexp = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MkBool</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para almacenar el valor del boolean</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">BoolVar</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para almacenar el nombre de la variable</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Equal</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operación '='</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Lt</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Contructor para la operación '&lt;'</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">LtEq</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operación '&lt;='</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Gt</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operación '&gt;'</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">GtEq</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operación '&gt;='</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Not</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEbexp">bexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor de la operación negación</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">And</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEbexp">bexp</a> * <a href="Tipos.html#TYPEbexp">bexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor de la operación lógica 'and'</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Or</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEbexp">bexp</a> * <a href="Tipos.html#TYPEbexp">bexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor de la operación lógica 'or'</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">BoolArray</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para crear un array de booleans</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+<div class="info">
+Expresión de tipo boolean<br>
+</div>
+
+<br><code><span class="keyword">type</span> <a name="TYPEsexp"></a><code class="type"></code>sexp = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MkString</span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para almacenar el valor del string</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">StringVar</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para almacenar el nombre de la variable</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Concat</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEsexp">sexp</a> * <a href="Tipos.html#TYPEsexp">sexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operación de concatenacion</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Substring</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEsexp">sexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operación de cortar</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">StringArray</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a> * <a href="Tipos.html#TYPEaexp">aexp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para crear un array de strings</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+<div class="info">
+Expresión de tipo string<br>
+</div>
+
+<br><code><span class="keyword">type</span> <a name="TYPEcomm"></a><code class="type"></code>comm = </code><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Skip</span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Contructor para la funcion nula</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MkVar</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a> * <a href="Tipos.html#TYPEimp_exp">imp_exp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la creación de variables</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Assign</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a> * <a href="Tipos.html#TYPEimp_exp">imp_exp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la asignación de valores a las variables</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Seq</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEcomm">comm</a> * <a href="Tipos.html#TYPEcomm">comm</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la ejecucion secuencial</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">If</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEbexp">bexp</a> * <a href="Tipos.html#TYPEcomm">comm</a> * <a href="Tipos.html#TYPEcomm">comm</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operacion condicional</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">While</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEbexp">bexp</a> * <a href="Tipos.html#TYPEcomm">comm</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operacion 'mientras'</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Print</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEimp_exp">imp_exp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la operacion de mostrar por pantalla</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">MkArray</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a> * <a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEimp_exp">imp_exp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para la creación de un array</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">AssignArray</span> <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a> * <a href="Tipos.html#TYPEaexp">aexp</a> * <a href="Tipos.html#TYPEimp_exp">imp_exp</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Constructor para añadir un valor en una posición a un array</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+<div class="info">
+Expresión de tipo comando<br>
+</div>
+
+<pre><span class="keyword">type</span> <a name="TYPEprogram"></a><code class="type"></code>program = <code class="type"><a href="Tipos.html#TYPEcomm">comm</a></code> </pre>
+<div class="info">
+Expresión de tipo programa formada por comandos<br>
+</div>
+
+<br>
+Excepciónes posibles<br>
+<pre><span class="keyword">exception</span> <a name="EXCEPTIONERROR_LEXICO"></a>ERROR_LEXICO</pre>
+<div class="info">
+Excepción causada por un fallo lexico<br>
+</div>
+<pre><span class="keyword">exception</span> <a name="EXCEPTIONERROR_SINTACTICO"></a>ERROR_SINTACTICO</pre>
+<div class="info">
+Excepción causada por un fallo sintactico<br>
+</div>
+<pre><span class="keyword">exception</span> <a name="EXCEPTIONYA_LIGADA"></a>YA_LIGADA <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a></code></pre>
+<div class="info">
+Excepción causada si se intenta crear una variable ya existente<br>
+</div>
+<pre><span class="keyword">exception</span> <a name="EXCEPTIONNO_LIGADA"></a>NO_LIGADA <span class="keyword">of</span> <code class="type"><a href="Tipos.html#TYPEvariable">variable</a></code></pre>
+<div class="info">
+Excepción causada si la variable a la que se intenta acceder no existe<br>
+</div>
+<pre><span class="keyword">exception</span> <a name="EXCEPTIONERROR_DE_TIPOS"></a>ERROR_DE_TIPOS <span class="keyword">of</span> <code class="type">string</code></pre>
+<div class="info">
+Excepción causada por un error de tipos, explicado en string<br>
+</div>
+<pre><span class="keyword">exception</span> <a name="EXCEPTIONERROR_DE_EJECUCION"></a>ERROR_DE_EJECUCION <span class="keyword">of</span> <code class="type">string</code></pre>
+<div class="info">
+Error en tiempo de ejecución, explicado en un string<br>
+</div>
+<pre><span class="keyword">exception</span> <a name="EXCEPTIONFUERA_DE_RANGO"></a>FUERA_DE_RANGO <span class="keyword">of</span> <code class="type">string</code></pre>
+<div class="info">
+Excepción causada por intentar acceder a posiciones inválidas<br>
+</div>
+</body></html>

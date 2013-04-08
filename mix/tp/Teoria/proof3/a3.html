@@ -1,0 +1,35 @@
+<head>
+<title>Ejemplo de prueba 3: Usando Arrays</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+
+<a href="a4.html">Seguir</a>
+<a href="plan.html">Plan de prueba</a>
+<img src="shortLine.gif">
+
+<pre>
+
+{ PRE: a &lt= b and x = x0 }
+    <b>{ P1: a&lt=a&lt=b and forall i, a &lt= i &lt  a : x[i]=x0[i+1]
+                  and forall i, a &lt= i &lt= b : x[i]=x0[i]   }</b>
+    k := a;
+    { <a href="invar.html">INV</a>: a&lt=k&lt=b and forall i, a &lt= i &lt  k : x[i]=x0[i+1]
+                   and forall i, k &lt= i &lt= b : x[i]=x0[i]   }
+    while k &lt b do
+
+      (k := k + 1;
+ 
+      x[k-1] := x[k])
+
+
+{ POST: forall i, a &lt= i &lt b : x[i] = x0[i+1] }
+
+</pre>
+
+<a href="ob1.html">Obligaci&oacute;n de prueba 1</a>
+
+</body>

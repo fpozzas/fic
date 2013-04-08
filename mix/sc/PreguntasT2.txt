@@ -1,0 +1,486 @@
+﻿La superioridad del cerebro humano frente a la de los demas animales se debe a: 
+a) la forma de cerebro que hace que todas las neuronas se comuniquen 
+b) la elevada cantidad de neuronas y conexiones entre ellas (*) 
+c) la elevada cantidad de materia gris y materia blanca 
+d) tener un cerebelo altamente desarrollado 
+
+En la sinapsis quimica 
+a) una neurona se contrae 
+b) una neurona produce un impulso electrico 
+c) una neurona libera una sustancia quimica (*) 
+d) una neurona se queda paralizada
+
+¿Cuál es la rama de la Ciencia encargada del estudio del SN? 
+a.- Neurobiología 
+b.- Neuroanatomía 
+c.- Neurología  (*)
+d.- Neurofisiología 
+
+¿Qué tipos de células tiene el SN involucradas en la integración de estímulos? 
+a.- Solo neuronas 
+b.- Solo células del SG 
+c.- Neuronas y células del SG  (*)
+d.- Ninguna de las anteriores 
+
+La división motora del SN se encarga de transmitir las órdenes dirigidas a los órganos efectores mediante: 
+a.- Vías piramidales y voluntarias 
+b.- Vías extrapiramidales y piramidales  (*)
+c.- Vías automáticas y extrapiramidales 
+d.- Ninguna de las otras 
+
+¿Por qué las continuas pérdidas de elementos del sistema nervioso no comprometen su funcionamiento? 
+a) El número de neuronas perdidas representa un porcentaje relativamente bajo. 
+b) El conocimiento está distribuido entre todos los elementos. 
+c) a y b son correctas. (*)
+d) Sí representa un grave problema, pues con cada elemento perdido se pierde información. 
+
+2 - ¿La elevada complejidad del sistema nervioso viene dada por? 
+a) La gran complejidad de sus pocos elementos. 
+b) La contigüidad de todos los elementos. 
+c) El elevado número de elementos y conexiones entre ellos. (*)
+d) Ninguna de las anteriores. 
+
+3 - ¿Que se produce en una sinapsis? 
+a) Un retardo de tiempo. 
+b) La integración y el filtrado de la información. 
+c) Se crean conexiones entre los elementos. 
+d) a y b son correctas. (*)
+4 - ¿En qué dos ramas tradicionalmente se ha dividido la inteligencia artificial? 
+a) La heurística y la cognitiva. 
+b) La simbólica y la pragmática. 
+c) La conexionista y la neuronal. 
+d) La simbólica y la conexionista. (*)
+
+5 - ¿En que tres pasos se resume el flujo de la información en un elemento de una red neuronal? 
+a) Percepción, generalización y abstracción. 
+b) Recepción, procesado y salida. (*)
+c) Entrenamiento, simulación y evaluación. 
+d) Ninguna de las anteriores. 
+
+6 - ¿Cuáles son las tres partes principales de una neurona y que función desempeñan? 
+a) Las dendritas que reciben la información, el soma o cuerpo neuronal que la procesa y el axón que la envía. (*)
+b) El soma que recibe la información, las dendritas que la procesan y el axón que la envía. 
+c) Las puertas que reciben la información, el axón que la procesa y el soma que la envía. 
+d) El axón que recibe la información, el soma que la procesa y las dendritas que la envían. 
+
+8 - Mar y Poggio formulan tres niveles de compresión en el cerebro: 
+a) Nivel de computación, algorítmico y de mecánica. (*)
+b) Nivel perceptor, procesador y emisor. 
+c) Nivel de adquisición, de computación y de transmisión. 
+d) Ninguna de las anteriores. 
+
+9 - Los intentos de simular facetas de los seres vivos se dividen en varios aspectos: 
+a) Físico, relacional e intelectual. 
+b) Físico y metafísico. 
+c) Físico, metafísico e intelectual. (*)
+d) Ninguna de las anteriores. 
+
+Cuál de estas informaciones es incorrecta: 
+- La neurología es la ciencia encargada del estudio del SN en forma global 
+- La neurobiología estudia el sist. nervioso de organismos inferiores y su metabolismo. 
+- La neurofisiología estudia el funcionamiento normal de los elmentos del sist. nervioso, participa junto con la neurología y la neuroanatomía en el estudio del dispositivo mecánico del sist. nervioso. 
+- La neuroanatomía estudia las conductas adquiridas mediante las que el ser humano mantiene relaciones adaptadas con el mundo exterior que le rodea, incluyendo el resto de los humanos. (*)
+
+Por qué fundamentalmente el sist. nervioso es considerado como la estructura única más compleja del universo. 
+- Por estar su centro neurálgico en la cabeza 
+- Por extenderse las terminaciones nerviosas extendidas por todo el cuerpo 
+- Por el número de elementos de procesado (neuronas) y de conexiones entre ellas. (*) 
+- Por tener que procesar información proveniente de fuentes diferentes (de órganos sensoriales diferentes). 
+
+Cuál de estas afirmaciones no es correcta: 
+- El sistema nerviosos recibe aproximadamente 1012 bist/seg de información. De toda esta información sólo se admiten conscientemente 102 bits/seg. 
+- El sistema nerviosos recibe aproximadamente 108 bist/seg de información. De toda esta información sólo se admiten conscientemente 103 bits/seg. 
+- El sistema nerviosos recibe aproximadamente 106 bist/seg de información. De toda esta información sólo se admiten conscientemente 102 bits/seg. 
+- El sistema nerviosos recibe aproximadamente 109 bist/seg de información. De toda esta información sólo se admiten conscientemente 102 bits/seg. (*) 
+
+Qué tipo de trabajos puede dar como respuesta el SN al recibir información 
+- Trabajo intelectual o motor. 
+- Trabajo neurosecretor o intelectual. 
+- Trabajo motor voluntario o involuntario. 
+- Trabajo intelectual, motor o neurosecretor. (*) 
+
+Cuál es considerado el elemento funcional fundamental del SN 
+- Las células del sist. Glial 
+- El axón 
+- Las dendritas 
+- Las neuronas. (*) 
+
+Cuál es la verdadera 
+- Los vertebrados superiores tenemos neoformación neuronal toda la vida. 
+- Los vertebrados superiores tenemos neoformación neuronal hasta los 50 años 
+- Los vertebrados superiores tenemos neoformación neuronal hasta los 2 años como mucho. (*) 
+- Los vertebrados superiores no tenemos neoformación neuronal. 
+
+Cuál es la verdadera: 
+- La pérdida de neuronas es muy perjudicial 
+- La pérdida de neuronas no se produce hasta los 50 años. 
+- La pérdida de neuronas hace que se pierda mucha información fundamental. 
+- La pérdida de neuronas favorece al incremento del campo dendrítico. (*) 
+
+Cuál es la falsa: 
+- Entre las zonas periféricas y centrales del SN existe una correspondencia. 
+- El código de frecuencia es un idioma único ofrecido por el “traductor” que actúa después de la recepción. 
+- La información va desde los receptores hasta la corteza cerebral, sin pasar por estaciones intermedias. (*) 
+- Se produce una filtración primaria” en el propio órgano receptor. 
+
+Cuál es la falsa: 
+- La división sensorial se encarga de encauzar la información recibida en órganos sensoriales hasta los centros de procesado del SN. 
+- La división motora se encarga de transmitir las órdenes dirigidas a los órganos efectores. 
+- La transmisión de órdenes por parte de la división motora puede ser mediante 2 vías: voluntaria o automática. 
+- Las partes encefálicas bajas del SN se corresponden con las acciones controladas por procesos cognitivos y las partes altas se corresponden con acciones automáticas. (*) 
+
+Cuál de estas afirmaciones sobre el sist. de asociación es falsa. 
+- Se realiza una asociación de informaciones diferentes. 
+- Se encuentran entre la división motora y sensorial. 
+- Continúa en ellos el proceso de “evaluación” de los estímulos externos. (*) 
+- Se produce en ellos la función integradora del SN. 
+
+Marr y Poggio del MIT formularon qué niveles de compresión en el cerebro: 
+- Niveles de computación , de integración y motor. 
+- Niveles de computación, algorítmico y de integración. 
+- Niveles sensorial, algorítmico y de integración. 
+- Niveles de computación, algorítmico y mecánico. (*)
+
+Existe una superioridad entre el Sistema Neuronal de los humanos y el Sistema Neuronal de los animales. 
+a) Verdadero, debido a la mayor complejidad de las neuronas que forman el Sistema Neuronal humano. 
+b) Verdadero, ya que el SN humano posee un mayor numero de elementos y de conexiones.  (*)
+c) Falso, porque no existe una superioridad entre ambos Sistemas Neuronales. 
+d) Falso, la diferencia entre los humanos y los animales no reside en el Sistema Neuronal 
+
+La neurología:
+a) Estudia el desarrollo del sistema nervioso desde el momento de la concepción hasta el nacimiento.
+b) Estudia la disposición física o espacial de los elementos constitutivos del sistema nervioso.
+c) Es la rama de la ciencia encargada del sistema nervioso. (*)
+
+¿A que edad cesa la neoformación de neuronas en los vertebrados superiores?
+a) Al alcanzar la madurez.
+b) Como mucho al alcanzar el 2º año de vida. (*)
+c) Al nacer
+
+El Sistema Nervioso, ¿Cuántos tipos de células específicas tiene involucradas en la integración de los estímulos?
+a) Dos: neuronas y células del Sistema Glial (*)
+b) Tres: neuronas, células nerviosas y células madre.
+c) Dos: neuronas y células del Sistema Nervioso.
+
+El Sistema nervioso se divide en Sistema Nervioso Central y Sistema Nervioso Periférico, ¿Cuáles son sus funciones principales?
+a) SNC: Recepción, SNP: Emisión e Integración
+b) SNC: Integración, SNP: Emisión y Recepción (*)
+c) SNP: Integración, SNC: Emisión y Recepción
+
+¿Cuáles son las características de una neurona que la diferencian de otra célula?
+a) Intensidad de respuesta a excitabilidad, conductividad y troficidad (*)
+b) Irritabilidad
+c) Es la única célula que transporta el influjo nervioso.
+
+Una neurona del SNC consta de 3 partes bien diferenciadas, que no poseen otras células:
+a) Núcleo, membrana y citoplasma
+b) Soma, axón y árbol dendrítico (*)
+c) Soma, axón y mitocondria
+
+¿Que tipos de sinapsis básicos existen en el mundo animal?
+a) Química y física
+b) Eléctrica y química (*)
+c) Eléctrica y funcional
+
+¿Cuales son las características que hace a la sinapsis químicas las más convenientes para la transmisión de señales en la mayor parte del SN?
+a) Las señales se transmiten en una sola dirección desde la neurona presináptica hacia la postsináptica. (*)
+b) Las señales se transmiten en ambas direcciones
+c) Las señales se transmiten a todas las neuronas adyacentes a la que genera la señal.
+
+¿Qué rama de la ciencia se encarga del estudio del funcionamiento normal de los elementos constituyentes del sistema nervioso?
+a) Neurología.
+b) Neuroanatomía.
+c) Neuropsicología.
+d) Neurofisiología. (*)
+
+¿Cuál es la principal tarea de la división motora del sistema nervioso?
+a) Integración de la información.
+b) Emitir las órdenes a los órganos efectores o ejecutadores. (*)
+c) Asociación de la información.
+d) Filtrado de la información.
+
+3. ¿En qué partes se divide la sinapsis?
+a) Elemento presináptico, elemento postsináptico y espacio intersináptico. (*)
+b) Elemento presináptico y elemento postsináptico.
+c) Elemento presináptico y espacio intersináptico.
+d) Elemento postsináptico y espacio intersináptico.
+
+¿Quién acuño por primera vez el término sinapsis?
+a) Barbizet.
+b) Sherrington. (*)
+c) Parker.
+d) Ramón y Cajal.
+
+¿Cuáles son las partes constituyentes de la neurona?
+a) Soma.
+b) Soma y axón.
+c) Axón y dendritas.
+d) Soma, axón y dendritas. (*)
+
+¿Cuál es la sinapsis más abundante en el reino animal?
+a) Sinapsis eléctrica.
+b) Sinapsis química. (*)
+c) Sinapsis eléctrica y química por igual.
+d) Sinapsis superficial.
+
+¿Qué indica el nivel algorítmico de los niveles de compresión en el cerebro de Marr y Poggio?
+a) Las tareas que puede y debe llevar a cabo el sistema nervioso.
+b) La secuencia de operaciones que hacen que la información adquiera una característica útil.  (*)
+c) Como puede el aparato disponible ejecutar un algoritmo y por tanto realizar una computación. 
+d) La forma en la que se integra la información.
+
+¿Qué tres niveles de comprensión en el cerebro distinguen Marr y Poggio?
+a) Nivel mecánico y cuántico.
+b) Nivel lógico y físico.
+c) Nivel de computación, algorítmico y de mecánica. (*)
+d) Nivel algorítmico y de mecánica.
+
+¿Cuál es la parte de la neurona que se encarga de recibir la información?
+a) Las dendritas. (*)
+b) El soma.
+c) El axón.
+d) Las uniones de intersticio.
+
+Indica cual es la afirmación falsa
+Una de las funciones básicas de la neurona es:
+a) Conductividad.
+b) Interoperativilidad. (*)
+c) Excitabilidad.
+d) Troficidad.
+
+Indica la afirmación verdadera
+La sorprendente capacidad del sistema nervioso para recibir, almacenar, procesar y transmitir una enorme cantidad de mensajes simultáneamente, sin que se confundan entre sí, en un breve tiempo y muy limitado espacio, viene dado por varios factores:
+a) El flujo de corriente que es bidireccional e intracelular.
+b) El grado de aislamiento de la membrana que impide el "lenguaje cruzado" erróneo entre las células nerviosas es mínimo.
+c) Es posible modificar la velocidad de conducción intracelular e intercelular. (*)
+d) Hay unos dispositivos físicos especiales destinados a garantizar, no sólo una transmisión rápida y precisa sino también una igualmente rápida y precisa desaparición de la señal.
+
+La generación de neuronas
+a) Es constante a lo largo de toda la vida de un vertebrado superior.
+b) Decrementa paulatinamente en el tiempo.
+c) Cesa totalmente a los 2 años de vida. (*)
+d) Cesa totalmente tras el nacimiento del individuo.
+
+El axón es la zona de la neurona donde:
+a) Se produce la integración de la información.
+b) Se recibe la información para el posterior procesamiento.
+c) Se envía la información ya procesada.(*)
+d) Se recibe, procesa y envía la información ya que se considera una entidad independiente del SN.
+
+¿Qué pretenden emular los Sistemas Conexionistas?
+a) El Sistema Nervioso Central.(*)
+b) Sfc
+c) Sdsd
+d) Sdsd
+
+¿Cuál NO corresponde con una disciplina de la Ciencia involucrada en el estudio de los Sistemas Nerviosos?
+a) Neurobiología.
+b) Neurofisiología.
+c) Neuropsicología.
+d) Neurosociología.(*)
+
+¿Qué consecuencias provoca la paulatina muerte neuronal?
+a) El decremento del campo dendrítico y las relaciones interneuronales se hacen más específicas.
+b) El incremento del campo dendrítico y las relaciones interneuronales se hacen más específicas.(*)
+c) El decremento del campo dendrítico y las relaciones interneuronales se hacen menos específicas.
+d) El incremento del campo dendrítico y las relaciones interneuronales se hacen menos específicas.
+
+La “división sensorial” se encarga de:
+a) De enviar al entorno las respuestas elaboradas en el SN.
+b) De recibir los estímulos del entorno.(*)
+c) De asociar las informaciones aferentes.
+d) Ninguna de las anteriores es correcta.
+
+Marr y Poggio formularon tres niveles de comprensión en el cerebro:
+a) De computación, algorítmico y de mecánica.(*)
+b) Algorítmico, conexionista y glial.
+c) Conexionista, glial y de mecánica.
+d) Conexionista, algorítmico y de mecánica.
+
+¿Por qué está formado el SN (Sistema Nervioso)?
+a) SNC (Sistema Nervioso Central), SI (Sistema Intermedio) y SNP (Sistema
+Nervioso Periférico).
+b) SNC y SNA (Sistema Nervioso Asociativo).
+c) SNC y SNP.(*)
+d) SI y SNP.
+
+El SNC (Sistema Nervioso Central) está compuesto por una acumulación compacta de:
+a) Neuronas.
+b) Neuronas y células gliales.(*)
+c) Neuronas, células gliales y terminaciones nerviosas.
+d) Neuronas, células gliales y dendritas.
+
+La neurofisiología es una neurociencia que ocupa del:
+a) Estudio de los SN de animales inferiores, permitiendo un posterior estudio comparativo con el SN de organismos superiores.
+b) Estudio del funcionamiento normal de los elementos constituyentes del SN.(*)
+c) Estudio específico de conductas adquiridas mediante las que el hombre mantiene relaciones adaptadas con el mundo exterior que le rodea.
+d) Estudio del SN.
+
+Una neurona típica consta de:
+a) Soma, axón y árbol dendrítico.(*)
+b) Cuerpo celular y axón.
+c) Cuerpo celular y árbol dendrítico.
+d) Ninguna de las anteriores es correcta.
+
+La transmisión de señales se produce:
+a) Unidireccionalmente en la sinapsis, tanto química como eléctrica.
+b) Unidireccionalmente en la sinapsis eléctrica y bidireccionalmente en la química.
+c) Bidireccionalmente en la sinapsis, tanto química como eléctrica.
+d) Unidireccionalmente en la sinapsis química y bidireccionalmente en la eléctrica.(*)
+
+La NEUROFISIOLOGIA es la ciencia encargada de:
+a) El estudio del SN de organismos inferiores y su metabolismo.
+b) El estudio de la disposición física o espacial de los elementos constitutivos del SN.
+c) El estudio del funcionamiento normal de los elementos del SN. (*)
+d) El estudio de las conductas adquiridas mediante las que ser humano mantiene relaciones con el mundo exterior que lo rodea.
+
+¿Cuál es la función de la “división motora” del SN en la NEUROLOGÍA?
+a) Recibir los estímulos del entorno.
+b) Enviar al entorno las respuestas elaboradas en el SN. (*)
+c) Evaluar los estímulos recibidos del entorno, para determinar su importancia en el organismo.
+d) Ninguna de las anteriores.
+
+
+Indica la respuesta falsa:
+a) Las neuronas no aparecen nunca aisladas en los animales más evolucionados de la escala filogenética, sino que siempre conforman estructuras funcionales o circuitos.
+b) La neurona es una célula que se diferencia del resto de las células en la intensidad de respuesta a tres funciones básicas: excitabilidad, conductividad y longevidad. (*)
+c) La sinapsis son las uniones funcionales entre dos elementos constituyentes de un circuito neuronal, formado por varios elementos.
+d) Son todas verdaderas.
+
+Las terminales sinápticas son la parte de las neuronas cuya función es la de:
+a) Superficie receptora o región ganadora.
+b) Trayecto de conducción y de distribución.
+c) Zona de transmisión. (*)
+d) Eliminación de la conexión.
+
+¿Cuál de las siguientes es una diferencia FALSA entre una sinapsis química y una mecánica?
+a) La SQ transmite las señales en una sola dirección mientras que la SM en ambas direcciones.
+b) La SQ puede realizar múltiples contactos (más de 10000) mientras que la SM sólo está sinaptada con otra.
+c) En la SQ la transmisión es a través de una sustancia química (neurotransmisor), mientras que en la SM se realiza a través de impulsos eléctricos.
+d) La SQ se encuentra únicamente y en muy pequeña proporción en el SNC, mientras que la SM se encuentra en todo el SN. (*)
+
+Los tipos de células específicas involucradas en la integración de los estímulos son:
+a) El axón y la neurona
+b) El cuerpo dendrítico, la zona integradora y el axón
+c) La neurona y las células del Sistema Glial (X)
+d) La neurona
+
+La división motora del SN
+a) Es la encargada de hacer una filtración primaria de la información en el órgano receptor
+b) Recibe la información del exterior
+c) No participa en el SN
+d) Transmite las órdenes dirigidas a los órganos efectores(X)
+
+¿Cuáles son los niveles de comprensión en el cerebro?
+a) Matemático, físico y químico
+b) De computación, algorítmico y mecánico(X)
+c) Informático, matemático y físico
+d) No se divide en niveles
+
+El sistema nervioso se divide en
+a) Sistema Nervioso Central y Sistema Nervioso Periférico(X)
+b) Sistema Nervioso y Sistema Glial
+c) Sistema Sensorial y Sistema Motor
+d) Sistema Nervioso Sensorial, Sistema Nervioso Periférico y Sistema Glial
+
+Las distintas partes de una neurona son:
+a) La morfológica, la trófica y la funcional
+b) La matemática, la física y la mecánica
+c) El axón y el cuerpo celular
+d) El axón, el cuerpo celular y el árbol dendrítico(X)
+
+¿Cuál de los siguientes no es un factor que ayuda al sistema nervioso para trabajar con la información (recibir, almacenar, procesar y transmitir la información)?
+a) El flujo de corriente es unidireccional e intracelular
+b) Se puede modificar la velocidad de conducción intracelular e intercelular
+c) El empuje de las neuronas vecinas(X)
+d) El alto grado de aislamiento de la membrana que impide el lenguaje cruzado erróneo entre células nerviosas
+
+La mayoría de las sinapsis son de tipo:
+a) Eléctrica
+b) Física
+c) Matemática
+d) Química(X)
+
+Elige la correcta
+a) El aprendizaje es fijo: una vez que se forma un metacircuito, las sinapsis, conexiones… no se pueden modificar
+b) El cerebro adquiere progresivamente metacircuitos que se organizan constituyendo una metaestructura característica de esas adquisiciones(X)
+c) El proceso del aprendizaje es estático
+d) A medida que se transmite información repetida, disminuye el tamaño de las áreas de contacto sináptico
+
+De qué se encarga el nivel algorítmico en los niveles de compresión del cerebro, según MArr y Poggio:
+a) de las tareas que puede/debe llevar a cabo el cerebro
+b) de cómo puede el aparato disponible ejecutar un algoritmo y realizar así una computación.
+c) averiguar qué secuencia de operaciones hace que la información adquiera una característica útil (X)
+d) b y c son correctas
+
+Tipos de sinápsis en el mundo animal:
+a) sinápsis física y sinápsis química
+b) sinápsis eléctrica y sinápsis química (X)
+c) sinápsis física y eléctrica
+d) sólo existe la sinapsis química
+
+
+
+
+
+
+¿Cuál es falsa?
+a) El sistema nervioso procesa conscientemente toda la infomación recibida. (*)
+b) La muerte de neuronas a lo largo de la vida de un ser humano posibilita que las relaciones entre ellas sean más específicas.
+c) Después de procesar una señal, el sistema nervioso determina trabajo intelectual, motor o neurosecretor.
+d) La división motora envía tanto órdenes voluntarias como involuntarias.
+
+La neurona...
+a) consta de varias ramificaciones llamadas axones por las que se envía la información.
+b) procesa la información recibida de las dentritas en el soma. (*)
+c) el axón se fusiona con otras neuronas.
+d) Todas son correctas.
+
+¿Qué factor se cree que hace que la sinapsis química sea mucho más abundante que la eléctrica?
+a) La información se transmite en una sóla dirección.
+b) Tiene una superficie de contacto inferior.
+c) Permite modificar el proceso de transmisión dando lugar a procesos de aprendizaje en el sentido más amplio.
+d) Todas son correctas. (*)
+
+1. ¿En que tipo de sinapse non hai espazo entre emisor e receptor?
+a) Sinapse química
+b) Sinapse eléctrica (*)
+c) Sinapse magnética
+d) Ningunha das anteriores
+
+-Entre las múltiples disciplinas de la Ciencia involucradas en el estudio de los Sistemas Conexionistas podemos destacar la neurología, la neurofisiología, la neuroembriología, la neuroanatomía, la neuropsicología o la neurobiología que es la rama de la ciencia que estudia...
+a) El sistema nervioso de forma global.
+b) La disposición física o espacial de los elementos constitutivos del sistema nervioso.
+c) El desarrollo del SN desde el momento de la concepción hasta el nacimiento.
+d) El sistema nervioso de organismos inferiores y su metabolismo. (*)
+
+-En una neurona típica la parte/s receptora/s de la información...
+a) Es el axón.
+b) Son las neuritas.
+c) Son las dendritas. (*)
+d) Es el soma.
+
+
+1. Que células están involucradas en la integración de los estímulos:
+a) Neuronas
+b) Células de SG
+c) A y B(x)
+d) Ninguna de las anteriores
+
+2. En los vertebrados superiores la formación de neuronas cesa, como más tarde:
+a) La formación de neuronas nuca cesa
+b) El primer año de vida
+c) El segundo(x)
+d) El quinto
+
+3. Que división es la encargada de enviar al entorno las respuestas elaboradas en el sistema nervioso:
+a) División sensorial
+b) División motora(x)
+c) Sistemas de asociación
+d) Ninguna de las anteriores
+
+4. Según Cajal la neurona constituye:
+a) La unidad morfológica y funcional
+b) Morfológica, funcional, trófica y patológica(x)
+c) Funcional y trófica
+d) Trófica, patológica y funcional

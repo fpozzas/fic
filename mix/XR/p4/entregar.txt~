@@ -1,0 +1,135 @@
+PRACTICA 4
+----------
+
+Respuestas a las preguntas planteadas en el enunciado:
+
+1)
+Configuración del snmpd.conf:
+--------------------------------------------------
+---snmpd.conf-------------------------------------
+--------------------------------------------------
+rocommunity comunidadpublica 10.10.103.0/24 system
+rwcommunity comunidadprivada localhost system
+override -rw sysContact.0	octet_str 	"infdfn01@udc.es"
+override -rw sysLocation.0 	octet_str 	"A Coruña"
+override sysServices.0 		integer 	"72"
+--------------------------------------------------
+---fin de snmpd.conf------------------------------
+--------------------------------------------------
+
+2) Comando:
+snmpd -f 1161
+
+3) tkmib. Pasos a seguir para configurarlo:
+ - Options -> SNMP v1 -> Community Name: nombre de la comunidad
+ - Options -> Timeout: cambiar a 500
+ - Options -> Port: cambiar el puerto
+ - Si usamos comunidadpublica, cambiar localhost por la ip de red.
+Los objetos de system son: sysDescr, sysObjectID, sysUpTime, sysContact,
+sysName, sysLocation, sysServices, sysORLastChange, sysORTable
+
+4) Valores de los objetos de system:
+.iso.org.dod.internet.mgmt.mib-2.system.sysDescr.0 = Linux torno03076 2.6.15-25-386 #1 PREEMPT Wed Jun 14 11:25:49 UTC 2006 i686
+.iso.org.dod.internet.mgmt.mib-2.system.sysObjectID.0 = .1.3.6.0.0.0.0.0.0.0
+.iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.0 = 88255
+.iso.org.dod.internet.mgmt.mib-2.system.sysContact.0 = "infdfn01@udc.es"
+.iso.org.dod.internet.mgmt.mib-2.system.sysName.0 = torno03076
+.iso.org.dod.internet.mgmt.mib-2.system.sysLocation.0 = "A CoruÃ±a"
+.iso.org.dod.internet.mgmt.mib-2.system.sysServices.0 = 72
+.iso.org.dod.internet.mgmt.mib-2.system.sysORLastChange.0 = 0
+
+5) Por ejemplo, para sysContact a traves de la comunidad pública:
+snmpget -v1 -c comunidadpublica 10.10.103.76:1161 system.sysContact.0
+SNMPv2-MIB::sysContact.0 = STRING: "infdfn01@udc.es"
+
+6) Para obtener el valor de sysContact a traves para la comunidad privada:
+snmpgetnext -v1 -c comunidadprivada localhost:1161 system.sysContact
+SNMPv2-MIB::sysContact.0 = STRING: "infdfn01@udc.es"
+
+Y para obtener el siguiente objeto al valor de sysContact:
+snmpgetnext -v1 -c comunidadprivada localhost:1161 system.sysContact.0
+SNMPv2-MIB::sysName.0 = STRING: torno03076
+
+7) 
+snmpset -v1 -c comunidadprivada localhost:1161 system.sysContact.0 = "NuevoContacto"
+SNMPv2-MIB::sysContact.0 = STRING: NuevoContacto
+
+8) comunidadpublica tiene permisos de solo lectura:
+snmpset -v1 -c comunidadpublica 10.10.103.76:1161 system.sysContact.0 = "NuevoContacto"
+Error in packet.
+Reason: (noSuchName) There is no such variable name in this MIB.
+
+9) 
+--------------------------------------------------
+---snmpd.conf-------------------------------------
+--------------------------------------------------
+# Comunidades
+com2sec c_private	localhost		private
+com2sec c_adminet	10.10.103.0/24	adminet
+com2sec c_public	default			public
+
+# Grupos
+group g_private	v1	c_private
+group g_adminet	v1	c_adminet
+group g_public	v1	c_public
+
+# Vistas
+view todo 		included .iso.org.dod.internet.mgmt.mib-2
+view protocolos included .iso.org.dod.internet.mgmt.mib-2.ip
+view protocolos included .iso.org.dod.internet.mgmt.mib-2.interfaces
+view protocolos included .iso.org.dod.internet.mgmt.mib-2.snmp
+view protocolos included .iso.org.dod.internet.mgmt.mib-2.icmp
+view protocolos included .iso.org.dod.internet.mgmt.mib-2.tcp
+view protocolos included .iso.org.dod.internet.mgmt.mib-2.udp
+view sistema	included system
+
+# Accesos
+access g_private "" any  noauth  exact  sistema    sistema    none
+access g_adminet "" any  noauth  exact  protocolos protocolos none
+access g_public  "" any  noauth  exact  todo       none       none
+# Otros
+override -rw sysContact.0	octet_str 	"infdfn01@udc.es"
+override -rw sysLocation.0 	octet_str 	"A Coruña"
+override sysServices.0 		integer 	"72"
+--------------------------------------------------
+---fin de snmpd.conf------------------------------
+--------------------------------------------------
+
+10)
+snmptranslate -Td .iso.org.dod.internet.mgmt.mib-2.system.sysContact.0
+
+SNMPv2-MIB::sysContact.0
+sysContact OBJECT-TYPE
+  -- FROM       SNMPv2-MIB, RFC1213-MIB
+  -- TEXTUAL CONVENTION DisplayString
+  SYNTAX        OCTET STRING (0..255)
+  DISPLAY-HINT  "255a"
+  MAX-ACCESS    read-write
+  STATUS        current
+  DESCRIPTION   "The textual identification of the contact person for
+            this managed node, together with information on how
+            to contact this person.  If no contact information is
+            known, the value is the zero-length string."
+::= { iso(1) org(3) dod(6) internet(1) mgmt(2) mib-2(1) system(1) sysContact(4) 0 }
+
+El acceso es read-write
+
+11) Para obtener el OID:
+snmptranslate -O n .iso.org.dod.internet.mgmt.mib-2.system.sysContact.0
+.1.3.6.1.2.1.1.4.0
+
+12) Para obtener un listado de todas las tablas en ip:
+snmptranslate -Tp .iso.org.dod.internet.mgmt.mib-2.ip
+
+13) Ver la tabla de interfaces:
+snmpgetnext -v1 -c public localhost:1161 .iso.org.dod.internet.mgmt.mib-2.interfaces
+
+14)
+snmptable -v 2c -Cw 80 -c public localhost sysORTable
+
+15) Ejecutar el demonio trap:
+snmptrapd -f 1162
+
+16) Enviar una trap:
+snmptrap -v 1 -c public host TRAP-TEST-MIB::demotraps localhost 6 17 '' SNMPv2-MIB::sysLocation.0 s "Just here"
+

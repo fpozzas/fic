@@ -1,0 +1,116 @@
+- NO EXISTEN LOS STRINGS EN C
+
+- Esto peta:
+
+char a[MAX];
+a = "holaaaa";
+
+- Esto funciona (parece):
+
+char *a;
+a="hola";
+a=a+"que hay";
+
+# a es un entero! ahí lo que est haciendo es sumar dos direcciones de 
+# memoria mejor así
+
+a=strcat(a,"que hay");
+
+# sigue estando mal, algunas veces funciona y otras veces no segun tenga 
+# el día el compilador y segun la urgencia que tengas, jojo.
+# aunque no lo parezca, a="hola" es un puntero=puntero
+
+# forma correcta
+char *a;
+a=malloc(__);
+# no podemos hacer a="hola"
+a=strcpy(a,"hola");
+a=srtcat(a,"que hay");
+
+# en vez de char *a; a=malloc(_) podemos hacer simplemente char a[MAX];
+
+- Ojo:
+
+char *a;
+a=malloc(MAX);
+strcpy(a,"lo que sea");
+if (a="hola"){
+}
+# aquí lo que hace es asignar "hola" en a, mucho cuidado con el = en los 
+if's
+# podría ser
+if (a=="hola")
+# pero no, está comparando direcciones de memoria! y esas nunca van a 
+# ser iguales para comprar hay que usar una funcion de la librería
+
+- Estructura:
+while(1){
+  Imprimir_prompt();
+  Procesar_entrada();
+  ...
+}
+
+# imaginemos que nos meten el comando: 
+shared-cp -f fich1 fich2
+# ¿cómo hacemos para separar los parámetros? usamos la funcion strtok. 
+# ejemplos:
+strtok(linea_a_trocear,separadores
+strtok(linea,"\t\n");
+# la primera vez que la llamamos nos devuelve el primer parámetro 
+# (direccion) hasta 
+# el primer separador. para continuar con la misma cadena:
+strtok(NULL,"\t\n");
+# nos devuelve la direccion al string con el caracter de fin de linea en 
+# el segundo parámetro, es decir, nos sigue pasando tambien el primero 
+# (probar, no estoy seguro)
+# ejemplo
+char linea[MAX];
+char *trozos[MAXTROZOS]; # esto es un array de PUNTEROS, por eso el *
+trozos[0]=strtok(linea,"\t\n");
+while((trozos=strtok(NULL,"\t\n"))!= NULL){
+  i++;
+}
+
+- Si algo es muy complicado, no es así. Ejemplos:
+# tengo un array y una función a la que le quiero pasar ese array pero 
+# sin los dos primeros elementos
+# la primera forma: le paso el array entero y la función funciona desde 
+# el 2º elemento. no es muy buena solución.
+# segunda forma: declaro otro array b en el que meto los datos de a menos 
+# los dos primeros. aquí puede haber problemas si lo que hay dentro de  
+# los arrays son punteros.
+# tercera forma: moviendo indices, cosa rara.
+# la buena:
+funcion(a+2);
+# estamos desplazando el puntero del array. fácil y sencillo.
+
+- Depurador
+# el gdb. tengo un programa que ha cascado y quiero ver que pasa.
+# primer paso: compilar con -g
+$ gcc -g p1.c
+# segundo paso: ejecuto el programa dentro del depurador:
+$ gdb a.out
+# aquí nos aparece el prompt del depurador. se ponen puntos de ruptura.
+(gdb) break 150
+# punto de ruptura en la linea 150
+(gdb) break funcioncilla
+# se para al llegar a la función funcioncilla
+(gdb) run
+# ejecutamos
+(gdb) display i
+# ver lo que vale la variable i
+(gdb) cont
+# el programa se ejecuta hasta el siguiente punto de ruptura
+(gdb) where
+# te dice donde te da el segmentation fault, junto que los parámetros que hicieron cascar
+# si el gdb no te dice la linea y te pone ??, eso es que se ha sobreescito la pila. para solucionarlo
+# lo mejor es ir paso a paso (step)
+
+
+- gets
+# dice que es peligrosa. ejemplo:
+funcion(__){
+ char lin[55];
+ gets(lin);
+}
+# no comprueba longitudes y es insegura. mejor fscanf

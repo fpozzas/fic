@@ -1,0 +1,209 @@
+#!/usr/bin/env python
+#coding=utf-8
+import locale
+import random
+import sys
+from lipsum import generator 
+import time
+import datetime
+import math
+import thread
+import util
+import threading
+import gettext
+
+try:
+ 	import pygtk 
+  	pygtk.require("2.0")
+except:
+  	pass
+try:
+	import gtk
+  	import gtk.glade
+except:
+	sys.exit(1)
+
+APP='practica2'
+DIR='locale'
+
+locale.setlocale(locale.LC_ALL, '')
+gettext.bindtextdomain(APP, DIR)
+gettext.textdomain(APP)
+gtk.glade.bindtextdomain(APP, DIR)
+gtk.glade.textdomain(APP)
+_ = gettext.gettext
+
+class Principal:
+	def __init__(self):
+		self.gladefile = 'interfaz2.glade'
+		w = gtk.glade.XML(self.gladefile,'window')
+		w.signal_autoconnect(self)
+		self._treeview = w.get_widget('treeview')
+		self._textview = w.get_widget('textview')
+		self._statusbar = w.get_widget('statusbar')
+		self._statusbarid = self._statusbar.get_context_id("mainview")
+		new = w.get_widget('botonnuevo')
+		exit = w.get_widget('botonsalir')
+		toolbar = w.get_widget('toolbar')
+		win = w.get_widget('window')
+		self._store = gtk.ListStore(str,str)
+		self._treeview.set_model(self._store)
+		columna = gtk.TreeViewColumn('title', gtk.CellRendererText(), text=0)
+		self._treeview.append_column(columna)
+		toolbar.set_focus_chain([new, exit])		
+		win.set_focus_chain([toolbar, self._treeview])
+		# Variable para salir del thread de actualizar
+		self._refresh_stop = False
+	#Manejadores 
+
+	def on_exitbutton_clicked(self,widget):
+		gtk.main_quit()
+	
+	def on_new_action(self, widget):
+		self._newdialogTree = gtk.glade.XML(self.gladefile,'newdialog')
+		self._newdialog = self._newdialogTree.get_widget('newdialog')
+		self._newdialogTree.signal_autoconnect(self)
+		
+	
+	def on_okbutton_new_clicked(self, widget):
+		entrada = self._newdialogTree.get_widget('addentry')
+		self.new_element(entrada.get_text())
+		self._newdialog.hide()
+	
+	def on_cancelbutton_new_clicked(self, widget):
+		self._newdialog.hide()
+		
+	def on_newdialog_destroy(self, widget):
+		self._newdialog.hide()
+		
+	def on_quitmenu_activate(self, widget):
+		gtk.main_quit()
+		
+	def on_window_destroy(self, widget):
+		gtk.main_quit()
+	 
+	def on_aboutmenu_activate(self, widget):
+		w = gtk.glade.XML(self.gladefile,'aboutdialog')
+		self._aboutdialog = w.get_widget('aboutdialog')
+		w.signal_autoconnect(self)
+		
+	def on_aboutdialog_destroy(self, widget):
+		self._aboutdialog.hide()
+	
+	def on_aboutdialog_response(self, widget,NULL):
+		self._aboutdialog.hide()
+	
+	def on_treeview_cursor_changed(self, widget):
+		sel, it = self._treeview.get_selection().get_selected()
+		title = sel.get_value(it, 0)
+		text = sel.get_value(it,1)
+		self.get_text(text)
+		self.set_statusbar(title)
+	def on_refresh_action(self,widget):
+		modelo = ModeloActualizar()
+		controlador = ControladorActualizar(modelo)
+		vista = VistaActualizar('interfaz2.glade', 'refreshdialog',controlador)
+		controlador.registrar_vista(vista)
+		modelo.start()
+
+	def new_element(self,title):
+		model = self._store.append(['title','text'])
+		text = self.generate_text()
+		self._store.set_value(model, 0, title)
+		self._store.set_value(model, 1, text)
+		self.get_text(text)
+		self.set_statusbar(title)
+		new = self._store.get_path(model)
+		self._treeview.set_cursor(new)	
+		
+	def generate_title(self):
+		return str(random.random())
+		
+	def generate_text(self):
+		return generator('sample.txt','dictionary.txt').generate_paragraph(True,3)
+		
+	def get_text(self, text):
+		b = self._textview.get_buffer()
+		b.set_text(text)
+		
+	def set_statusbar(self, title):
+		fecha = datetime.date.today().strftime(" %d/%m/%Y")
+		fechasrt = _(u"Fecha:") + " %s "  % (fecha) 
+		self._statusbar.pop(self._statusbarid)
+		self._statusbar.push(self._statusbarid, fechasrt + _(u" | Seleccionado: %s") % title)
+	
+class ModeloActualizar(util.Sujeto,threading.Thread):
+	def __init__(self):
+		util.Sujeto.__init__(self)
+		self._refresh_stop = False
+		threading.Thread.__init__(self)
+	def run(self):
+		print "Modelo: Inicio el thread"
+		inicio = time.time()
+		esperar = random.random()*12
+		print "Va a durar: %s" % esperar
+		fin = time.time() + esperar
+		while (not self._refresh_stop):
+			if (fin < time.time()):
+				self._refresh_stop = True
+			else:
+				self.actualizar(False)
+				time.sleep(0.5)
+		print "Modelo: he terminado de actualizar o me han matado. Aviso a controlador"
+		self.actualizar(True)
+	def stop(self):
+		print "Modelo: señal de terminar el thread"
+		self._refresh_stop = True
+		
+class ControladorActualizar(util.Sujeto):
+	_modelo = None
+	def __init__(self, modelo):
+		util.Sujeto.__init__(self)
+		modelo.anadirObservador(self)
+		self._modelo = modelo
+	def registrar_vista(self, vista):
+		self.anadirObservador(vista)
+	def notificar(self, estado):
+		if estado:
+			print >> sys.stderr, "Controlador: el modelo ha terminado, notifico a las vistas y al controlador"
+			self.actualizar(True)
+		else:
+			print >> sys.stderr, "Controlador: el modelo manda señal de actualizar pulso"
+			self.actualizar(False)
+	def cancelar(self):
+		print >> sys.stderr, "Controlador: Señal de cancelar desde la interfaz. Aviso a las vistas."
+		self.actualizar(True)
+	def cerrar(self):
+		self._modelo.stop()
+		
+class VistaActualizar:
+	_controlador = None
+	_w = None	
+	def __init__(self, file, winname,controlador):
+		self._w = gtk.glade.XML(file,winname)
+		self._refreshdialog = self._w.get_widget(winname)
+		self._w.signal_autoconnect(self)
+		self._controlador = controlador
+	def on_cancelbutton_clicked(self,widget):
+		print "Vista: señal de cancelar desde la interfaz, aviso a controlador"
+		self._controlador.cancelar()
+	def on_refreshdialog_destroy(self,widget):
+		print "Vista: señal de cerrar vista desde interfaz"
+		self._refreshdialog.hide()
+		self._controlador.cerrar()
+	def notificar(self, estado):
+		if estado:
+			print "Vista: controlador me ha mandado cerrar la ventana"
+			self._refreshdialog.hide()
+			self._controlador.cerrar()
+		else:
+			print "Vista: controlador me ha mandado actualizar pulso"
+			pb = self._w.get_widget('progressbar')
+			gtk.gdk.threads_enter()
+			pb.pulse()
+			gtk.gdk.threads_leave()
+	
+if __name__ == "__main__":
+	p = Principal()
+	gtk.gdk.threads_init()
+	gtk.main()

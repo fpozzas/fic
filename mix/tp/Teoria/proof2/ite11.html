@@ -1,0 +1,38 @@
+<head>
+<title>Ejemplo de prueba 2</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+TERMINADO!
+
+<a href="plan.html">Plan de prueba</a>
+<img src="shortLine.gif">
+
+<pre>
+
+ { PRE: x0 = x and y0 = y }
+
+    if (x &gt y) then y := x
+
+               else x := y
+
+ { POST: x = y = max(x0,y0) }
+
+<hr>
+
+ 3) concluimos:  
+
+    |= { PRE } if (x &gt y) then y := x
+                       else x := y { POST }
+
+    por la regla de Hoare del  IF-THEN-ELSE.
+
+    <b>QED</b>
+
+
+</pre>
+
+</body>

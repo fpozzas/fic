@@ -1,0 +1,82 @@
+##############################################################################
+#
+# AEC-GAC
+# Uso:   torno03092$ compilepvm codigoPVM.c
+#
+
+################### Daemon principal 'pvmd' ##################################
+if [ `ps -e | grep pvmd | wc -l` -eq 1 ]; then
+  echo "PVM daemon 'pvmd' already started"
+fi
+if [ `ps -e | grep pvmd | wc -l` -gt 1 ]; then
+  echo "Too many PVM daemons 'pvmd' started"
+  ps -aefl | grep pvmd
+  ps -aefl | grep pvmgs
+  ps -aefl | grep xpvm
+  echo "Kill 'pvmd' processes"
+  echo "Kill 'pvmgs' processes"
+  echo "Kill 'xpvm' processes"
+  echo "Delete temporary files '/tmp/pvm*'"
+  echo "Restart PVM virtual machine"
+  exit -1
+fi
+if [ `ps -e | grep pvmd | wc -l` -lt 1 ]; then
+  echo "PVM daemon 'pvmd' not started"
+  echo "Run PVM console ('pvm') or XPVM ('xpvm') in order to start 'pvmd'"
+  exit -1
+fi
+
+################### Daemon de grupos dinamicos 'pvmgs' ######################
+if [ `ps -e | grep pvmgs | wc -l` -eq 1 ]; then
+  echo "PVM group daemon 'pvmgs' already started"
+fi
+if [ `ps -e | grep pvmgs | wc -l` -gt 1 ]; then
+  echo "Too many PVM group daemons 'pvmgs' started"
+  ps -aefl | grep pvmd
+  ps -aefl | grep pvmgs
+  ps -aefl | grep xpvm
+  echo "Kill 'pvmd' processes"
+  echo "Kill 'pvmgs' processes"
+  echo "Kill 'xpvm' processes"
+  echo "Delete temporary files '/tmp/pvm*'"
+  echo "Restart PVM virtual machine"
+  exit -1
+fi
+if [ `ps -e | grep pvmgs | wc -l` -lt 1 ]; then
+  echo "Starting PVM group daemon 'pvmgs'"
+  pvmgs &
+  echo "PVM groups daemon 'pvmgs' started"
+fi
+
+########################### Entorno grafico 'xpvm' ###########################
+if [ `ps -e | grep xpvm | wc -l` -eq 1 ]; then
+  echo "XPVM graphical interface 'xpvm' already started"
+fi
+if [ `ps -e | grep xpvm | wc -l` -gt 1 ]; then
+  echo "Too many XPVM graphical interfaces 'xpvms' started"
+  ps -aefl | grep pvmd
+  ps -aefl | grep pvmgs
+  ps -aefl | grep xpvm
+  echo "Kill 'pvmd' processes"
+  echo "Kill 'pvmgs' processes"
+  echo "Kill 'xpvm' processes"
+  echo "Delete temporary files '/tmp/pvm*'"
+  echo "Restart PVM virtual machine"
+  exit -1
+fi
+if [ `ps -e | grep xpvm | wc -l` -lt 1 ]; then
+  echo "XPVM graphical interface 'xpvm' not started"
+fi
+
+########################### Compilacion del codigo fuente #####################
+PROGRAM=`basename $1 .c`
+export PROGRAM
+
+echo "Compilation of the source code started"
+
+gcc -O -I/usr/include  -DSYSVBFUNC -DSYSVSTR -DNOGETDTBLSIZ -DSYSVSIGNAL \
+-DNOWAIT3 -DNOUNIXDOM -o $HOME/pvm3/bin/LINUX/$PROGRAM -g $1 \
+-L/usr/lib/pvm/lib -lgpvm3 -lpvm3 -lnsl
+
+##################################################################################
+

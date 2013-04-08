@@ -1,0 +1,43 @@
+<head>
+<title>Example de prueba 3: Generar el INVariante</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+<img src="shortLine.gif">
+<p>
+
+La generaci&oacute;n del invariante para arrays a menudo implica
+dividir el array en dos partes: la parte ya procesada en el programa del 
+bucle, y la parte que resta por procesar.
+
+<pre>
+     { INV: a&lt=k&lt=b and forall i, a &lt= i &lt  k : x[i]=x0[i+1]
+                    and forall i, k &lt= i &lt= b : x[i]=x0[i]   }
+</pre>
+
+Esto quiere decir:
+
+<ul>
+
+<li> 
+k est&aacute en alg&uacute;n lugar entre a y b:  
+<pre>   a &lt= k &lt= b
+</pre>
+
+<li>
+para los elementos ya tratados se cumple el desplazamiento: 
+<pre>   i &lt k ==&gt x[i] = x0[i+1]
+</pre>
+
+<li>
+mientras que para los que no han sido tratados todavia, no hay
+desplazamiento: 
+<pre>   i &gt= k ==&gt x[i] = x0[i]
+</pre>
+
+</ul>
+
+</body>

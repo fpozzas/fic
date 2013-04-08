@@ -1,0 +1,1129 @@
+========================================================================
+PRACTICA 1 DE BASES DE DATOS 1
+AUTORES:
+     Juan Font Alonso - infjfa00 - EI - 2ºA-2
+     Daniel Fernández Núñez - infdfn02 - EI - 2ºA-2
+========================================================================
+SQL> START consultas
+SQL> --Consulta 1:
+SQL> SELECT * FROM emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+      7499 ALLEN      SALESMAN        7698 20/02/81       1600        300         30                
+      7521 WARD       SALESMAN        7698 22/02/81       1250        500         30                
+      7566 JONES      MANAGER         7839 02/04/81       2975                    20                
+      7654 MARTIN     SALESMAN        7698 28/09/81       1250       1400         30                
+      7698 BLAKE      MANAGER         7839 01/05/81       2850                    30                
+      7782 CLARK      MANAGER         7839 09/06/81       2450                    10                
+      7788 SCOTT      ANALYST         7566 09/12/82       3000                    20                
+      7839 KING       PRESIDENT            17/11/81       5000                    10                
+      7844 TURNER     SALESMAN        7698 08/09/81       1500          0         30                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+      7902 FORD       ANALYST         7566 03/12/81       3000                    20                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 2:
+SQL> SELECT * FROM dept;
+
+    DEPTNO DNAME          LOC                                                                       
+---------- -------------- -------------                                                             
+        10 ACCOUNTING     NEW YORK                                                                  
+        20 RESEARCH       DALLAS                                                                    
+        30 SALES          CHICAGO                                                                   
+        40 OPERATIONS     BOSTON                                                                    
+
+SQL> -- Consulta 3:
+SQL> SELECT * FROM emp WHERE job='CLERK';
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+
+SQL> -- Consulta 4:
+SQL> SELECT * FROM emp WHERE job='CLERK' ORDER BY ename;
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+
+SQL> -- Consulta 5:
+SQL> SELECT * FROM emp WHERE job='CLERK' ORDER BY ename ASC;
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+
+SQL> -- Consulta 6:
+SQL> SELECT empno,ename,sal FROM emp;
+
+     EMPNO ENAME             SAL                                                                    
+---------- ---------- ----------                                                                    
+      7369 SMITH             800                                                                    
+      7499 ALLEN            1600                                                                    
+      7521 WARD             1250                                                                    
+      7566 JONES            2975                                                                    
+      7654 MARTIN           1250                                                                    
+      7698 BLAKE            2850                                                                    
+      7782 CLARK            2450                                                                    
+      7788 SCOTT            3000                                                                    
+      7839 KING             5000                                                                    
+      7844 TURNER           1500                                                                    
+      7876 ADAMS            1100                                                                    
+      7900 JAMES             950                                                                    
+      7902 FORD             3000                                                                    
+      7934 MILLER           1300                                                                    
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 7:
+SQL> SELECT dname FROM dept;
+
+DNAME                                                                                               
+--------------                                                                                      
+ACCOUNTING                                                                                          
+RESEARCH                                                                                            
+SALES                                                                                               
+OPERATIONS                                                                                          
+
+SQL> -- Consulta 8:
+SQL> SELECT dname FROM dept ORDER BY dname;
+
+DNAME                                                                                               
+--------------                                                                                      
+ACCOUNTING                                                                                          
+OPERATIONS                                                                                          
+RESEARCH                                                                                            
+SALES                                                                                               
+
+SQL> -- Consulta 9:
+SQL> SELECT dname FROM dept ORDER BY loc;
+
+DNAME                                                                                               
+--------------                                                                                      
+OPERATIONS                                                                                          
+SALES                                                                                               
+RESEARCH                                                                                            
+ACCOUNTING                                                                                          
+
+SQL> -- Consulta 10:
+SQL> SELECT dname FROM dept ORDER BY loc DESC;
+
+DNAME                                                                                               
+--------------                                                                                      
+ACCOUNTING                                                                                          
+RESEARCH                                                                                            
+SALES                                                                                               
+OPERATIONS                                                                                          
+
+SQL> -- Consulta 11:
+SQL> SELECT ename,job FROM emp ORDER BY sal;
+
+ENAME      JOB                                                                                      
+---------- ---------                                                                                
+SMITH      CLERK                                                                                    
+JAMES      CLERK                                                                                    
+ADAMS      CLERK                                                                                    
+WARD       SALESMAN                                                                                 
+MARTIN     SALESMAN                                                                                 
+MILLER     CLERK                                                                                    
+TURNER     SALESMAN                                                                                 
+ALLEN      SALESMAN                                                                                 
+CLARK      MANAGER                                                                                  
+BLAKE      MANAGER                                                                                  
+JONES      MANAGER                                                                                  
+SCOTT      ANALYST                                                                                  
+FORD       ANALYST                                                                                  
+KING       PRESIDENT                                                                                
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 12:
+SQL> SELECT ename,job FROM emp ORDER BY job,sal;
+
+ENAME      JOB                                                                                      
+---------- ---------                                                                                
+SCOTT      ANALYST                                                                                  
+FORD       ANALYST                                                                                  
+SMITH      CLERK                                                                                    
+JAMES      CLERK                                                                                    
+ADAMS      CLERK                                                                                    
+MILLER     CLERK                                                                                    
+CLARK      MANAGER                                                                                  
+BLAKE      MANAGER                                                                                  
+JONES      MANAGER                                                                                  
+KING       PRESIDENT                                                                                
+WARD       SALESMAN                                                                                 
+MARTIN     SALESMAN                                                                                 
+TURNER     SALESMAN                                                                                 
+ALLEN      SALESMAN                                                                                 
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 13:
+SQL> SELECT ename,job FROM emp ORDER BY job DESC,sal;
+
+ENAME      JOB                                                                                      
+---------- ---------                                                                                
+WARD       SALESMAN                                                                                 
+MARTIN     SALESMAN                                                                                 
+TURNER     SALESMAN                                                                                 
+ALLEN      SALESMAN                                                                                 
+KING       PRESIDENT                                                                                
+CLARK      MANAGER                                                                                  
+BLAKE      MANAGER                                                                                  
+JONES      MANAGER                                                                                  
+SMITH      CLERK                                                                                    
+JAMES      CLERK                                                                                    
+ADAMS      CLERK                                                                                    
+MILLER     CLERK                                                                                    
+SCOTT      ANALYST                                                                                  
+FORD       ANALYST                                                                                  
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 14:
+SQL> SELECT sal,comm FROM emp WHERE deptno=30;
+
+       SAL       COMM                                                                               
+---------- ----------                                                                               
+      1600        300                                                                               
+      1250        500                                                                               
+      1250       1400                                                                               
+      2850                                                                                          
+      1500          0                                                                               
+       950                                                                                          
+
+6 filas seleccionadas.
+
+SQL> -- Consulta 15:
+SQL> SELECT sal,comm FROM emp WHERE deptno=30 ORDER BY comm;
+
+       SAL       COMM                                                                               
+---------- ----------                                                                               
+      1500          0                                                                               
+      1600        300                                                                               
+      1250        500                                                                               
+      1250       1400                                                                               
+      2850                                                                                          
+       950                                                                                          
+
+6 filas seleccionadas.
+
+SQL> -- Consulta 16a:
+SQL> SELECT comm FROM emp;
+
+      COMM                                                                                          
+----------                                                                                          
+                                                                                                    
+       300                                                                                          
+       500                                                                                          
+                                                                                                    
+      1400                                                                                          
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+         0                                                                                          
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 16b:
+SQL> SELECT DISTINCT comm FROM emp;
+
+      COMM                                                                                          
+----------                                                                                          
+         0                                                                                          
+       300                                                                                          
+       500                                                                                          
+      1400                                                                                          
+                                                                                                    
+
+SQL> -- Consulta 17:
+SQL> SELECT DISTINCT ename,comm FROM emp;
+
+ENAME            COMM                                                                               
+---------- ----------                                                                               
+ADAMS                                                                                               
+ALLEN             300                                                                               
+BLAKE                                                                                               
+CLARK                                                                                               
+FORD                                                                                                
+JAMES                                                                                               
+JONES                                                                                               
+KING                                                                                                
+MARTIN           1400                                                                               
+MILLER                                                                                              
+SCOTT                                                                                               
+SMITH                                                                                               
+TURNER              0                                                                               
+WARD              500                                                                               
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 18:
+SQL> SELECT DISTINCT ename,sal FROM emp;
+
+ENAME             SAL                                                                               
+---------- ----------                                                                               
+ADAMS            1100                                                                               
+ALLEN            1600                                                                               
+BLAKE            2850                                                                               
+CLARK            2450                                                                               
+FORD             3000                                                                               
+JAMES             950                                                                               
+JONES            2975                                                                               
+KING             5000                                                                               
+MARTIN           1250                                                                               
+MILLER           1300                                                                               
+SCOTT            3000                                                                               
+SMITH             800                                                                               
+TURNER           1500                                                                               
+WARD             1250                                                                               
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 19:
+SQL> SELECT DISTINCT comm,deptno FROM emp;
+
+      COMM     DEPTNO                                                                               
+---------- ----------                                                                               
+         0         30                                                                               
+       300         30                                                                               
+       500         30                                                                               
+      1400         30                                                                               
+                   10                                                                               
+                   20                                                                               
+                   30                                                                               
+
+7 filas seleccionadas.
+
+SQL> -- Consulta 20:
+SQL> SELECT ename,sal+1000 AS sal FROM emp WHERE deptno=30;
+
+ENAME             SAL                                                                               
+---------- ----------                                                                               
+ALLEN            2600                                                                               
+WARD             2250                                                                               
+MARTIN           2250                                                                               
+BLAKE            3850                                                                               
+TURNER           2500                                                                               
+JAMES            1950                                                                               
+
+6 filas seleccionadas.
+
+SQL> -- Consulta 21:
+SQL> SELECT ename,sal,sal+1000 AS nuevo_salario FROM emp WHERE deptno=30;
+
+ENAME             SAL NUEVO_SALARIO                                                                 
+---------- ---------- -------------                                                                 
+ALLEN            1600          2600                                                                 
+WARD             1250          2250                                                                 
+MARTIN           1250          2250                                                                 
+BLAKE            2850          3850                                                                 
+TURNER           1500          2500                                                                 
+JAMES             950          1950                                                                 
+
+6 filas seleccionadas.
+
+SQL> -- Consulta 22:
+SQL> SELECT ename FROM emp WHERE comm is not NULL and comm>(sal/2);
+
+ENAME                                                                                               
+----------                                                                                          
+MARTIN                                                                                              
+
+SQL> -- Consulta 23:
+SQL> SELECT ename FROM emp WHERE comm is NULL or comm<=0.25*sal;
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+ALLEN                                                                                               
+JONES                                                                                               
+BLAKE                                                                                               
+CLARK                                                                                               
+SCOTT                                                                                               
+KING                                                                                                
+TURNER                                                                                              
+ADAMS                                                                                               
+JAMES                                                                                               
+FORD                                                                                                
+MILLER                                                                                              
+
+12 filas seleccionadas.
+
+SQL> -- Consulta 24:
+SQL> SELECT 'Nombre: '||ename AS ename,'Salario: '||sal AS sal FROM emp;
+
+ENAME              SAL                                                                              
+------------------ -------------------------------------------------                                
+Nombre: SMITH      Salario: 800                                                                     
+Nombre: ALLEN      Salario: 1600                                                                    
+Nombre: WARD       Salario: 1250                                                                    
+Nombre: JONES      Salario: 2975                                                                    
+Nombre: MARTIN     Salario: 1250                                                                    
+Nombre: BLAKE      Salario: 2850                                                                    
+Nombre: CLARK      Salario: 2450                                                                    
+Nombre: SCOTT      Salario: 3000                                                                    
+Nombre: KING       Salario: 5000                                                                    
+Nombre: TURNER     Salario: 1500                                                                    
+Nombre: ADAMS      Salario: 1100                                                                    
+Nombre: JAMES      Salario: 950                                                                     
+Nombre: FORD       Salario: 3000                                                                    
+Nombre: MILLER     Salario: 1300                                                                    
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 25:
+SQL> SELECT empno,sal,comm FROM emp WHERE empno>7500;
+
+     EMPNO        SAL       COMM                                                                    
+---------- ---------- ----------                                                                    
+      7521       1250        500                                                                    
+      7566       2975                                                                               
+      7654       1250       1400                                                                    
+      7698       2850                                                                               
+      7782       2450                                                                               
+      7788       3000                                                                               
+      7839       5000                                                                               
+      7844       1500          0                                                                    
+      7876       1100                                                                               
+      7900        950                                                                               
+      7902       3000                                                                               
+      7934       1300                                                                               
+
+12 filas seleccionadas.
+
+SQL> -- Consulta 26:
+SQL> SELECT * FROM emp WHERE ename>='J';
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+      7521 WARD       SALESMAN        7698 22/02/81       1250        500         30                
+      7566 JONES      MANAGER         7839 02/04/81       2975                    20                
+      7654 MARTIN     SALESMAN        7698 28/09/81       1250       1400         30                
+      7788 SCOTT      ANALYST         7566 09/12/82       3000                    20                
+      7839 KING       PRESIDENT            17/11/81       5000                    10                
+      7844 TURNER     SALESMAN        7698 08/09/81       1500          0         30                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+
+9 filas seleccionadas.
+
+SQL> -- Consulta 27:
+SQL> SELECT sal,comm,sal+comm AS sal_total FROM emp WHERE comm is not NULL ORDER BY empno;
+
+       SAL       COMM  SAL_TOTAL                                                                    
+---------- ---------- ----------                                                                    
+      1600        300       1900                                                                    
+      1250        500       1750                                                                    
+      1250       1400       2650                                                                    
+      1500          0       1500                                                                    
+
+SQL> -- Consulta 28:
+SQL> SELECT sal,comm,sal AS sal_total FROM emp WHERE comm is NULL ORDER BY empno;
+
+       SAL       COMM  SAL_TOTAL                                                                    
+---------- ---------- ----------                                                                    
+       800                   800                                                                    
+      2975                  2975                                                                    
+      2850                  2850                                                                    
+      2450                  2450                                                                    
+      3000                  3000                                                                    
+      5000                  5000                                                                    
+      1100                  1100                                                                    
+       950                   950                                                                    
+      3000                  3000                                                                    
+      1300                  1300                                                                    
+
+10 filas seleccionadas.
+
+SQL> -- Consulta 29:
+SQL> SELECT ename FROM emp WHERE sal>1000 and mgr=7698;
+
+ENAME                                                                                               
+----------                                                                                          
+ALLEN                                                                                               
+WARD                                                                                                
+MARTIN                                                                                              
+TURNER                                                                                              
+
+SQL> -- Consulta 30:
+SQL> SELECT ename FROM emp WHERE not(sal>1000 and mgr=7698);
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+JONES                                                                                               
+BLAKE                                                                                               
+CLARK                                                                                               
+SCOTT                                                                                               
+ADAMS                                                                                               
+JAMES                                                                                               
+FORD                                                                                                
+MILLER                                                                                              
+
+9 filas seleccionadas.
+
+SQL> -- Consulta 31:
+SQL> SELECT ename,100*NVL(comm,0)/sal||'%' AS porcentaje_comm_sobre_sal FROM emp ORDER BY ename;
+
+ENAME      PORCENTAJE_COMM_SOBRE_SAL                                                                
+---------- -----------------------------------------                                                
+ADAMS      0%                                                                                       
+ALLEN      18,75%                                                                                   
+BLAKE      0%                                                                                       
+CLARK      0%                                                                                       
+FORD       0%                                                                                       
+JAMES      0%                                                                                       
+JONES      0%                                                                                       
+KING       0%                                                                                       
+MARTIN     112%                                                                                     
+MILLER     0%                                                                                       
+SCOTT      0%                                                                                       
+SMITH      0%                                                                                       
+TURNER     0%                                                                                       
+WARD       40%                                                                                      
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 32:
+SQL> SELECT ename FROM emp WHERE deptno=10 and not ename like '%LA%';
+
+ENAME                                                                                               
+----------                                                                                          
+KING                                                                                                
+MILLER                                                                                              
+
+SQL> -- Consulta 33:
+SQL> SELECT ename FROM emp WHERE mgr is NULL;
+
+ENAME                                                                                               
+----------                                                                                          
+KING                                                                                                
+
+SQL> -- Consulta 34:
+SQL> SELECT dname FROM dept WHERE dname<>'SALES' and dname<>'RESEARCH' ORDER BY loc;
+
+DNAME                                                                                               
+--------------                                                                                      
+OPERATIONS                                                                                          
+ACCOUNTING                                                                                          
+
+SQL> -- Consulta 35:
+SQL> SELECT ename,deptno FROM emp WHERE job='CLERK' and deptno<>10 and sal>800 ORDER BY hiredate;
+
+ENAME          DEPTNO                                                                               
+---------- ----------                                                                               
+JAMES              30                                                                               
+ADAMS              20                                                                               
+
+SQL> -- Consulta 36:
+SQL> SELECT ename,sal/comm FROM emp WHERE comm>0
+  2  UNION
+  3  SELECT ename,NULL FROM emp WHERE comm=0
+  4  ORDER BY 1;
+
+ENAME        SAL/COMM                                                                               
+---------- ----------                                                                               
+ALLEN      5,33333333                                                                               
+MARTIN     ,892857143                                                                               
+TURNER                                                                                              
+WARD              2,5                                                                               
+
+SQL> -- Consulta 37:
+SQL> SELECT * FROM emp WHERE ename LIKE '_____';
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+      7499 ALLEN      SALESMAN        7698 20/02/81       1600        300         30                
+      7566 JONES      MANAGER         7839 02/04/81       2975                    20                
+      7698 BLAKE      MANAGER         7839 01/05/81       2850                    30                
+      7782 CLARK      MANAGER         7839 09/06/81       2450                    10                
+      7788 SCOTT      ANALYST         7566 09/12/82       3000                    20                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+
+8 filas seleccionadas.
+
+SQL> -- Consulta 38:
+SQL> SELECT * FROM emp WHERE ename LIKE '%_____%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+      7499 ALLEN      SALESMAN        7698 20/02/81       1600        300         30                
+      7566 JONES      MANAGER         7839 02/04/81       2975                    20                
+      7654 MARTIN     SALESMAN        7698 28/09/81       1250       1400         30                
+      7698 BLAKE      MANAGER         7839 01/05/81       2850                    30                
+      7782 CLARK      MANAGER         7839 09/06/81       2450                    10                
+      7788 SCOTT      ANALYST         7566 09/12/82       3000                    20                
+      7844 TURNER     SALESMAN        7698 08/09/81       1500          0         30                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+
+11 filas seleccionadas.
+
+SQL> -- Consulta 39:
+SQL> SELECT * FROM emp WHERE (ename LIKE 'A%' and sal>1000) or (comm is not NULL and deptno=30);
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7499 ALLEN      SALESMAN        7698 20/02/81       1600        300         30                
+      7521 WARD       SALESMAN        7698 22/02/81       1250        500         30                
+      7654 MARTIN     SALESMAN        7698 28/09/81       1250       1400         30                
+      7844 TURNER     SALESMAN        7698 08/09/81       1500          0         30                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+
+SQL> -- Consulta 40:
+SQL> SELECT ename,sal,sal+comm FROM emp WHERE comm is not NULL
+  2  UNION
+  3  SELECT ename,sal,sal FROM emp WHERE comm is NULL
+  4  ORDER BY 2,3;
+
+ENAME             SAL   SAL+COMM                                                                    
+---------- ---------- ----------                                                                    
+SMITH             800        800                                                                    
+JAMES             950        950                                                                    
+ADAMS            1100       1100                                                                    
+WARD             1250       1750                                                                    
+MARTIN           1250       2650                                                                    
+MILLER           1300       1300                                                                    
+TURNER           1500       1500                                                                    
+ALLEN            1600       1900                                                                    
+CLARK            2450       2450                                                                    
+BLAKE            2850       2850                                                                    
+JONES            2975       2975                                                                    
+FORD             3000       3000                                                                    
+SCOTT            3000       3000                                                                    
+KING             5000       5000                                                                    
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 41:
+SQL> SELECT ename,sal,comm FROM emp WHERE comm is not NULL and sal>(comm/2) and sal<comm;
+
+ENAME             SAL       COMM                                                                    
+---------- ---------- ----------                                                                    
+MARTIN           1250       1400                                                                    
+
+SQL> -- Consulta 42:
+SQL> SELECT ename,sal,comm FROM emp WHERE comm is not NULL and not(sal>(comm/2) and sal<comm);
+
+ENAME             SAL       COMM                                                                    
+---------- ---------- ----------                                                                    
+ALLEN            1600        300                                                                    
+WARD             1250        500                                                                    
+TURNER           1500          0                                                                    
+
+SQL> -- Consulta 43:
+SQL> SELECT ename,job FROM emp WHERE ename LIKE 'A%' and job LIKE '%MAN';
+
+ENAME      JOB                                                                                      
+---------- ---------                                                                                
+ALLEN      SALESMAN                                                                                 
+
+SQL> -- Consulta 44:
+SQL> SELECT ename,job FROM emp WHERE ename || job LIKE 'A%MAN';
+
+ENAME      JOB                                                                                      
+---------- ---------                                                                                
+ALLEN      SALESMAN                                                                                 
+
+SQL> -- Consulta 45:
+SQL> SELECT ename FROM emp WHERE LENGTH(ename)<=5;
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+ALLEN                                                                                               
+WARD                                                                                                
+JONES                                                                                               
+BLAKE                                                                                               
+CLARK                                                                                               
+SCOTT                                                                                               
+KING                                                                                                
+ADAMS                                                                                               
+JAMES                                                                                               
+FORD                                                                                                
+
+11 filas seleccionadas.
+
+SQL> -- Consulta 46:
+SQL> SELECT ename,
+  2  sal+comm AS SALTOT_ACTUAL,
+  3  (1.06*(sal+comm)) AS SALTOT_1,
+  4  (1.07*(1.06*(sal+comm))) AS SALTOT_2,
+  5  'SI' AS COMM
+  6  FROM emp WHERE comm is not NULL
+  7  UNION
+  8  SELECT ename,
+  9  sal AS SALTOT_ACTUAL,
+ 10  (1.06*(sal)) AS SALTOT_1,
+ 11  (1.07*(1.06*(sal))) AS SALTOT_2,
+ 12  'NO' AS COMM
+ 13  FROM emp WHERE comm is NULL;
+
+ENAME      SALTOT_ACTUAL   SALTOT_1   SALTOT_2 CO                                                   
+---------- ------------- ---------- ---------- --                                                   
+ADAMS               1100       1166    1247,62 NO                                                   
+ALLEN               1900       2014    2154,98 SI                                                   
+BLAKE               2850       3021    3232,47 NO                                                   
+CLARK               2450       2597    2778,79 NO                                                   
+FORD                3000       3180     3402,6 NO                                                   
+JAMES                950       1007    1077,49 NO                                                   
+JONES               2975     3153,5   3374,245 NO                                                   
+KING                5000       5300       5671 NO                                                   
+MARTIN              2650       2809    3005,63 SI                                                   
+MILLER              1300       1378    1474,46 NO                                                   
+SCOTT               3000       3180     3402,6 NO                                                   
+SMITH                800        848     907,36 NO                                                   
+TURNER              1500       1590     1701,3 SI                                                   
+WARD                1750       1855    1984,85 SI                                                   
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 47:
+SQL> SELECT ename,hiredate FROM emp WHERE job<>'SALESMAN';
+
+ENAME      HIREDATE                                                                                 
+---------- --------                                                                                 
+SMITH      17/12/80                                                                                 
+JONES      02/04/81                                                                                 
+BLAKE      01/05/81                                                                                 
+CLARK      09/06/81                                                                                 
+SCOTT      09/12/82                                                                                 
+KING       17/11/81                                                                                 
+ADAMS      12/01/83                                                                                 
+JAMES      03/12/81                                                                                 
+FORD       03/12/81                                                                                 
+MILLER     23/01/82                                                                                 
+
+10 filas seleccionadas.
+
+SQL> -- Consulta 48:
+SQL> SELECT * FROM emp WHERE empno IN ('7844','7900', '7521','7782', '7934', '7678', '7369');
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+      7521 WARD       SALESMAN        7698 22/02/81       1250        500         30                
+      7782 CLARK      MANAGER         7839 09/06/81       2450                    10                
+      7844 TURNER     SALESMAN        7698 08/09/81       1500          0         30                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+
+6 filas seleccionadas.
+
+SQL> -- Consulta 49:
+SQL> SELECT ename FROM emp ORDER BY deptno,empno DESC;
+
+ENAME                                                                                               
+----------                                                                                          
+MILLER                                                                                              
+KING                                                                                                
+CLARK                                                                                               
+FORD                                                                                                
+ADAMS                                                                                               
+SCOTT                                                                                               
+JONES                                                                                               
+SMITH                                                                                               
+JAMES                                                                                               
+TURNER                                                                                              
+BLAKE                                                                                               
+MARTIN                                                                                              
+WARD                                                                                                
+ALLEN                                                                                               
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 50:
+SQL> SELECT ename FROM emp WHERE mgr>empno and (sal BETWEEN 1000 AND 2000 or deptno=30);
+
+ENAME                                                                                               
+----------                                                                                          
+ALLEN                                                                                               
+WARD                                                                                                
+MARTIN                                                                                              
+BLAKE                                                                                               
+
+SQL> -- Consulta 51:
+SQL> SELECT MAX(sal),SUM(comm),COUNT(empno) FROM emp;
+
+  MAX(SAL)  SUM(COMM) COUNT(EMPNO)                                                                  
+---------- ---------- ------------                                                                  
+      5000       2200           14                                                                  
+
+SQL> -- Consulta 52:
+SQL> SELECT * FROM emp WHERE sal>(SELECT sal FROM emp WHERE empno='7934') ORDER BY sal;
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7844 TURNER     SALESMAN        7698 08/09/81       1500          0         30                
+      7499 ALLEN      SALESMAN        7698 20/02/81       1600        300         30                
+      7782 CLARK      MANAGER         7839 09/06/81       2450                    10                
+      7698 BLAKE      MANAGER         7839 01/05/81       2850                    30                
+      7566 JONES      MANAGER         7839 02/04/81       2975                    20                
+      7788 SCOTT      ANALYST         7566 09/12/82       3000                    20                
+      7902 FORD       ANALYST         7566 03/12/81       3000                    20                
+      7839 KING       PRESIDENT            17/11/81       5000                    10                
+
+8 filas seleccionadas.
+
+SQL> -- Consulta 53:
+SQL> SELECT * FROM emp WHERE sal>(SELECT sal FROM emp WHERE ename='ALLEN') or ename='ALLEN';
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7499 ALLEN      SALESMAN        7698 20/02/81       1600        300         30                
+      7566 JONES      MANAGER         7839 02/04/81       2975                    20                
+      7698 BLAKE      MANAGER         7839 01/05/81       2850                    30                
+      7782 CLARK      MANAGER         7839 09/06/81       2450                    10                
+      7788 SCOTT      ANALYST         7566 09/12/82       3000                    20                
+      7839 KING       PRESIDENT            17/11/81       5000                    10                
+      7902 FORD       ANALYST         7566 03/12/81       3000                    20                
+
+7 filas seleccionadas.
+
+SQL> -- Consulta 54:
+SQL> SELECT MAX(ename) FROM emp;
+
+MAX(ENAME)                                                                                          
+----------                                                                                          
+WARD                                                                                                
+
+SQL> -- Consulta 55:
+SQL> SELECT MAX(sal),MIN(sal),MAX(sal)-MIN(sal) FROM emp;
+
+  MAX(SAL)   MIN(SAL) MAX(SAL)-MIN(SAL)                                                             
+---------- ---------- -----------------                                                             
+      5000        800              4200                                                             
+
+SQL> -- Consulta 56:
+SQL> SELECT ename,sal FROM emp WHERE sal=(SELECT MAX(sal) FROM emp) or sal=(SELECT MIN(sal) FROM emp);
+
+ENAME             SAL                                                                               
+---------- ----------                                                                               
+SMITH             800                                                                               
+KING             5000                                                                               
+
+SQL> -- Consulta 57:
+SQL> SELECT AVG(sal),a.deptno,dname
+  2  FROM emp a, dept b
+  3  WHERE a.deptno=b.deptno and sal<5000
+  4  GROUP BY a.deptno,dname
+  5  HAVING MIN(sal)>900;
+
+  AVG(SAL)     DEPTNO DNAME                                                                         
+---------- ---------- --------------                                                                
+      1875         10 ACCOUNTING                                                                    
+1566,66667         30 SALES                                                                         
+
+SQL> -- Consulta 58:
+SQL> SELECT ename
+  2  FROM emp a ,dept b
+  3  WHERE a.deptno=b.deptno and b.loc LIKE '_____%'
+  4  ORDER BY loc DESC,ename;
+
+ENAME                                                                                               
+----------                                                                                          
+CLARK                                                                                               
+KING                                                                                                
+MILLER                                                                                              
+ADAMS                                                                                               
+FORD                                                                                                
+JONES                                                                                               
+SCOTT                                                                                               
+SMITH                                                                                               
+ALLEN                                                                                               
+BLAKE                                                                                               
+JAMES                                                                                               
+MARTIN                                                                                              
+TURNER                                                                                              
+WARD                                                                                                
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 59:
+SQL> SELECT ename FROM emp WHERE sal>=(SELECT AVG(sal) FROM emp);
+
+ENAME                                                                                               
+----------                                                                                          
+JONES                                                                                               
+BLAKE                                                                                               
+CLARK                                                                                               
+SCOTT                                                                                               
+KING                                                                                                
+FORD                                                                                                
+
+6 filas seleccionadas.
+
+SQL> -- Consulta 60:
+SQL> SELECT ename FROM emp
+  2  WHERE sal IN (SELECT MAX(sal) FROM emp GROUP BY deptno);
+
+ENAME                                                                                               
+----------                                                                                          
+KING                                                                                                
+FORD                                                                                                
+SCOTT                                                                                               
+BLAKE                                                                                               
+
+SQL> -- Consulta 61:
+SQL> SELECT count(DISTINCT job),count(ename),count(DISTINCT sal),SUM(sal) FROM emp a WHERE deptno=30;
+
+COUNT(DISTINCTJOB) COUNT(ENAME) COUNT(DISTINCTSAL)   SUM(SAL)                                       
+------------------ ------------ ------------------ ----------                                       
+                 3            6                  5       9400                                       
+
+SQL> -- Consulta 62:
+SQL> SELECT count(comm) FROM emp WHERE comm is not NULL;
+
+COUNT(COMM)                                                                                         
+-----------                                                                                         
+          4                                                                                         
+
+SQL> -- Consulta 63:
+SQL> SELECT count(ename) FROM emp WHERE deptno=20;
+
+COUNT(ENAME)                                                                                        
+------------                                                                                        
+           5                                                                                        
+
+SQL> -- Consulta 64:
+SQL> SELECT dname,count(ename) FROM emp a INNER JOIN dept b ON a.deptno=b.deptno GROUP BY dname HAVING count(*)>3;
+
+DNAME          COUNT(ENAME)                                                                         
+-------------- ------------                                                                         
+RESEARCH                  5                                                                         
+SALES                     6                                                                         
+
+SQL> -- Consulta 65:
+SQL> SELECT ename FROM emp WHERE deptno=10 and job=ANY(
+  2  SELECT job FROM emp a, dept b
+  3  WHERE a.deptno=b.deptno and dname='SALES');
+
+ENAME                                                                                               
+----------                                                                                          
+CLARK                                                                                               
+MILLER                                                                                              
+
+SQL> -- Consulta 66:
+SQL> SELECT ename FROM emp WHERE empno=ANY(SELECT mgr FROM emp) ORDER BY ename DESC;
+
+ENAME                                                                                               
+----------                                                                                          
+SCOTT                                                                                               
+KING                                                                                                
+JONES                                                                                               
+FORD                                                                                                
+CLARK                                                                                               
+BLAKE                                                                                               
+
+6 filas seleccionadas.
+
+SQL> -- Consulta 67:
+SQL> SELECT * FROM emp WHERE job=ANY(SELECT job FROM emp a,dept b WHERE a.deptno=b.deptno and loc='CHICAGO');
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7844 TURNER     SALESMAN        7698 08/09/81       1500          0         30                
+      7654 MARTIN     SALESMAN        7698 28/09/81       1250       1400         30                
+      7521 WARD       SALESMAN        7698 22/02/81       1250        500         30                
+      7499 ALLEN      SALESMAN        7698 20/02/81       1600        300         30                
+      7782 CLARK      MANAGER         7839 09/06/81       2450                    10                
+      7698 BLAKE      MANAGER         7839 01/05/81       2850                    30                
+      7566 JONES      MANAGER         7839 02/04/81       2975                    20                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+
+11 filas seleccionadas.
+
+SQL> -- Consulta 68:
+SQL> SELECT job,count(ename) FROM emp GROUP BY job;
+
+JOB       COUNT(ENAME)                                                                              
+--------- ------------                                                                              
+ANALYST              2                                                                              
+CLERK                4                                                                              
+MANAGER              3                                                                              
+PRESIDENT            1                                                                              
+SALESMAN             4                                                                              
+
+SQL> -- Consulta 69:
+SQL> SELECT dname,SUM(sal) FROM dept a LEFT JOIN emp b ON a.deptno=b.deptno GROUP BY dname;
+
+DNAME            SUM(SAL)                                                                           
+-------------- ----------                                                                           
+ACCOUNTING           8750                                                                           
+OPERATIONS                                                                                          
+RESEARCH            10875                                                                           
+SALES                9400                                                                           
+
+SQL> -- Consulta 70:
+SQL> SELECT dname FROM dept WHERE not deptno=ANY(SELECT deptno FROM emp);
+
+DNAME                                                                                               
+--------------                                                                                      
+OPERATIONS                                                                                          
+
+SQL> -- Consulta 71:
+SQL> SELECT * FROM emp WHERE not empno=ANY(SELECT mgr FROM emp WHERE mgr is not NULL);
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7844 TURNER     SALESMAN        7698 08/09/81       1500          0         30                
+      7521 WARD       SALESMAN        7698 22/02/81       1250        500         30                
+      7654 MARTIN     SALESMAN        7698 28/09/81       1250       1400         30                
+      7499 ALLEN      SALESMAN        7698 20/02/81       1600        300         30                
+      7934 MILLER     CLERK           7782 23/01/82       1300                    10                
+      7369 SMITH      CLERK           7902 17/12/80        800                    20                
+      7876 ADAMS      CLERK           7788 12/01/83       1100                    20                
+      7900 JAMES      CLERK           7698 03/12/81        950                    30                
+
+8 filas seleccionadas.
+
+SQL> -- Consulta 72:
+SQL> SELECT dname,count(ename),AVG(sal) FROM dept a LEFT JOIN emp b ON a.deptno=b.deptno GROUP BY dname;
+
+DNAME          COUNT(ENAME)   AVG(SAL)                                                              
+-------------- ------------ ----------                                                              
+ACCOUNTING                3 2916,66667                                                              
+OPERATIONS                0                                                                         
+RESEARCH                  5       2175                                                              
+SALES                     6 1566,66667                                                              
+
+SQL> -- Consulta 73:
+SQL> SELECT ename FROM emp WHERE deptno=30 ORDER BY comm DESC;
+
+ENAME                                                                                               
+----------                                                                                          
+BLAKE                                                                                               
+JAMES                                                                                               
+MARTIN                                                                                              
+WARD                                                                                                
+ALLEN                                                                                               
+TURNER                                                                                              
+
+6 filas seleccionadas.
+
+SQL> -- Consulta 74:
+SQL> SELECT ename FROM emp a,dept b WHERE a.deptno=b.deptno and (loc='DALLAS' or loc='NEW YORK');
+
+ENAME                                                                                               
+----------                                                                                          
+SMITH                                                                                               
+JONES                                                                                               
+CLARK                                                                                               
+SCOTT                                                                                               
+KING                                                                                                
+ADAMS                                                                                               
+FORD                                                                                                
+MILLER                                                                                              
+
+8 filas seleccionadas.
+
+SQL> -- Consulta 75:
+SQL> SELECT e.ename,j.ename FROM emp e LEFT JOIN emp j ON e.mgr=j.empno;
+
+ENAME      ENAME                                                                                    
+---------- ----------                                                                               
+FORD       JONES                                                                                    
+SCOTT      JONES                                                                                    
+JAMES      BLAKE                                                                                    
+TURNER     BLAKE                                                                                    
+MARTIN     BLAKE                                                                                    
+WARD       BLAKE                                                                                    
+ALLEN      BLAKE                                                                                    
+MILLER     CLARK                                                                                    
+ADAMS      SCOTT                                                                                    
+CLARK      KING                                                                                     
+BLAKE      KING                                                                                     
+JONES      KING                                                                                     
+SMITH      FORD                                                                                     
+KING                                                                                                
+
+14 filas seleccionadas.
+
+SQL> -- Consulta 76:
+SQL> SELECT ename,sal,dname FROM emp a,dept b WHERE a.deptno=b.deptno and sal IN (SELECT MAX(sal) FROM emp GROUP BY deptno);
+
+ENAME             SAL DNAME                                                                         
+---------- ---------- --------------                                                                
+KING             5000 ACCOUNTING                                                                    
+SCOTT            3000 RESEARCH                                                                      
+FORD             3000 RESEARCH                                                                      
+BLAKE            2850 SALES                                                                         
+
+SQL> -- Consulta 77:
+SQL> SELECT j.empno,j.ename,count(e.ename) FROM emp e LEFT JOIN emp j ON e.mgr=j.empno GROUP BY j.empno,j.ename;
+
+     EMPNO ENAME      COUNT(E.ENAME)                                                                
+---------- ---------- --------------                                                                
+                                   1                                                                
+      7566 JONES                   2                                                                
+      7698 BLAKE                   5                                                                
+      7782 CLARK                   1                                                                
+      7788 SCOTT                   1                                                                
+      7839 KING                    3                                                                
+      7902 FORD                    1                                                                
+
+7 filas seleccionadas.
+
+SQL> -- Consulta 78:
+SQL> SELECT SUM(sal),dname FROM emp a,dept b
+  2  WHERE a.deptno=b.deptno
+  3  GROUP BY dname
+  4  HAVING sum(sal) IN (SELECT MAX(SUM(sal)) FROM emp a,dept b WHERE a.deptno=b.deptno GROUP BY dname);
+
+  SUM(SAL) DNAME                                                                                    
+---------- --------------                                                                           
+     10875 RESEARCH                                                                                 
+
+SQL> -- Consulta 79:
+SQL> SELECT * FROM emp
+  2  WHERE sal IN (SELECT sal FROM (SELECT DISTINCT sal FROM emp ORDER BY sal DESC) WHERE ROWNUM<=2);
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM     DEPTNO                
+---------- ---------- --------- ---------- -------- ---------- ---------- ----------                
+      7839 KING       PRESIDENT            17/11/81       5000                    10                
+      7902 FORD       ANALYST         7566 03/12/81       3000                    20                
+      7788 SCOTT      ANALYST         7566 09/12/82       3000                    20                
+
+SQL> -- Consulta 80:
+SQL> SELECT loc,count(empno)
+  2  FROM emp a, dept b
+  3  WHERE a.deptno=b.deptno and b.deptno not IN
+  4  (SELECT b.deptno FROM dept b LEFT JOIN emp a ON a.deptno=b.deptno WHERE empno is NULL)
+  5  GROUP BY loc
+  6  HAVING count(empno)>4;
+
+LOC           COUNT(EMPNO)                                                                          
+------------- ------------                                                                          
+CHICAGO                  6                                                                          
+DALLAS                   5                                                                          
+
+SQL> SPOOL OFF

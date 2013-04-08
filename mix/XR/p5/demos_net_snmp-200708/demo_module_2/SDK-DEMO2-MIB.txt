@@ -1,0 +1,92 @@
+----------------------------------------------------------
+-- Module DEMO-2 MIB
+----------------------------------------------------------
+
+SDK-DEMO2-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        enterprises, MODULE-IDENTITY, OBJECT-TYPE, Counter64, Integer32, Unsigned32
+                FROM SNMPv2-SMI
+        OBJECT-GROUP
+                FROM SNMPv2-CONF
+        DisplayString
+                FROM SNMPv2-TC
+        demo
+                FROM SDK-DEMO1-MIB;
+
+sdkDemo2MIB   OBJECT IDENTIFIER ::= { demo 2 }
+
+--
+-- There are currently 1 Group in the example.
+-- The "File" group contains information about some files on the system
+--
+
+me2FileGroup OBJECT IDENTIFIER ::= { sdkDemo2MIB 1 }
+
+--
+-- Objects in the "File" group
+--
+
+me2FileTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF Me1FileEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+                "Table containing information of some files on the system."
+    ::= { me2FileGroup 1 }
+
+me2FileEntry OBJECT-TYPE
+    SYNTAX      Me1FileEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+                "Information about one file on the system."
+    INDEX   { me2FileIndex }
+    ::= { me2FileTable 1 }
+
+Me2FileEntry ::=
+    SEQUENCE {
+	me2FileIndex
+		Unsigned32,
+	me2FileName
+		DisplayString,
+	me2FileSize
+		Unsigned32,
+	me2FilePerm
+		DisplayString
+    }
+
+me2FileIndex OBJECT-TYPE
+    SYNTAX      Unsigned32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+                "Index of the file."
+    ::= { me2FileEntry 1 }
+
+me2FileName OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION
+                "Name of the file"
+    ::= { me2FileEntry 2 }
+
+me2FileSize OBJECT-TYPE
+    SYNTAX      Unsigned32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+                "Size of the file in kb"
+    ::= { me2FileEntry 3 }
+
+me2FilePerm OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+                "Permissions on this file. example, 0755 "
+    ::= { me2FileEntry 4 }
+
+END
+

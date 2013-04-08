@@ -1,0 +1,3 @@
+siguiente_primo x = 
+	if (determinar_primo x+1) then x+1 
+	else siguiente_primo x+1;;

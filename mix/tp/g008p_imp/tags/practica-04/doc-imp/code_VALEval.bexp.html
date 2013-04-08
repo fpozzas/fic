@@ -1,0 +1,27 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Tipos" rel="Chapter" href="Tipos.html">
+<link title="Lector" rel="Chapter" href="Lector.html">
+<link title="Env" rel="Chapter" href="Env.html">
+<link title="Eval" rel="Chapter" href="Eval.html">
+<link title="Main" rel="Chapter" href="Main.html"><title>Intérprete IMP : Eval.bexp</title>
+</head>
+<body>
+<code class="code"><span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;bexp&nbsp;env&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">MkBool</span>&nbsp;b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;b<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">BoolVar</span>&nbsp;v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keyword">match</span>&nbsp;(get&nbsp;env&nbsp;v)&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">Bool</span>(x)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;raise&nbsp;(<span class="constructor">Tipos</span>.<span class="constructor">ERROR_DE_TIPOS</span>(<span class="string">"No&nbsp;es&nbsp;un&nbsp;Bool"</span>)))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">BoolArray</span>(v,a)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dev_pos&nbsp;(<span class="keyword">match</span>&nbsp;(get&nbsp;env&nbsp;v)&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">ArrayBool</span>(l)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;l&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;raise&nbsp;(<span class="constructor">Tipos</span>.<span class="constructor">ERROR_DE_TIPOS</span>(<span class="string">"No&nbsp;es&nbsp;un&nbsp;ArrayBool"</span>)))&nbsp;(aexp&nbsp;env&nbsp;a)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Not</span>(b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;not&nbsp;(bexp&nbsp;env&nbsp;b)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">And</span>(b1,&nbsp;b2)&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(bexp&nbsp;env&nbsp;b1)&nbsp;<span class="keywordsign">&amp;</span>&nbsp;(bexp&nbsp;env&nbsp;b2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Or</span>(b1,&nbsp;b2)&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(bexp&nbsp;env&nbsp;b1)&nbsp;<span class="keyword">or</span>&nbsp;(bexp&nbsp;env&nbsp;b2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Equal</span>(a1,&nbsp;a2)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(aexp&nbsp;env&nbsp;a1)&nbsp;=&nbsp;(aexp&nbsp;env&nbsp;a2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Gt</span>(a1,&nbsp;a2)&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(aexp&nbsp;env&nbsp;a1)&nbsp;&gt;&nbsp;(aexp&nbsp;env&nbsp;a2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">GtEq</span>(a1,&nbsp;a2)&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(aexp&nbsp;env&nbsp;a1)&nbsp;&gt;=&nbsp;(aexp&nbsp;env&nbsp;a2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Lt</span>(a1,&nbsp;a2)&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(aexp&nbsp;env&nbsp;a1)&nbsp;&lt;&nbsp;(aexp&nbsp;env&nbsp;a2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">LtEq</span>(a1,&nbsp;a2)&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(aexp&nbsp;env&nbsp;a1)&nbsp;&lt;=&nbsp;(aexp&nbsp;env&nbsp;a2)</code></body></html>

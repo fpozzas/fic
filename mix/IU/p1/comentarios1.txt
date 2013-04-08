@@ -1,0 +1,13 @@
+- Se han establecido unos limites minimos en la ventana principal, y a 
+su vez el tree view tiene un limite minimo con respecto a su separador 
+con la caja de texto.
+- Hemos optado por un orden de tabulación clásico: de la barra de tareas 
+al elemento seleccionado del treeview, de este a la caja de texto y 
+luego vuelve a la barra de tareas.
+- Podemos desplazarnos con las flechas de arriba/abajo entre los 
+elementos del treeview y entre los de la barra de tareas con 
+izquierda/derecha. Existen accesos desde teclado a los elementos de la 
+barra de menús.
+- En general, nos hemos basado en las características básicas que suelen 
+tener la mayoría de los programas GTK en Linux como Firefox, Nautilus, 
+etc, para realizar la disposición de los elementos en la interfaz.

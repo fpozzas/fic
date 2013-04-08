@@ -1,0 +1,20 @@
+INTERNACIONALIZACION
+
+intltool-extract --type="gettext/glade" interfaz2.glade
+xgettext -k_ -kN_ -o messages.pot *.py *.h
+locale -a
+LANG=en_GB.utf8 msginit
+mkdir -p locale/en/LC_MESSAGES/
+msgmerge -U en_GB.po messages.pot
+--> Editas el en_GB.po
+msgfmt en_GB.po -o locale/en/LC_MESSAGES/practica2.mo
+LANG=en_GB.utf8 python practica2.py
+
+
+cosas para poner en el main:
+
+		locale.setlocale(locale.LC_ALL, '')
+		gettext.bindtextdomain('practica1', 'locale')
+		gettext.textdomain('practica1')
+		gtk.glade.bindtextdomain('practica1', 'locale')
+		gtk.glade.textdomain('practica1')

@@ -1,0 +1,143 @@
+% Se crea el conjunto de entrenamiento que será una paleta de colores
+% representativa del conjunto de todos los colores que puede tomar un bmp
+P = [];
+for i=0:8:255
+	for j=0:8:255
+		for k=0:8:255
+			P(:,end+1) = [i;j;k];
+		end
+	end
+end
+
+% Se normalizan los patrones
+P = P/255;
+NET = newsom([0 1; 0 1; 0 1], [6 6], 'randtop');
+
+% Entrenamos
+net = train(NET, P);
+
+save red_p32.mat;
+
+imagen = double(imread('test_cubos1.bmp'))/255;
+
+
+%%%%%%%%%%%%%
+
+
+
+imagen = double(imread('test_cubos1.bmp'))/255;
+[nfil,ncol,ndim] = size(imagen);
+
+P = [];
+n = 0;
+while n<100
+	n = n + 1;
+	x = ceil(mod(rand*100000,nfil));
+	y = ceil(mod(rand*100000,ncol));
+    P(:,end+1) = reshape(imagen(x,y,:),3,1);
+end
+
+NET = newsom([0 1; 0 1; 0 1], [4 5], 'randtop');
+NET.trainParam.epochs=300;
+% Entrenamos
+net = train(NET, P);
+
+save red_p32.mat;
+
+
+%%%%%%%%%%%%%%
+% SIMULACION %
+%%%%%%%%%%%%%%
+
+load red_p3.mat;
+imagen = double(imread('test_cubos1.bmp'))/255;
+[nfil,ncol,ndim] = size(imagen);
+
+Pimg = [];
+for i = 1:nfil
+  for j = 1:ncol
+    Pimg(end+1,:) = imagen(i,j,:);
+  end
+end
+
+save Pimg_p3.mat Pimg;
+
+Y = sim(net,Pimg);
+categ = 5;
+
+
+[idx,c,sumd,d] = kmeans(net.IW{1,1}(:,:),categ);
+
+
+% Calculamos los centros de las categorias, que serán los elementos más cercanos al centro.
+	
+n = length(Y(1,:));
+Ssom = [];
+immm = [];
+for i = 1:n
+	[u,M] = max(Y(:,i));
+	Ssom(ceil(i/ncol),mod(i,ncol)+1) = M*12;
+end
+colour('gray');
+imagesc(Ssom); figure(gcf);
+
+% Construimos la imagen de salida
+n = length(Y(1,:));
+S = [];
+for i = 1:n
+	[u,M] = max(Y(:,i));
+	S(ceil(i/ncol),mod(iSsom,ncol)+1) = c(idx(M),:)*12;
+end
+colour('gray');
+imagesc(Ssom); figure(gcf);
+
+Ssom = uint8(round(255*S));
+
+imwrite(S,'salida_p3.png');
+
+% Representación gráfica de los clusters del SOM
+figure(1);
+hold on;
+title ('Clusters y categorias');
+plot3(net.IW{1,1}(:,1,:),net.IW{1,1}(:,2,:),net.IW{1,1}(:,3,:),'r.');
+plot3(c(:,1,:),c(:,2,:),c(:,3,:),'b*');
+hold off
+
+%%%%%%%%%
+
+figure(2)
+hold on
+clusters = [];
+pixels = [];
+clusters = find(idx==categ);
+for i=1:n
+	[u,M] = max(Y(:,i));
+	pertenece = 0;
+	for j=1:size(clusters)
+		if clusters(j)==M
+			pertenece = 1;
+		end
+	end
+	if pertenece==1
+		pixels(end+1) = i;
+	end
+end
+
+conjunto = [];
+for i=1:length(pixels(1,:))
+	conjunto(end+1,:) = Pimg(:,pixels(i));
+end 
+
+plot3(conjunto(:,1,:),conjunto(:,2,:),conjunto(:,3,:),'r.');
+hold on;
+plot3(c(categ,1),c(categ,2),c(categ,3),'b*');
+pos_clusters = [];
+for i=1:size(clusters)
+	pos_clusters(end+1,:) = net.IW{1,1}(clusters(i),:)
+end
+plot3(pos_clusters(:,1),pos_clusters(:,2),pos_clusters(:,3),'g*')
+	
+	
+	
+	
+	

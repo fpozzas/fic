@@ -1,0 +1,6 @@
+ Int i := 0;
+ while (i < 10) do
+  Int x := i;
+  i := i + 1;
+ done;
+ print x;

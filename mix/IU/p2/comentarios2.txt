@@ -1,0 +1,21 @@
+- Se han hecho las internalizaciones de gl_ES.utf8 y en_GB.utf8 (la 
+aplicacion está en español por defecto).
+- A los botones para ejecutar la función de actualizar le hemos llamado 
+Refrescar para usar los stocks de GTK de los que disponemos, y así hacer 
+que la aplicación sea más genérica.
+- Hemos creado el menú Ver en la barra de menús para que contenga a 
+Actualizar/Refrescar basandonos en la disposición de este elemento en 
+otros programas GTK (Firefox, Nautilus, ...) donde está en el menú Ver. 
+También lo hemos añadido a la barra de herramientas.
+- Al pulsar Actualizar/Refrescar aparece un dialogo en primer 
+plano en 
+el que se da la opción de cancelar al usuario. Sólo dejamos abrir un 
+solo dialogo actualizar, por lo que si en vez de pulsar cancelar 
+cerramos en la X de la barra de título realizará la misma acción que 
+esta.
+  También existiría la opción de dejar al usuario pulsar varias 
+veces sobre Refrescar y abrir varias ventanas y entonces así si cerramos 
+una de ellas en la X no podríamos cancelar actualizar, pero si pulsamos 
+en cancelar sí tendriamos que cerrarlas todas. No hemos optado por esta 
+opción porque sería confuso para el usuario, aunque sería una buena 
+forma de mostrar lo que se puede hacer con el MVC.

@@ -1,0 +1,50 @@
+<head>
+<title>Exjemplo de Prueba 1</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+
+<h1>Ejemplo de prueba 1: Programa que calcula el resto</h1>
+
+<li><a href="c1.html">Hacer prueba</a></li>
+<li><a href="plan.html">Plan de prueba</a></li>
+
+<img src="shortLine.gif">
+<p>
+
+Consideremos el siguiente  programa que se supone que calcula el resto.
+(Sólo en este ejemplo usaremos mayúsculas para las variables mutables
+--que son de Loc--y minúsculas para las variables numéricas --que son de
+Intvar.) 
+
+<pre>
+
+   { PRE: x &gt= 0 }
+     
+       Q := 0;
+       
+       R := x;
+
+       while R &gt= y do
+
+         (R := R - y;
+
+         Q := Q + 1)
+
+
+   { POST: 0 &lt= R &lt y  and  x = Q * y + R }
+
+</pre>
+
+Probar que esta aserción de corrección parcial es correcta. O lo que
+es lo mismo, que el programa es correcto respecto a las especificaciones
+PRE y POST.
+<p>
+
+
+
+
+</body>

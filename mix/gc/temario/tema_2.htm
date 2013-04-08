@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="es">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Tema 2</title>
+<meta name="Microsoft Theme" content="canvas 0011, default">
+</head>
+
+<body background="../../_themes/canvas/cnvbkgnd.jpg" bgcolor="#FFFFFF" text="#000000" link="#0066CC" vlink="#006666" alink="#996699"><!--mstheme--><font face="Arial, Arial, Helvetica">
+
+<h1><!--mstheme--><font color="#336666">Tema 2: Dibujo de Primitivas 2D<!--mstheme--></font></h1>
+<p>2.1 Dibujo de Líneas</p>
+<p>&nbsp;&nbsp;&nbsp; 2.1.2 Algoritmo Incremental</p>
+<p>&nbsp;&nbsp;&nbsp; 2.1.2 <a href="../pto_medio_lineas/Inicio.html">Algoritmo 
+del Punto Medio</a></p>
+<p>2.2 Aliasing y Anti-aliasing</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.1
+<a href="../Antialiasing/gupta_sproull.htm">Algoritmo de Gupta-Sproull</a></p>
+<p>2.3 Círculos</p>
+<p>2.4 Relleno de polígonos</p>
+<p>&nbsp;&nbsp;&nbsp; 2.4.1 Barrido</p>
+<p>&nbsp;&nbsp;&nbsp; 2.4.2 Inundación</p>
+<p>&nbsp;</p>
+<h3><!--mstheme--><font color="#336666"><font color="#336666" face="Arial, Arial, Helvetica">Preguntas a resolver 
+con trabajo del alumno</font><!--mstheme--></font></h3>
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Material necesario<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Algoritmo de punto medio en líneas<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Introducción a la Graficación por Computadora pp. 
+			84-87)<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Web de la asignatura - Temario - Dibujo de Primitivas - 
+			Algoritmo del Punto Medio (arriba)<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Algoritmo de anti-aliasing
+		<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Computer Graphics pp. 138-140)<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Web de la asignatura - Temario - Dibujo de Primitivas - 
+			Algoritmo de Gupta-Sproull (arriba)<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Algoritmo de punto medio en círculos<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Introducción a la Graficación por Computadora pp. 
+			92-97)<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Relleno por Barrido<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Introducción a la Graficación por Computadora pp. 
+			98-107)<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Relleno por Inundación<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Fotocopias (Introducción a la Computer Graphics pp. 978-985)<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+	<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+	<!--mstheme--></font><!--msthemelist--></td></tr>
+	<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Preguntas<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Cálculo de pendientes<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Qué rectas tienen pendientes entre <font face="Times New Roman">
+			&#8734; y 1</font>?¿entre 0 y 1?¿entre 0 y -1?¿entre -1 y
+			<font face="Times New Roman">-&#8734;</font>?<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Cómo sería el algoritmo de dibujo de línea incremental para 1&lt;m&lt;<font face="Times New Roman">&#8734;?</font><!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Algoritmo de punto medio en líneas<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Para las pendientes de la primera pregunta:<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Cuál es la posición del punto medio M?<!--mstheme--></font><!--msthemelist--></td></tr>
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Cuáles son los incrementos d para cada pendiente y la d<font size="1">inicial</font>?<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Está resuelto en la referencia Web de la asignatura 
+					punto 2.1.2&nbsp;(arriba)<!--mstheme--></font><!--msthemelist--></td></tr>
+				<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+				<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+			<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Algoritmo de anti-aliasing
+		<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Cuál es el valor de D para el píxel central, el superior 
+			y el inferior, escogiendo E y NE?<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Cuál es el valor de D para el píxel central, el superior 
+			y el inferior, escogiendo E y SE?<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Algoritmo de punto medio en círculos<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Por qué hacen falta segundas diferencias?<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">¿Cuales son?<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Incrementos d<font size="1">nueva</font> y d<font size="1">inicial</font>,
+				<!--mstheme--></font><!--msthemelist--></td></tr>
+				<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Incrementos de las segundas diferencias<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+			<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul2.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Relleno 
+		<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Entender la diferencia entre relleno por barrido y por 
+			inundación<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Ventajas e inconvenientes de cada técnica<!--mstheme--></font><!--msthemelist--></td></tr>
+			<!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/canvas/acnvbul3.gif" width="12" height="12" hspace="15" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">Saber como funciona cada técnica<!--mstheme--></font><!--msthemelist--></td></tr>
+		<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+		<!--mstheme--></font><!--msthemelist--></td></tr>
+	<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+	<!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+
+<!--mstheme--></font></body>
+
+</html>

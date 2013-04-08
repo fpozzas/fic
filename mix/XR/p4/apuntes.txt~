@@ -1,0 +1,5 @@
+Comandos usados:
+snmpd -f 1161
+snmpget -v1 -c comunidadpublica 10.10.103.76:1161 system.sysContact.0
+snmpgetnext -v1 -c comunidadprivada localhost:1161 system.sysContact.0
+snmpset -v1 -c comunidadprivada localhost:1161 system.sysContact.0 = "NuevoContacto"

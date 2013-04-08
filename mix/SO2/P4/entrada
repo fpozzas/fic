@@ -1,0 +1,4 @@
+path -p
+ls -l
+ls -lisa
+ls

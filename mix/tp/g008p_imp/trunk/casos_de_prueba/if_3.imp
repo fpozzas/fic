@@ -1,0 +1,9 @@
+Int i := 0;
+if (i < 10) 
+  then
+    Int x:= i * 2;
+    x := x + 3;
+  else
+    skip;
+fi;
+Int y := x + 2;

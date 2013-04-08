@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Calificación de alumnos</title>
+	<link rel="stylesheet" type="text/css" media="print" href="print.css"  />
+	<link rel="stylesheet" type="text/css" media="screen" href="default.css" />
+</head>
+
+<body onload="init()">
+	<script type="text/javascript" src="calf.js"> </script>
+
+    <div id="cabecera">
+    	<dl>
+        	<dt class="impar"> PROFESOR: </dt>
+        	<dd> Mr. Spock </dd>
+        	<dt class="par"> DNI: </dt>
+        	<dd> 00.000.001 </dd>
+        	<dt class="impar"> CURSO ACADÉMICO: </dt>
+            <dd> 2007/2008 </dd>
+            <dt class="par"> CONVOCATORIA: </dt>
+            <dd> Xuño </dd>
+        </dl>
+    </div>
+    <h1 class="titulo">CALIFICACIÓN DE ALUMNOS</h1>
+    <h1 class="titulo_tabla"> DATOS XERAIS DA ASIGNATURA </h1>
+    <dl id="asignatura">
+    	<dt> Titulación: </dt>
+        <dd> Engineering Chief</dd>
+        <dt> Centro: </dt>
+        <dd> Starship Enterprise</dd>
+        <dt> Tipo de asignatura: </dt>
+        <dd> Impressive</dd>
+        <dt> Asignatura: </dt>   
+        <dd> Warp Engines</dd>    
+    </dl>
+	<h1 class="titulo_tabla"> ALUMNOS MATRICULADOS </h1>
+	<h1 class="subtitulo_tabla"> Filtro aplicado: Tódolos alumnos </h1>	
+    <table>
+    	<thead>
+    		<tr>
+    			<th id="tdni">Dni</th>
+    			<th id="t1ap">1º Apelido</th>
+    			<th id="t2ap">2º Apelido</th>
+    			<th id="tnome">Nome</th>
+    			<th id="tcalf">Calificación</th>
+    			<th id="tmh">MH Dispoñibles: <span id="nmh"></span></th>
+    			<th id="tconv">Conv</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		 <tr class="impar">
+    			<td>12345678Y</td>
+    			<td>López</td>
+    			<td>Garcia</td>
+    			<td>Fulano</td>
+    			<td>
+				<input type="radio" name="rg1" onfocus="saveFocus('calfsc1')" onchange="updateTestSC(1)" id="calfsc1" />SC
+				<input type="radio" name="rg1" onfocus="saveFocus('calfnp1')" onchange="updateTestNP(1)" id="calfnp1" />NP
+				<input type="radio" name="rg1" onfocus="saveFocus('calfnt1')" onchange="updateTestNT(1)" id="calfnt1" checked="checked" />NOTA
+				<input type="text"  onfocus="saveFocus('calfnota1')" onchange="updateCalf(1)" id="calfnota1" size="2" value="8" />
+			</td>
+			<td class="mh">
+				<span id="nota1">-</span>
+				<input type="checkbox" onchange="testMH(1)" onfocus="onFocusMH(1)" id="mh1" />MH		
+			</td>	
+    			<td>1</td>
+    		</tr>
+    		<tr class="par">
+    			<td>66465433D</td>
+    			<td>Cabestani</td>
+    			<td>Guirigay</td>
+    			<td>Portolomaquio</td>
+    			<td>
+				<input type="radio" name="rg2" onfocus="saveFocus('calfsc2')" onchange="updateTestSC(2)" id="calfsc2" />SC
+				<input type="radio" name="rg2" onfocus="saveFocus('calfnp2')" onchange="updateTestNP(2)" id="calfnp2" />NP
+				<input type="radio" name="rg2" onfocus="saveFocus('calfnt2')" onchange="updateTestNT(2)" id="calfnt2" checked="checked" />NOTA	
+				<input type="text"  onfocus="saveFocus('calfnota2')" onchange="updateCalf(2)" id="calfnota2" size="2" value="2" />
+			</td>
+			<td class="mh">
+				<span id="nota2">-</span>
+				<input type="checkbox" onchange="testMH(2)" onfocus="onFocusMH(2)" id="mh2" />MH
+			</td>	
+    			<td>7</td>
+    		</tr>
+    		 <tr class="impar">
+    			<td>12345678Y</td>
+    			<td>López</td>
+    			<td>Garcia</td>
+    			<td>Fulano</td>
+    			<td>				
+				<input type="radio" name="rg3" onfocus="saveFocus('calfsc3')" onchange="updateTestSC(3)" id="calfsc3" />SC
+				<input type="radio" name="rg3" onfocus="saveFocus('calfnp3')" onchange="updateTestNP(3)" id="calfnp3" />NP
+				<input type="radio" name="rg3" onfocus="saveFocus('calfnt3')" onchange="updateTestNT(3)" id="calfnt3" checked="checked" />NOTA
+				<input type="text"  onfocus="saveFocus('calfnota3')" onchange="updateCalf(3);" id="calfnota3" size="2" value="11" />		
+			</td>
+			<td class="mh">
+				<span id="nota3">-</span>
+				<input type="checkbox" onchange="testMH(3)" onfocus="onFocusMH(3)" id="mh3" />MH			
+			</td>	
+    			<td>1</td>
+    		</tr>
+    		<tr class="par">
+    			<td>45343534G</td>
+    			<td>Barrabasenio</td>
+    			<td>Vivilopendionado</td>
+    			<td>Golgonio</td>
+    			<td>
+				<input type="radio" name="rg4" onfocus="saveFocus('calfsc4')" onchange="updateTestSC(4)" id="calfsc4" />SC
+				<input type="radio" name="rg4" onfocus="saveFocus('calfnp4')" onchange="updateTestNP(4)" id="calfnp4" checked="checked" />NP
+				<input type="radio" name="rg4" onfocus="saveFocus('calfnt4')" onchange="updateTestNT(4)" id="calfnt4" />NOTA
+				<input type="text"  onchange="updateCalf(4);" id="calfnota4" size="2" />
+			</td>
+			<td class="mh">
+				<span id="nota4">-</span>
+				<input type="checkbox" onchange="testMH(4);" id="mh4"/>MH			
+			</td>	
+    			<td>1</td>
+    		</tr>
+    		 <tr class="impar">
+    			<td>12345678Y</td>
+    			<td>López</td>
+    			<td>Garcia</td>
+    			<td>Fulano</td>
+    			<td>
+				<input type="radio" name="rg5" onchange="updateTestSC(5)" id="calfsc5" checked="checked" />SC
+				<input type="radio" name="rg5"  onchange="updateTestNP(5)" id="calfnp5" />NP
+				<input type="radio" name="rg5" onchange="updateTestNT(5)" id="calfnt5" />NOTA
+				<input type="text"  onchange="updateCalf(5);" id="calfnota5" size="2" />
+				</td>
+				<td class="mh">
+					<span id="nota5">-</span>
+					<input type="checkbox" onchange="testMH(5);" id="mh5" />MH
+				</td>
+    			<td>1</td>
+    		</tr>
+    		<tr class="par">
+    			<td>12345678Y</td>
+    			<td>López</td>
+    			<td>Garcia</td>
+    			<td>Fulano</td>
+    			<td>
+				<input type="radio" name="rg6" onchange="updateTestSC(6)" id="calfsc6" />SC
+				<input type="radio" name="rg6" onchange="updateTestNP(6)" id="calfnp6" />NP
+				<input type="radio" name="rg6" onchange="updateTestNT(6)" id="calfnt6" checked="checked" />NOTA
+				<input type="text"  onchange="updateCalf(6);" id="calfnota6" size="2" value="5.4" />		
+				</td>
+				<td class="mh">
+					<span id="nota6">-</span>
+					<input type="checkbox" onchange="testMH(6)" id="mh6" />MH			
+				</td>	
+    			<td>1</td>
+    		</tr>
+    		 <tr class="impar">
+    			<td>56345678Y</td>
+    			<td>Harmendia</td>
+    			<td>Garcia</td>
+    			<td>Mengano</td>
+    			<td>
+				<input type="radio" name="rg7" onchange="updateTestSC(7)" id="calfsc7" checked="checked" />SC
+				<input type="radio" name="rg7" onchange="updateTestNP(7)" id="calfnp7" />NP
+				<input type="radio" name="rg7" onchange="updateTestNT(7)" id="calfnt7" />NOTA
+				<input type="text"  onchange="updateCalf(7);" id="calfnota7" size="2" />
+				</td>
+				<td class="mh">
+					<span id="nota7">-</span>
+					<input type="checkbox" onchange="testMH(7);" id="mh7" />MH
+				</td>
+    			<td>1</td>
+    		</tr>
+    		<tr class="par">
+    			<td>88845678Y</td>
+    			<td>Pérez</td>
+    			<td>Lampón</td>
+    			<td>Benito</td>
+    			<td>
+				<input type="radio" name="rg8" onchange="updateTestSC(8)" id="calfsc8" />SC
+				<input type="radio" name="rg8" onchange="updateTestNP(8)" id="calfnp8" />NP
+				<input type="radio" name="rg8" onchange="updateTestNT(8)" id="calfnt8" checked="checked" />NOTA
+				<input type="text"  onchange="updateCalf(8);" id="calfnota8" size="2" value="7.4" />		
+				</td>
+				<td class="mh">
+					<span id="nota8">-</span>
+					<input type="checkbox" onchange="testMH(8)" id="mh8" />MH			
+				</td>	
+    			<td>1</td>
+    		</tr>
+    		 <tr class="impar">
+    			<td>88845678Y</td>
+    			<td>Scott</td>
+    			<td>Card</td>
+    			<td>Orson</td>
+    			<td>
+				<input type="radio" name="rg9" onchange="updateTestSC(9)" id="calfsc9" />SC
+				<input type="radio" name="rg9" onchange="updateTestNP(9)" id="calfnp9" />NP
+				<input type="radio" name="rg9" onchange="updateTestNT(9)" id="calfnt9" checked="checked" />NOTA
+				<input type="text"  onchange="updateCalf(9);" id="calfnota9" size="2" value="9" />
+				</td>
+				<td class="mh">
+					<span id="nota9">-</span>
+					<input type="checkbox" onchange="testMH(9);" id="mh9" checked="checked"/>MH
+				</td>
+    			<td>1</td>
+    		</tr>
+    		<tr class="par">
+    			<td>66546738Y</td>
+    			<td>Norberto</td>
+    			<td>Romero</td>
+    			<td>Tocotó</td>
+    			<td>
+				<input type="radio" name="rg10" onchange="updateTestSC(10)" id="calfsc10" />SC
+				<input type="radio" name="rg10" onchange="updateTestNP(10)" id="calfnp10" />NP
+				<input type="radio" name="rg10" onchange="updateTestNT(10)" id="calfnt10" checked="checked" />NOTA
+				<input type="text"  onchange="updateCalf(10);" id="calfnota10" size="2" value="4.9" />		
+				</td>
+				<td class="mh">
+					<span id="nota10">-</span>
+					<input type="checkbox" onchange="testMH(10)" id="mh10" />MH			
+				</td>	
+    			<td>1</td>
+    		</tr>
+    		 <tr class="impar">
+    			<td>32345678Y</td>
+    			<td>López</td>
+    			<td>Garcia</td>
+    			<td>Fulano</td>
+    			<td>
+				<input type="radio" name="rg11" onchange="updateTestSC(11)" id="calfsc11" checked="checked" />SC
+				<input type="radio" name="rg11" onchange="updateTestNP(11)" id="calfnp11" />NP
+				<input type="radio" name="rg11" onchange="updateTestNT(11)" id="calfnt11" />NOTA
+				<input type="text"  onchange="updateCalf(11);" id="calfnota11" size="2" />
+				</td>
+				<td class="mh">
+					<span id="nota11">-</span>
+					<input type="checkbox" onchange="testMH(11);" id="mh11" />MH
+				</td>
+    			<td>1</td>
+    		</tr>
+    		<tr class="par">
+    			<td>83455678T</td>
+    			<td>Carnoto</td>
+    			<td>Brown</td>
+    			<td>Humbertino</td>
+    			<td>
+				<input type="radio" name="rg12" onchange="updateTestSC(12)" id="calfsc12" />SC
+				<input type="radio" name="rg12" onchange="updateTestNP(12)" id="calfnp12" />NP
+				<input type="radio" name="rg12" onchange="updateTestNT(12)" id="calfnt12" checked="checked" />NOTA
+				<input type="text"  onchange="updateCalf(12);" id="calfnota12" size="2" value="6" />		
+				</td>
+				<td class="mh">
+					<span id="nota12">-</span>
+					<input type="checkbox" onchange="testMH(12)" id="mh12" />MH			
+				</td>	
+    			<td>1</td>
+    		</tr>
+    		 <tr class="impar">
+    			<td>56725678H</td>
+    			<td>García</td>
+    			<td>López</td>
+    			<td>Baldomero</td>
+    			<td>
+				<input type="radio" name="rg13" onchange="updateTestSC(13)" id="calfsc13" />SC
+				<input type="radio" name="rg13" onchange="updateTestNP(13)" id="calfnp13" checked="checked" />NP
+				<input type="radio" name="rg13" onchange="updateTestNT(13)" id="calfnt13" />NOTA
+				<input type="text"  onchange="updateCalf(13);" id="calfnota13" size="2" />
+				</td>
+				<td class="mh">
+					<span id="nota13">-</span>
+					<input type="checkbox" onchange="testMH(13);" id="mh13" />MH
+				</td>
+    			<td>1</td>
+    		</tr>
+    		<tr class="par">
+    			<td>98765678W</td>
+    			<td>López</td>
+    			<td>Garcia</td>
+    			<td>Fulano</td>
+    			<td>
+				<input type="radio" name="rg14" onchange="updateTestSC(14)" id="calfsc14" />SC
+				<input type="radio" name="rg14" onchange="updateTestNP(14)" id="calfnp14" />NP
+				<input type="radio" name="rg14" onchange="updateTestNT(14)" id="calfnt14" />NOTA
+				<input type="text"  onchange="updateCalf(14);" id="calfnota14" size="2" value="" />		
+				</td>
+				<td class="mh">
+					<span id="nota14">-</span>
+					<input type="checkbox" onchange="testMH(14)" id="mh14" />MH			
+				</td>	
+    			<td>1</td>
+    		</tr>
+    		 <tr class="impar">
+    			<td>33133678Y</td>
+    			<td>Molto</td>
+    			<td>Garcia</td>
+    			<td>Graciano</td>
+    			<td>
+				<input type="radio" name="rg15" onchange="updateTestSC(15)" id="calfsc15" />SC
+				<input type="radio" name="rg15" onchange="updateTestNP(15)" id="calfnp15" />NP
+				<input type="radio" name="rg15" onchange="updateTestNT(15)" id="calfnt15" />NOTA
+				<input type="text"  onchange="updateCalf(15);" id="calfnota15" size="2" value=""/>
+				</td>
+				<td class="mh">
+					<span id="nota15">-</span>
+					<input type="checkbox" onchange="testMH(15);" id="mh15" />MH
+				</td>
+    			<td>1</td>
+    		</tr>
+    		<tr class="par">
+    			<td>12345678Y</td>
+    			<td>Lasa</td>
+    			<td>Averno</td>
+    			<td>Manolete</td>
+    			<td>
+				<input type="radio" name="rg16" onchange="updateTestSC(16)" id="calfsc16" />SC
+				<input type="radio" name="rg16" onchange="updateTestNP(16)" id="calfnp16" />NP
+				<input type="radio" name="rg16" onchange="updateTestNT(16)" id="calfnt16" />NOTA
+				<input type="text"  onchange="updateCalf(16);" id="calfnota16" size="2" value="" />		
+				</td>
+				<td class="mh">
+					<span id="nota16">-</span>
+					<input type="checkbox" onchange="testMH(16)" id="mh16" />MH			
+				</td>	
+    			<td>1</td>
+    		</tr>
+    	</tbody>
+    </table>
+	<div id="texto_pie">
+		<p>Páxina 1 de 4 </p>
+    	<p>Seleccione a páxina que desexa ver:</p>
+	</div>	
+	<div id="botones_pie">	
+		<a href="#" class="pie">&laquo; Anterior</a>
+		<span>1</span>
+		<a href="#" class="pie">2</a>
+		<a href="#" class="pie">3</a>
+		<a href="#" class="pie">FIN</a>
+		<a href="#" class="pie">Seguinte &raquo;</a>
+	</div>
+</body>
+</html>

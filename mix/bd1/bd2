@@ -1,0 +1,58 @@
+
+IMPLEMENTACION FISICA
+
+
+
+CREATE TABLE clientes (dni CHAR(9) NOT NULL, nomb VARCHAR(10), apell VARCHAR(15), telf NUMBER(9), PRIMARY KEY(dni));
+
+
+CREATE TABLE habitaciones (numhab NUMBER(4) NOT NULL, preciopornoche INT NOT NULL, tiphab VARCHAR(10), PRIMARY KEY(numhab), FOREIGN KEY(tiphab) REFERENCES tipohab(tiphab));
+
+
+CREATE TABLE tipohab (tiphab VARCHAR(10) NOT NULL, capacid VARCHAR(10), calid VARCHAR(10), vistas VARCHAR(10), PRIMARY KEY(tiphab));
+
+
+CREATE TABLE reservas (numreser NUMBER(5) NOT NULL, dni CHAR(9) NOT NULL, fechalleg DATE NOT NULL, fechasal DATE NOT NULL, PRIMARY KEY(numreser), FOREIGN KEY(dni) REFERENCES clientes(dni));
+
+
+CREATE TABLE habitacionesreservadas (numhab NUMBER(4) NOT NULL, numreser NUMBER(5) NOT NULL, noches NUMBER(3) NOT NULL, preciohab INT NOT NULL, PRIMARY KEY(numhab,numreser), FOREIGN KEY(numhab) REFERENCES habitaciones(numhab), FOREIGN KEY(numreser) REFERENCES reservas(numreser));
+
+
+CREATE TABLE servicios (nombserv VARCHAR(15) NOT NULL, precio INT NOT NULL, info VARCHAR(30), PRIMARY KEY(nombserv));
+
+
+CREATE TABLE factura (numfact NUMBER(5) NOT NULL, numreser NUMBER(5) NOT NULL, fecha DATE, PRIMARY KEY(numfact), FOREIGN KEY(numreser) REFERENCES reservas(numreser));
+
+
+CREATE TABLE lineasfactura (lineafact NUMBER(3) NOT NULL, numfact NUMBER(5) NOT NULL, nombserv VARCHAR(15) NOT NULL, cantidad NUMBER(3) NOT NULL, precio INT NOT NULL, PRIMARY KEY(lineafact,numfact), FOREIGN KEY(numfact) REFERENCES factura(numfact), FOREIGN KEY(nombserv) REFERENCES servicios(nombserv));
+
+
+
+
+
+
+CONSULTAS
+
+
+Reservas a partir de una fecha:
+select * from reservas where fechalleg > TO_DATE('09/10/1985','dd/mm/yyyy');
+
+
+Detalles de la reserva de un cliente:
+select * from habitacionesreservadas h join reservas r on h.numreser = r.numreser where r.dni = '15476576a';
+
+
+Muestra los servicios consumidos por un cliente:
+select * from lineasfactura l join factura f on l.numfact = f.numfact where f.numreser = (select numreser from reservas where dni = '15476576a');
+
+
+Muestra los datos de los clientes que han alquilado una habitacion, y la fecha en que estuvieron en ella:
+select * from clientes c join reservas r on c.dni = r.dni where r.numreser = (select numreser from habitacionesreservadas where numhab = 636);
+
+
+Muestra los servicios favoritos de nuestros clientes:
+select c.nomb, c.apell, r.fechasal, s.nombserv, l.cantidad from servicios s join lineasfactura l on s.nombserv = l.nombserv join factura f on l.numfact = f.numfact join reservas r on r.numreser = f.numreser join clientes c on c.dni = r.dni; 
+
+
+Precio de los servicios consumidos en una reserva:
+select SUM(cantidad*precio) as total from lineasfactura where numfact = (select numfact from factura where numreser = (select numreser from reservas where dni = '15476576a'));

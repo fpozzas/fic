@@ -1,0 +1,40 @@
+<head>
+<title>Ejemplo de prueba 3: Uso de Arrays</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+<h1>Ejemplo de prueba 3: Uso de Arrays</h1>
+
+<a href="a1.html">Seguir</a>
+<a href="plan.html">Plan de prueba</a>
+<img src="shortLine.gif">
+<p>
+
+Consideremos este programa que hace un desplazamiento a la izquierda
+de los elementos de un array.  
+<br>
+Los &iacute;ndices van de a hasta b, x[a] es alterado, pero x[b] queda igual
+
+<pre>
+
+ { PRE: a &lt= b and x = x0 }
+
+   k := a;
+
+   while k &lt b do
+
+     (k := k + 1;
+
+     x[k-1] := x[k])
+
+
+ { POST: forall i, a &lt= i &lt b : x[i] = x0[i+1] }
+
+</pre><b>
+Probar que este programa es correcto respecto 
+a las especificaciones dadas PRE y POST.</b>
+<p>
+
+</body>

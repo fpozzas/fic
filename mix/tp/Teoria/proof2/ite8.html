@@ -1,0 +1,35 @@
+<head>
+<title>Ejemplo de prueba 2</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+
+<li><a href="ite9.html">Seguir</a></li>
+<li><a href="plan.html">Plan de prueba</a></li>
+<img src="shortLine.gif">
+
+<pre>
+
+ { PRE: x0 = x and y0 = y }
+
+    if (x &gt y) then y := x
+
+               else x := y
+
+ { POST: x = y = max(x0,y0) }
+
+<hr>
+
+ 2) Probar |= { PRE and ~(x &gt y) } x := y { POST }
+
+    { y = y = max(x0,y0) } x := y { POST }       ax.asign.   
+    PRE and ~(x &gt y)
+      ==&gt x0 = x and y0 = y and x0 &lt= y0    aritm. sust.
+
+</pre>
+
+</body>
+

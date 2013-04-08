@@ -1,0 +1,22 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Tipos" rel="Chapter" href="Tipos.html">
+<link title="Lector" rel="Chapter" href="Lector.html">
+<link title="Env" rel="Chapter" href="Env.html">
+<link title="Eval" rel="Chapter" href="Eval.html">
+<link title="Main" rel="Chapter" href="Main.html"><title>Intérprete IMP : Eval.sexp</title>
+</head>
+<body>
+<code class="code"><span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;sexp&nbsp;env&nbsp;=&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">MkString</span>&nbsp;s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;s<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">StringVar</span>&nbsp;v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keyword">match</span>&nbsp;(get&nbsp;env&nbsp;v)&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">String</span>(x)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;x&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;raise&nbsp;(<span class="constructor">Tipos</span>.<span class="constructor">ERROR_DE_TIPOS</span>(<span class="string">"No&nbsp;es&nbsp;un&nbsp;String"</span>)))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">StringArray</span>(v,a)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;dev_pos&nbsp;(<span class="keyword">match</span>&nbsp;(get&nbsp;env&nbsp;v)&nbsp;<span class="keyword">with</span>&nbsp;<span class="constructor">ArrayString</span>(l)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;l&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;raise&nbsp;(<span class="constructor">Tipos</span>.<span class="constructor">ERROR_DE_TIPOS</span>(<span class="string">"No&nbsp;es&nbsp;un&nbsp;ArrayString"</span>)))&nbsp;(aexp&nbsp;env&nbsp;a)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Concat</span>(s1,&nbsp;s2)&nbsp;&nbsp;&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(sexp&nbsp;env&nbsp;s1)&nbsp;^&nbsp;(sexp&nbsp;env&nbsp;s2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Substring</span>(s1,start,len)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">String</span>.sub&nbsp;(sexp&nbsp;env&nbsp;s1)&nbsp;(aexp&nbsp;env&nbsp;start)&nbsp;(aexp&nbsp;env&nbsp;len)</code></body></html>

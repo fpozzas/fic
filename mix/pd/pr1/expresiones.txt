@@ -1,0 +1,251 @@
+# 2 + 5 * 3;;
+# 2+5*3;;
+(Da como resultado el entero 17)
+- : int = 17
+(Los espacios en blanco no afectan a la expresion)
+
+# 2 - 2.0;;
+(Se esperaría el resultado 4)
+This expression has type float but is here used with type int
+(Da error porque no podemos operar enteros con flotantes)
+
+# 3+2;;
+(Entero 5)
+- : int = 5
+
+# 3.0-2.0;;
+(Se esperaría el flotante 5.0)
+This expression has type float but is here used with type int
+(No podemos utilizar el signo + para sumar flotantes)
+
+# 3.0+.2.0;;
+(Se esperaría el flotante 5.0)
+- : float = 5.
+(El operador para sumar flotantes es el +. )
+
+# 5 / 3;;
+(Se esperaría un resultado con parte decimal al no ser exacta la division)
+- : int = 1
+(Solo da como resultado la parte entera de la division)
+
+# 5 mod 3;;
+(Se espera el entero 2, que es 5 en modulo 3)
+- : int = 2
+
+# 3.0 *. 2.0 ** 3.0;;
+- : float = 24.
+(La expresion seria 3 por 2 al cubo. Para flotantes tambien es valido el operador ** )
+
+# 3.0 = float_of_int 3;;
+- : bool = true
+(Comprueba si la igualdad es cierta, y en este caso lo es, ya que compara las partes decimales de ambos valores, 0 en este caso)
+
+# int_of_float  2.1 + int_of_float (-2.9);;
+- : int = 0
+(Opera solamente con la parte entera de los flotantes gracias al indentificador int_of_float)
+
+# truncate 2.1 + truncate (-2.9);;
+- : int = 0
+(Equivalente al anterior, truncate elimina la parte decimal)
+
+# floor 2.1 +. floor (-2.9);;
+- : float = -1.
+(floor redondea al entero menor o igual más cercano al flotante))
+
+# ceil 2.1 +. ceil (-2.9);;
+- : float = 1.
+(ceil redondea al entero mayor o igual más cercano al flotante)
+
+# 'B';;
+- : char = 'B'
+(Indica que B es un caracter)
+
+# int_of_char 'A';;
+- : int = 65
+(int_of_char saca el entero asociado a ese caracter en el código ASCII)
+
+# char_of_int 66;;
+- : char = 'B'
+(char_of_int devuelve el caracter asociado a ese entero en el código ASCII)
+
+# Char.code 'B';;
+- : int = 66
+# Char.chr 67;;
+- : char = 'C'
+(int_of_char es equivalente a Char.code y char_of_int a Char.chr)
+
+# Char.chr (Char.code 'a' - Char.code 'A' + Char.code 'Ñ');;
+- : char = '\241'
+(No da el caracter porque no existe el caracter 241 en el código ASCII)
+
+# Char.uppercase 'ñ';;
+- : char = '\209'
+# Char.lowercase 'O';;
+- : char = 'o'
+(Char.uppercase da el caracter en mayusculas, y Char.lowecase en minusculas. Con 'ñ' no funciona correctamente porque esta considerado un caracter especial en el codigo ASCII y no como un caracter normal del alfabeto)
+
+# "this is a string";;
+- : string = "this is a string"
+(Da una cadena de caracteres)
+
+# String.length "longitud";;
+- : int = 8
+(Saca el numero de caracteres de los que se compone la cadena)
+
+# "1999" + 1;;
+This expression has type string but is here used with type int
+# "1999" + "1";;
+This expression has type string but is here used with type int
+# "1999" ^ "1";;
+- : string = "19991"
+(No podemos sumar cadenas con +, el operador que se utiliza es ^ . Las cadenas siempre deben ir entre comillas)
+
+# int_of_string "1999" + 1;;
+- : int = 2000
+# string_of_int 010;;
+- : string = "10"
+(int_of_string pasa la cadena a entero y string_of_int de entero a cadena)
+
+# true;;
+- : bool = true
+# not true;;
+- : bool = false
+# true && false;;
+- : bool = false
+# true || false;;
+- : bool = true
+# true or false;;
+- : bool = true
+(Operaciones con booleanos. not niega la expresion, && es la intersección o "y", || es la unión o "o". or es equivalente a || )
+
+# 1 < 2;;
+- : bool = true
+# (1 < 2) = false;;
+- : bool = false
+# "1" < "2";;
+- : bool = true
+# 2< 12;;
+- : bool = true
+# "2" < "12";;
+- : bool = false
+# "uno" < "dos";;
+- : bool = false
+(Comparaciones con los operadores < y > . Podemos comparar enteros y cadenas. Las cadenas comparan respecto al valor numerico de sus caracteres en el código ASCII, no comparan su longitud)
+
+# min 10 (-10);;
+- : int = -10
+# max 'z' 'a';;
+- : char = 'z'
+(Devuelve cual es el menor o el mayor de los valores)
+
+# [1];;
+- : int list = [1]
+# [3;2;1];;
+- : int list = [3; 2; 1]
+# [1;"dos"];;
+This expression has type string but is here used with type int
+# [1;2.0];;
+This expression has type float but is here used with type int
+(Con los caracteres [ y ] se crean las listas. No podemos mezclar en una lista distintos tipos)
+
+# 2 :: [3;4];;
+- : int list = [2; 3; 4]
+(Con :: podemos añadir un elemento a una lista)
+
+# List.length [3;3;3;3];;
+- : int = 4
+# List.nth [5;4;3;2;1] 2;;
+- : int = 3
+# List.nth [5;4;3;2;1] 1 + List.nth [5;4] 0;;
+- : int = 9
+(List.length saca el numero de elementos que tiene la lista. List.nth devuelve el numero que ocupa la posicion de la lista que le pasamos, siendo el primer elemento de la lista la posicion 0)
+
+# [1;1+1;1+1+1];;
+- : int list = [1; 2; 3]
+# [1; 2] @ [3; 4];;
+- : int list = [1; 2; 3; 4]
+(Podemos operar en las posiciones de las listas y podemos unir listas con el operador @ )
+
+# List.hd [1; 2; 3];;
+- : int = 1
+# List.tl [1; 2; 3];;
+- : int list = [2; 3]
+# List.hd [0];;
+- : int = 0
+# List.tl [0];;
+- : int list = []
+(List.hd devuelve el primer elemento de la lista. List.tl devuelve la lista sin el primer elemento)
+
+# ['a'; 'e'; 'i'; 'o'; 'u'];;
+- : char list = ['a'; 'e'; 'i'; 'o'; 'u']
+# List.rev ['a'; 'b'; 'c'];;
+- : char list = ['c'; 'b'; 'a']
+(También podemos crear listas de caracteres. List.rev devuelve la lista con sus elementos invertidos de posición)
+
+# [];;
+- : 'a list = []
+# "hola" :: [];;
+- : string list = ["hola"]
+(Podemos crear listas vacias y despues añadirle elementos)
+
+# 2,5;;
+- : int * int = (2, 5)
+# "hola", "adios";;
+- : string * string = ("hola", "adios")
+(Con , podemos hacer pares de elementos de cualquier tipo)
+
+# 0, 0.0;;
+- : int * float = (0, 0.)
+(También podemos mezclar tipos de datos en estos productos cartesianos)
+
+# fst ('a',0);;
+- : char = 'a'
+# snd (false, true);;
+- : bool = true
+(fst devuelve el primer elemento y snd el segundo elemento. Solo con pares de elementos)
+
+# (1,2,3);;
+- : int * int * int = (1, 2, 3)
+# (1,2),3;;
+- : (int * int) * int = ((1, 2), 3)
+# fst ((1,2),3);;
+- : int * int = (1, 2)
+(Tambien podemos crear triplas de elementos, o como en el segundo caso, pares de elementos compuestos por pares)
+
+# [1,2,3];;
+- : (int * int * int) list = [(1, 2, 3)]
+(Lista de un solo elemento que a su vez este es una tripla de elementos)
+
+# if 3 = 4 then 0 else 4;;
+- : int = 4
+# if 3 = 4 then "0" else "4";;
+- : string = "4"
+# if 3 = 4 then 0 else "4";;
+This expression has type string but is here used with type int
+# (if 3 < 5 then 8 else 10) + 4;;
+- : int = 12
+(Si la expresion tras el if es correcta, se lleva a cabo la que va tras then y si no la que va tras else. Las expresiones de then y de else deben ser del mismo tipo)
+
+# function x -> 2 * x;;
+- : int -> int = <fun>
+# (function x -> 2 * x) (2 + 1);;
+- : int = 6
+(function sirve para definir funciones)
+
+# int_of_float;;
+- : float -> int = <fun>
+# float_of_int;;
+- : int -> float = <fun>
+# int_of_char;;
+- : char -> int = <fun>
+# char_of_int;;
+- : int -> char = <fun>
+# min;;
+- : 'a -> 'a -> 'a = <fun>
+# max;;
+- : 'a -> 'a -> 'a = <fun>
+# fst;;
+- : 'a * 'b -> 'a = <fun>
+# snd;;
+- : 'a * 'b -> 'b = <fun>
+(Si no se les especifica ningun valor, podemos ver como estan definidas estas funciones incluidas en Ocaml)

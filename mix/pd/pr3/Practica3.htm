@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+  <meta name="generator" content="HTML Tidy for Windows (vers 1 September 2005), see www.w3.org">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <meta name="Generator" content="Microsoft Word 10 (filtered)"><title>PD - Pr&#225;ctica 3</title>
+  
+  <style type="text/css">
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+        {margin:0cm;
+        margin-bottom:.0001pt;
+        font-size:12.0pt;
+        font-family:"Times New Roman";}
+p
+        {font-size:12.0pt;
+        font-family:"Times New Roman";}
+tt
+        {font-family:"Courier New";}
+@page Section1
+        {size:595.3pt 841.9pt;
+        margin:70.85pt 3.0cm 70.85pt 3.0cm;}
+div.Section1
+        {page:Section1;}
+ /* List Definitions */
+ ol
+        {margin-bottom:0cm;}
+ul
+        {margin-bottom:0cm;}
+-->
+  </style>
+  <meta content="Jos&#233; Mar&#237;&#173;a Molinelli" name="author"></head><body lang="ES">
+<div class="Section1">
+<p class="MsoNormal" style="margin-bottom: 16pt; text-align: center;" align="center"><span style="font-size: 16pt; font-family: Arial;">Programaci&#243;n
+Declarativa<br>
+2006-2007<br>
+Pr&#225;ctica 3<br>
+<br>
+</span></p>
+<ol start="1" style="list-style-type: decimal; margin-top: 0cm;">
+  <li class="MsoNormal"><span style="font-family: Arial;">Escriba una <b>expresi&#243;n</b>
+en Caml
+cuyo valor sea siempre el mismo que:</span></li>
+</ol>
+<div style="margin-left: 30pt;">
+<p class="MsoNormal"><br>
+<span style="font-family: Arial;">-&nbsp;&nbsp;&nbsp;</span>
+<tt><b><span style="font-size: 13.5pt;">abs
+x&nbsp;</span></b></tt> <span style="font-family: Arial;">(sin
+utilizar la
+funci&#243;n</span> <tt><b><span style="font-size: 13.5pt;">abs</span></b></tt><tt><b><span style="font-size: 10pt;">)</span></b></tt>
+<br>
+<span style="font-family: Arial;">-&nbsp;&nbsp;&nbsp;</span>
+<tt><b><span style="font-size: 13.5pt;">not
+x&nbsp;</span></b></tt> <span style="font-family: Arial;">&nbsp;(sin
+usar el
+operador</span> <tt><b><span style="font-size: 13.5pt;">not</span></b></tt><span style="font-family: Arial;">)</span> <br>
+<span style="font-family: Arial;">-&nbsp;&nbsp;&nbsp;</span>
+<tt><b><span style="font-size: 13.5pt;">string_of_bool
+b&nbsp;</span></b></tt> <span style="font-family: Arial;">(sin
+utilizar la
+funci&#243;n</span> <tt><b><span style="font-size: 13.5pt;">string_of_bool</span></b></tt><span style="font-family: Arial;">)</span><span style="font-family: &quot;Courier New&quot;;"><br>
+</span><span style="font-family: Arial;">-&nbsp;&nbsp;&nbsp;</span>
+<tt><b><span style="font-size: 13.5pt;">Char.lowercase
+c</span></b></tt> <span style="font-family: Arial;">&nbsp;&nbsp;(sin
+usar la
+funci&#243;n</span> <tt><b><span style="font-size: 13.5pt;">Char.lowercase</span></b></tt><span style="font-family: Arial;">)<br>
+-&nbsp;&nbsp;&nbsp;</span> <tt><b><span style="font-size: 13.5pt;">x
+mod y&nbsp;</span></b></tt>
+<span style="font-family: Arial;">(sin utilizar
+el
+operador</span> <tt><b><span style="font-size: 13.5pt;">mod</span></b></tt><span style="font-family: Arial;">)</span> <br>
+<span style="font-family: Arial;">-&nbsp;&nbsp;&nbsp;</span>
+<tt><b><span style="font-size: 13.5pt;">x
+&amp;&amp; (y
+|| z)</span></b></tt> <span style="font-family: Arial;">&nbsp;(sin
+usar
+los
+operadores</span> <tt><b><span style="font-size: 13.5pt;">&amp;&amp;</span></b></tt>
+<span style="font-family: Arial;">y</span>
+<tt><b><span style="font-size: 13.5pt;">||</span></b></tt><span style="font-family: Arial;">)<br>
+<br>
+</span></p>
+</div>
+<ol style="margin-top: 0cm;" start="2" type="1">
+  <li class="MsoNormal"><span style="font-family: Arial;">Escriba en
+ocaml <b>definiciones</b>
+"alternativas" para las funciones</span> <b><span style="font-family: &quot;Courier New&quot;;">abs</span></b><span style="font-family: Arial;">,</span> <b><span style="font-family: &quot;Courier New&quot;;">lowercase</span></b> <span style="font-family: Arial;">y &nbsp;</span><b><span style="font-family: &quot;Courier New&quot;;">string_of_bool</span></b><span style="font-family: Arial;">, como si no estuviesen
+predefinidas.<br>
+    <br>
+    <br>
+    </span></li>
+  <li class="MsoNormal"><span style="font-family: Arial;">Defina
+funciones</span>&nbsp; <b><span style="font-family: &quot;Courier New&quot;;">hd:
+'a list -&gt; 'a, tl: 'a list -&gt; 'a list, length:&#8216;a list -&gt;
+int</span></b><span style="font-family: Arial;">&nbsp; y&nbsp;</span> <b><span style="font-family: &quot;Courier New&quot;;">reverse:&#8216;a list
+-&gt;&#8216;a list</span></b><span style="font-family: Arial;">, que
+se comporten como las hom&#243;nimas del m&#243;dulo
+List, sin usar ninguna de las funciones definidas en este m&#243;dulo.</span>
+    <p class="MsoNormal">&nbsp;</p>
+  </li>
+  <li class="MsoNormal"><span style="font-family: Arial;">Defina las
+funci&#243;nes&nbsp;</span> <b><span style="font-family: &quot;Courier New&quot;;">lmax:&#8216;a
+list
+-&gt;&#8216;a&nbsp;</span></b> <span style="font-family: Arial;">y
+&nbsp;</span> <b><span style="font-family: &quot;Courier New&quot;;">lmin:&#8216;a
+list
+-&gt;&#8216;a</span></b><span style="font-family: Arial;">&nbsp; que
+devuelvan respectivamente el mayor y el menor valor de los que
+aparecen en una lista.<br>
+    <br>
+    </span></li>
+  <li class="MsoNormal"><span style="font-family: Arial;">Defina una
+funci&#243;n&nbsp;</span> <b><span style="font-family: &quot;Courier New&quot;;">rango:&#8216;a
+list -&gt;&#8216;a
+*&#8216;a</span></b><span style="font-family: Arial;">&nbsp;&nbsp;
+tal que si&nbsp;</span> <b><span style="font-family: &quot;Courier New&quot;;">rango
+l = (a,b)</span></b><span style="font-family: Arial;">&nbsp;
+entonces&nbsp;</span> <b><span style="font-family: &quot;Courier New&quot;;">lmin
+l = a</span></b><span style="font-family: Arial;">&nbsp;&nbsp;
+y&nbsp;&nbsp;</span> <b><span style="font-family: &quot;Courier New&quot;;">lmax
+l =
+b</span></b><span style="font-family: Arial;">.<br>
+    <br>
+    </span></li>
+  <li class="MsoNormal"><font size="+1">Defina una funci&#243;n <span style="font-style: italic; font-weight: bold;">primeros: int <span style="font-family: monospace;">-&gt;</span> int list</span>, de forma
+que <span style="font-style: italic;">primeros n </span>sea la lista
+ascendente de los <span style="font-style: italic;">n </span>primeros
+enteros positivos; es decir, la lista de los enteros mayores que <span style="font-style: italic;">0 </span>y menores o iguales que <span style="font-style: italic;">n.</span> As&#237;, por ejemplo, <span style="font-style: italic;">primeros 4 </span>ser&#237;a la lista <span style="font-style: italic;">[1; 2; 3; 4].<br>
+    <br>
+    </span></font></li>
+  <li class="MsoNormal"><font size="+1">Defina una funci&#243;n <span style="font-style: italic;"><span style="font-weight: bold;">from_to :
+int </span><span style="font-family: monospace; font-weight: bold;">-&gt;</span><span style="font-weight: bold;"> int </span><span style="font-family: monospace; font-weight: bold;">-&gt;</span><span style="font-weight: bold;"> int list</span>,</span> de forma
+que <span style="font-style: italic;">from_to m n </span>sea la lista
+ascendente de los enteros mayores o iguales que <span style="font-style: italic;">m</span> y menores o iguales que <span style="font-style: italic;">n.</span> As&#237;, por ejemplo, <span style="font-style: italic;">from_to 3 7 </span>ser&#237;a la lista <span style="font-style: italic;">[3; 4; 5; 6; 7].<br>
+    <br>
+    </span></font></li>
+  <li class="MsoNormal"><font size="+1">Defina una funci&#243;n <span style="font-style: italic;"><span style="font-weight: bold;">ordenada:
+'a list </span><span style="font-family: monospace; font-weight: bold;">-&gt;</span><span style="font-weight: bold;"> bool</span> </span>que indique
+si una lista tiene sus elementos ordenados seg&#250;n el orden <span style="font-style: italic;">(&lt;=)</span>. As&#237;, por ejemplo, <span style="font-style: italic;">ordenada [2; 5; 5; 7]</span>&nbsp;
+valdr&#237;a<span style="font-style: italic;"> true</span>, pero <span style="font-style: italic;">ordenada ['a'; 'u'; 'i']</span>&nbsp;
+valdr&#237;a <span style="font-style: italic;">false.</span></font></li>
+</ol>
+<p class="MsoNormal">&nbsp;</p>
+<br>
+<p class="MsoNormal">&nbsp;</p>
+</div>
+
+</body></html>

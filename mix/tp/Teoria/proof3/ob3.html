@@ -1,0 +1,38 @@
+<head>
+<title>Ejemplo de prueba 3</title>
+</head>
+
+<body
+bgcolor=#FFFFFA
+>
+
+<img src="shortLine.gif">
+<p>
+
+Probar que  
+
+<pre>
+   <b>INV and ~(k &lt b) ==&gt POST </b>
+</pre>
+
+Reescribiendo el booleano:
+<pre>
+   INV and k &gt= b  ==&gt  k = b
+</pre>
+sustituyendo b por k en INV:
+<pre>
+   INV[k/b] :  
+      a &lt= b &lt= b  
+         and  forall i, a &lt= i &lt  b : x[i] = x0[i+1]  
+         and  forall i, b &lt= i &lt= b : x[i] = x0[i]
+</pre>
+POST es una de las cl&aacute;usulas de esta aserci&oacute;n
+<p>
+<b>QED</b>
+<br>
+<p>
+Nota: Podr&iacute;amos tambi&eacute;n probar que  x[b] no es desplazado, si
+lo hubieramos incluido en POST.
+
+</body>
+

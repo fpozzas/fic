@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="http://www.madsgroup.org/docencia/theme/standard/styles.php" />
+
+    <meta name="keywords" content="moodle, TP0607: Práctica 2. Intérprete IMP " />
+    <title>TP0607: Práctica 2. Intérprete IMP</title>
+    <link rel="shortcut icon" href="http://www.madsgroup.org/docencia/theme/standard/favicon.ico" />
+    <!--<style type="text/css">/*<![CDATA[*/ body{behavior:url(http://www.madsgroup.org/docencia/lib/csshover.htc);} /*]]>*/</style>-->
+
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/javascript-static.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/javascript-mod.php"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/overlib.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.madsgroup.org/docencia/lib/cookies.js"></script>
+
+<script language="JavaScript" type="text/javascript" defer="defer">
+
+<!-- // Non-Static Javascript functions
+
+setTimeout('fix_column_widths()', 20);
+
+function openpopup(url,name,options,fullscreen) {
+  fullurl = "http://www.madsgroup.org/docencia" + url;
+  windowobj = window.open(fullurl,name,options);
+  if (fullscreen) {
+     windowobj.moveTo(0,0);
+     windowobj.resizeTo(screen.availWidth,screen.availHeight);
+  }
+  windowobj.focus();
+  return false;
+}
+
+function inserttext(text) {
+  text = ' ' + text + ' ';
+  if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+    var caretPos = opener.document.forms['theform'].message.caretPos;
+    caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+  } else {
+    opener.document.forms['theform'].message.value  += text;
+  }
+  opener.document.forms['theform'].message.focus();
+}
+
+
+// done hiding -->
+</script>
+</head>
+
+<body  class="mod-resource course-15" id="mod-resource-view">
+    
+<div id="page">
+
+    <div id="header">
+        <div class="headermain">Tecnología de la Programación 2006/07</div>
+        <div class="headermenu"><table><tr><td><form action="http://www.madsgroup.org/docencia/mod/resource/view.php" target="_top"><input type="hidden" name="id" value="535" /><input type="submit" value="&lt;" /></form></td><td><form action="http://www.madsgroup.org/docencia/course/jumpto.php" method="get" target="_top" name="navmenu" class="popupform"><select name="jump" onchange="self.location=document.navmenu.jump.options[document.navmenu.jump.selectedIndex].value;">
+   <option value="http://www.madsgroup.org/docencia/mod/forum/view.php?id=499">Foro de Noticias</option>
+   <option value="http://www.madsgroup.org/docencia/mod/ficha/view.php?id=500">Ficha</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=648">Leccion 1</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=649">Lección 2</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=652">Puntos fijos</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=665">Lección 3</option>
+   <optgroup label=" Prácticas">   <option value="http://www.madsgroup.org/docencia/mod/forum/view.php?id=516">Foro de las Prácticas</option>
+   <option value="http://www.madsgroup.org/docencia/mod/wiki/view.php?id=517">Horarios de prácticas</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=518">Criterios de calificación</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=543">Acceso a los repositorios de Subversion</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=535">Práctica 1. Uso de Subversion</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=583" selected="selected">Saltar a...</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=584">Librería OUnit</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=585">Código práctica 2</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=607">Práctica 3. Tipos y arrays en el intérprete IMP.</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=608">Código práctica 3</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=656">Práctica 4. Variables locales en el intérprete IMP</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=657">Código práctica 4</option>
+   </optgroup>   <optgroup label=" Herramientas de desarrollo
+">   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=548">Control de Versiones</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=592">Documentación incrustada en el código</option>
+   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=593">JUnit</option>
+   </optgroup>   <optgroup label=" 
+Semántica">   <option value="http://www.madsgroup.org/docencia/mod/resource/view.php?id=640">Semántica Operacional</option>
+    </optgroup></select><noscript id="noscriptnavmenu" style="display: inline;"><input type="submit" value="Ir" /></noscript><script type="text/javascript">
+<!--
+document.getElementById("noscriptnavmenu").style.display = "none";
+-->
+</script></form>
+</td><td><form action="http://www.madsgroup.org/docencia/mod/resource/view.php" target="_top"><input type="hidden" name="id" value="584" /><input type="submit" value="&gt;" /></form></td></tr></table></div>
+    </div>
+    <div class="clearer">&nbsp;</div>
+    <table class="navbar"><tr><td>
+        <div class="breadcrumb"><a target="_top" href="http://www.madsgroup.org/docencia/">Docencia</a> &raquo; <a target="_top" href="http://www.madsgroup.org/docencia/course/view.php?id=15">TP0607</a> &raquo; <a target="_top" href="index.php?id=15">Recursos</a> &raquo; Práctica 2. Intérprete IMP</div>
+        <div class="navbutton">&nbsp;</div>
+    </td></tr></table>
+    <div class="clearer">&nbsp;</div>
+    <!-- END OF HEADER -->
+    <div id="content">
+<table align="center"   class="generalbox" border="0" cellpadding="20" cellspacing="0"><tr><td  class="generalboxcontent"><style type="text/css">
+		.codigo { 
+			margin-left: 1cm; 
+			margin-right: 1cm; 
+			margin-bottom: 0cm; 
+			background: #e6e6e6; 
+			border: 1px solid #000000; 
+			padding: 0.05cm; 
+			font-family: courier, monospace; 
+			font-size: 10pt; 
+		}		
+</style>
+
+
+<h1>
+Práctica 2. Intérprete IMP
+</h1>
+
+<h2>
+Introducción
+</h2>
+
+<p>
+La segunda práctica consiste en la implementación de un intérprete basado en el 
+lenguaje IMP en ocaml. Su funcionamiento consiste en <i>ejecutar</i> instrucciones
+de un programa en base al entorno determinado por dicho programa.
+</p>
+
+<p>
+El intérprete toma como entrada un fichero o una cadena de caracteres 
+correspondientes a un programa y lo transforma a su representación interna: 
+</p>
+
+<table>
+	<tr>
+		<th>
+			Código fuente
+		</th>
+		<th>
+			Representación
+		</th>
+	</tr>
+	<tr>
+		<td class="codigo">
+Int x := 5;<br />
+Int fact := 1;<br />
+if (x < 0) then fact := -1;<br />
+else <br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (x <= 0) then fact := 1;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (x > 0) do<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fact := fact * x;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x := x - 1;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;fi;<br />
+fi;<br />
+print fact;
+		</td>
+		<td class="codigo">
+Seq (MkVar ("x", MkInt 5), <br /> 
+&nbsp;&nbsp;&nbsp;&nbsp;Seq (MkVar ("fact", MkInt 1), <br /> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seq(If (Lt (IntVar "x", MkInt 0),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assign ("fact", Res (MkInt 0, MkInt 1)),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If (LtEq (IntVar "x", MkInt 0),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assign ("fact", MkInt 1),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While (Gt (IntVar "x", MkInt 0),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seq (Assign ("fact", Mul (IntVar "fact", IntVar "x")),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assign ("x", Res (IntVar "x", MkInt 1)))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;), Print (IntVar "fact")) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+)
+		</td>
+	</tr>
+</table>
+
+<p>
+Tras obtener esta representación, el intérprete evalúa 
+las expresiones en base al entorno que se va generando a medida que se 
+van evaluando las expresiones. La salida del intérprete es el entorno resultante 
+de la ejecución del programa.
+</p>
+   
+
+<p>
+Se proporciona al alumno parte de la implementación de dicho intérprete así como
+un fichero Makefile para su compilación, en el que se han definido las siguientes
+reglas:
+</p>
+<ul>
+	<li>
+		<code>make depend</code>: obtiene las dependencias entre los distintos módulos
+	</li>
+	<li>
+		<code>make clean</code>: borra los ficheros generados en la compilación a
+		partir del código fuente
+	</li>
+	<li>
+		<code>make all</code>: compila el código fuente, generando un ejecutable
+		que permite probar el intérprete por línea de comandos
+	</li>
+	<li>
+		<code>make tests</code>: compila los tests de unidad y genera un ejecutable
+		que permite probar los conjuntos de pruebas creados
+	</li>
+	<li>
+		<code>make doc</code>: crea la documentación con <code>ocamldoc</code> 
+		en el directorio <code>doc-imp</code>
+	</li>
+</ul>
+
+<p>
+El código fuente consta de varios ficheros:
+</p>
+
+<ul>
+	<li>
+		<code>lexer.mll</code> y <code>parser.mly</code>: analizadores
+		léxico y sintáctico, respectivamente. El primero analiza
+		una secuencia de caracteres y la clasifica en tokens. El segundo
+		toma los tokens y los traduce a la representación utilizada
+		por el intérprete
+	</li>
+	<li>
+		<code>lector.ml</code>: utiliza los analizadores léxico y 
+		sintáctico para traducir una cadena de caracteres a la 
+		representación utilizada por el intérprete
+	</li>		
+	<li>
+		<code>tipos.ml</code>: define las expresiones utilizadas por el
+		intérprete
+	</li>
+	<li>
+		<code>env.ml</code>: contiene la implementación del entorno
+	</li>
+	<li>
+		<code>eval.ml</code>: contiene las funciones que permiten evaluar
+		los distintas expresiones
+	</li>
+	<li>
+		<code>tests.ml</code>: contiene pruebas de unidad del intérprete
+	</li>
+</ul>
+
+
+<p>
+El código proporcionado puede utilizarse dentro del toplevel de ocaml o bien 
+desde línea de comandos de la siguiente forma:
+</p>
+
+<p class="codigo">
+[user@localhost]$ cat suma<br />
+Int x := 4;<br />
+Int y := 3;<br />
+Int z := x + y;<br />
+[user@localhost]$ ./imp suma<br />
+x := 4;<br />
+y := 3;<br />
+z := 7;
+</p>
+
+
+
+<h2>
+Tareas a realizar
+</h2>
+
+<ol>
+	<li> 
+		Documentación del código fuente (excepto analizadores léxico y
+		sintáctico) mediante <code>ocamldoc</code>. Documentación en 
+		<a href="http://caml.inria.fr/pub/docs/manual-ocaml/manual029.html">
+			http://caml.inria.fr/pub/docs/manual-ocaml/manual029.html		
+		</a>.
+		
+	</li>
+	<li>
+		Implementación de las funciones que evalúan el comando <code>If</code>
+		y las	expresiones booleanas <code>Equal</code>, <code>LtEq</code>, 
+		<code>Lt</code>, <code>GtEq</code> y <code>Gt</code>. 
+	</li>
+	<li>
+		Creación de casos de prueba con <code>OUnit</code> en el fichero
+		<code>tests.ml</code>. Documentación en		
+		<a href="http://www.xs4all.nl/~mmzeeman/ocaml/ounit-doc/OUnit.html">
+			http://www.xs4all.nl/~mmzeeman/ocaml/ounit-doc/OUnit.html
+		</a>.
+		<ul>
+			<li>
+				Se crearán al menos dos casos de prueba por cada una de las expresiones
+				definidas en <code>tipos.ml</code>
+			</li>
+			<li>
+				Los casos de prueba se etiquetarán
+				como <code>test_&lt;tipo_de_expresion&gt;_&lt;numero&gt;</code>
+			</li>
+			<li>
+				Los casos de prueba de expresiones serán introducidos directamente
+				en el fichero <code>tests.ml</code>
+			</li>
+			<li>
+			   Los casos de prueba de comandos se leeran de fichero. Los ficheros de
+				ejemplos se situarán bajo el directorio <code>casos_de_prueba</code>
+			</li>
+			<li>
+				La compilación se realiza con <code>make tests</code>, generándose así 
+				un ejecutable denominado <code>tests</code>. Su uso es el siguiente:
+				 
+			</li>
+		</ul> 
+	</li>	
+</ol>
+
+<p class="codigo">
+[user@localhost]$ ./tests -help <br />
+usage: ./tests [-verbose]<br />
+&nbsp;&nbsp;-verbose Run the test in verbose mode.<br />
+&nbsp;&nbsp;-help  Display this list of options<br />
+&nbsp;&nbsp;--help  Display this list of options<br />
+</p>
+
+
+<h2>
+Entrega de la práctica
+</h2>
+
+<p>
+Cada grupo tiene asignado un repositorio de Subversion en la dirección
+https://www.madsgroup.org/docencia/svn/tp0607/gXXXp_imp, donde gXXX representa el grupo
+asignado al alumno. En cada repositorio se deberá crear un directorio <code>trunk</code>
+y un directorio <code>tags</code>.
+</p>
+
+<p>
+El código proporcionado deberá ser subido al directorio trunk y una vez terminada la práctica, 
+se creará un tag denominado practica-02 en el repositorio.
+</p>
+
+<p>
+La fecha límite de entrega de esta segunda práctica es el lunes, 26 de marzo de 2007 a las
+15:00.
+</p>
+</td></tr></table><center><p><font size="1">Última modificación:  Monday,  12 de March de 2007, 17:15</font></p></center>
+</div> <!-- end div containerContent -->
+<!-- START OF FOOTER -->
+<div id="footer">
+
+
+<div class="logininfo">Ud. está en el sistema como <a target="_top" href="http://www.madsgroup.org/docencia/user/view.php?id=946&amp;course=15">Daniel Fernandez Nuñez</a>. (<a target="_top" href="http://www.madsgroup.org/docencia/login/logout.php">Salir</a>)</div>
+
+
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+#load "talf.cma";;
+open Conj;;
+open Auto;;
+open Ergo;;
+open Graf;; 
+
+
+let af = af_of_string "0 1 2 3; a b c; 0; 1 3;
+ 0 1 a; 1 1 b; 1 2 a; 2 0 epsilon; 2 3 epsilon; 2 3 c;";;
+
+let c1 = cadena_of_string "a b c";;
+let c2 = cadena_of_string "a c a c";;
+let c3 = cadena_of_string "a b c b b";;
+
+traza_af c af;;
+
+let er = er_of_string "a.(b|c)*";;
+let er = er_of_string "a";;
+let er = Vacio;;
+let af = af_of_er er;;
+
+dibuja_af af;;
+
+talfgrep er "expresiones";;
+
+make clean; make all; ocamlc talf.cma -o talfgrep talfgrep.ml
+
+let c2 = [No_terminal ""; Terminal "a"; Terminal "b"; Terminal "c"; Terminal "a"; Terminal "b"];;

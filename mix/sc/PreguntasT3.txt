@@ -1,0 +1,150 @@
+﻿¿Qué es un modelo?
+a. Un modelo se considera como la representación de un sistema determinado. (*)
+b. Un modelo es un conjunto de hipótesis tomadas del mundo real.
+c. Un modelo es el conjunto de características extraídas de algún tema de estudio.
+d. Ninguna de las anteriores.
+
+¿Cuál de las siguientes afirmaciones es correcta?
+a. Normalmente, el comportamiento de cualquier modelo sometido a excitaciones adecuadas "simulará" el funcionamiento real del sistema estudiado. (*)
+b. Normalmente, el comportamiento de cualquier modelo sometido a excitaciones adecuadas emulará el funcionamiento real del sistema estudiado.
+c. Un modelo que no es equivalente al sistema que estamos estudiando no se puede corregir.
+d. b y c son correctas.
+
+¿Qué se procura en la construcción de un modelo?
+a. Que el modelo posea el número de características más simplificado posible que dé origen al comportamiento esperado, cuidando no omitir ningún parámetro importante. (*)
+b. Que el modelo sea más complejo que el sistema real, así obtendremos resultados más logrados.
+c. Que el modelo tenga aproximadamente el mismo número de características aunque el comportamiento no se parezca.
+d. Ninguna de las anteriores.
+
+¿Qué es un modelo?
+a) Es la respuesta de un Sistema Conexionista ante un problema concreto.
+b) Es la representación de un sistema determinado (*)
+c) Es la representación de los parámetros de entrada de un Sistema Conexionista.
+
+¿Cuándo se considera que un modelo y un sistema teórico son equivalentes?
+a) Si ambos tienen comportamientos opuestos frente a excitaciones equivalentes.
+b) Si el modelo es capaz de representar una parte del sistema teórico.
+c) Si ofrecen el mismo comportamiento frente a excitaciones equivalentes. (*)
+
+¿Cuales son los 4 problemas más importantes del conocimiento en el mundo real?
+a) Incertidumbre, incompletitud, imprecisión e inconsistencia. (*)
+b) Incertidumbre, incompletitud, imprecisión e incoherencia.	
+c) Incertidumbre, incumpletitud, incoherencia e inconsistencia.
+
+Las utilidades de un modelo son:
+a) Permitir resolver problemas científicos.
+b) Poner a prueba una teoría, suposición o hipótesis.
+c) Sugiere nuevas relaciones y hace surgir nuevas dudas e interrogaciones a cerca de los sistemas modelados.
+d) Todas las anteriores. (*)
+
+
+
+¿Cuándo se considera que un modelo y el sistema teórico que representa son equivalentes?
+a) Cuando ofrecen el mismo comportamiento frente a excitaciones equivalentes. (*)
+b) Cuando tienen las mismas entradas.
+c) Nunca son equivalentes.
+d) Siempre son equivalentes.
+
+¿Qué dispositivo se encarga de emitir estímulos equivalentes al modelo y el sistema real que representa en el proceso de modelización?
+a) El elaborador.
+b) El comparador. (*)
+c) El modelo.
+d) El sistema real.
+
+¿Qué se considera como un modelo?
+a) Un patrón de comportamiento.
+b) La representación de un sistema real. (*)
+c) La conceptualización de un proceso.
+d) Un diagrama de flujo de información.
+
+¿Qué tipo de modelo de integración biológica es la utilizada por los ingenieros?
+a) Especificar primero un comportamiento y después intentar construir estructuras que lo ejecuten. (*)
+b) Modelado en cascada.
+c) Especificar las estructuras conocidas de los sistemas biológicos y después estudiar el comportamiento que ocasiona.
+d) Modelado en espiral.
+
+¿Cuándo se considera que el modelo y el sistema a modelizar son equivalentes?
+a) Cuando ofrecen las mismas salidas.
+b) Cuando el modelo es capaz de eliminar el ruido de la entrada.
+c) Cuando ofrecen el mismo comportamiento frente a excitaciones equivalentes.(*)
+d) Cuando poseen las mismas características estructurales.
+
+Elige la respuesta falsa:
+a) Un modelo es la representación de un sistema determinado.
+b) Un modelo es un medio que permite resolver problemas científicos, estableciendo relaciones entre los datos que a simple vista se presentan aislados.
+c) La equivalencia entre el comportamiento de un sistema real y la simulación del modelo sobre este sistema es siempre total. (*)
+d) El modelo dará sólo una idea de lo que ocurre en el sistema real.
+
+En un modelo, el elemento comparador “C”, se encarga de :
+a) Modelizar el sistema.
+b) Resolver las mejoras necesarias en la hipótesis.
+c) Emitir estímulos equivalentes al modelo y al sistema. Si tienen igual salida son equivalentes. (*)
+d) Crear el modelo e introducir hipótesis en él.
+
+
+El proceso de modelización de un modelo está formado por los siguientes elementos, ¿cuál no pertenece a dicho proceso?
+a) El sistema que se desea modelizar.
+b) Las hipótesis adecuadas sobre el funcionamiento del sistema.
+c) Un elemento comparador.
+d) Un elemento de procesado. (*)
+
+Un modelo no
+a. Es un medio que permite resolver problemas científicos estableciendo relaciones entre datos que tienen una conexión importante
+b. Siempre resuelve cualquier problema que se le presente(*)
+c. Lleva a posteriores pruebas y afianzamientos de nuevos descubrimientos
+d. Sirve para poner a prueba una teoría de modo que se pueda verificar si los conceptos que intervienen explican los fenómenos que han sido supuestos
+
+¿Cuál de las siguientes es una ventaja de los modelos?
+a. El modelo es en sí un bloque de información que no se puede descomponer y que ayuda a resolver problemas
+b. No hay que tener cuidado al manejarlos porque las señales que le llegan no tienen ruido y las salidas de los modelos son siempre perfectas
+c. Puede abordar el análisis de sistemas complejos descomponiéndolo en elementos sencillos e integrarlos para observar sus comportamientos hasta poder estudiar el funcionamiento global(*)
+d. Las diferencias comprobadas, entre los resultados de la simulación y la experimentación, no ayudan a mejorar la construcción del modelo
+
+De los pasos a seguir ante una simulación, ¿cuál sobra?
+a. Primero se tiene el sistema que se desea modelizar
+b. Se crea el modelo con las hipótesis del sistema
+c. Se comparan las salidas del modelo y del sistema y si son iguales, son equivalentes
+d. Si no funcionan de la misma manera, se desecha la idea de trabajar con modelos(*)
+
+Las utilidades de un modelo son:
+a) Permitir resolver problemas científicos.
+b) Sugiere nuevas relaciones y hace surgir nuevas dudas e interrogaciones a cerca de los sistemas modelados.
+c) Poner a prueba una teoría, suposición o hipótesis.
+d) Todas las anteriores. (*)
+
+Si estamos modelizando un sistema:
+a) Cuando tenemos un modelo, se comparan sus resultados con los del sistema. Si no son adecuados se crea otro modelo basandose en la comparación.
+b) Tras la observación del sistema se formula una hipótesis a partir de la cuál se crea el modelo.
+c) a) y b) son correctas. (*)
+d) Ninguna es correcta
+
+Indique cual es la afirmación correcta
+a)Un modelo no es la representación de un sistema real
+b)Un modelo tiene las mismas limitaciones que un sistema real
+c)Un modelo sirve para poner a prueba una teoría, suposición o hipótesis (*)
+d)Los modelos no consiguen obtener buenos resultados
+
+4. ¿Cal é o primeiro paso á hora da construcción dun modelo?
+a) Obter o sistema que se desexa modelizar (*)
+b) Crear o modelo M introducindo as hipóteses
+c) Estudar o funcionamento
+d) Ningunha
+
+- ¿Qué idea de las siguientes no está relacionada con los modelos?
+a) Para realizar el análisis de sistemas complejos puede permitirnos abordar su estudio
+descomponiéndolos en elementos más sencillos que posteriormente se podrán ir integrando.
+b) Siempre representan completamente nuestro conocimiento de la realidad. (*)
+c) Es un medio que permite resolver problemas científicos, estableciendo relaciones entre
+datos que a simple vista se presentan aislados, pero que realmente tienen una conexión importante.
+d) Sirve para poner a prueba una teoría, suposición o hipótesis.
+
+1.Cuales son las utilidades de un modelo:
+a) Permite resolver problemas científicos
+b) Sirve para poner a prueba una teoría, suposición o hipótesis
+c) Sugiere nuevas relaciones y hace surgir nuevas dudas sobre los sistemas modelizados
+d) Las tres anteriores(x)
+
+2. Cual de estas afirmaciones es la correcta:
+a) El lenguaje formal en el que se describe un modelo disminuye el poder discriminar diferentes objetos
+b) Se debe procurar que el modelo posea el mayor número de características posibles
+c) Construir un modelo consiste en encontrar un sistema coherente y adecuado que permite interpretar datos experimentales dentro de un marco de referencia adecuado(x)
